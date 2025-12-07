@@ -5,6 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ORION FISH – Produits de la mer & Jus de fruits</title>
   <style>
+    :root {
+      --marine: #0b1120;
+      --marine-soft: #1e293b;
+      --marine-light: #e5e7eb;
+      --orange: #f97316;
+      --orange-soft: #ffedd5;
+      --bg: #f3f4f6;
+      --card: #ffffff;
+      --text-main: #111827;
+      --text-muted: #6b7280;
+    }
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -14,8 +26,9 @@
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       line-height: 1.6;
-      color: #111827;
-      background: #f3f4f6;
+      color: var(--text-main);
+      background: radial-gradient(circle at top left, #e0f2fe, var(--bg) 45%, #fee2e2);
+      min-height: 100vh;
     }
 
     a {
@@ -23,34 +36,51 @@
       text-decoration: none;
     }
 
+    /* HEADER */
     header {
       position: sticky;
       top: 0;
       z-index: 10;
-      background: #ffffff;
-      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+      background: rgba(11, 17, 32, 0.97);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.4);
     }
 
     .nav-container {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 0.8rem 1.5rem;
+      padding: 0.7rem 1.5rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
 
     .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #e5e7eb;
       font-weight: 700;
-      font-size: 1.1rem;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.15em;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+    }
+
+    .logo-mark {
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 20%, #facc15, #f97316 45%, #0ea5e9 80%);
+      border: 2px solid rgba(15, 23, 42, 0.8);
+      box-shadow: 0 0 0 2px rgba(248, 250, 252, 0.2);
     }
 
     nav ul {
       list-style: none;
       display: flex;
-      gap: 1.4rem;
+      gap: 1.3rem;
       font-size: 0.9rem;
+      color: #e5e7eb;
     }
 
     nav a {
@@ -63,6 +93,7 @@
       transform: translateY(-1px);
     }
 
+    /* MAIN LAYOUT */
     main {
       max-width: 1100px;
       margin: 0 auto;
@@ -72,13 +103,13 @@
     section {
       margin: 3rem 0;
       padding: 2rem;
-      background: #ffffff;
+      background: var(--card);
       border-radius: 1.5rem;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+      border: 1px solid rgba(148, 163, 184, 0.25);
     }
 
-    h1,
-    h2 {
+    h1, h2 {
       margin-bottom: 1rem;
     }
 
@@ -95,76 +126,119 @@
       font-size: 0.98rem;
     }
 
-    /* Hero */
+    .muted {
+      color: var(--text-muted);
+    }
+
+    /* HERO */
     #accueil {
       display: grid;
-      grid-template-columns: 3fr 2fr;
+      grid-template-columns: minmax(0, 3fr) minmax(260px, 2fr);
       gap: 2rem;
       align-items: center;
     }
 
     .sous-titre {
       font-size: 1.02rem;
-      opacity: 0.85;
+      color: var(--text-muted);
       margin-bottom: 1.2rem;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.18rem 0.8rem;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      background: var(--orange-soft);
+      color: #9a3412;
+      margin-bottom: 0.9rem;
+    }
+
+    .pill-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--orange);
     }
 
     .btn-group {
       display: flex;
       flex-wrap: wrap;
       gap: 0.8rem;
-      margin-top: 1rem;
+      margin-top: 1.2rem;
     }
 
     .btn {
       display: inline-block;
-      padding: 0.6rem 1.3rem;
+      padding: 0.7rem 1.4rem;
       border-radius: 999px;
       border: none;
       cursor: pointer;
       font-size: 0.9rem;
       font-weight: 500;
-      transition: transform 0.12s, box-shadow 0.12s, background-color 0.12s;
+      transition: transform 0.12s, box-shadow 0.12s, background-color 0.12s, color 0.12s;
     }
 
     .btn-principal {
-      background: #111827;
-      color: #ffffff;
-      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.3);
+      background: var(--orange);
+      color: #111827;
+      box-shadow: 0 10px 24px rgba(248, 113, 113, 0.35);
     }
 
     .btn-principal:hover {
       transform: translateY(-1px);
-      box-shadow: 0 12px 26px rgba(15, 23, 42, 0.35);
+      box-shadow: 0 14px 32px rgba(248, 113, 113, 0.45);
+      background: #ea580c;
     }
 
     .btn-secondaire {
-      background: #e5e7eb;
-      color: #111827;
+      background: transparent;
+      color: var(--marine);
+      border: 1px solid rgba(148, 163, 184, 0.7);
     }
 
     .btn-secondaire:hover {
-      background: #d1d5db;
+      background: #e5e7eb;
       transform: translateY(-1px);
     }
 
     .hero-card {
-      background: #0b1120;
+      background: radial-gradient(circle at top left, #0ea5e9, #0b1120 60%);
       color: #e5e7eb;
       border-radius: 1.5rem;
       padding: 1.6rem;
       display: flex;
       flex-direction: column;
-      gap: 0.8rem;
+      gap: 0.7rem;
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 110% -10%, rgba(248, 250, 252, 0.4), transparent 55%);
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    .hero-card-inner {
+      position: relative;
+      z-index: 1;
     }
 
     .hero-tag {
       display: inline-block;
       padding: 0.25rem 0.6rem;
       border-radius: 999px;
-      border: 1px solid rgba(249, 250, 251, 0.2);
+      border: 1px solid rgba(248, 250, 252, 0.55);
       font-size: 0.76rem;
       opacity: 0.9;
+      margin-bottom: 0.4rem;
     }
 
     .hero-card h3 {
@@ -172,7 +246,29 @@
       margin-top: 0.3rem;
     }
 
-    /* Grilles */
+    .hero-metrics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      margin-top: 0.9rem;
+      font-size: 0.85rem;
+    }
+
+    .metric {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .metric span:first-child {
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+
+    .metric span:last-child {
+      opacity: 0.8;
+    }
+
+    /* GRIDS / CARDS */
     .grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -183,10 +279,10 @@
     .card {
       padding: 1.2rem;
       border-radius: 1.1rem;
-      border: 1px solid #e5e7eb;
+      border: 1px solid rgba(209, 213, 219, 0.9);
       background: #f9fafb;
       font-size: 0.95rem;
-      transition: transform 0.12s, box-shadow 0.12s, border-color 0.12s;
+      transition: transform 0.12s, box-shadow 0.12s, border-color 0.12s, background-color 0.12s;
     }
 
     .card h3 {
@@ -194,13 +290,24 @@
       margin-bottom: 0.5rem;
     }
 
-    .card:hover {
-      transform: translateY(-2px);
-      border-color: #d1d5db;
-      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.06);
+    .card span.label {
+      display: inline-block;
+      font-size: 0.75rem;
+      padding: 0.12rem 0.55rem;
+      border-radius: 999px;
+      background: #dbeafe;
+      color: #1e3a8a;
+      margin-bottom: 0.5rem;
     }
 
-    /* A propos */
+    .card:hover {
+      transform: translateY(-2px);
+      border-color: #cbd5f5;
+      background: #ffffff;
+      box-shadow: 0 10px 26px rgba(15, 23, 42, 0.08);
+    }
+
+    /* A PROPOS */
     .apropos-grid {
       display: grid;
       grid-template-columns: 2fr 2fr;
@@ -210,6 +317,11 @@
     .liste-simple {
       list-style: none;
       margin-top: 0.5rem;
+      font-size: 0.95rem;
+    }
+
+    .liste-simple li {
+      margin-bottom: 0.3rem;
     }
 
     .liste-simple li::before {
@@ -217,11 +329,11 @@
       opacity: 0.6;
     }
 
-    /* Contact */
+    /* CONTACT */
     form {
       display: grid;
       gap: 1rem;
-      margin-top: 1rem;
+      margin-top: 1.2rem;
     }
 
     label {
@@ -240,13 +352,15 @@
       font: inherit;
       resize: vertical;
       min-height: 40px;
+      background: #f9fafb;
     }
 
     input:focus,
     textarea:focus {
       outline: none;
-      border-color: #111827;
+      border-color: var(--marine);
       box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.15);
+      background: #ffffff;
     }
 
     textarea {
@@ -257,10 +371,10 @@
       text-align: center;
       padding: 1.5rem;
       font-size: 0.8rem;
-      color: #6b7280;
+      color: var(--text-muted);
     }
 
-    /* Responsive */
+    /* RESPONSIVE */
     @media (max-width: 900px) {
       #accueil {
         grid-template-columns: 1fr;
@@ -283,7 +397,7 @@
       .nav-container {
         flex-direction: column;
         align-items: flex-start;
-        gap: 0.5rem;
+        gap: 0.4rem;
       }
 
       nav ul {
@@ -308,7 +422,10 @@
 <body>
   <header>
     <div class="nav-container">
-      <div class="logo">ORION FISH</div>
+      <div class="logo">
+        <div class="logo-mark"></div>
+        <span>ORION FISH</span>
+      </div>
       <nav>
         <ul>
           <li><a href="#accueil">Accueil</a></li>
@@ -325,6 +442,10 @@
     <!-- ACCUEIL -->
     <section id="accueil">
       <div>
+        <div class="pill">
+          <span class="pill-dot"></span>
+          <span>Agroalimentaire – Mer & Fruits</span>
+        </div>
         <h1>ORION FISH – Produits de la mer & jus de fruits</h1>
         <p class="sous-titre">
           Produits de la mer, transformation de fruits en jus, vente et distribution au service des marchés locaux et internationaux.
@@ -336,21 +457,29 @@
         </p>
         <div class="btn-group">
           <a href="#mer" class="btn btn-principal">Découvrir nos activités</a>
-          <a href="#contact" class="btn btn-secondaire">Nous contacter</a>
+          <a href="#contact" class="btn btn-secondaire">Parler à notre équipe</a>
         </div>
       </div>
 
       <div class="hero-card">
-        <span class="hero-tag">Agroalimentaire – Mer & Fruits</span>
-        <h3>Une expertise double au service de vos besoins</h3>
-        <p>
-          De la pêche à la transformation des fruits, ORION FISH s’engage sur la qualité, la traçabilité
-          et la sécurité alimentaire de ses produits.
-        </p>
-        <p style="font-size: 0.85rem; opacity: 0.85;">
-          Nous mettons en place des chaînes maîtrisées, depuis la sélection des matières premières
-          jusqu’à la distribution, pour garantir régularité et fiabilité.
-        </p>
+        <div class="hero-card-inner">
+          <span class="hero-tag">Filières intégrées</span>
+          <h3>Une double expertise, mer & fruits</h3>
+          <p>
+            De la pêche à la transformation des fruits, ORION FISH s’engage sur la qualité, la traçabilité
+            et la sécurité alimentaire de ses produits.
+          </p>
+          <div class="hero-metrics">
+            <div class="metric">
+              <span>Mer</span>
+              <span>Collecte, transformation et distribution des produits de la mer.</span>
+            </div>
+            <div class="metric">
+              <span>Fruits</span>
+              <span>Jus issus de fruits sélectionnés et contrôlés.</span>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -373,7 +502,7 @@
           <p><strong>Nos atouts :</strong></p>
           <ul class="liste-simple">
             <li>Expertise dans les produits de la mer et les jus de fruits</li>
-            <li>Sélection rigoureuse des fournisseurs et des zones de production</li>
+            <li>Sélection rigoureuse des fournisseurs et zones de production</li>
             <li>Respect des normes de qualité et de sécurité alimentaire</li>
             <li>Logistique adaptée aux besoins des professionnels</li>
             <li>Relation de confiance et partenariats de long terme</li>
@@ -391,21 +520,25 @@
 
       <div class="grid">
         <div class="card">
+          <span class="label">Gamme</span>
           <h3>Produits frais & surgelés</h3>
           <p>
-            Poissons entiers, filets et autres produits de la mer, disponibles en frais ou surgelé en fonction de vos besoins.
+            Poissons entiers, filets et autres produits de la mer, disponibles en frais ou surgelé, selon vos besoins
+            et vos marchés.
           </p>
         </div>
         <div class="card">
-          <h3>Préparation & transformation</h3>
+          <span class="label">Transformation</span>
+          <h3>Préparation & conditionnement</h3>
           <p>
             Tri, nettoyage, découpe et conditionnement dans le respect strict des bonnes pratiques d’hygiène et des normes.
           </p>
         </div>
         <div class="card">
-          <h3>Distribution & logistique</h3>
+          <span class="label">Logistique</span>
+          <h3>Distribution & chaîne du froid</h3>
           <p>
-            Organisation de la chaîne logistique avec respect de la chaîne du froid et gestion des livraisons jusqu’au client final.
+            Organisation de la chaîne logistique, respect de la chaîne du froid et gestion des livraisons jusqu’au client final.
           </p>
         </div>
       </div>
@@ -420,21 +553,24 @@
 
       <div class="grid">
         <div class="card">
-          <h3>Sélection des fruits</h3>
+          <span class="label">Sélection</span>
+          <h3>Fruits choisis</h3>
           <p>
             Fruits issus de producteurs partenaires, choisis pour leur qualité, leur maturité et la régularité de l’approvisionnement.
           </p>
         </div>
         <div class="card">
+          <span class="label">Process</span>
           <h3>Transformation & formulation</h3>
           <p>
-            Tri, lavage, pressage et filtration des fruits pour proposer des jus simples, des mélanges ou des recettes spécifiques.
+            Tri, lavage, pressage et filtration pour proposer des jus simples, des mélanges ou des recettes spécifiques.
           </p>
         </div>
         <div class="card">
-          <h3>Conditionnement & distribution</h3>
+          <span class="label">Distribution</span>
+          <h3>Conditionnement adapté</h3>
           <p>
-            Conditionnement en formats adaptés aux marchés B2B ou B2C, avec une traçabilité complète des produits transformés.
+            Conditionnement en formats B2B ou B2C, avec une traçabilité complète des produits transformés.
           </p>
         </div>
       </div>
@@ -445,6 +581,9 @@
       <h2>Contact</h2>
       <p>
         Pour toute demande d’information, de partenariat ou de projet, contactez ORION FISH via le formulaire ci-dessous.
+      </p>
+      <p class="muted">
+        (Pour rendre ce formulaire fonctionnel plus tard, on pourra le connecter à un service d’envoi d’e-mails.)
       </p>
 
       <form>
