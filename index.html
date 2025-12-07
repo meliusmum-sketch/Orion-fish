@@ -6,15 +6,16 @@
   <title>ORION FISH – Produits de la mer & Jus de fruits</title>
   <style>
     :root {
-      --marine: #0b1120;
-      --marine-soft: #1e293b;
+      --marine: #020617;        /* bleu très foncé qui tire vers le noir */
+      --marine-mid: #1e293b;    /* bleu marine intermédiaire */
+      --marine-soft: #334155;   /* bleu gris doux */
       --marine-light: #e5e7eb;
       --orange: #f97316;
       --orange-soft: #ffedd5;
-      --bg: #f3f4f6;
-      --card: #ffffff;
-      --text-main: #111827;
-      --text-muted: #6b7280;
+      --card: #020617;          /* cartes foncées */
+      --card-border: #1f2937;
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
     }
 
     * {
@@ -27,7 +28,7 @@
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       line-height: 1.6;
       color: var(--text-main);
-      background: radial-gradient(circle at top left, #e0f2fe, var(--bg) 45%, #fee2e2);
+      background: radial-gradient(circle at top left, #1d4ed8, #020617 65%);
       min-height: 100vh;
     }
 
@@ -41,7 +42,7 @@
       position: sticky;
       top: 0;
       z-index: 10;
-      background: rgba(11, 17, 32, 0.97);
+      background: rgba(2, 6, 23, 0.96);
       backdrop-filter: blur(8px);
       border-bottom: 1px solid rgba(148, 163, 184, 0.4);
     }
@@ -102,8 +103,8 @@
       padding: 2rem;
       background: var(--card);
       border-radius: 1.5rem;
-      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
-      border: 1px solid rgba(148, 163, 184, 0.25);
+      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.6);
+      border: 1px solid var(--card-border);
     }
 
     h1, h2 {
@@ -198,12 +199,12 @@
     }
 
     .btn-secondaire:hover {
-      background: rgba(15, 23, 42, 0.3);
+      background: rgba(15, 23, 42, 0.7);
       transform: translateY(-1px);
     }
 
     .hero-card {
-      background: radial-gradient(circle at top left, #0ea5e9, #0b1120 60%);
+      background: radial-gradient(circle at top left, #0ea5e9, #020617 60%);
       color: #e5e7eb;
       border-radius: 1.5rem;
       padding: 1.6rem;
@@ -219,7 +220,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: radial-gradient(circle at 110% -10%, rgba(248, 250, 252, 0.4), transparent 55%);
+      background: radial-gradient(circle at 110% -10%, rgba(248, 250, 252, 0.3), transparent 55%);
       opacity: 0.7;
       pointer-events: none;
     }
@@ -279,10 +280,12 @@
       object-fit: cover;
       display: block;
       border: 1px solid rgba(248, 250, 252, 0.4);
+      height: 180px;
     }
 
     .hero-img-small {
       width: 40%;
+      height: 180px;
     }
 
     /* GRIDS / CARDS */
@@ -294,17 +297,25 @@
     }
 
     .card {
-      padding: 1.2rem;
+      padding: 1.1rem;
       border-radius: 1.1rem;
-      border: 1px solid rgba(209, 213, 219, 0.9);
-      background: #f9fafb;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      background: #020617;
       font-size: 0.95rem;
       transition: transform 0.12s, box-shadow 0.12s, border-color 0.12s, background-color 0.12s;
     }
 
+    .card img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 0.8rem;
+      margin-bottom: 0.6rem;
+    }
+
     .card h3 {
       font-size: 1rem;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.4rem;
     }
 
     .card span.label {
@@ -312,16 +323,16 @@
       font-size: 0.75rem;
       padding: 0.12rem 0.55rem;
       border-radius: 999px;
-      background: #dbeafe;
-      color: #1e3a8a;
-      margin-bottom: 0.5rem;
+      background: rgba(37, 99, 235, 0.2);
+      color: #bfdbfe;
+      margin-bottom: 0.4rem;
     }
 
     .card:hover {
       transform: translateY(-2px);
-      border-color: #cbd5f5;
-      background: #ffffff;
-      box-shadow: 0 10px 26px rgba(15, 23, 42, 0.08);
+      border-color: #60a5fa;
+      background: #020617;
+      box-shadow: 0 10px 26px rgba(15, 23, 42, 0.8);
     }
 
     /* A PROPOS */
@@ -357,22 +368,22 @@
     .galerie-item {
       border-radius: 1rem;
       overflow: hidden;
-      border: 1px solid rgba(209, 213, 219, 0.9);
-      background: #000;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      background: #020617;
     }
 
     .galerie-item img {
       width: 100%;
-      height: 170px;
+      height: 180px;
       object-fit: cover;
       display: block;
     }
 
     .galerie-caption {
-      padding: 0.5rem 0.8rem;
+      padding: 0.55rem 0.8rem;
       font-size: 0.85rem;
-      background: #f9fafb;
       color: var(--text-muted);
+      background: #020617;
     }
 
     /* CONTACT */
@@ -394,19 +405,25 @@
       width: 100%;
       padding: 0.55rem 0.85rem;
       border-radius: 0.7rem;
-      border: 1px solid #d1d5db;
+      border: 1px solid #4b5563;
       font: inherit;
       resize: vertical;
       min-height: 40px;
-      background: #f9fafb;
+      background: #020617;
+      color: var(--text-main);
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: #6b7280;
     }
 
     input:focus,
     textarea:focus {
       outline: none;
-      border-color: var(--marine);
-      box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.15);
-      background: #ffffff;
+      border-color: #60a5fa;
+      box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.5);
+      background: #020617;
     }
 
     textarea {
@@ -476,7 +493,7 @@
           <defs>
             <linearGradient id="logoSea" x1="0" y1="0" x2="1" y2="1">
               <stop offset="0%" stop-color="#0ea5e9" />
-              <stop offset="100%" stop-color="#0b1120" />
+              <stop offset="100%" stop-color="#020617" />
             </linearGradient>
             <linearGradient id="logoSun" x1="0" y1="0" x2="1" y2="1">
               <stop offset="0%" stop-color="#facc15" />
@@ -534,14 +551,16 @@
       <div class="hero-card">
         <div class="hero-card-inner">
           <div class="hero-photos">
+            <!-- PHOTO 1 : poissons frais -->
             <img
-              src="https://via.placeholder.com/260x180.png?text=Poissons+frais"
-              alt="Produits de la mer"
+              src="images/hero-poissons-frais.jpg"
+              alt="Poissons frais sur lit de glace"
               class="hero-img"
             />
+            <!-- PHOTO 2 : jus de fruits (orange, mangue, mandarine) -->
             <img
-              src="https://via.placeholder.com/140x180.png?text=Jus+de+fruits"
-              alt="Jus de fruits"
+              src="images/hero-jus-fruits.jpg"
+              alt="Verres de jus d’orange, mangue et mandarine"
               class="hero-img hero-img-small"
             />
           </div>
@@ -558,7 +577,7 @@
             </div>
             <div class="metric">
               <span>Fruits</span>
-              <span>Jus issus de fruits sélectionnés et contrôlés.</span>
+              <span>Jus issus d’oranges, mangues, mandarines et autres fruits sélectionnés.</span>
             </div>
           </div>
         </div>
@@ -603,6 +622,8 @@
       <div class="grid">
         <div class="card">
           <span class="label">Gamme</span>
+          <!-- image : poissons frais / filets -->
+          <img src="images/produits-mer-frais.jpg" alt="Poissons frais et filets prêts à être distribués">
           <h3>Produits frais & surgelés</h3>
           <p>
             Poissons entiers, filets et autres produits de la mer, disponibles en frais ou surgelé, selon vos besoins
@@ -611,6 +632,8 @@
         </div>
         <div class="card">
           <span class="label">Transformation</span>
+          <!-- image : découpe / préparation poisson -->
+          <img src="images/preparation-poissons.jpg" alt="Préparation, nettoyage et découpe de poissons">
           <h3>Préparation & conditionnement</h3>
           <p>
             Tri, nettoyage, découpe et conditionnement dans le respect strict des bonnes pratiques d’hygiène et des normes.
@@ -618,6 +641,8 @@
         </div>
         <div class="card">
           <span class="label">Logistique</span>
+          <!-- image : camions frigorifiques / entrepôt froid -->
+          <img src="images/logistique-froid.jpg" alt="Camions frigorifiques et entrepôts réfrigérés">
           <h3>Distribution & chaîne du froid</h3>
           <p>
             Organisation de la chaîne logistique, respect de la chaîne du froid et gestion des livraisons jusqu’au client final.
@@ -630,12 +655,15 @@
     <section id="jus">
       <h2>Transformation de fruits en jus</h2>
       <p>
-        ORION FISH développe une filière de transformation de fruits en jus, avec une sélection rigoureuse des matières premières.
+        ORION FISH développe une filière de transformation de fruits en jus, avec une sélection rigoureuse des matières premières
+        (oranges, mangues, mandarines et autres fruits).
       </p>
 
       <div class="grid">
         <div class="card">
           <span class="label">Sélection</span>
+          <!-- image : fruits oranges, mangues, mandarines -->
+          <img src="images/fruits-agrumes-mangues.jpg" alt="Oranges, mangues et mandarines fraîches">
           <h3>Fruits choisis</h3>
           <p>
             Fruits issus de producteurs partenaires, choisis pour leur qualité, leur maturité et la régularité de l’approvisionnement.
@@ -643,16 +671,20 @@
         </div>
         <div class="card">
           <span class="label">Process</span>
+          <!-- image : ligne de transformation (presses, cuves, etc.) -->
+          <img src="images/ligne-transformation-jus.jpg" alt="Ligne industrielle de transformation de jus de fruits">
           <h3>Transformation & formulation</h3>
           <p>
-            Tri, lavage, pressage et filtration pour proposer des jus simples, des mélanges ou des recettes spécifiques.
+            Tri, lavage, pressage et filtration pour proposer des jus simples, des mélanges ou des recettes spécifiques adaptées à vos marchés.
           </p>
         </div>
         <div class="card">
           <span class="label">Distribution</span>
+          <!-- image : bouteilles de jus, palettes, cartons -->
+          <img src="images/bouteilles-jus-fruits.jpg" alt="Bouteilles de jus prêtes à être distribuées">
           <h3>Conditionnement adapté</h3>
           <p>
-            Conditionnement en formats B2B ou B2C, avec une traçabilité complète des produits transformés.
+            Conditionnement en formats B2B ou B2C, avec une traçabilité complète des produits transformés jusqu’au point de vente.
           </p>
         </div>
       </div>
@@ -662,20 +694,23 @@
     <section id="galerie">
       <h2>Photos d’ORION FISH</h2>
       <p class="muted">
-        Remplace ces images par vos propres photos (usine, équipe, produits, entrepôts…).
+        Galerie générale : activités en mer, transformation en usine, jus de fruits.
       </p>
       <div class="galerie-grid">
         <div class="galerie-item">
-          <img src="https://via.placeholder.com/400x250.png?text=Produits+de+la+mer" alt="Produits de la mer" />
-          <div class="galerie-caption">Produits de la mer – sélection et préparation.</div>
+          <!-- image : bateau de pêche / port -->
+          <img src="images/galerie-bateau-peche.jpg" alt="Bateau de pêche et port">
+          <div class="galerie-caption">Pêche et approvisionnement en produits de la mer.</div>
         </div>
         <div class="galerie-item">
-          <img src="https://via.placeholder.com/400x250.png?text=Transformation" alt="Transformation" />
-          <div class="galerie-caption">Transformation et conditionnement.</div>
+          <!-- image : atelier / usine de transformation -->
+          <img src="images/galerie-usine-transformation.jpg" alt="Usine de transformation agroalimentaire">
+          <div class="galerie-caption">Ligne de transformation et conditionnement.</div>
         </div>
         <div class="galerie-item">
-          <img src="https://via.placeholder.com/400x250.png?text=Jus+de+fruits" alt="Jus de fruits" />
-          <div class="galerie-caption">Production et mise en bouteille de jus de fruits.</div>
+          <!-- image : jus de fruits, verres colorés -->
+          <img src="images/galerie-jus-fruits.jpg" alt="Verres de jus de fruits colorés">
+          <div class="galerie-caption">Jus de fruits à base d’oranges, mangues, mandarines.</div>
         </div>
       </div>
     </section>
