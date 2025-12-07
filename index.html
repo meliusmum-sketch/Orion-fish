@@ -276,16 +276,22 @@
 
     .hero-img {
       width: 100%;
+      height: auto;        /* plus de hauteur fixe */
       border-radius: 1rem;
-      object-fit: cover;
+      object-fit: contain; /* on montre toute l'image */
       display: block;
       border: 1px solid rgba(248, 250, 252, 0.4);
-      height: 180px;
+      background: #020617; /* fond derrière si bandes noires */
     }
 
     .hero-img-small {
       width: 40%;
-      height: 180px;
+      height: auto;
+    }
+
+    .clickable-image {
+      display: block;
+      cursor: zoom-in;
     }
 
     /* GRIDS / CARDS */
@@ -307,10 +313,12 @@
 
     .card img {
       width: 100%;
-      height: 140px;
-      object-fit: cover;
+      height: auto;        /* plus de coupe verticale */
+      max-height: 260px;   /* sécurite pour ne pas exploser la carte */
+      object-fit: contain;
       border-radius: 0.8rem;
       margin-bottom: 0.6rem;
+      background: #020617;
     }
 
     .card h3 {
@@ -374,9 +382,11 @@
 
     .galerie-item img {
       width: 100%;
-      height: 180px;
-      object-fit: cover;
+      height: auto;
+      max-height: 260px;
+      object-fit: contain;
       display: block;
+      background: #020617;
     }
 
     .galerie-caption {
@@ -553,18 +563,22 @@
       <div class="hero-card">
         <div class="hero-card-inner">
           <div class="hero-photos">
-            <!-- PHOTO 1 : poissons frais (note .jpg.png) -->
-            <img
-              src="hero-poissons-frais.jpg.png"
-              alt="Poissons frais sur lit de glace"
-              class="hero-img"
-            />
+            <!-- PHOTO 1 : poissons frais -->
+            <a href="hero-poissons-frais.jpg.png" target="_blank" class="clickable-image">
+              <img
+                src="hero-poissons-frais.jpg.png"
+                alt="Poissons frais sur lit de glace"
+                class="hero-img"
+              />
+            </a>
             <!-- PHOTO 2 : jus de fruits -->
-            <img
-              src="hero-jus-fruits.jpg"
-              alt="Verres de jus d’orange, mangue et mandarine"
-              class="hero-img hero-img-small"
-            />
+            <a href="hero-jus-fruits.jpg" target="_blank" class="clickable-image">
+              <img
+                src="hero-jus-fruits.jpg"
+                alt="Verres de jus d’orange, mangue et mandarine"
+                class="hero-img hero-img-small"
+              />
+            </a>
           </div>
           <span class="hero-tag">Filières intégrées</span>
           <h3>Une double expertise, mer & fruits</h3>
@@ -624,8 +638,9 @@
       <div class="grid">
         <div class="card">
           <span class="label">Gamme</span>
-          <!-- réutilise une photo de poissons -->
-          <img src="hero-poissons-frais.jpg.png" alt="Poissons frais et filets prêts à être distribués">
+          <a href="hero-poissons-frais.jpg.png" target="_blank" class="clickable-image">
+            <img src="hero-poissons-frais.jpg.png" alt="Poissons frais et filets prêts à être distribués">
+          </a>
           <h3>Produits frais & surgelés</h3>
           <p>
             Poissons entiers, filets et autres produits de la mer, disponibles en frais ou surgelé, selon vos besoins
@@ -634,8 +649,9 @@
         </div>
         <div class="card">
           <span class="label">Transformation</span>
-          <!-- préparation poisson -->
-          <img src="preparation-poissons.jpg" alt="Préparation, nettoyage et découpe de poissons">
+          <a href="preparation-poissons.jpg" target="_blank" class="clickable-image">
+            <img src="preparation-poissons.jpg" alt="Préparation, nettoyage et découpe de poissons">
+          </a>
           <h3>Préparation & conditionnement</h3>
           <p>
             Tri, nettoyage, découpe et conditionnement dans le respect strict des bonnes pratiques d’hygiène et des normes.
@@ -643,8 +659,9 @@
         </div>
         <div class="card">
           <span class="label">Logistique</span>
-          <!-- logistique froid -->
-          <img src="logistique-froid.jpg" alt="Camions frigorifiques et entrepôts réfrigérés">
+          <a href="logistique-froid.jpg" target="_blank" class="clickable-image">
+            <img src="logistique-froid.jpg" alt="Camions frigorifiques et entrepôts réfrigérés">
+          </a>
           <h3>Distribution & chaîne du froid</h3>
           <p>
             Organisation de la chaîne logistique, respect de la chaîne du froid et gestion des livraisons jusqu’au client final.
@@ -664,8 +681,9 @@
       <div class="grid">
         <div class="card">
           <span class="label">Sélection</span>
-          <!-- fruits oranges, mangues, mandarines -->
-          <img src="fruits-agrumes-mangues.jpg" alt="Oranges, mangues et mandarines fraîches">
+          <a href="fruits-agrumes-mangues.jpg" target="_blank" class="clickable-image">
+            <img src="fruits-agrumes-mangues.jpg" alt="Oranges, mangues et mandarines fraîches">
+          </a>
           <h3>Fruits choisis</h3>
           <p>
             Fruits issus de producteurs partenaires, choisis pour leur qualité, leur maturité et la régularité de l’approvisionnement.
@@ -673,8 +691,9 @@
         </div>
         <div class="card">
           <span class="label">Process</span>
-          <!-- usine de transformation -->
-          <img src="galerie-usine-transformation.jpg" alt="Ligne industrielle de transformation de jus de fruits">
+          <a href="galerie-usine-transformation.jpg" target="_blank" class="clickable-image">
+            <img src="galerie-usine-transformation.jpg" alt="Ligne industrielle de transformation de jus de fruits">
+          </a>
           <h3>Transformation & formulation</h3>
           <p>
             Tri, lavage, pressage et filtration pour proposer des jus simples, des mélanges ou des recettes spécifiques adaptées à vos marchés.
@@ -682,8 +701,9 @@
         </div>
         <div class="card">
           <span class="label">Distribution</span>
-          <!-- jus finis (on réutilise hero-jus-fruits) -->
-          <img src="hero-jus-fruits.jpg" alt="Bouteilles ou verres de jus prêts à être distribués">
+          <a href="hero-jus-fruits.jpg" target="_blank" class="clickable-image">
+            <img src="hero-jus-fruits.jpg" alt="Bouteilles ou verres de jus prêts à être distribués">
+          </a>
           <h3>Conditionnement adapté</h3>
           <p>
             Conditionnement en formats B2B ou B2C, avec une traçabilité complète des produits transformés jusqu’au point de vente.
@@ -700,18 +720,21 @@
       </p>
       <div class="galerie-grid">
         <div class="galerie-item">
-          <!-- produits de la mer -->
-          <img src="hero-poissons-frais.jpg.png" alt="Poissons issus de la mer">
+          <a href="hero-poissons-frais.jpg.png" target="_blank" class="clickable-image">
+            <img src="hero-poissons-frais.jpg.png" alt="Poissons issus de la mer">
+          </a>
           <div class="galerie-caption">Sélection et préparation de produits de la mer.</div>
         </div>
         <div class="galerie-item">
-          <!-- usine de transformation -->
-          <img src="galerie-usine-transformation.jpg" alt="Usine de transformation agroalimentaire">
+          <a href="galerie-usine-transformation.jpg" target="_blank" class="clickable-image">
+            <img src="galerie-usine-transformation.jpg" alt="Usine de transformation agroalimentaire">
+          </a>
           <div class="galerie-caption">Ligne de transformation et conditionnement.</div>
         </div>
         <div class="galerie-item">
-          <!-- jus de fruits -->
-          <img src="hero-jus-fruits.jpg" alt="Verres de jus de fruits colorés">
+          <a href="hero-jus-fruits.jpg" target="_blank" class="clickable-image">
+            <img src="hero-jus-fruits.jpg" alt="Verres de jus de fruits colorés">
+          </a>
           <div class="galerie-caption">Jus de fruits à base d’oranges, mangues, mandarines.</div>
         </div>
       </div>
