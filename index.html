@@ -777,7 +777,7 @@
         Pour toute demande d’information, de partenariat ou de projet, contactez ORION FISH via le formulaire ci-dessous.
       </p>
       <p class="muted">
-        Ce formulaire utilise une adresse e-mail. Il ouvrira votre client mail avec un message pré-rempli.
+        Les données sont envoyées via une connexion sécurisée (HTTPS) vers un service de formulaire, puis transmises à notre adresse e-mail.
       </p>
       <p>
         Vous pouvez également nous écrire directement à
@@ -785,15 +785,22 @@
         <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a>.
       </p>
 
-      <!-- Remplace aussi ici si ton mail est différent -->
-      <form action="mailto:contact@orionsfish.com" method="post" enctype="text/plain">
+      <!-- Formulaire via FormSubmit (gratuit) -->
+      <!-- ⚠️ Remplace contact@orionsfish.com par TON e-mail réel -->
+      <form action="https://formsubmit.co/contact@orionsfish.com" method="POST">
+        <!-- Désactiver le captcha FormSubmit si souhaité -->
+        <input type="hidden" name="_captcha" value="false">
+        <!-- (Optionnel) redirection personnalisée après envoi :
+        <input type="hidden" name="_next" value="https://www.orionsfish.com/merci.html">
+        -->
+
         <div>
           <label for="nom">Nom / Entreprise</label>
-          <input id="nom" name="Nom" type="text" placeholder="Votre nom ou celui de votre entreprise" />
+          <input id="nom" name="Nom" type="text" placeholder="Votre nom ou celui de votre entreprise" required />
         </div>
         <div>
           <label for="email">E-mail</label>
-          <input id="email" name="Email" type="email" placeholder="votremail@example.com" />
+          <input id="email" name="Email" type="email" placeholder="votremail@example.com" required />
         </div>
         <div>
           <label for="tel">Téléphone</label>
@@ -801,7 +808,7 @@
         </div>
         <div>
           <label for="message">Message</label>
-          <textarea id="message" name="Message" placeholder="Décrivez votre besoin..."></textarea>
+          <textarea id="message" name="Message" placeholder="Décrivez votre besoin..." required></textarea>
         </div>
         <button type="submit" class="btn btn-principal">Envoyer</button>
       </form>
