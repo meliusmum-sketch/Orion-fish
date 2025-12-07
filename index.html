@@ -1,39 +1,66 @@
-<section id="transformation-fruits">
-  <h2>Transformation de fruits en jus</h2>
-  <p>
-    En complément de notre activité dédiée aux produits de la mer, 
-    <strong>ORION FISH</strong> développe une filière agroalimentaire axée sur la 
-    transformation de fruits en jus. Nous travaillons à partir de fruits 
-    rigoureusement sélectionnés pour proposer des jus adaptés aux attentes des 
-    consommateurs et des professionnels.
-  </p>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ORION FISH – Produits de la mer & Transformation de fruits</title>
+  <style>
+    /* ----- Reset simple ----- */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-  <div class="grid-services">
-    <div class="service-card">
-      <h3>Sélection & collecte des fruits</h3>
-      <p>
-        Nous sélectionnons des fruits issus de producteurs partenaires, en 
-        privilégiant la qualité, la maturité et la régularité de l’approvisionnement. 
-        Chaque lot est contrôlé afin de garantir une base saine pour la production de jus.
-      </p>
-    </div>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+      color: #222;
+      background-color: #f5f5f5;
+    }
 
-    <div class="service-card">
-      <h3>Transformation & formulation</h3>
-      <p>
-        Les fruits sont triés, lavés, pressés et filtrés dans le respect des bonnes 
-        pratiques d’hygiène et des normes en vigueur. Selon les besoins, nous pouvons 
-        proposer des jus simples, des mélanges de fruits ou des formulations spécifiques.
-      </p>
-    </div>
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
-    <div class="service-card">
-      <h3>Conditionnement & distribution</h3>
-      <p>
-        Nous conditionnons les jus dans des formats adaptés au marché ciblé (B2B ou B2C)
-        et organisons la distribution en garantissant une conservation optimale et une 
-        traçabilité complète des produits.
-      </p>
-    </div>
-  </div>
-</section>
+    /* ----- Layout global ----- */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #ffffff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+    .nav-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.8rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: 0.08em;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      font-size: 0.92rem;
+      opacity: 0.8;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+
+    nav a:hover {
+      opacity: 1;
+      transform: translateY(-1px);
+    }
