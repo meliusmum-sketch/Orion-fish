@@ -138,7 +138,7 @@
       display: grid;
       grid-template-columns: minmax(0, 3fr) minmax(260px, 2fr);
       gap: 2rem;
-      align-items: center;
+      align-items: flex-start;
     }
 
     .sous-titre {
@@ -171,6 +171,7 @@
       flex-wrap: wrap;
       gap: 0.8rem;
       margin-top: 1.2rem;
+      margin-bottom: 1.8rem;
     }
 
     .btn {
@@ -297,6 +298,56 @@
     .clickable-image {
       display: block;
       cursor: zoom-in;
+    }
+
+    /* BANDE ÉQUIPE DANS L'ACCUEIL */
+    .team-strip-wrapper {
+      grid-column: 1 / -1;
+      margin-top: 1rem;
+    }
+
+    .team-strip-title {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .team-strip-sub {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 0.8rem;
+    }
+
+    .team-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      padding: 0.9rem 1rem;
+      border-radius: 1.1rem;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+    }
+
+    .team-item {
+      flex: 1 1 230px;
+      min-width: 0;
+      font-size: 0.85rem;
+    }
+
+    .team-item-name {
+      font-weight: 600;
+      margin-bottom: 0.1rem;
+    }
+
+    .team-item-role {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 0.25rem;
+    }
+
+    .team-item-text {
+      font-size: 0.8rem;
+      color: var(--marine-light);
     }
 
     /* GRIDS / CARDS */
@@ -470,6 +521,10 @@
       .galerie-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
+
+      .team-strip-wrapper {
+        grid-column: 1;
+      }
     }
 
     @media (max-width: 640px) {
@@ -628,6 +683,144 @@
           </div>
         </div>
       </div>
+
+      <!-- BANDE ÉQUIPE DANS L'ACCUEIL -->
+      <div class="team-strip-wrapper">
+        <div class="team-strip-title">Équipe ORION FISH</div>
+        <div class="team-strip-sub">
+          Une équipe pluridisciplinaire au service des filières mer & fruits : gestion, commercial, marketing,
+          qualité, production, logistique, innovation et RH.
+        </div>
+        <div class="team-strip">
+          <div class="team-item">
+            <div class="team-item-name">Mouhamad Kébé</div>
+            <div class="team-item-role">Gérant d'Orion Fish</div>
+            <div class="team-item-text">
+              Dirige l’entreprise, définit la vision stratégique et coordonne l’ensemble des activités.
+            </div>
+          </div>
+
+          <div class="team-item">
+            <div class="team-item-name">Souleymane Diallo</div>
+            <div class="team-item-role">Directeur Service Commercial – Tél. : 77 954 03 04</div>
+            <div class="team-item-text">
+              Développe le portefeuille clients et les partenariats commerciaux sur les marchés cibles.
+            </div>
+          </div>
+
+          <div class="team-item">
+            <div class="team-item-name">Ndèye Fatou Wade</div>
+            <div class="team-item-role">Directrice Service Marketing / Clientèle</div>
+            <div class="team-item-text">
+              Pilote le marketing, la communication et la relation clientèle pour valoriser l’offre ORION FISH.
+            </div>
+          </div>
+
+          <div class="team-item">
+            <div class="team-item-name">Idy KA</div>
+            <div class="team-item-role">Responsable Département Informatique</div>
+            <div class="team-item-text">
+              Gère les systèmes d’information et les outils numériques supports aux opérations.
+            </div>
+          </div>
+
+          <div class="team-item">
+            <div class="team-item-name">Ndèye Astou Diatta</div>
+            <div class="team-item-role">Responsable traçabilité & réclamations</div>
+            <div class="team-item-text">
+              Assure la traçabilité des produits et le suivi structuré des réclamations clients.
+            </div>
+          </div>
+
+          <div class="team-item">
+            <div class="team-item-name">Emilie Diatta</div>
+            <div class="team-item-role">Responsable administratif & financier (RAF)</div>
+            <div class="team-item-text">
+              Supervise la gestion administrative, la trésorerie et le suivi financier de l’entreprise.
+            </div>
+          </div>
+
+          <div class="team-item">
+            <div class="team-item-name">Mamadou Hady Diallo</div>
+            <div class="team-item-role">Chef d'équipe</div>
+            <div class="team-item-text">
+              Encadre les équipes sur le terrain et veille à la bonne exécution des opérations.
+            </div>
+          </div>
+
+          <div class="team-item">
+            <div class="team-item-name">Awa Diatta</div>
+            <div class="team-item-role">Cheffe de projet innovation</div>
+            <div class="team-item-text">
+              Conçoit et pilote les projets d’innovation : nouveaux produits et nouveaux procédés.
+            </div>
+          </div>
+
+          <div class="team-item">
+            <div class="team-item-name">Landing Badji</div>
+            <div class="team-item-role">Opérateur de production</div>
+            <div class="team-item-text">
+              Participe aux opérations de transformation et de conditionnement au quotidien.
+            </div>
+          </div>
+
+          <div class="team-item">
+            <div class="team-item-name">Ibrahima Sory Bindia</div>
+            <div class="team-item-role">Responsable transport / distribution</div>
+            <div class="team-item-text">
+              Organise les livraisons, la disponibilité des véhicules et le respect des délais clients.
+            </div>
+          </div>
+
+          <div class="team-item">
+            <div class="team-item-name">Ousmane Diop</div>
+            <div class="team-item-role">Responsable utilités (froid, vapeur, air comprimé, eau)</div>
+            <div class="team-item-text">
+              Garantit la performance des installations de froid, vapeur, air comprimé et eau de l’usine.
+            </div>
+          </div>
+
+          <div class="team-item">
+            <div class="team-item-name">Ibou Thiam</div>
+            <div class="team-item-role">Directeur Ressources Humaines</div>
+            <div class="team-item-text">
+              Gère le capital humain : recrutement, formation, relations sociales et climat interne.
+            </div>
+          </div>
+
+          <div class="team-item">
+            <div class="team-item-name">Insa Koulissoret Diedhiou</div>
+            <div class="team-item-role">Technicien R&D</div>
+            <div class="team-item-text">
+              Contribue aux essais R&D et à l’amélioration continue des produits et procédés.
+            </div>
+          </div>
+
+          <div class="team-item">
+            <div class="team-item-name">Seyni Diedhiou</div>
+            <div class="team-item-role">Responsable HACCP / Food Safety</div>
+            <div class="team-item-text">
+              Met en œuvre le plan HACCP et veille à la sécurité sanitaire des aliments.
+            </div>
+          </div>
+
+          <div class="team-item">
+            <div class="team-item-name">Directeur d’usine</div>
+            <div class="team-item-role">Direction des opérations industrielles</div>
+            <div class="team-item-text">
+              Supervise l’ensemble des opérations de l’usine et la performance industrielle.
+            </div>
+          </div>
+
+          <div class="team-item">
+            <div class="team-item-name">Responsable production</div>
+            <div class="team-item-role">Supervision des lignes de production</div>
+            <div class="team-item-text">
+              Organise les volumes, les rendements et la qualité sur les lignes de production.
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- A PROPOS -->
@@ -777,22 +970,18 @@
         Pour toute demande d’information, de partenariat ou de projet, contactez ORION FISH via le formulaire ci-dessous.
       </p>
       <p class="muted">
-        Les données sont envoyées via une connexion sécurisée (HTTPS) vers un service de formulaire, puis transmises à notre adresse e-mail.
+        Les données sont envoyées via une connexion sécurisée (HTTPS) vers un service de formulaire,
+        puis transmises à notre adresse e-mail.
       </p>
       <p>
         Vous pouvez également nous écrire directement à
-        <!-- Remplace cette adresse par TON mail pro si besoin -->
         <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a>.
       </p>
 
       <!-- Formulaire via FormSubmit (gratuit) -->
       <!-- ⚠️ Remplace contact@orionsfish.com par TON e-mail réel -->
       <form action="https://formsubmit.co/contact@orionsfish.com" method="POST">
-        <!-- Désactiver le captcha FormSubmit si souhaité -->
         <input type="hidden" name="_captcha" value="false">
-        <!-- (Optionnel) redirection personnalisée après envoi :
-        <input type="hidden" name="_next" value="https://www.orionsfish.com/merci.html">
-        -->
 
         <div>
           <label for="nom">Nom / Entreprise</label>
