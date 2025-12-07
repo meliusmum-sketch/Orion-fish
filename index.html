@@ -1,28 +1,480 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>ORION FISH – Agroalimentaire</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ORION FISH – Produits de la mer & Jus de fruits</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+      color: #111827;
+      background: #f3f4f6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: #ffffff;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+    }
+
+    .nav-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.8rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: 0.12em;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.4rem;
+      font-size: 0.9rem;
+    }
+
+    nav a {
+      opacity: 0.8;
+      transition: opacity 0.15s, transform 0.15s;
+    }
+
+    nav a:hover {
+      opacity: 1;
+      transform: translateY(-1px);
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1.5rem;
+    }
+
+    section {
+      margin: 3rem 0;
+      padding: 2rem;
+      background: #ffffff;
+      border-radius: 1.5rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+    }
+
+    h1,
+    h2 {
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+    }
+
+    h2 {
+      font-size: 1.4rem;
+    }
+
+    p {
+      margin-bottom: 0.7rem;
+      font-size: 0.98rem;
+    }
+
+    /* Hero */
+    #accueil {
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .sous-titre {
+      font-size: 1.02rem;
+      opacity: 0.85;
+      margin-bottom: 1.2rem;
+    }
+
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 1rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.6rem 1.3rem;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: transform 0.12s, box-shadow 0.12s, background-color 0.12s;
+    }
+
+    .btn-principal {
+      background: #111827;
+      color: #ffffff;
+      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.3);
+    }
+
+    .btn-principal:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 26px rgba(15, 23, 42, 0.35);
+    }
+
+    .btn-secondaire {
+      background: #e5e7eb;
+      color: #111827;
+    }
+
+    .btn-secondaire:hover {
+      background: #d1d5db;
+      transform: translateY(-1px);
+    }
+
+    .hero-card {
+      background: #0b1120;
+      color: #e5e7eb;
+      border-radius: 1.5rem;
+      padding: 1.6rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(249, 250, 251, 0.2);
+      font-size: 0.76rem;
+      opacity: 0.9;
+    }
+
+    .hero-card h3 {
+      font-size: 1.05rem;
+      margin-top: 0.3rem;
+    }
+
+    /* Grilles */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.2rem;
+      margin-top: 1.5rem;
+    }
+
+    .card {
+      padding: 1.2rem;
+      border-radius: 1.1rem;
+      border: 1px solid #e5e7eb;
+      background: #f9fafb;
+      font-size: 0.95rem;
+      transition: transform 0.12s, box-shadow 0.12s, border-color 0.12s;
+    }
+
+    .card h3 {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      border-color: #d1d5db;
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.06);
+    }
+
+    /* A propos */
+    .apropos-grid {
+      display: grid;
+      grid-template-columns: 2fr 2fr;
+      gap: 1.5rem;
+    }
+
+    .liste-simple {
+      list-style: none;
+      margin-top: 0.5rem;
+    }
+
+    .liste-simple li::before {
+      content: "• ";
+      opacity: 0.6;
+    }
+
+    /* Contact */
+    form {
+      display: grid;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    label {
+      font-size: 0.88rem;
+      font-weight: 500;
+      margin-bottom: 0.2rem;
+      display: inline-block;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 0.55rem 0.85rem;
+      border-radius: 0.7rem;
+      border: 1px solid #d1d5db;
+      font: inherit;
+      resize: vertical;
+      min-height: 40px;
+    }
+
+    input:focus,
+    textarea:focus {
+      outline: none;
+      border-color: #111827;
+      box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.15);
+    }
+
+    textarea {
+      min-height: 110px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.8rem;
+      color: #6b7280;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      #accueil {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-card {
+        order: -1;
+      }
+
+      .apropos-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+      }
+
+      nav ul {
+        flex-wrap: wrap;
+      }
+
+      section {
+        padding: 1.5rem;
+        margin: 2.2rem 0;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 1.7rem;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1>ORION FISH</h1>
-  <p>Produits de la mer, transformation de fruits en jus, vente et distribution.</p>
+  <header>
+    <div class="nav-container">
+      <div class="logo">ORION FISH</div>
+      <nav>
+        <ul>
+          <li><a href="#accueil">Accueil</a></li>
+          <li><a href="#apropos">À propos</a></li>
+          <li><a href="#mer">Produits de la mer</a></li>
+          <li><a href="#jus">Fruits & jus</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-  <h2>Produits de la mer</h2>
-  <p>
-    ORION FISH collecte, transforme et distribue des produits de la mer pour les marchés locaux
-    et internationaux.
-  </p>
+  <main>
+    <!-- ACCUEIL -->
+    <section id="accueil">
+      <div>
+        <h1>ORION FISH – Produits de la mer & jus de fruits</h1>
+        <p class="sous-titre">
+          Produits de la mer, transformation de fruits en jus, vente et distribution au service des marchés locaux et internationaux.
+        </p>
+        <p>
+          ORION FISH collecte, transforme et distribue des produits de la mer ainsi que des jus de fruits
+          issus de matières premières rigoureusement sélectionnées. Nous accompagnons distributeurs, industriels
+          et professionnels avec des solutions fiables, tracées et conformes aux normes en vigueur.
+        </p>
+        <div class="btn-group">
+          <a href="#mer" class="btn btn-principal">Découvrir nos activités</a>
+          <a href="#contact" class="btn btn-secondaire">Nous contacter</a>
+        </div>
+      </div>
 
-  <h2>Transformation de fruits en jus</h2>
-  <p>
-    ORION FISH développe une filière de transformation de fruits en jus, avec une sélection
-    rigoureuse des matières premières.
-  </p>
+      <div class="hero-card">
+        <span class="hero-tag">Agroalimentaire – Mer & Fruits</span>
+        <h3>Une expertise double au service de vos besoins</h3>
+        <p>
+          De la pêche à la transformation des fruits, ORION FISH s’engage sur la qualité, la traçabilité
+          et la sécurité alimentaire de ses produits.
+        </p>
+        <p style="font-size: 0.85rem; opacity: 0.85;">
+          Nous mettons en place des chaînes maîtrisées, depuis la sélection des matières premières
+          jusqu’à la distribution, pour garantir régularité et fiabilité.
+        </p>
+      </div>
+    </section>
 
-  <h2>Contact</h2>
-  <p>
-    Pour toute demande d’information ou de partenariat, contactez ORION FISH.
-  </p>
+    <!-- A PROPOS -->
+    <section id="apropos">
+      <h2>À propos d’ORION FISH</h2>
+      <div class="apropos-grid">
+        <div>
+          <p>
+            ORION FISH est une entreprise agroalimentaire spécialisée dans la valorisation des produits de la mer
+            et la transformation de fruits en jus. Nous travaillons avec un réseau de pêcheurs, de producteurs et
+            de partenaires sélectionnés pour offrir des produits fiables et compétitifs.
+          </p>
+          <p>
+            Notre ambition est de développer des filières durables, créatrices de valeur pour les territoires,
+            tout en répondant aux attentes des marchés locaux et internationaux.
+          </p>
+        </div>
+        <div>
+          <p><strong>Nos atouts :</strong></p>
+          <ul class="liste-simple">
+            <li>Expertise dans les produits de la mer et les jus de fruits</li>
+            <li>Sélection rigoureuse des fournisseurs et des zones de production</li>
+            <li>Respect des normes de qualité et de sécurité alimentaire</li>
+            <li>Logistique adaptée aux besoins des professionnels</li>
+            <li>Relation de confiance et partenariats de long terme</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUITS DE LA MER -->
+    <section id="mer">
+      <h2>Produits de la mer</h2>
+      <p>
+        ORION FISH collecte, transforme et distribue des produits de la mer pour les marchés locaux et internationaux.
+      </p>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Produits frais & surgelés</h3>
+          <p>
+            Poissons entiers, filets et autres produits de la mer, disponibles en frais ou surgelé en fonction de vos besoins.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Préparation & transformation</h3>
+          <p>
+            Tri, nettoyage, découpe et conditionnement dans le respect strict des bonnes pratiques d’hygiène et des normes.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Distribution & logistique</h3>
+          <p>
+            Organisation de la chaîne logistique avec respect de la chaîne du froid et gestion des livraisons jusqu’au client final.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- JUS DE FRUITS -->
+    <section id="jus">
+      <h2>Transformation de fruits en jus</h2>
+      <p>
+        ORION FISH développe une filière de transformation de fruits en jus, avec une sélection rigoureuse des matières premières.
+      </p>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Sélection des fruits</h3>
+          <p>
+            Fruits issus de producteurs partenaires, choisis pour leur qualité, leur maturité et la régularité de l’approvisionnement.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Transformation & formulation</h3>
+          <p>
+            Tri, lavage, pressage et filtration des fruits pour proposer des jus simples, des mélanges ou des recettes spécifiques.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Conditionnement & distribution</h3>
+          <p>
+            Conditionnement en formats adaptés aux marchés B2B ou B2C, avec une traçabilité complète des produits transformés.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>
+        Pour toute demande d’information, de partenariat ou de projet, contactez ORION FISH via le formulaire ci-dessous.
+      </p>
+
+      <form>
+        <div>
+          <label for="nom">Nom / Entreprise</label>
+          <input id="nom" name="nom" type="text" placeholder="Votre nom ou celui de votre entreprise" />
+        </div>
+        <div>
+          <label for="email">E-mail</label>
+          <input id="email" name="email" type="email" placeholder="votremail@example.com" />
+        </div>
+        <div>
+          <label for="tel">Téléphone</label>
+          <input id="tel" name="tel" type="tel" placeholder="+XXX XX XX XX XX" />
+        </div>
+        <div>
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Décrivez votre besoin..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-principal">Envoyer</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> – ORION FISH. Tous droits réservés.
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
