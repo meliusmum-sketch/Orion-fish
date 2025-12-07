@@ -58,7 +58,7 @@
     .logo {
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.6rem;
       color: #e5e7eb;
       font-weight: 700;
       letter-spacing: 0.15em;
@@ -66,13 +66,10 @@
       text-transform: uppercase;
     }
 
-    .logo-mark {
-      width: 28px;
-      height: 28px;
-      border-radius: 999px;
-      background: radial-gradient(circle at 30% 20%, #facc15, #f97316 45%, #0ea5e9 80%);
-      border: 2px solid rgba(15, 23, 42, 0.8);
-      box-shadow: 0 0 0 2px rgba(248, 250, 252, 0.2);
+    .logo-icon {
+      width: 30px;
+      height: 30px;
+      flex-shrink: 0;
     }
 
     nav ul {
@@ -195,12 +192,13 @@
 
     .btn-secondaire {
       background: transparent;
-      color: var(--marine);
+      color: #e5e7eb;
       border: 1px solid rgba(148, 163, 184, 0.7);
+      backdrop-filter: blur(4px);
     }
 
     .btn-secondaire:hover {
-      background: #e5e7eb;
+      background: rgba(15, 23, 42, 0.3);
       transform: translateY(-1px);
     }
 
@@ -268,6 +266,25 @@
       opacity: 0.8;
     }
 
+    /* HERO PHOTOS */
+    .hero-photos {
+      display: flex;
+      gap: 0.6rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .hero-img {
+      width: 100%;
+      border-radius: 1rem;
+      object-fit: cover;
+      display: block;
+      border: 1px solid rgba(248, 250, 252, 0.4);
+    }
+
+    .hero-img-small {
+      width: 40%;
+    }
+
     /* GRIDS / CARDS */
     .grid {
       display: grid;
@@ -329,6 +346,35 @@
       opacity: 0.6;
     }
 
+    /* GALERIE */
+    .galerie-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1.2rem;
+    }
+
+    .galerie-item {
+      border-radius: 1rem;
+      overflow: hidden;
+      border: 1px solid rgba(209, 213, 219, 0.9);
+      background: #000;
+    }
+
+    .galerie-item img {
+      width: 100%;
+      height: 170px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .galerie-caption {
+      padding: 0.5rem 0.8rem;
+      font-size: 0.85rem;
+      background: #f9fafb;
+      color: var(--text-muted);
+    }
+
     /* CONTACT */
     form {
       display: grid;
@@ -388,7 +434,8 @@
         grid-template-columns: 1fr;
       }
 
-      .grid {
+      .grid,
+      .galerie-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
@@ -409,7 +456,8 @@
         margin: 2.2rem 0;
       }
 
-      .grid {
+      .grid,
+      .galerie-grid {
         grid-template-columns: 1fr;
       }
 
@@ -423,7 +471,28 @@
   <header>
     <div class="nav-container">
       <div class="logo">
-        <div class="logo-mark"></div>
+        <!-- Logo SVG -->
+        <svg class="logo-icon" viewBox="0 0 40 40" aria-hidden="true">
+          <defs>
+            <linearGradient id="logoSea" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#0ea5e9" />
+              <stop offset="100%" stop-color="#0b1120" />
+            </linearGradient>
+            <linearGradient id="logoSun" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#facc15" />
+              <stop offset="100%" stop-color="#f97316" />
+            </linearGradient>
+          </defs>
+          <circle cx="20" cy="20" r="19" fill="url(#logoSea)" />
+          <!-- vague -->
+          <path d="M4 22 C10 18, 16 26, 22 22 C27 18, 33 24, 36 21" fill="none" stroke="#e5e7eb" stroke-width="2" stroke-linecap="round" />
+          <!-- poisson -->
+          <path d="M13 18 C17 14, 23 14, 26 18 C23 22, 17 22, 13 18 Z" fill="#e5e7eb" opacity="0.9" />
+          <circle cx="17" cy="17.5" r="0.9" fill="#0b1120" />
+          <path d="M26 18 L30 15 L30 21 Z" fill="#e5e7eb" opacity="0.9" />
+          <!-- soleil -->
+          <circle cx="29" cy="11" r="4" fill="url(#logoSun)" />
+        </svg>
         <span>ORION FISH</span>
       </div>
       <nav>
@@ -432,6 +501,7 @@
           <li><a href="#apropos">À propos</a></li>
           <li><a href="#mer">Produits de la mer</a></li>
           <li><a href="#jus">Fruits & jus</a></li>
+          <li><a href="#galerie">Photos</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
@@ -463,6 +533,18 @@
 
       <div class="hero-card">
         <div class="hero-card-inner">
+          <div class="hero-photos">
+            <img
+              src="https://via.placeholder.com/260x180.png?text=Poissons+frais"
+              alt="Produits de la mer"
+              class="hero-img"
+            />
+            <img
+              src="https://via.placeholder.com/140x180.png?text=Jus+de+fruits"
+              alt="Jus de fruits"
+              class="hero-img hero-img-small"
+            />
+          </div>
           <span class="hero-tag">Filières intégrées</span>
           <h3>Une double expertise, mer & fruits</h3>
           <p>
@@ -576,6 +658,28 @@
       </div>
     </section>
 
+    <!-- GALERIE PHOTOS -->
+    <section id="galerie">
+      <h2>Photos d’ORION FISH</h2>
+      <p class="muted">
+        Remplace ces images par vos propres photos (usine, équipe, produits, entrepôts…).
+      </p>
+      <div class="galerie-grid">
+        <div class="galerie-item">
+          <img src="https://via.placeholder.com/400x250.png?text=Produits+de+la+mer" alt="Produits de la mer" />
+          <div class="galerie-caption">Produits de la mer – sélection et préparation.</div>
+        </div>
+        <div class="galerie-item">
+          <img src="https://via.placeholder.com/400x250.png?text=Transformation" alt="Transformation" />
+          <div class="galerie-caption">Transformation et conditionnement.</div>
+        </div>
+        <div class="galerie-item">
+          <img src="https://via.placeholder.com/400x250.png?text=Jus+de+fruits" alt="Jus de fruits" />
+          <div class="galerie-caption">Production et mise en bouteille de jus de fruits.</div>
+        </div>
+      </div>
+    </section>
+
     <!-- CONTACT -->
     <section id="contact">
       <h2>Contact</h2>
@@ -583,25 +687,27 @@
         Pour toute demande d’information, de partenariat ou de projet, contactez ORION FISH via le formulaire ci-dessous.
       </p>
       <p class="muted">
-        (Pour rendre ce formulaire fonctionnel plus tard, on pourra le connecter à un service d’envoi d’e-mails.)
+        Ce formulaire utilise une adresse e-mail. Il ouvrira votre client mail avec un message pré-rempli.
+        Pensez à remplacer l’adresse par la vôtre.
       </p>
 
-      <form>
+      <!-- ⚠️ Remplace contact@orion-fish.com par TON adresse mail -->
+      <form action="mailto:contact@orion-fish.com" method="post" enctype="text/plain">
         <div>
           <label for="nom">Nom / Entreprise</label>
-          <input id="nom" name="nom" type="text" placeholder="Votre nom ou celui de votre entreprise" />
+          <input id="nom" name="Nom" type="text" placeholder="Votre nom ou celui de votre entreprise" />
         </div>
         <div>
           <label for="email">E-mail</label>
-          <input id="email" name="email" type="email" placeholder="votremail@example.com" />
+          <input id="email" name="Email" type="email" placeholder="votremail@example.com" />
         </div>
         <div>
           <label for="tel">Téléphone</label>
-          <input id="tel" name="tel" type="tel" placeholder="+XXX XX XX XX XX" />
+          <input id="tel" name="Téléphone" type="tel" placeholder="+XXX XX XX XX XX" />
         </div>
         <div>
           <label for="message">Message</label>
-          <textarea id="message" name="message" placeholder="Décrivez votre besoin..."></textarea>
+          <textarea id="message" name="Message" placeholder="Décrivez votre besoin..."></textarea>
         </div>
         <button type="submit" class="btn btn-principal">Envoyer</button>
       </form>
