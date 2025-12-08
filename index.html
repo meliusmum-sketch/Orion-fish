@@ -301,7 +301,7 @@
       cursor: zoom-in;
     }
 
-    /* BANDE ÉQUIPE DANS L'ACCUEIL (AVEC DORÉ & PHOTOS) */
+    /* BANDE ÉQUIPE (DORÉ) */
     .team-strip-wrapper {
       grid-column: 1 / -1;
       margin-top: 1.5rem;
@@ -416,16 +416,16 @@
     /* NOUVELLE DISPOSITION ÉQUIPE : 2 COLONNES GAUCHE / DROITE */
     .team-strip {
       display: flex;
-      gap: 1.2rem;
+      justify-content: space-between; /* une colonne collée à gauche, l'autre à droite */
       align-items: flex-start;
-      justify-content: space-between;
+      gap: 1.2rem;
     }
 
     .team-column {
-      flex: 1;
       display: flex;
       flex-direction: column;
       gap: 0.8rem;
+      max-width: 280px;   /* largeur fixe pour que ça reste sur les côtés */
     }
 
     .team-item {
@@ -656,9 +656,11 @@
 
       .team-strip {
         flex-direction: column;
+        align-items: stretch;
       }
 
       .team-column {
+        max-width: none;
         width: 100%;
       }
     }
@@ -850,7 +852,7 @@
           qualité, production, logistique, innovation et RH.
         </div>
 
-        <!-- NOUVELLE DISPOSITION : 2 COLONNES -->
+        <!-- 2 COLONNES : GAUCHE / DROITE -->
         <div class="team-strip">
           <!-- COLONNE GAUCHE -->
           <div class="team-column">
