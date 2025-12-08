@@ -413,15 +413,23 @@
       opacity: 0.9;
     }
 
+    /* NOUVELLE DISPOSITION ÉQUIPE : 2 COLONNES GAUCHE / DROITE */
     .team-strip {
       display: flex;
-      flex-wrap: wrap;
+      gap: 1.2rem;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+
+    .team-column {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
       gap: 0.8rem;
     }
 
     .team-item {
-      flex: 1 1 240px;
-      min-width: 0;
+      width: 100%;
       font-size: 0.85rem;
       padding: 0.7rem 0.8rem;
       border-radius: 1rem;
@@ -645,6 +653,14 @@
       .team-strip-wrapper {
         grid-column: 1;
       }
+
+      .team-strip {
+        flex-direction: column;
+      }
+
+      .team-column {
+        width: 100%;
+      }
     }
 
     @media (max-width: 640px) {
@@ -834,245 +850,252 @@
           qualité, production, logistique, innovation et RH.
         </div>
 
+        <!-- NOUVELLE DISPOSITION : 2 COLONNES -->
         <div class="team-strip">
-          <div class="team-item">
-            <div class="team-item-top">
-              <div class="team-avatar">
-                <img src="mouhamad-kebe.jpg" alt="Photo de Mouhamad Kébé">
+          <!-- COLONNE GAUCHE -->
+          <div class="team-column">
+            <div class="team-item">
+              <div class="team-item-top">
+                <div class="team-avatar">
+                  <img src="mouhamad-kebe.jpg" alt="Photo de Mouhamad Kébé">
+                </div>
+                <div>
+                  <div class="team-item-name">Mouhamad Kébé</div>
+                  <div class="team-item-role">Gérant d'Orion Fish</div>
+                </div>
               </div>
-              <div>
-                <div class="team-item-name">Mouhamad Kébé</div>
-                <div class="team-item-role">Gérant d'Orion Fish</div>
+              <div class="team-item-text">
+                Dirige l’entreprise au quotidien et coordonne l’exécution opérationnelle des activités.
               </div>
             </div>
-            <div class="team-item-text">
-              Dirige l’entreprise au quotidien et coordonne l’exécution opérationnelle des activités.
+
+            <div class="team-item">
+              <div class="team-item-top">
+                <div class="team-avatar">
+                  <img src="souleymane-diallo.jpg" alt="Photo de Souleymane Diallo">
+                </div>
+                <div>
+                  <div class="team-item-name">Souleymane Diallo</div>
+                  <div class="team-item-role">Directeur Service Commercial – Tél. : 77 954 03 04</div>
+                </div>
+              </div>
+              <div class="team-item-text">
+                Développe le portefeuille clients et les partenariats commerciaux sur les marchés cibles.
+              </div>
+            </div>
+
+            <div class="team-item">
+              <div class="team-item-top">
+                <div class="team-avatar">
+                  <img src="ndeye-fatou-wade.jpg" alt="Photo de Ndèye Fatou Wade">
+                </div>
+                <div>
+                  <div class="team-item-name">Ndèye Fatou Wade</div>
+                  <div class="team-item-role">Directrice Service Marketing / Clientèle</div>
+                </div>
+              </div>
+              <div class="team-item-text">
+                Pilote le marketing, la communication et la relation clientèle pour valoriser l’offre ORION FISH.
+              </div>
+            </div>
+
+            <div class="team-item">
+              <div class="team-item-top">
+                <div class="team-avatar">
+                  <img src="idy-ka.jpg" alt="Photo de Idy KA">
+                </div>
+                <div>
+                  <div class="team-item-name">Idy KA</div>
+                  <div class="team-item-role">Responsable Département Informatique</div>
+                </div>
+              </div>
+              <div class="team-item-text">
+                Gère les systèmes d’information et les outils numériques supports aux opérations.
+              </div>
+            </div>
+
+            <div class="team-item">
+              <div class="team-item-top">
+                <div class="team-avatar">
+                  <img src="ndeye-astou-diatta.jpg" alt="Photo de Ndèye Astou Diatta">
+                </div>
+                <div>
+                  <div class="team-item-name">Ndèye Astou Diatta</div>
+                  <div class="team-item-role">Responsable traçabilité & réclamations</div>
+                </div>
+              </div>
+              <div class="team-item-text">
+                Assure la traçabilité des produits et le suivi structuré des réclamations clients.
+              </div>
+            </div>
+
+            <div class="team-item">
+              <div class="team-item-top">
+                <div class="team-avatar">
+                  <img src="emilie-diatta.jpg" alt="Photo de Emilie Diatta">
+                </div>
+                <div>
+                  <div class="team-item-name">Emilie Diatta</div>
+                  <div class="team-item-role">Responsable administratif & financier (RAF)</div>
+                </div>
+              </div>
+              <div class="team-item-text">
+                Supervise la gestion administrative, la trésorerie et le suivi financier de l’entreprise.
+              </div>
+            </div>
+
+            <div class="team-item">
+              <div class="team-item-top">
+                <div class="team-avatar">
+                  <img src="mamadou-hady-diallo.jpg" alt="Photo de Mamadou Hady Diallo">
+                </div>
+                <div>
+                  <div class="team-item-name">Mamadou Hady Diallo</div>
+                  <div class="team-item-role">Chef d'équipe</div>
+                </div>
+              </div>
+              <div class="team-item-text">
+                Encadre les équipes sur le terrain et veille à la bonne exécution des opérations.
+              </div>
+            </div>
+
+            <div class="team-item">
+              <div class="team-item-top">
+                <div class="team-avatar">
+                  <img src="awa-diatta.jpg" alt="Photo de Awa Diatta">
+                </div>
+                <div>
+                  <div class="team-item-name">Awa Diatta</div>
+                  <div class="team-item-role">Cheffe de projet innovation</div>
+                </div>
+              </div>
+              <div class="team-item-text">
+                Conçoit et pilote les projets d’innovation : nouveaux produits et nouveaux procédés.
+              </div>
             </div>
           </div>
 
-          <div class="team-item">
-            <div class="team-item-top">
-              <div class="team-avatar">
-                <img src="souleymane-diallo.jpg" alt="Photo de Souleymane Diallo">
+          <!-- COLONNE DROITE -->
+          <div class="team-column">
+            <div class="team-item">
+              <div class="team-item-top">
+                <div class="team-avatar">
+                  <img src="landing-badji.jpg" alt="Photo de Landing Badji">
+                </div>
+                <div>
+                  <div class="team-item-name">Landing Badji</div>
+                  <div class="team-item-role">Opérateur de production</div>
+                </div>
               </div>
-              <div>
-                <div class="team-item-name">Souleymane Diallo</div>
-                <div class="team-item-role">Directeur Service Commercial – Tél. : 77 954 03 04</div>
+              <div class="team-item-text">
+                Participe aux opérations de transformation et de conditionnement au quotidien.
               </div>
             </div>
-            <div class="team-item-text">
-              Développe le portefeuille clients et les partenariats commerciaux sur les marchés cibles.
-            </div>
-          </div>
 
-          <div class="team-item">
-            <div class="team-item-top">
-              <div class="team-avatar">
-                <img src="ndeye-fatou-wade.jpg" alt="Photo de Ndèye Fatou Wade">
+            <div class="team-item">
+              <div class="team-item-top">
+                <div class="team-avatar">
+                  <img src="ibrahima-sory-bindia.jpg" alt="Photo de Ibrahima Sory Bindia">
+                </div>
+                <div>
+                  <div class="team-item-name">Ibrahima Sory Bindia</div>
+                  <div class="team-item-role">Responsable transport / distribution</div>
+                </div>
               </div>
-              <div>
-                <div class="team-item-name">Ndèye Fatou Wade</div>
-                <div class="team-item-role">Directrice Service Marketing / Clientèle</div>
+              <div class="team-item-text">
+                Organise les livraisons, la disponibilité des véhicules et le respect des délais clients.
               </div>
             </div>
-            <div class="team-item-text">
-              Pilote le marketing, la communication et la relation clientèle pour valoriser l’offre ORION FISH.
-            </div>
-          </div>
 
-          <div class="team-item">
-            <div class="team-item-top">
-              <div class="team-avatar">
-                <img src="idy-ka.jpg" alt="Photo de Idy KA">
+            <div class="team-item">
+              <div class="team-item-top">
+                <div class="team-avatar">
+                  <img src="ousmane-diop.jpg" alt="Photo de Ousmane Diop">
+                </div>
+                <div>
+                  <div class="team-item-name">Ousmane Diop</div>
+                  <div class="team-item-role">Responsable utilités (froid, vapeur, air comprimé, eau)</div>
+                </div>
               </div>
-              <div>
-                <div class="team-item-name">Idy KA</div>
-                <div class="team-item-role">Responsable Département Informatique</div>
+              <div class="team-item-text">
+                Garantit la performance des installations de froid, vapeur, air comprimé et eau de l’usine.
               </div>
             </div>
-            <div class="team-item-text">
-              Gère les systèmes d’information et les outils numériques supports aux opérations.
-            </div>
-          </div>
 
-          <div class="team-item">
-            <div class="team-item-top">
-              <div class="team-avatar">
-                <img src="ndeye-astou-diatta.jpg" alt="Photo de Ndèye Astou Diatta">
+            <div class="team-item">
+              <div class="team-item-top">
+                <div class="team-avatar">
+                  <img src="ibou-thiam.jpg" alt="Photo de Ibou Thiam">
+                </div>
+                <div>
+                  <div class="team-item-name">Ibou Thiam</div>
+                  <div class="team-item-role">Directeur Ressources Humaines</div>
+                </div>
               </div>
-              <div>
-                <div class="team-item-name">Ndèye Astou Diatta</div>
-                <div class="team-item-role">Responsable traçabilité & réclamations</div>
+              <div class="team-item-text">
+                Gère le capital humain : recrutement, formation, relations sociales et climat interne.
               </div>
             </div>
-            <div class="team-item-text">
-              Assure la traçabilité des produits et le suivi structuré des réclamations clients.
-            </div>
-          </div>
 
-          <div class="team-item">
-            <div class="team-item-top">
-              <div class="team-avatar">
-                <img src="emilie-diatta.jpg" alt="Photo de Emilie Diatta">
+            <div class="team-item">
+              <div class="team-item-top">
+                <div class="team-avatar">
+                  <img src="insa-koulissoret-diedhiou.jpg" alt="Photo de Insa Koulissoret Diedhiou">
+                </div>
+                <div>
+                  <div class="team-item-name">Insa Koulissoret Diedhiou</div>
+                  <div class="team-item-role">Technicien R&D</div>
+                </div>
               </div>
-              <div>
-                <div class="team-item-name">Emilie Diatta</div>
-                <div class="team-item-role">Responsable administratif & financier (RAF)</div>
+              <div class="team-item-text">
+                Contribue aux essais R&D et à l’amélioration continue des produits et procédés.
               </div>
             </div>
-            <div class="team-item-text">
-              Supervise la gestion administrative, la trésorerie et le suivi financier de l’entreprise.
-            </div>
-          </div>
 
-          <div class="team-item">
-            <div class="team-item-top">
-              <div class="team-avatar">
-                <img src="mamadou-hady-diallo.jpg" alt="Photo de Mamadou Hady Diallo">
+            <div class="team-item">
+              <div class="team-item-top">
+                <div class="team-avatar">
+                  <img src="seyni-diedhiou.jpg" alt="Photo de Seyni Diedhiou">
+                </div>
+                <div>
+                  <div class="team-item-name">Seyni Diedhiou</div>
+                  <div class="team-item-role">Responsable HACCP / Food Safety</div>
+                </div>
               </div>
-              <div>
-                <div class="team-item-name">Mamadou Hady Diallo</div>
-                <div class="team-item-role">Chef d'équipe</div>
+              <div class="team-item-text">
+                Met en œuvre le plan HACCP et veille à la sécurité sanitaire des aliments.
               </div>
             </div>
-            <div class="team-item-text">
-              Encadre les équipes sur le terrain et veille à la bonne exécution des opérations.
-            </div>
-          </div>
 
-          <div class="team-item">
-            <div class="team-item-top">
-              <div class="team-avatar">
-                <img src="awa-diatta.jpg" alt="Photo de Awa Diatta">
+            <div class="team-item">
+              <div class="team-item-top">
+                <div class="team-avatar">
+                  <img src="directeur-usine.jpg" alt="Photo de Samba Ndiaye">
+                </div>
+                <div>
+                  <div class="team-item-name">Samba Ndiaye</div>
+                  <div class="team-item-role">Directeur d’usine</div>
+                </div>
               </div>
-              <div>
-                <div class="team-item-name">Awa Diatta</div>
-                <div class="team-item-role">Cheffe de projet innovation</div>
+              <div class="team-item-text">
+                Dirige l’usine ORION FISH, supervise les opérations industrielles et coordonne les équipes
+                de production pour garantir performance et qualité.
               </div>
             </div>
-            <div class="team-item-text">
-              Conçoit et pilote les projets d’innovation : nouveaux produits et nouveaux procédés.
-            </div>
-          </div>
 
-          <div class="team-item">
-            <div class="team-item-top">
-              <div class="team-avatar">
-                <img src="landing-badji.jpg" alt="Photo de Landing Badji">
+            <div class="team-item">
+              <div class="team-item-top">
+                <div class="team-avatar">
+                  <img src="responsable-production.jpg" alt="Photo du Responsable production">
+                </div>
+                <div>
+                  <div class="team-item-name">Responsable production</div>
+                  <div class="team-item-role">Supervision des lignes de production</div>
+                </div>
               </div>
-              <div>
-                <div class="team-item-name">Landing Badji</div>
-                <div class="team-item-role">Opérateur de production</div>
+              <div class="team-item-text">
+                Organise les volumes, les rendements et la qualité sur les lignes de production.
               </div>
-            </div>
-            <div class="team-item-text">
-              Participe aux opérations de transformation et de conditionnement au quotidien.
-            </div>
-          </div>
-
-          <div class="team-item">
-            <div class="team-item-top">
-              <div class="team-avatar">
-                <img src="ibrahima-sory-bindia.jpg" alt="Photo de Ibrahima Sory Bindia">
-              </div>
-              <div>
-                <div class="team-item-name">Ibrahima Sory Bindia</div>
-                <div class="team-item-role">Responsable transport / distribution</div>
-              </div>
-            </div>
-            <div class="team-item-text">
-              Organise les livraisons, la disponibilité des véhicules et le respect des délais clients.
-            </div>
-          </div>
-
-          <div class="team-item">
-            <div class="team-item-top">
-              <div class="team-avatar">
-                <img src="ousmane-diop.jpg" alt="Photo de Ousmane Diop">
-              </div>
-              <div>
-                <div class="team-item-name">Ousmane Diop</div>
-                <div class="team-item-role">Responsable utilités (froid, vapeur, air comprimé, eau)</div>
-              </div>
-            </div>
-            <div class="team-item-text">
-              Garantit la performance des installations de froid, vapeur, air comprimé et eau de l’usine.
-            </div>
-          </div>
-
-          <div class="team-item">
-            <div class="team-item-top">
-              <div class="team-avatar">
-                <img src="ibou-thiam.jpg" alt="Photo de Ibou Thiam">
-              </div>
-              <div>
-                <div class="team-item-name">Ibou Thiam</div>
-                <div class="team-item-role">Directeur Ressources Humaines</div>
-              </div>
-            </div>
-            <div class="team-item-text">
-              Gère le capital humain : recrutement, formation, relations sociales et climat interne.
-            </div>
-          </div>
-
-          <div class="team-item">
-            <div class="team-item-top">
-              <div class="team-avatar">
-                <img src="insa-koulissoret-diedhiou.jpg" alt="Photo de Insa Koulissoret Diedhiou">
-              </div>
-              <div>
-                <div class="team-item-name">Insa Koulissoret Diedhiou</div>
-                <div class="team-item-role">Technicien R&D</div>
-              </div>
-            </div>
-            <div class="team-item-text">
-              Contribue aux essais R&D et à l’amélioration continue des produits et procédés.
-            </div>
-          </div>
-
-          <div class="team-item">
-            <div class="team-item-top">
-              <div class="team-avatar">
-                <img src="seyni-diedhiou.jpg" alt="Photo de Seyni Diedhiou">
-              </div>
-              <div>
-                <div class="team-item-name">Seyni Diedhiou</div>
-                <div class="team-item-role">Responsable HACCP / Food Safety</div>
-              </div>
-            </div>
-            <div class="team-item-text">
-              Met en œuvre le plan HACCP et veille à la sécurité sanitaire des aliments.
-            </div>
-          </div>
-
-          <div class="team-item">
-            <div class="team-item-top">
-              <div class="team-avatar">
-                <img src="directeur-usine.jpg" alt="Photo de Samba Ndiaye">
-              </div>
-              <div>
-                <div class="team-item-name">Samba Ndiaye</div>
-                <div class="team-item-role">Directeur d’usine</div>
-              </div>
-            </div>
-            <div class="team-item-text">
-              Dirige l’usine ORION FISH, supervise les opérations industrielles et coordonne les équipes
-              de production pour garantir performance et qualité.
-            </div>
-          </div>
-
-          <div class="team-item">
-            <div class="team-item-top">
-              <div class="team-avatar">
-                <img src="responsable-production.jpg" alt="Photo du Responsable production">
-              </div>
-              <div>
-                <div class="team-item-name">Responsable production</div>
-                <div class="team-item-role">Supervision des lignes de production</div>
-              </div>
-            </div>
-            <div class="team-item-text">
-              Organise les volumes, les rendements et la qualité sur les lignes de production.
             </div>
           </div>
         </div>
