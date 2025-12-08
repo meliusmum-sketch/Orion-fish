@@ -336,11 +336,12 @@
       box-shadow:
         0 0 0 1px rgba(15, 23, 42, 0.8),
         0 18px 42px rgba(15, 23, 42, 0.95);
+      transition: transform 0.15s, box-shadow 0.15s;
     }
 
     .team-feature-avatar {
-      width: 54px;
-      height: 54px;
+      width: 72px;
+      height: 72px;
       border-radius: 999px;
       overflow: hidden;
       border: 2px solid rgba(250, 204, 21, 0.95);
@@ -353,6 +354,18 @@
       height: 100%;
       object-fit: cover;
       display: block;
+      transition: transform 0.15s;
+    }
+
+    .team-feature-card:hover {
+      transform: translateY(-2px);
+      box-shadow:
+        0 0 0 1px rgba(250, 204, 21, 0.3),
+        0 22px 50px rgba(15, 23, 42, 0.95);
+    }
+
+    .team-feature-card:hover .team-feature-avatar img {
+      transform: scale(1.06);
     }
 
     .team-feature-label {
@@ -797,7 +810,9 @@
         <div class="team-feature">
           <div class="team-feature-card">
             <div class="team-feature-avatar">
-              <img src="amadou-mballo.jpg.png" alt="Photo de Amadou Mballo">
+              <a href="amadou-mballo.jpg.png" target="_blank" class="clickable-image">
+                <img src="amadou-mballo.jpg.png" alt="Photo de Amadou Mballo">
+              </a>
             </div>
             <div>
               <div class="team-feature-label">Direction générale</div>
