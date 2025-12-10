@@ -6,14 +6,14 @@
   <title>ORION FISH – Produits de la mer & Jus de fruits</title>
   <style>
     :root {
-      --marine: #020617;        /* bleu très foncé qui tire vers le noir */
-      --marine-mid: #1e293b;    /* bleu marine intermédiaire */
-      --marine-soft: #334155;   /* bleu gris doux */
+      --marine: #020617;
+      --marine-mid: #1e293b;
+      --marine-soft: #334155;
       --marine-light: #e5e7eb;
       --orange: #f97316;
       --orange-soft: #ffedd5;
       --gold-soft: #facc15;
-      --card: #020617;          /* cartes foncées */
+      --card: #020617;
       --card-border: #1f2937;
       --text-main: #e5e7eb;
       --text-muted: #9ca3af;
@@ -38,7 +38,6 @@
       text-decoration: none;
     }
 
-    /* HEADER */
     header {
       position: sticky;
       top: 0;
@@ -96,7 +95,7 @@
       transform: translateY(-1px);
     }
 
-    /* LAYOUT GLOBAL : 3 COLONNES (GAUCHE / CENTRE / DROITE) */
+    /* LAYOUT 3 COLONNES */
     .page-shell {
       max-width: 1400px;
       margin: 0 auto;
@@ -107,7 +106,6 @@
       align-items: flex-start;
     }
 
-    /* COLONNES LATÉRALES POUR L’ÉQUIPE (BANDES BLEUES) */
     .side-column {
       display: flex;
       flex-direction: column;
@@ -132,7 +130,6 @@
       margin-bottom: 0.3rem;
     }
 
-    /* MAIN (COLONNE CENTRALE) */
     main {
       padding: 0;
     }
@@ -307,7 +304,6 @@
       opacity: 0.8;
     }
 
-    /* HERO PHOTOS */
     .hero-photos {
       display: flex;
       gap: 0.6rem;
@@ -334,7 +330,7 @@
       cursor: zoom-in;
     }
 
-    /* CARTES ÉQUIPE (UTILISÉES DANS LES COLONNES LATÉRALES) */
+    /* ÉQUIPE */
     .team-feature-card {
       display: flex;
       align-items: center;
@@ -344,7 +340,7 @@
       background: radial-gradient(circle at top left,
         rgba(250, 250, 249, 0.06),
         rgba(146, 64, 14, 0.25));
-      border: 1px solid rgba(245, 208, 117, 0.95); /* contour sable doré */
+      border: 1px solid rgba(245, 208, 117, 0.95);
       box-shadow:
         0 0 0 1px rgba(15, 23, 42, 0.8),
         0 18px 42px rgba(15, 23, 42, 0.95);
@@ -449,7 +445,7 @@
       color: var(--marine-light);
     }
 
-    /* GRIDS / CARDS */
+    /* GRIDS */
     .grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -498,7 +494,6 @@
       box-shadow: 0 10px 26px rgba(15, 23, 42, 0.8);
     }
 
-    /* A PROPOS */
     .apropos-grid {
       display: grid;
       grid-template-columns: 2fr 2fr;
@@ -520,7 +515,6 @@
       opacity: 0.6;
     }
 
-    /* GALERIE */
     .galerie-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -551,7 +545,6 @@
       background: #020617;
     }
 
-    /* CONTACT */
     form {
       display: grid;
       gap: 1rem;
@@ -602,7 +595,6 @@
       color: var(--text-muted);
     }
 
-    /* RESPONSIVE */
     @media (max-width: 1024px) {
       .page-shell {
         display: block;
@@ -688,7 +680,6 @@
   <header>
     <div class="nav-container">
       <div class="logo">
-        <!-- Logo SVG -->
         <svg class="logo-icon" viewBox="0 0 40 40" aria-hidden="true">
           <defs>
             <linearGradient id="logoSea" x1="0" y1="0" x2="1" y2="1">
@@ -701,15 +692,12 @@
             </linearGradient>
           </defs>
           <circle cx="20" cy="20" r="19" fill="url(#logoSea)" />
-          <!-- vague -->
           <path d="M4 22 C10 18, 16 26, 22 22 C27 18, 33 24, 36 21"
                 fill="none" stroke="#e5e7eb" stroke-width="2" stroke-linecap="round" />
-          <!-- poisson -->
           <path d="M13 18 C17 14, 23 14, 26 18 C23 22, 17 22, 13 18 Z"
                 fill="#e5e7eb" opacity="0.9" />
           <circle cx="17" cy="17.5" r="0.9" fill="#0b1120" />
           <path d="M26 18 L30 15 L30 21 Z" fill="#e5e7eb" opacity="0.9" />
-          <!-- soleil -->
           <circle cx="29" cy="11" r="4" fill="url(#logoSun)" />
         </svg>
         <span>ORION FISH</span>
@@ -727,9 +715,8 @@
     </div>
   </header>
 
-  <!-- 3 COLONNES : GAUCHE (ÉQUIPE) / CENTRE (SITE) / DROITE (ÉQUIPE + DG) -->
   <div class="page-shell">
-    <!-- COLONNE GAUCHE : ÉQUIPE (PARTIE DES MEMBRES) -->
+    <!-- COLONNE GAUCHE -->
     <aside class="side-column side-left">
       <div class="side-column-sep"></div>
       <div class="side-column-title">Équipe ORION FISH</div>
@@ -767,7 +754,7 @@
       <div class="team-item">
         <div class="team-item-top">
           <div class="team-avatar">
-            <img src="ndeye-fatou-wade.jpg" alt="Photo de Ndèye Fatou Wade">
+            <img src="ndeye-fatou-wade.png" alt="Photo de Ndèye Fatou Wade">
           </div>
           <div>
             <div class="team-item-name">Ndèye Fatou Wade</div>
@@ -782,7 +769,7 @@
       <div class="team-item">
         <div class="team-item-top">
           <div class="team-avatar">
-            <img src="idy-ka.jpg" alt="Photo de Idy KA">
+            <img src="idy-ka.png" alt="Photo de Idy KA">
           </div>
           <div>
             <div class="team-item-name">Idy KA</div>
@@ -812,7 +799,7 @@
       <div class="team-item">
         <div class="team-item-top">
           <div class="team-avatar">
-            <img src="emilie-diatta.jpg" alt="Photo de Emilie Diatta">
+            <img src="IMG-20251208-WA0039.jpg" alt="Photo de Emilie Diatta">
           </div>
           <div>
             <div class="team-item-name">Emilie Diatta</div>
@@ -827,7 +814,7 @@
       <div class="team-item">
         <div class="team-item-top">
           <div class="team-avatar">
-            <img src="mamadou-hady-diallo.jpg" alt="Photo de Mamadou Hady Diallo">
+            <img src="Babacar.png" alt="Photo de Mamadou Hady Diallo">
           </div>
           <div>
             <div class="team-item-name">Mamadou Hady Diallo</div>
@@ -855,9 +842,8 @@
       </div>
     </aside>
 
-    <!-- COLONNE CENTRALE : SITE ORION FISH -->
+    <!-- COLONNE CENTRALE -->
     <main>
-      <!-- ACCUEIL -->
       <section id="accueil">
         <div>
           <div class="pill">
@@ -882,7 +868,6 @@
         <div class="hero-card">
           <div class="hero-card-inner">
             <div class="hero-photos">
-              <!-- PHOTO 1 : poissons frais -->
               <a href="hero-poissons-frais.jpg.png" target="_blank" class="clickable-image">
                 <img
                   src="hero-poissons-frais.jpg.png"
@@ -890,7 +875,6 @@
                   class="hero-img"
                 />
               </a>
-              <!-- PHOTO 2 : jus de fruits -->
               <a href="hero-jus-fruits.jpg" target="_blank" class="clickable-image">
                 <img
                   src="hero-jus-fruits.jpg"
@@ -919,7 +903,6 @@
         </div>
       </section>
 
-      <!-- A PROPOS -->
       <section id="apropos">
         <h2>À propos d’ORION FISH</h2>
         <div class="apropos-grid">
@@ -947,7 +930,6 @@
         </div>
       </section>
 
-      <!-- PRODUITS DE LA MER -->
       <section id="mer">
         <h2>Produits de la mer</h2>
         <p>
@@ -989,7 +971,6 @@
         </div>
       </section>
 
-      <!-- JUS DE FRUITS -->
       <section id="jus">
         <h2>Transformation de fruits en jus</h2>
         <p>
@@ -1031,7 +1012,6 @@
         </div>
       </section>
 
-      <!-- GALERIE PHOTOS -->
       <section id="galerie">
         <h2>Photos d’ORION FISH</h2>
         <p class="muted">
@@ -1059,7 +1039,6 @@
         </div>
       </section>
 
-      <!-- CONTACT -->
       <section id="contact">
         <h2>Contact</h2>
         <p>
@@ -1074,8 +1053,6 @@
           <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a>.
         </p>
 
-        <!-- Formulaire via FormSubmit (gratuit) -->
-        <!-- ⚠️ Remplace contact@orionsfish.com par TON e-mail réel -->
         <form action="https://formsubmit.co/contact@orionsfish.com" method="POST">
           <input type="hidden" name="_captcha" value="false">
 
@@ -1100,9 +1077,8 @@
       </section>
     </main>
 
-    <!-- COLONNE DROITE : DG + AUTRES MEMBRES -->
+    <!-- COLONNE DROITE -->
     <aside class="side-column side-right">
-      <!-- Directeur Général en haut à droite -->
       <div class="team-feature-card">
         <div class="team-feature-avatar">
           <a href="amadou-mballo.jpg.png" target="_blank" class="clickable-image">
@@ -1155,7 +1131,7 @@
       <div class="team-item">
         <div class="team-item-top">
           <div class="team-avatar">
-            <img src="ousmane-diop.jpg" alt="Photo de Ousmane Diop">
+            <img src="ousmane-diop.png" alt="Photo de Ousmane Diop">
           </div>
           <div>
             <div class="team-item-name">Ousmane Diop</div>
@@ -1185,7 +1161,7 @@
       <div class="team-item">
         <div class="team-item-top">
           <div class="team-avatar">
-            <img src="insa-koulissoret-diedhiou.jpg" alt="Photo de Insa Koulissoret Diedhiou">
+            <img src="IMG-20251208-WA0039.jpg" alt="Photo de Insa Koulissoret Diedhiou">
           </div>
           <div>
             <div class="team-item-name">Insa Koulissoret Diedhiou</div>
@@ -1200,7 +1176,7 @@
       <div class="team-item">
         <div class="team-item-top">
           <div class="team-avatar">
-            <img src="seyni-diedhiou.jpg" alt="Photo de Seyni Diedhiou">
+            <img src="Bodian.png" alt="Photo de Seyni Diedhiou">
           </div>
           <div>
             <div class="team-item-name">Seyni Diedhiou</div>
@@ -1215,7 +1191,7 @@
       <div class="team-item">
         <div class="team-item-top">
           <div class="team-avatar">
-            <img src="directeur-usine.jpg" alt="Photo de Samba Ndiaye">
+            <img src="Babacar.png" alt="Photo de Samba Ndiaye">
           </div>
           <div>
             <div class="team-item-name">Samba Ndiaye</div>
@@ -1231,7 +1207,7 @@
       <div class="team-item">
         <div class="team-item-top">
           <div class="team-avatar">
-            <img src="responsable-production.jpg" alt="Photo du Responsable production">
+            <img src="Bodian.png" alt="Photo du Responsable production">
           </div>
           <div>
             <div class="team-item-name">Responsable production</div>
