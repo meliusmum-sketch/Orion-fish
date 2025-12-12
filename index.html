@@ -39,22 +39,22 @@
       --card: #ffffff;
       --border: #e2e8f0;
 
-      /* BLEU (océan) */
-      --blue: #1d4ed8;
-      --blue-2: #0ea5e9;
+      /* BLEU (plus intense) */
+      --blue: #0b5fff;       /* plus punchy */
+      --blue-2: #06b6ff;     /* cyan plus vivant */
 
-      /* VERT (agriculture / fruits) */
-      --green: #16a34a;
-      --green-2: #22c55e;
+      /* VERT (plus intense) */
+      --green: #059669;      /* emerald */
+      --green-2: #22c55e;    /* green */
 
-      /* JAUNE (plage/soleil) */
-      --sun: #facc15;
+      /* JAUNE (plus intense) */
+      --sun: #fbbf24;
 
-      /* TEXTE (pas noir, bleu profond) */
-      --text: #0b2a4a;
+      /* TEXTE (bleu profond, pas noir) */
+      --text: #082a4a;
       --muted: #475569;
 
-      --shadow: 0 18px 40px rgba(2, 8, 23, 0.08);
+      --shadow: 0 18px 40px rgba(2, 8, 23, 0.10);
       --radius: 18px;
     }
 
@@ -64,10 +64,11 @@
       font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
       line-height: 1.6;
       color: var(--text);
+      /* Intensité +50% : opacités augmentées */
       background:
-        radial-gradient(circle at 8% 0%, rgba(29,78,216,.18), transparent 52%),
-        radial-gradient(circle at 92% 4%, rgba(34,197,94,.18), transparent 52%),
-        radial-gradient(circle at 50% 0%, rgba(250,204,21,.22), transparent 55%),
+        radial-gradient(circle at 8% 0%, rgba(11,95,255,.30), transparent 52%),
+        radial-gradient(circle at 92% 4%, rgba(34,197,94,.30), transparent 52%),
+        radial-gradient(circle at 50% 0%, rgba(251,191,36,.34), transparent 55%),
         var(--bg);
       min-height: 100vh;
     }
@@ -80,9 +81,9 @@
       position: sticky;
       top: 0;
       z-index: 10;
-      background: rgba(255,255,255,.86);
+      background: rgba(255,255,255,.90);
       backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(226,232,240,.9);
+      border-bottom: 1px solid rgba(226,232,240,.95);
     }
     .nav{
       max-width: 1100px;
@@ -120,7 +121,7 @@
     }
 
     .btn-lang{
-      border: 1px solid rgba(226,232,240,.9);
+      border: 1px solid rgba(226,232,240,.95);
       background: #ffffff;
       color: var(--text);
       padding: .45rem .75rem;
@@ -128,11 +129,11 @@
       font-weight: 900;
       cursor: pointer;
       transition: transform .12s, box-shadow .12s;
-      box-shadow: 0 8px 18px rgba(2, 8, 23, 0.06);
+      box-shadow: 0 10px 22px rgba(2, 8, 23, 0.08);
     }
     .btn-lang:hover{
       transform: translateY(-1px);
-      box-shadow: 0 12px 24px rgba(2, 8, 23, 0.08);
+      box-shadow: 0 14px 28px rgba(2, 8, 23, 0.10);
     }
 
     /* LAYOUT */
@@ -158,11 +159,13 @@
     /* HERO */
     .hero{
       padding: 2.2rem;
+      /* Intensité +50% : gradients plus marqués */
       background:
-        radial-gradient(circle at 10% 0%, rgba(14,165,233,.20), transparent 52%),
-        radial-gradient(circle at 90% 0%, rgba(34,197,94,.18), transparent 52%),
-        linear-gradient(180deg, #ffffff, rgba(255,255,255,.92));
-      border: 1px solid rgba(226,232,240,.95);
+        radial-gradient(circle at 10% 0%, rgba(6,182,255,.34), transparent 52%),
+        radial-gradient(circle at 90% 0%, rgba(34,197,94,.32), transparent 52%),
+        radial-gradient(circle at 50% 0%, rgba(251,191,36,.28), transparent 58%),
+        linear-gradient(180deg, #ffffff, rgba(255,255,255,.94));
+      border: 1px solid rgba(226,232,240,.98);
     }
     .hero-grid{
       display:grid;
@@ -170,27 +173,6 @@
       gap: 1.2rem;
       align-items: start;
     }
-
-    .pill-row{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:.8rem}
-    .pill{
-      display:inline-flex;
-      align-items:center;
-      gap:.45rem;
-      padding:.28rem .75rem;
-      border-radius:999px;
-      font-weight: 800;
-      font-size: .8rem;
-      border: 1px solid rgba(226,232,240,.95);
-      background: #fff;
-    }
-    .dot{
-      width: 9px;
-      height: 9px;
-      border-radius: 999px;
-    }
-    .dot.blue{background: var(--blue-2)}
-    .dot.green{background: var(--green)}
-    .dot.sun{background: var(--sun)}
 
     .cta{
       display:flex;
@@ -204,13 +186,17 @@
       border-radius:999px;
       font-weight: 900;
       font-size: .95rem;
-      border: 1px solid rgba(226,232,240,.95);
+      border: 1px solid rgba(226,232,240,.98);
       background: #fff;
       cursor:pointer;
-      transition: transform .12s, box-shadow .12s, background .12s;
-      box-shadow: 0 10px 22px rgba(2,8,23,.06);
+      transition: transform .12s, box-shadow .12s, filter .12s;
+      box-shadow: 0 12px 26px rgba(2,8,23,.08);
     }
-    .btn:hover{transform: translateY(-1px); box-shadow: 0 14px 28px rgba(2,8,23,.08)}
+    .btn:hover{
+      transform: translateY(-1px);
+      box-shadow: 0 16px 34px rgba(2,8,23,.10);
+      filter: saturate(1.08);
+    }
     .btn-primary{
       border-color: transparent;
       background: linear-gradient(90deg, var(--blue), var(--blue-2));
@@ -225,9 +211,9 @@
     .info-card{
       border-radius: 16px;
       padding: 1.1rem;
-      border: 1px solid rgba(226,232,240,.95);
+      border: 1px solid rgba(226,232,240,.98);
       background: #fff;
-      box-shadow: 0 16px 34px rgba(2,8,23,.06);
+      box-shadow: 0 18px 40px rgba(2,8,23,.08);
     }
     .info-title{
       font-weight: 950;
@@ -249,14 +235,15 @@
     .card{
       padding: 1.1rem;
       border-radius: 16px;
-      border: 1px solid rgba(226,232,240,.95);
+      border: 1px solid rgba(226,232,240,.98);
       background: #fff;
-      box-shadow: 0 14px 30px rgba(2,8,23,.05);
-      transition: transform .12s, box-shadow .12s;
+      box-shadow: 0 16px 34px rgba(2,8,23,.06);
+      transition: transform .12s, box-shadow .12s, filter .12s;
     }
     .card:hover{
       transform: translateY(-2px);
-      box-shadow: 0 18px 40px rgba(2,8,23,.08);
+      box-shadow: 0 22px 46px rgba(2,8,23,.10);
+      filter: saturate(1.06);
     }
     .label{
       display:inline-block;
@@ -264,12 +251,13 @@
       font-weight: 950;
       padding:.18rem .55rem;
       border-radius: 999px;
-      border: 1px solid rgba(226,232,240,.95);
+      border: 1px solid rgba(226,232,240,.98);
       margin-bottom: .6rem;
     }
-    .label.blue{background: rgba(14,165,233,.14); color: #075985}
-    .label.green{background: rgba(34,197,94,.14); color: #166534}
-    .label.sun{background: rgba(250,204,21,.25); color: #854d0e}
+    /* Intensité +50% sur les labels */
+    .label.blue{background: rgba(6,182,255,.26); color: #075985}
+    .label.green{background: rgba(34,197,94,.26); color: #166534}
+    .label.sun{background: rgba(251,191,36,.32); color: #854d0e}
 
     .list{margin-top:.45rem;padding-left:1.1rem}
     .list li{margin:.25rem 0;color:var(--muted)}
@@ -281,7 +269,7 @@
       width:100%;
       padding:.65rem .9rem;
       border-radius: 14px;
-      border: 1px solid rgba(203,213,225,.95);
+      border: 1px solid rgba(203,213,225,.98);
       background: #fff;
       color: var(--text);
       font: inherit;
@@ -289,8 +277,8 @@
     textarea{min-height:120px;resize:vertical}
     input:focus,textarea:focus{
       outline:none;
-      border-color: rgba(14,165,233,.85);
-      box-shadow: 0 0 0 3px rgba(14,165,233,.18);
+      border-color: rgba(6,182,255,.95);
+      box-shadow: 0 0 0 3px rgba(6,182,255,.22);
     }
     .two{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
 
@@ -301,7 +289,7 @@
       padding: 1.8rem 1.5rem;
       color: var(--muted);
       font-size: .88rem;
-      border-top: 1px solid rgba(226,232,240,.95);
+      border-top: 1px solid rgba(226,232,240,.98);
     }
     .footer a{text-decoration:underline;text-underline-offset:3px}
     .foot-links{
@@ -356,12 +344,6 @@
     <section id="accueil" class="hero">
       <div class="hero-grid">
         <div>
-          <div class="pill-row">
-            <span class="pill"><span class="dot blue"></span><span data-i18n="pill_ocean">Océan</span></span>
-            <span class="pill"><span class="dot green"></span><span data-i18n="pill_agri">Agriculture</span></span>
-            <span class="pill"><span class="dot sun"></span><span data-i18n="pill_sun">Plage & Soleil</span></span>
-          </div>
-
           <h1 data-i18n="h1">ORION FISH – Produits de la mer & jus de fruits</h1>
           <p class="muted" data-i18n="hero_sub">
             Produits de la mer, transformation de fruits en jus, vente et distribution au service des marchés locaux et internationaux.
@@ -408,7 +390,7 @@
 
       <div class="grid">
         <div class="card">
-          <span class="label blue" data-i18n="sea_l1">Océan</span>
+          <span class="label blue" data-i18n="sea_l1">Gamme</span>
           <strong data-i18n="sea_t1">Frais & surgelé</strong>
           <ul class="list">
             <li data-i18n="sea_b1">Formats B2B</li>
@@ -418,7 +400,7 @@
         </div>
 
         <div class="card">
-          <span class="label sun" data-i18n="sea_l2">Plage</span>
+          <span class="label sun" data-i18n="sea_l2">Préparation</span>
           <strong data-i18n="sea_t2">Préparation & conditionnement</strong>
           <ul class="list">
             <li data-i18n="sea_b4">Hygiène & contrôles</li>
@@ -428,7 +410,7 @@
         </div>
 
         <div class="card">
-          <span class="label blue" data-i18n="sea_l3">Export</span>
+          <span class="label blue" data-i18n="sea_l3">Logistique</span>
           <strong data-i18n="sea_t3">Expédition</strong>
           <ul class="list">
             <li data-i18n="sea_b7">Délais & suivi</li>
@@ -445,7 +427,7 @@
 
       <div class="grid">
         <div class="card">
-          <span class="label green" data-i18n="j_l1">Agriculture</span>
+          <span class="label green" data-i18n="j_l1">Sélection</span>
           <strong data-i18n="j_t1">Fruits choisis</strong>
           <ul class="list">
             <li data-i18n="j_b1">Qualité & maturité</li>
@@ -455,7 +437,7 @@
         </div>
 
         <div class="card">
-          <span class="label green" data-i18n="j_l2">Transformation</span>
+          <span class="label green" data-i18n="j_l2">Process</span>
           <strong data-i18n="j_t2">Tri, lavage, pressage</strong>
           <ul class="list">
             <li data-i18n="j_b4">Recettes sur demande</li>
@@ -559,8 +541,6 @@
         nav_home:"Accueil", nav_about:"À propos", nav_sea:"Produits de la mer", nav_juice:"Fruits & jus",
         nav_rfq:"RFQ / Devis", nav_docs:"Documents", nav_team:"Team", nav_contact:"Contact", nav_legal:"Mentions",
 
-        pill_ocean:"Océan", pill_agri:"Agriculture", pill_sun:"Plage & Soleil",
-
         h1:"ORION FISH – Produits de la mer & jus de fruits",
         hero_sub:"Produits de la mer, transformation de fruits en jus, vente et distribution au service des marchés locaux et internationaux.",
         hero_p:"Nous accompagnons distributeurs, industriels et professionnels avec des solutions fiables, tracées et conformes aux exigences.",
@@ -582,13 +562,13 @@
         about_p2:"Notre ambition : développer des filières durables et compétitives, adaptées aux besoins B2B.",
 
         sea_h2:"Produits de la mer", sea_p:"Collecte, transformation, conditionnement et distribution.",
-        sea_l1:"Océan", sea_t1:"Frais & surgelé", sea_b1:"Formats B2B", sea_b2:"Traçabilité par lots", sea_b3:"Chaîne du froid",
-        sea_l2:"Plage", sea_t2:"Préparation & conditionnement", sea_b4:"Hygiène & contrôles", sea_b5:"Étiquetage", sea_b6:"Cahier des charges",
-        sea_l3:"Export", sea_t3:"Expédition", sea_b7:"Délais & suivi", sea_b8:"Documents sur demande", sea_b9:"Incoterms",
+        sea_l1:"Gamme", sea_t1:"Frais & surgelé", sea_b1:"Formats B2B", sea_b2:"Traçabilité par lots", sea_b3:"Chaîne du froid",
+        sea_l2:"Préparation", sea_t2:"Préparation & conditionnement", sea_b4:"Hygiène & contrôles", sea_b5:"Étiquetage", sea_b6:"Cahier des charges",
+        sea_l3:"Logistique", sea_t3:"Expédition", sea_b7:"Délais & suivi", sea_b8:"Documents sur demande", sea_b9:"Incoterms",
 
         juice_h2:"Fruits & jus", juice_p:"Sélection, transformation et conditionnement selon marché.",
-        j_l1:"Agriculture", j_t1:"Fruits choisis", j_b1:"Qualité & maturité", j_b2:"Approvisionnement", j_b3:"Traçabilité",
-        j_l2:"Transformation", j_t2:"Tri, lavage, pressage", j_b4:"Recettes sur demande", j_b5:"Contrôles qualité", j_b6:"Conformité",
+        j_l1:"Sélection", j_t1:"Fruits choisis", j_b1:"Qualité & maturité", j_b2:"Approvisionnement", j_b3:"Traçabilité",
+        j_l2:"Process", j_t2:"Tri, lavage, pressage", j_b4:"Recettes sur demande", j_b5:"Contrôles qualité", j_b6:"Conformité",
         j_l3:"Marché", j_t3:"B2B / B2C", j_b7:"Formats adaptés", j_b8:"Étiquetage", j_b9:"Support export",
 
         contact_h2:"Contact", contact_p1:"Pour toute demande d’information ou partenariat, contactez-nous.",
@@ -599,8 +579,6 @@
       en:{
         nav_home:"Home", nav_about:"About", nav_sea:"Seafood", nav_juice:"Fruits & Juices",
         nav_rfq:"RFQ / Quotation", nav_docs:"Documents", nav_team:"Team", nav_contact:"Contact", nav_legal:"Legal",
-
-        pill_ocean:"Ocean", pill_agri:"Agriculture", pill_sun:"Beach & Sun",
 
         h1:"ORION FISH – Seafood & fruit juices",
         hero_sub:"Seafood products and fruit juice processing for local and international markets.",
@@ -623,13 +601,13 @@
         about_p2:"Our goal: sustainable and competitive supply chains designed for B2B needs.",
 
         sea_h2:"Seafood", sea_p:"Sourcing, processing, packaging and distribution.",
-        sea_l1:"Ocean", sea_t1:"Fresh & Frozen", sea_b1:"B2B formats", sea_b2:"Batch traceability", sea_b3:"Cold chain",
-        sea_l2:"Beach", sea_t2:"Preparation & packaging", sea_b4:"Hygiene & controls", sea_b5:"Labeling", sea_b6:"Specifications",
-        sea_l3:"Export", sea_t3:"Shipment", sea_b7:"Lead time & tracking", sea_b8:"Docs on request", sea_b9:"Incoterms",
+        sea_l1:"Range", sea_t1:"Fresh & Frozen", sea_b1:"B2B formats", sea_b2:"Batch traceability", sea_b3:"Cold chain",
+        sea_l2:"Preparation", sea_t2:"Preparation & packaging", sea_b4:"Hygiene & controls", sea_b5:"Labeling", sea_b6:"Specifications",
+        sea_l3:"Logistics", sea_t3:"Shipment", sea_b7:"Lead time & tracking", sea_b8:"Docs on request", sea_b9:"Incoterms",
 
         juice_h2:"Fruits & juices", juice_p:"Selection, processing and packaging depending on the market.",
-        j_l1:"Agriculture", j_t1:"Selected fruits", j_b1:"Quality & maturity", j_b2:"Supply", j_b3:"Traceability",
-        j_l2:"Processing", j_t2:"Sorting, washing, pressing", j_b4:"Recipes on request", j_b5:"Quality checks", j_b6:"Compliance",
+        j_l1:"Selection", j_t1:"Selected fruits", j_b1:"Quality & maturity", j_b2:"Supply", j_b3:"Traceability",
+        j_l2:"Process", j_t2:"Sorting, washing, pressing", j_b4:"Recipes on request", j_b5:"Quality checks", j_b6:"Compliance",
         j_l3:"Market", j_t3:"B2B / B2C", j_b7:"Adapted formats", j_b8:"Labeling", j_b9:"Export support",
 
         contact_h2:"Contact", contact_p1:"For information or partnerships, contact us.",
