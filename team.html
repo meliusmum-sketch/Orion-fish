@@ -7,6 +7,12 @@
   <meta name="description" content="Équipe ORION FISH – Direction, opérations, qualité, R&D, marketing et support." />
   <meta name="robots" content="index,follow" />
 
+  <script>
+    if (location.protocol === "http:" && location.hostname !== "localhost") {
+      location.replace("https://" + location.host + location.pathname + location.search + location.hash);
+    }
+  </script>
+
   <style>
     :root{
       --bg:#020617; --card:#020617; --border:#1f2937;
@@ -119,6 +125,7 @@
         <ul>
           <li><a href="index.html" data-i18n="nav_home">Accueil</a></li>
           <li><a href="rfq.html" data-i18n="nav_rfq">RFQ / Devis</a></li>
+          <li><a href="compliance.html" data-i18n="nav_docs">Documents</a></li>
           <li><a href="team.html" data-i18n="nav_team">Team</a></li>
           <li><a href="index.html#contact" data-i18n="nav_contact">Contact</a></li>
           <li><button class="btn-lang" id="langBtn" type="button">EN</button></li>
@@ -235,8 +242,6 @@
       <strong>ORION FISH</strong><br>
       Rufisque, Sénégal — RC : <strong>010112051 SN.DKR.2023.B.9159</strong><br>
       Tel/WhatsApp : <a href="tel:+221339138392">+221339138392</a><br>
-      <a href="mailto:export@orionsfish.com">export@orionsfish.com</a> •
-      <a href="mailto:sales@orionsfish.com">sales@orionsfish.com</a> •
       <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a>
     </div>
     <div class="copy">© <span id="y"></span> ORION FISH</div>
@@ -245,7 +250,6 @@
   <script>
     document.getElementById("y").textContent = new Date().getFullYear();
 
-    // Filters
     const chips = [...document.querySelectorAll(".chip")];
     const members = [...document.querySelectorAll(".member")];
     chips.forEach(ch => ch.addEventListener("click", () => {
@@ -257,47 +261,46 @@
       });
     }));
 
-    // i18n minimal
     const dict = {
-      fr:{ nav_home:"Accueil", nav_rfq:"RFQ / Devis", nav_team:"Team", nav_contact:"Contact", title:"Team ORION FISH", sub:"Photos retirées : affichage en initiales (prénom + nom).",
-          f_all:"Tous", f_mgmt:"Direction", f_sales:"Commercial / Marketing", f_ops:"Opérations", f_quality:"Qualité / HACCP", f_support:"Support",
-          r_am:"Directeur Général", d_am:"Pilote la stratégie globale et l’alignement des activités mer & fruits.",
-          r_mk:"Gérant", d_mk:"Coordonne l’exécution opérationnelle des activités.",
-          r_sn:"Directeur d’usine", d_sn:"Supervise la production et la performance industrielle.",
-          r_sd:"Directeur Service Commercial", d_sd:"Développe le portefeuille clients et les partenariats.",
-          r_nfw:"Directrice Marketing / Clientèle", d_nfw:"Pilote le marketing, la communication et la relation clientèle.",
-          r_lb:"Opérateur de production", d_lb:"Participe aux opérations de transformation et conditionnement.",
-          r_isb:"Transport / distribution", d_isb:"Organise les livraisons et le respect des délais.",
-          r_od:"Responsable utilités", d_od:"Garantit la performance des installations (froid, vapeur, air, eau).",
-          r_mhd:"Chef d’équipe", d_mhd:"Encadre les équipes terrain.",
-          r_rp:"Supervision des lignes", d_rp:"Organise volumes, rendements et qualité sur les lignes.",
-          r_nad:"Traçabilité & réclamations", d_nad:"Assure la traçabilité et le suivi des réclamations.",
-          r_sed:"HACCP / Food Safety", d_sed:"Met en œuvre le plan HACCP et la sécurité alimentaire.",
-          r_ad:"Innovation", d_ad:"Pilote les projets d’innovation (produits & procédés).",
-          r_ikd:"Technicien R&D", d_ikd:"Contribue aux essais R&D et à l’amélioration continue.",
-          r_it:"Directeur RH", d_it:"Gère recrutement, formation et relations sociales.",
-          r_ed:"RAF", d_ed:"Supervise administratif, trésorerie et suivi financier.",
-          r_ik:"Informatique", d_ik:"Gère systèmes d’information et outils numériques."
+      fr:{ nav_home:"Accueil", nav_rfq:"RFQ / Devis", nav_docs:"Documents", nav_team:"Team", nav_contact:"Contact", title:"Team ORION FISH", sub:"Photos retirées : affichage en initiales (prénom + nom).",
+        f_all:"Tous", f_mgmt:"Direction", f_sales:"Commercial / Marketing", f_ops:"Opérations", f_quality:"Qualité / HACCP", f_support:"Support",
+        r_am:"Directeur Général", d_am:"Pilote la stratégie globale et l’alignement des activités mer & fruits.",
+        r_mk:"Gérant", d_mk:"Coordonne l’exécution opérationnelle des activités.",
+        r_sn:"Directeur d’usine", d_sn:"Supervise la production et la performance industrielle.",
+        r_sd:"Directeur Service Commercial", d_sd:"Développe le portefeuille clients et les partenariats.",
+        r_nfw:"Directrice Marketing / Clientèle", d_nfw:"Pilote le marketing, la communication et la relation clientèle.",
+        r_lb:"Opérateur de production", d_lb:"Participe aux opérations de transformation et conditionnement.",
+        r_isb:"Transport / distribution", d_isb:"Organise les livraisons et le respect des délais.",
+        r_od:"Responsable utilités", d_od:"Garantit la performance des installations (froid, vapeur, air, eau).",
+        r_mhd:"Chef d’équipe", d_mhd:"Encadre les équipes terrain.",
+        r_rp:"Supervision des lignes", d_rp:"Organise volumes, rendements et qualité sur les lignes.",
+        r_nad:"Traçabilité & réclamations", d_nad:"Assure la traçabilité et le suivi des réclamations.",
+        r_sed:"HACCP / Food Safety", d_sed:"Met en œuvre le plan HACCP et la sécurité alimentaire.",
+        r_ad:"Innovation", d_ad:"Pilote les projets d’innovation (produits & procédés).",
+        r_ikd:"Technicien R&D", d_ikd:"Contribue aux essais R&D et à l’amélioration continue.",
+        r_it:"Directeur RH", d_it:"Gère recrutement, formation et relations sociales.",
+        r_ed:"RAF", d_ed:"Supervise administratif, trésorerie et suivi financier.",
+        r_ik:"Informatique", d_ik:"Gère systèmes d’information et outils numériques."
       },
-      en:{ nav_home:"Home", nav_rfq:"RFQ / Quotation", nav_team:"Team", nav_contact:"Contact", title:"ORION FISH Team", sub:"Photos removed: initials display (first name + last name).",
-          f_all:"All", f_mgmt:"Management", f_sales:"Sales / Marketing", f_ops:"Operations", f_quality:"Quality / HACCP", f_support:"Support",
-          r_am:"CEO / General Manager", d_am:"Leads overall strategy and alignment of seafood & fruits activities.",
-          r_mk:"Operations Manager", d_mk:"Coordinates daily operations.",
-          r_sn:"Plant Manager", d_sn:"Oversees production and industrial performance.",
-          r_sd:"Sales Director", d_sd:"Develops customer portfolio and partnerships.",
-          r_nfw:"Marketing / Customer Director", d_nfw:"Leads marketing, communication and customer relations.",
-          r_lb:"Production operator", d_lb:"Supports processing and packaging operations.",
-          r_isb:"Transport / distribution", d_isb:"Organizes deliveries and lead times.",
-          r_od:"Utilities manager", d_od:"Ensures utilities performance (cold, steam, air, water).",
-          r_mhd:"Team leader", d_mhd:"Supervises field teams.",
-          r_rp:"Production supervision", d_rp:"Manages volumes, yields and quality on lines.",
-          r_nad:"Traceability & claims", d_nad:"Ensures traceability and customer claims follow-up.",
-          r_sed:"HACCP / Food Safety", d_sed:"Implements HACCP plan and food safety.",
-          r_ad:"Innovation", d_ad:"Leads innovation projects (products & processes).",
-          r_ikd:"R&D Technician", d_ikd:"Contributes to R&D trials and continuous improvement.",
-          r_it:"HR Director", d_it:"Manages recruitment, training and social relations.",
-          r_ed:"Admin & Finance", d_ed:"Oversees administration, cash management and finance follow-up.",
-          r_ik:"IT", d_ik:"Manages information systems and digital tools."
+      en:{ nav_home:"Home", nav_rfq:"RFQ / Quotation", nav_docs:"Documents", nav_team:"Team", nav_contact:"Contact", title:"ORION FISH Team", sub:"Photos removed: initials display (first name + last name).",
+        f_all:"All", f_mgmt:"Management", f_sales:"Sales / Marketing", f_ops:"Operations", f_quality:"Quality / HACCP", f_support:"Support",
+        r_am:"CEO / General Manager", d_am:"Leads overall strategy and alignment of seafood & fruits activities.",
+        r_mk:"Operations Manager", d_mk:"Coordinates daily operations.",
+        r_sn:"Plant Manager", d_sn:"Oversees production and industrial performance.",
+        r_sd:"Sales Director", d_sd:"Develops customer portfolio and partnerships.",
+        r_nfw:"Marketing / Customer Director", d_nfw:"Leads marketing, communication and customer relations.",
+        r_lb:"Production operator", d_lb:"Supports processing and packaging operations.",
+        r_isb:"Transport / distribution", d_isb:"Organizes deliveries and lead times.",
+        r_od:"Utilities manager", d_od:"Ensures utilities performance (cold, steam, air, water).",
+        r_mhd:"Team leader", d_mhd:"Supervises field teams.",
+        r_rp:"Production supervision", d_rp:"Manages volumes, yields and quality on lines.",
+        r_nad:"Traceability & claims", d_nad:"Ensures traceability and customer claims follow-up.",
+        r_sed:"HACCP / Food Safety", d_sed:"Implements HACCP plan and food safety.",
+        r_ad:"Innovation", d_ad:"Leads innovation projects (products & processes).",
+        r_ikd:"R&D Technician", d_ikd:"Contributes to R&D trials and continuous improvement.",
+        r_it:"HR Director", d_it:"Manages recruitment, training and social relations.",
+        r_ed:"Admin & Finance", d_ed:"Oversees administration, cash management and finance follow-up.",
+        r_ik:"IT", d_ik:"Manages information systems and digital tools."
       }
     };
 
