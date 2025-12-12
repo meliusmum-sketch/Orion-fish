@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RFQ / Devis – ORION FISH</title>
+  <meta name="description" content="Demande de devis (RFQ) – ORION FISH. Indiquez produit, quantité, packaging, destination, incoterm et délai." />
+  <meta name="robots" content="index,follow" />
+
+  <style>
+    :root{
+      --bg:#020617; --card:#020617; --border:#1f2937;
+      --text:#e5e7eb; --muted:#9ca3af; --accent:#f97316; --accent2:#60a5fa;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      line-height:1.6;color:var(--text);
+      background:radial-gradient(circle at top left,#1d4ed8,var(--bg) 65%);
+      min-height:100vh;
+    }
+    a{color:inherit;text-decoration:none}
+    .muted{color:var(--muted)}
+    header{
+      position:sticky;top:0;z-index:10;
+      background:rgba(2,6,23,.96);
+      backdrop-filter:blur(8px);
+      border-bottom:1px solid rgba(148,163,184,.35);
+    }
+    .nav{
+      max-width:1100px;margin:0 auto;padding:.8rem 1.5rem;
+      display:flex;align-items:center;justify-content:space-between;gap:1rem;
+    }
+    .logo{font-weight:900;letter-spacing:.18em;text-transform:uppercase;font-size:.95rem;white-space:nowrap}
+    nav ul{list-style:none;display:flex;flex-wrap:wrap;gap:1rem;align-items:center;font-size:.9rem}
+    nav a{opacity:.85;transition:opacity .15s,transform .15s}
+    nav a:hover{opacity:1;transform:translateY(-1px)}
+    .btn-lang{
+      border:1px solid rgba(148,163,184,.6);
+      background:rgba(15,23,42,.7);
+      color:var(--text);
+      padding:.45rem .75rem;border-radius:999px;
+      font-weight:900;cursor:pointer;
+    }
+
+    .container{max-width:1100px;margin:0 auto;padding:1.5rem 1.5rem 2.5rem}
+    section{
+      margin:1.8rem 0;padding:2rem;
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:1.5rem;
+      box-shadow:0 18px 45px rgba(15,23,42,.6);
+    }
+    h1{font-size:2.0rem;margin-bottom:.6rem}
+    h2{font-size:1.25rem;margin-top:1.2rem;margin-bottom:.6rem}
+
+    .box{
+      border:1px solid rgba(148,163,184,.25);
+      background:rgba(15,23,42,.55);
+      border-radius:1.2rem;
+      padding:1.1rem;
+      margin-top:1rem;
+    }
+
+    form{display:grid;gap:1rem;margin-top:1rem}
+    label{font-size:.88rem;font-weight:900;margin-bottom:.2rem;display:inline-block}
+    input,textarea,select{
+      width:100%;
+      padding:.6rem .85rem;
+      border-radius:.75rem;
+      border:1px solid #4b5563;
+      background:#020617;
+      color:var(--text);
+      font:inherit;
+    }
+    textarea{min-height:130px;resize:vertical}
+    input:focus,textarea:focus,select:focus{
+      outline:none;border-color:var(--accent2);
+      box-shadow:0 0 0 1px rgba(37,99,235,.5);
+    }
+    .two{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+
+    .btn{
+      display:inline-block;
+      padding:.75rem 1.2rem;border-radius:999px;
+      font-weight:900;font-size:.95rem;
+      border:1px solid rgba(148,163,184,.55);
+      background:transparent;color:var(--text);
+      cursor:pointer;
+      transition:transform .12s,background .12s;
+      width:fit-content;
+    }
+    .btn:hover{transform:translateY(-1px);background:rgba(15,23,42,.7)}
+    .btn-primary{
+      border-color:transparent;
+      background:var(--accent);
+      color:#111827;
+      box-shadow:0 10px 24px rgba(248,113,113,.25);
+    }
+    .btn-primary:hover{background:#ea580c}
+
+    .footer{
+      max-width:1100px;margin:0 auto;padding:1.8rem 1.5rem;
+      color:var(--muted);font-size:.85rem;
+      border-top:1px solid rgba(148,163,184,.35);
+    }
+    .footer a{text-decoration:underline;text-underline-offset:3px}
+    .copy{text-align:center;margin-top:.9rem}
+
+    @media (max-width:1024px){
+      .container{padding:1.5rem 1rem 2.5rem}
+      .two{grid-template-columns:1fr}
+      section{padding:1.6rem}
+    }
+    @media (max-width:640px){
+      .nav{flex-direction:column;align-items:flex-start;gap:.5rem}
+      nav ul{justify-content:flex-start}
+      section{padding:1.4rem}
+      h1{font-size:1.6rem}
+      .copy{text-align:left}
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="nav">
+      <div class="logo">ORION FISH</div>
+      <nav>
+        <ul>
+          <li><a href="index.html" data-i18n="nav_home">Accueil</a></li>
+          <li><a href="rfq.html" data-i18n="nav_rfq">RFQ / Devis</a></li>
+          <li><a href="team.html" data-i18n="nav_team">Team</a></li>
+          <li><a href="index.html#contact" data-i18n="nav_contact">Contact</a></li>
+          <li><button class="btn-lang" id="langBtn" type="button">EN</button></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section>
+      <h1 data-i18n="title">RFQ / Demande de devis</h1>
+      <p class="muted" data-i18n="sub">
+        Remplissez ce formulaire pour recevoir une cotation rapide. Plus c’est précis, plus la réponse est rapide.
+      </p>
+
+      <div class="box">
+        <strong data-i18n="contact_title">Contact direct</strong>
+        <p class="muted" style="margin-top:.5rem;margin-bottom:0;">
+          Email : <a href="mailto:export@orionsfish.com">export@orionsfish.com</a><br>
+          Tel/WhatsApp : <a href="tel:+221339138392">+221339138392</a>
+        </p>
+      </div>
+
+      <form action="https://formsubmit.co/export@orionsfish.com" method="POST">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="text" name="_honey" style="display:none">
+        <input type="hidden" name="_subject" value="RFQ – ORION FISH (site web)">
+
+        <div class="two">
+          <div>
+            <label for="company" data-i18n="f_company">Entreprise</label>
+            <input id="company" name="Entreprise" type="text" required placeholder="Company name" />
+          </div>
+          <div>
+            <label for="name" data-i18n="f_name">Nom</label>
+            <input id="name" name="Nom" type="text" required placeholder="Your name" />
+          </div>
+        </div>
+
+        <div class="two">
+          <div>
+            <label for="email" data-i18n="f_email">E-mail</label>
+            <input id="email" name="Email" type="email" required placeholder="name@company.com" />
+          </div>
+          <div>
+            <label for="phone" data-i18n="f_phone">Téléphone</label>
+            <input id="phone" name="Téléphone" type="tel" placeholder="+221 ..." />
+          </div>
+        </div>
+
+        <div class="two">
+          <div>
+            <label for="category" data-i18n="f_cat">Catégorie</label>
+            <select id="category" name="Catégorie" required>
+              <option value="" selected disabled>—</option>
+              <option value="Seafood">Produits de la mer</option>
+              <option value="Juices">Fruits & jus</option>
+              <option value="Other">Autre</option>
+            </select>
+          </div>
+          <div>
+            <label for="product" data-i18n="f_product">Produit demandé</label>
+            <input id="product" name="Produit" type="text" required placeholder="Ex: fish fillet / mango juice..." />
+          </div>
+        </div>
+
+        <div class="two">
+          <div>
+            <label for="spec" data-i18n="f_spec">Spécifications</label>
+            <input id="spec" name="Spécifications" type="text" placeholder="Espèce / grade / brix / format / etc." />
+          </div>
+          <div>
+            <label for="pack" data-i18n="f_pack">Packaging</label>
+            <input id="pack" name="Packaging" type="text" placeholder="Ex: cartons 10kg / bottles 1L..." />
+          </div>
+        </div>
+
+        <div class="two">
+          <div>
+            <label for="qty" data-i18n="f_qty">Quantité</label>
+            <input id="qty" name="Quantité" type="text" required placeholder="Ex: 1 container / 5 tons / 10,000 bottles..." />
+          </div>
+          <div>
+            <label for="lead" data-i18n="f_lead">Délai souhaité</label>
+            <input id="lead" name="Délai" type="text" placeholder="Ex: ASAP / March 2026..." />
+          </div>
+        </div>
+
+        <div class="two">
+          <div>
+            <label for="destination" data-i18n="f_dest">Destination (pays / port / ville)</label>
+            <input id="destination" name="Destination" type="text" required placeholder="Ex: Rotterdam, NL" />
+          </div>
+          <div>
+            <label for="incoterm" data-i18n="f_incoterm">Incoterm</label>
+            <select id="incoterm" name="Incoterm" required>
+              <option value="" selected disabled>—</option>
+              <option value="EXW">EXW</option>
+              <option value="FOB">FOB</option>
+              <option value="CIF">CIF</option>
+              <option value="DAP">DAP</option>
+              <option value="Other">Autre</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label for="message" data-i18n="f_msg">Détails / exigences</label>
+          <textarea id="message" name="Message" placeholder="Normes, certifications, étiquetage, documents, contraintes, etc."></textarea>
+        </div>
+
+        <button class="btn btn-primary" type="submit" data-i18n="f_send">Envoyer la demande RFQ</button>
+      </form>
+
+      <h2 data-i18n="tips_title">Conseils</h2>
+      <p class="muted" data-i18n="tips">
+        Si vous avez déjà un cahier des charges (spec sheet), vous pouvez copier les points dans le champ “Détails / exigences”.
+      </p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div>
+      <strong>ORION FISH</strong><br>
+      Quartier Léona, Cité Filaos, Rufisque, 17000, Sénégal<br>
+      Tel/WhatsApp : <a href="tel:+221339138392">+221339138392</a> — <a href="mailto:export@orionsfish.com">export@orionsfish.com</a>
+    </div>
+    <div class="copy">© <span id="y"></span> ORION FISH</div>
+  </footer>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+
+    const dict = {
+      fr:{
+        nav_home:"Accueil", nav_rfq:"RFQ / Devis", nav_team:"Team", nav_contact:"Contact",
+        title:"RFQ / Demande de devis",
+        sub:"Remplissez ce formulaire pour recevoir une cotation rapide. Plus c’est précis, plus la réponse est rapide.",
+        contact_title:"Contact direct",
+        f_company:"Entreprise", f_name:"Nom", f_email:"E-mail", f_phone:"Téléphone",
+        f_cat:"Catégorie", f_product:"Produit demandé",
+        f_spec:"Spécifications", f_pack:"Packaging",
+        f_qty:"Quantité", f_lead:"Délai souhaité",
+        f_dest:"Destination (pays / port / ville)", f_incoterm:"Incoterm",
+        f_msg:"Détails / exigences", f_send:"Envoyer la demande RFQ",
+        tips_title:"Conseils", tips:"Si vous avez déjà un cahier des charges (spec sheet), vous pouvez copier les points dans le champ “Détails / exigences”."
+      },
+      en:{
+        nav_home:"Home", nav_rfq:"RFQ / Quotation", nav_team:"Team", nav_contact:"Contact",
+        title:"RFQ / Quotation Request",
+        sub:"Fill out this form to get a fast quotation. The more precise you are, the faster we reply.",
+        contact_title:"Direct contact",
+        f_company:"Company", f_name:"Name", f_email:"Email", f_phone:"Phone",
+        f_cat:"Category", f_product:"Requested product",
+        f_spec:"Specifications", f_pack:"Packaging",
+        f_qty:"Quantity", f_lead:"Target lead time",
+        f_dest:"Destination (country / port / city)", f_incoterm:"Incoterm",
+        f_msg:"Details / requirements", f_send:"Send RFQ request",
+        tips_title:"Tip", tips:"If you already have a spec sheet, paste key points into “Details / requirements”."
+      }
+    };
+
+    function setLang(lang){
+      const d = dict[lang] || dict.fr;
+      document.documentElement.lang = lang;
+      document.querySelectorAll("[data-i18n]").forEach(el=>{
+        const k = el.getAttribute("data-i18n");
+        if(d[k]) el.textContent = d[k];
+      });
+      document.getElementById("langBtn").textContent = (lang==="fr") ? "EN" : "FR";
+      localStorage.setItem("lang", lang);
+    }
+
+    const stored = localStorage.getItem("lang");
+    const initial = stored || ((navigator.language||"").toLowerCase().startsWith("fr") ? "fr" : "en");
+    setLang(initial);
+
+    document.getElementById("langBtn").addEventListener("click", ()=>{
+      setLang(document.documentElement.lang === "fr" ? "en" : "fr");
+    });
+  </script>
+</body>
+</html>
