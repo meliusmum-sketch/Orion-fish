@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ORION FISH – Produits de la mer & Jus de fruits</title>
+
   <meta name="description" content="ORION FISH – Produits de la mer, transformation de fruits en jus, vente et distribution pour marchés locaux et internationaux." />
   <meta name="robots" content="index,follow" />
 
@@ -490,6 +491,35 @@
 
     textarea { min-height: 110px; }
 
+    /* SELECT (pour RFQ) */
+    select {
+      width: 100%;
+      padding: 0.55rem 0.85rem;
+      border-radius: 0.7rem;
+      border: 1px solid #4b5563;
+      font: inherit;
+      min-height: 40px;
+      background: #020617;
+      color: var(--text-main);
+    }
+
+    select:focus {
+      outline: none;
+      border-color: #60a5fa;
+      box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.5);
+    }
+
+    /* RFQ grid */
+    .form-grid-2 {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @media (max-width: 640px) {
+      .form-grid-2 { grid-template-columns: 1fr; }
+    }
+
     /* FOOTER PRO */
     .site-footer {
       max-width: 1100px;
@@ -503,8 +533,44 @@
     .site-footer a { text-decoration: underline; text-underline-offset: 3px; }
 
     .footer-block { line-height: 1.65; }
-    .footer-links { margin-top: 0.9rem; display: flex; flex-wrap: wrap; gap: 0.45rem; align-items: center; justify-content: center; }
+    .footer-links {
+      margin-top: 0.9rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      align-items: center;
+      justify-content: center;
+    }
     .footer-copy { margin-top: 0.9rem; text-align: center; }
+
+    /* WhatsApp floating button */
+    .whatsapp-float {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 999;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.75rem 1rem;
+      border-radius: 999px;
+      background: #22c55e;
+      color: #052e16;
+      border: 1px solid rgba(5, 46, 22, 0.25);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.45);
+      font-weight: 700;
+      transition: transform 0.12s;
+    }
+
+    .whatsapp-float:hover { transform: translateY(-2px); }
+
+    .whatsapp-float svg {
+      width: 20px;
+      height: 20px;
+      display: block;
+    }
+
+    .whatsapp-label { font-size: 0.9rem; }
 
     @media (max-width: 1024px) {
       .page-shell { display: block; padding: 1.5rem 1rem 2.5rem; }
@@ -529,6 +595,8 @@
       p { font-size: 0.95rem; }
       .footer-links { justify-content: flex-start; }
       .footer-copy { text-align: left; }
+      .whatsapp-label { display: none; } /* sur mobile, icône seule */
+      .whatsapp-float { padding: 0.75rem; }
     }
   </style>
 </head>
@@ -559,6 +627,7 @@
         </svg>
         <span>ORION FISH</span>
       </div>
+
       <nav>
         <ul>
           <li><a href="#accueil">Accueil</a></li>
@@ -722,21 +791,12 @@
         <div class="hero-card">
           <div class="hero-card-inner">
             <div class="hero-photos">
-              <!-- IMPORTANT: ton fichier s'appelle "hero-poissons-frais.jpg.png".
-                   Si tu peux, renomme-le en "hero-poissons-frais.png" et mets à jour ici. -->
-              <a href="hero-poissons-frais.jpg.png" target="_blank" class="clickable-image">
-                <img
-                  src="hero-poissons-frais.jpg.png"
-                  alt="Poissons frais sur lit de glace"
-                  class="hero-img"
-                />
+              <!-- Si possible : renommer "hero-poissons-frais.jpg.png" en "hero-poissons-frais.png" -->
+              <a href="hero-poissons-frais.jpg.png" target="_blank" class="clickable-image" rel="noopener noreferrer">
+                <img src="hero-poissons-frais.jpg.png" alt="Poissons frais sur lit de glace" class="hero-img" />
               </a>
-              <a href="hero-jus-fruits.jpg" target="_blank" class="clickable-image">
-                <img
-                  src="hero-jus-fruits.jpg"
-                  alt="Verres de jus d’orange, mangue et mandarine"
-                  class="hero-img hero-img-small"
-                />
+              <a href="hero-jus-fruits.jpg" target="_blank" class="clickable-image" rel="noopener noreferrer">
+                <img src="hero-jus-fruits.jpg" alt="Verres de jus d’orange, mangue et mandarine" class="hero-img hero-img-small" />
               </a>
             </div>
             <span class="hero-tag">Filières intégrées</span>
@@ -793,7 +853,7 @@
         <div class="grid">
           <div class="card">
             <span class="label">Gamme</span>
-            <a href="hero-poissons-frais.jpg.png" target="_blank" class="clickable-image">
+            <a href="hero-poissons-frais.jpg.png" target="_blank" class="clickable-image" rel="noopener noreferrer">
               <img src="hero-poissons-frais.jpg.png" alt="Poissons frais et filets prêts à être distribués">
             </a>
             <h3>Produits frais & surgelés</h3>
@@ -802,7 +862,7 @@
 
           <div class="card">
             <span class="label">Transformation</span>
-            <a href="preparation-poissons.jpg" target="_blank" class="clickable-image">
+            <a href="preparation-poissons.jpg" target="_blank" class="clickable-image" rel="noopener noreferrer">
               <img src="preparation-poissons.jpg" alt="Préparation, nettoyage et découpe de poissons">
             </a>
             <h3>Préparation & conditionnement</h3>
@@ -811,7 +871,7 @@
 
           <div class="card">
             <span class="label">Logistique</span>
-            <a href="logistique-froid.jpg" target="_blank" class="clickable-image">
+            <a href="logistique-froid.jpg" target="_blank" class="clickable-image" rel="noopener noreferrer">
               <img src="logistique-froid.jpg" alt="Camions frigorifiques et entrepôts réfrigérés">
             </a>
             <h3>Distribution & chaîne du froid</h3>
@@ -830,7 +890,7 @@
         <div class="grid">
           <div class="card">
             <span class="label">Sélection</span>
-            <a href="fruits-agrumes-mangues.jpg" target="_blank" class="clickable-image">
+            <a href="fruits-agrumes-mangues.jpg" target="_blank" class="clickable-image" rel="noopener noreferrer">
               <img src="fruits-agrumes-mangues.jpg" alt="Oranges, mangues et mandarines fraîches">
             </a>
             <h3>Fruits choisis</h3>
@@ -839,7 +899,7 @@
 
           <div class="card">
             <span class="label">Process</span>
-            <a href="galerie-usine-transformation.jpg" target="_blank" class="clickable-image">
+            <a href="galerie-usine-transformation.jpg" target="_blank" class="clickable-image" rel="noopener noreferrer">
               <img src="galerie-usine-transformation.jpg" alt="Ligne industrielle de transformation de jus de fruits">
             </a>
             <h3>Transformation & formulation</h3>
@@ -848,7 +908,7 @@
 
           <div class="card">
             <span class="label">Distribution</span>
-            <a href="hero-jus-fruits.jpg" target="_blank" class="clickable-image">
+            <a href="hero-jus-fruits.jpg" target="_blank" class="clickable-image" rel="noopener noreferrer">
               <img src="hero-jus-fruits.jpg" alt="Bouteilles ou verres de jus prêts à être distribués">
             </a>
             <h3>Conditionnement adapté</h3>
@@ -863,21 +923,21 @@
 
         <div class="galerie-grid">
           <div class="galerie-item">
-            <a href="hero-poissons-frais.jpg.png" target="_blank" class="clickable-image">
+            <a href="hero-poissons-frais.jpg.png" target="_blank" class="clickable-image" rel="noopener noreferrer">
               <img src="hero-poissons-frais.jpg.png" alt="Poissons issus de la mer">
             </a>
             <div class="galerie-caption">Sélection et préparation de produits de la mer.</div>
           </div>
 
           <div class="galerie-item">
-            <a href="galerie-usine-transformation.jpg" target="_blank" class="clickable-image">
+            <a href="galerie-usine-transformation.jpg" target="_blank" class="clickable-image" rel="noopener noreferrer">
               <img src="galerie-usine-transformation.jpg" alt="Usine de transformation agroalimentaire">
             </a>
             <div class="galerie-caption">Ligne de transformation et conditionnement.</div>
           </div>
 
           <div class="galerie-item">
-            <a href="hero-jus-fruits.jpg" target="_blank" class="clickable-image">
+            <a href="hero-jus-fruits.jpg" target="_blank" class="clickable-image" rel="noopener noreferrer">
               <img src="hero-jus-fruits.jpg" alt="Verres de jus de fruits colorés">
             </a>
             <div class="galerie-caption">Jus de fruits à base d’oranges, mangues, mandarines.</div>
@@ -887,7 +947,7 @@
 
       <section id="contact">
         <h2>Contact</h2>
-        <p>Pour toute demande d’information, de partenariat ou de projet, contactez ORION FISH via le formulaire ci-dessous.</p>
+        <p>Pour toute demande d’information, de partenariat ou de projet, contactez ORION FISH.</p>
 
         <p class="muted">
           Les données sont envoyées via une connexion sécurisée (HTTPS) vers un service de formulaire,
@@ -896,12 +956,88 @@
 
         <p>
           Email : <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a><br>
+          Export : <a href="mailto:export@orionsfish.com">export@orionsfish.com</a><br>
           Tél/WhatsApp : <a href="tel:+2212702457">+2212702457</a>
         </p>
 
+        <h3 style="margin-top:1.2rem;">Demande de devis (RFQ) – Export</h3>
+        <p class="muted">Pour un devis rapide : produit, quantité, destination, incoterm.</p>
+
+        <form action="https://formsubmit.co/export@orionsfish.com" method="POST">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_subject" value="Demande de devis (RFQ) – ORION FISH">
+          <input type="text" name="_honey" style="display:none">
+
+          <div class="form-grid-2">
+            <div>
+              <label for="rfq-type">Type</label>
+              <select id="rfq-type" name="Type" required>
+                <option value="">Choisir…</option>
+                <option value="Produits de la mer">Produits de la mer</option>
+                <option value="Jus de fruits">Jus de fruits</option>
+                <option value="Les deux">Les deux</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="rfq-destination">Destination (pays / port / ville)</label>
+              <input id="rfq-destination" name="Destination" type="text" placeholder="Ex: Pays-Bas – Rotterdam" required />
+            </div>
+
+            <div>
+              <label for="rfq-produit">Produit / espèce / recette</label>
+              <input id="rfq-produit" name="Produit" type="text" placeholder="Ex: Thiof filet / Jus mangue 1L" required />
+            </div>
+
+            <div>
+              <label for="rfq-quantite">Quantité</label>
+              <input id="rfq-quantite" name="Quantité" type="text" placeholder="Ex: 1 tonne / 2 palettes / 5 000 L" required />
+            </div>
+
+            <div>
+              <label for="rfq-format">Format & packaging</label>
+              <input id="rfq-format" name="Format & packaging" type="text" placeholder="Ex: surgelé, carton 10 kg / bag-in-box" />
+            </div>
+
+            <div>
+              <label for="rfq-incoterm">Incoterm souhaité</label>
+              <select id="rfq-incoterm" name="Incoterm">
+                <option value="">Choisir…</option>
+                <option value="EXW">EXW</option>
+                <option value="FOB">FOB</option>
+                <option value="CIF">CIF</option>
+                <option value="À discuter">À discuter</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-grid-2">
+            <div>
+              <label for="rfq-email">E-mail</label>
+              <input id="rfq-email" name="Email" type="email" placeholder="votremail@example.com" required />
+            </div>
+
+            <div>
+              <label for="rfq-tel">Téléphone / WhatsApp</label>
+              <input id="rfq-tel" name="Téléphone" type="tel" placeholder="+221 … / +33 …" />
+            </div>
+          </div>
+
+          <div>
+            <label for="rfq-message">Détails (qualité, calibres, brix, délais…)</label>
+            <textarea id="rfq-message" name="Détails" placeholder="Ex: filet 200–400g, livraison janvier, emballage export…" required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-principal">Envoyer la demande de devis</button>
+        </form>
+
+        <hr style="margin:1.6rem 0; border:0; border-top:1px solid rgba(148,163,184,0.25);">
+
+        <h3>Message général</h3>
         <form action="https://formsubmit.co/contact@orionsfish.com" method="POST">
           <input type="hidden" name="_captcha" value="false">
           <input type="hidden" name="_subject" value="Nouveau message – ORION FISH (site web)">
+          <input type="text" name="_honey" style="display:none">
 
           <div>
             <label for="nom">Nom / Entreprise</label>
@@ -927,7 +1063,7 @@
         </form>
       </section>
 
-      <!-- SECTIONS LÉGALES (pour que les liens du footer fonctionnent tout de suite) -->
+      <!-- SECTIONS LÉGALES (les liens du footer pointent ici) -->
       <section id="mentions-legales">
         <h2>Mentions légales</h2>
         <p><strong>Éditeur du site :</strong><br>
@@ -938,7 +1074,9 @@
         <p><strong>Responsable de publication :</strong> Diallo Mamadou</p>
         <p><strong>Contact :</strong><br>
           Tél/WhatsApp : <a href="tel:+2212702457">+2212702457</a><br>
-          Email : <a href="mailto:export@orionsfish.com">export@orionsfish.com</a> / <a href="mailto:sales@orionsfish.com">sales@orionsfish.com</a> / <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a>
+          Email : <a href="mailto:export@orionsfish.com">export@orionsfish.com</a> /
+          <a href="mailto:sales@orionsfish.com">sales@orionsfish.com</a> /
+          <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a>
         </p>
         <p><strong>Hébergement :</strong> Hostinger</p>
       </section>
@@ -950,8 +1088,8 @@
           (informations, devis, partenariat). Les données ne sont pas vendues.
         </p>
         <p>
-          Le formulaire utilise un service tiers de soumission (FormSubmit). Les messages sont transférés vers
-          notre email <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a>.
+          Le formulaire utilise un service tiers de soumission (FormSubmit). Les messages sont transférés vers nos emails
+          (<a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a> et/ou <a href="mailto:export@orionsfish.com">export@orionsfish.com</a>).
         </p>
         <p class="muted">
           Vous pouvez demander la suppression de vos données en écrivant à <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a>.
@@ -971,7 +1109,7 @@
     <aside class="side-column side-right">
       <div class="team-feature-card">
         <div class="team-feature-avatar">
-          <a href="amadou-mballo.jpg.png" target="_blank" class="clickable-image">
+          <a href="amadou-mballo.jpg.png" target="_blank" class="clickable-image" rel="noopener noreferrer">
             <img src="amadou-mballo.jpg.png" alt="Photo de Amadou Mballo">
           </a>
         </div>
@@ -1091,7 +1229,7 @@
     </aside>
   </div>
 
-  <!-- FOOTER PRO (remplace l'ancien footer simple) -->
+  <!-- FOOTER PRO -->
   <footer class="site-footer">
     <div class="footer-block">
       <strong>ORION FISH</strong><br>
@@ -1118,8 +1256,22 @@
     </div>
   </footer>
 
+  <!-- Bouton WhatsApp flottant -->
+  <a
+    class="whatsapp-float"
+    href="https://wa.me/2212702457?text=Bonjour%20ORION%20FISH%2C%20je%20souhaite%20un%20devis%20(RFQ).%20Produit%3A%20____%20%7C%20Quantit%C3%A9%3A%20____%20%7C%20Destination%3A%20____%20%7C%20Incoterm%3A%20____."
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Contacter ORION FISH sur WhatsApp"
+  >
+    <svg viewBox="0 0 32 32" aria-hidden="true">
+      <path fill="#052e16" d="M16.02 3C9.4 3 4.03 8.3 4.03 14.83c0 2.33.7 4.51 1.9 6.35L4 29l7.98-1.86a12.2 12.2 0 0 0 4.04.68c6.62 0 11.99-5.3 11.99-11.83C28.01 8.3 22.64 3 16.02 3Zm0 22.6c-1.3 0-2.58-.22-3.78-.65l-.27-.1-4.74 1.1 1.02-4.56-.18-.29a10.55 10.55 0 0 1-1.63-5.67c0-5.77 4.74-10.47 10.58-10.47 5.84 0 10.58 4.7 10.58 10.47 0 5.78-4.74 10.47-10.58 10.47Zm6.15-7.82c-.34-.17-2-.98-2.3-1.1-.31-.12-.54-.17-.77.17-.23.35-.88 1.1-1.08 1.32-.2.23-.4.26-.75.09-.34-.17-1.46-.53-2.77-1.7-1.02-.9-1.7-2.02-1.9-2.36-.2-.35-.02-.54.15-.72.16-.16.34-.4.52-.6.17-.2.23-.35.35-.58.12-.23.06-.43-.03-.6-.09-.17-.77-1.84-1.06-2.52-.28-.68-.56-.58-.77-.6l-.66-.01c-.23 0-.6.09-.92.43-.31.35-1.2 1.16-1.2 2.84 0 1.68 1.23 3.3 1.4 3.53.17.23 2.42 3.68 5.86 5.15.82.35 1.46.56 1.96.72.82.26 1.56.22 2.15.13.66-.1 2-.82 2.29-1.62.28-.8.28-1.48.2-1.62-.09-.14-.31-.23-.66-.4Z"/>
+    </svg>
+    <span class="whatsapp-label">WhatsApp</span>
+  </a>
+
   <script>
-    // Année automatique
+    // Année automatique dans le footer
     const y = new Date().getFullYear();
     const el = document.getElementById("y");
     if (el) el.textContent = y;
