@@ -12,7 +12,7 @@
     :root{
       --marine:#020617; --card:#020617; --card-border:#1f2937;
       --text-main:#e5e7eb; --text-muted:#9ca3af;
-      --orange:#f97316; --gold:#facc15;
+      --gold:#facc15;
     }
     *{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
@@ -30,13 +30,15 @@
       border-bottom:1px solid rgba(148,163,184,.4);
     }
     .nav-container{
-      max-width:1100px; margin:0 auto; padding:.7rem 1.5rem;
+      max-width:1100px; margin:0 auto; padding:.75rem 1.5rem;
       display:flex; align-items:center; justify-content:space-between; gap:.8rem;
     }
     .logo{
-      display:flex; align-items:center; gap:.6rem;
-      font-weight:800; letter-spacing:.15em; font-size:.9rem;
-      text-transform:uppercase; white-space:nowrap;
+      font-weight:900;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      font-size:.95rem;
+      white-space:nowrap;
     }
     nav ul{
       list-style:none; display:flex; flex-wrap:wrap;
@@ -164,94 +166,89 @@
       </div>
 
       <div class="team-grid">
-        <!-- DIRECTION -->
         <article class="member" data-group="management">
-          <div class="member-top"><div class="avatar">AM</div><div><div class="name">Amadou Mballo</div><div class="role" data-i18n="r_am">Directeur Général</div></div></div>
-          <div class="desc" data-i18n="d_am">Pilote la stratégie globale et l’alignement des activités mer & fruits.</div>
+          <div class="member-top"><div class="avatar">AM</div><div><div class="name">Amadou Mballo</div><div class="role">Directeur Général</div></div></div>
+          <div class="desc">Pilote la stratégie globale et l’alignement des activités mer & fruits.</div>
         </article>
 
         <article class="member" data-group="management">
-          <div class="member-top"><div class="avatar">MK</div><div><div class="name">Mouhamad Kébé</div><div class="role" data-i18n="r_mk">Gérant</div></div></div>
-          <div class="desc" data-i18n="d_mk">Coordonne l’exécution opérationnelle des activités.</div>
+          <div class="member-top"><div class="avatar">MK</div><div><div class="name">Mouhamad Kébé</div><div class="role">Gérant</div></div></div>
+          <div class="desc">Coordonne l’exécution opérationnelle des activités.</div>
         </article>
 
         <article class="member" data-group="management">
-          <div class="member-top"><div class="avatar">SN</div><div><div class="name">Samba Ndiaye</div><div class="role" data-i18n="r_sn">Directeur d’usine</div></div></div>
-          <div class="desc" data-i18n="d_sn">Supervise la production et la performance industrielle.</div>
-        </article>
-
-        <!-- COMMERCIAL / MARKETING -->
-        <article class="member" data-group="sales">
-          <div class="member-top"><div class="avatar">SD</div><div><div class="name">Souleymane Diallo</div><div class="role" data-i18n="r_sou">Directeur Service Commercial</div></div></div>
-          <div class="desc" data-i18n="d_sou">Développe le portefeuille clients et les partenariats.</div>
+          <div class="member-top"><div class="avatar">SN</div><div><div class="name">Samba Ndiaye</div><div class="role">Directeur d’usine</div></div></div>
+          <div class="desc">Supervise la production et la performance industrielle.</div>
         </article>
 
         <article class="member" data-group="sales">
-          <div class="member-top"><div class="avatar">NFW</div><div><div class="name">Ndèye Fatou Wade</div><div class="role" data-i18n="r_nfw">Directrice Marketing / Clientèle</div></div></div>
-          <div class="desc" data-i18n="d_nfw">Pilote le marketing, la communication et la relation clientèle.</div>
+          <div class="member-top"><div class="avatar">SD</div><div><div class="name">Souleymane Diallo</div><div class="role">Directeur Service Commercial</div></div></div>
+          <div class="desc">Développe le portefeuille clients et les partenariats.</div>
         </article>
 
-        <!-- OPS -->
-        <article class="member" data-group="ops">
-          <div class="member-top"><div class="avatar">LB</div><div><div class="name">Landing Badji</div><div class="role" data-i18n="r_lb">Opérateur de production</div></div></div>
-          <div class="desc" data-i18n="d_lb">Participe aux opérations de transformation et conditionnement.</div>
-        </article>
-
-        <article class="member" data-group="ops">
-          <div class="member-top"><div class="avatar">ISB</div><div><div class="name">Ibrahima Sory Bindia</div><div class="role" data-i18n="r_isb">Transport / distribution</div></div></div>
-          <div class="desc" data-i18n="d_isb">Organise les livraisons et le respect des délais.</div>
+        <article class="member" data-group="sales">
+          <div class="member-top"><div class="avatar">NFW</div><div><div class="name">Ndèye Fatou Wade</div><div class="role">Directrice Marketing / Clientèle</div></div></div>
+          <div class="desc">Pilote le marketing, la communication et la relation clientèle.</div>
         </article>
 
         <article class="member" data-group="ops">
-          <div class="member-top"><div class="avatar">OD</div><div><div class="name">Ousmane Diop</div><div class="role" data-i18n="r_od">Responsable utilités</div></div></div>
-          <div class="desc" data-i18n="d_od">Garantit la performance des installations (froid, vapeur, air, eau).</div>
+          <div class="member-top"><div class="avatar">LB</div><div><div class="name">Landing Badji</div><div class="role">Opérateur de production</div></div></div>
+          <div class="desc">Participe aux opérations de transformation et conditionnement.</div>
         </article>
 
         <article class="member" data-group="ops">
-          <div class="member-top"><div class="avatar">MHD</div><div><div class="name">Mamadou Hady Diallo</div><div class="role" data-i18n="r_mhd">Chef d’équipe</div></div></div>
-          <div class="desc" data-i18n="d_mhd">Encadre les équipes terrain.</div>
+          <div class="member-top"><div class="avatar">ISB</div><div><div class="name">Ibrahima Sory Bindia</div><div class="role">Transport / distribution</div></div></div>
+          <div class="desc">Organise les livraisons et le respect des délais.</div>
         </article>
 
         <article class="member" data-group="ops">
-          <div class="member-top"><div class="avatar">RP</div><div><div class="name">Responsable production</div><div class="role" data-i18n="r_rp">Supervision des lignes</div></div></div>
-          <div class="desc" data-i18n="d_rp">Organise volumes, rendements et qualité sur les lignes.</div>
+          <div class="member-top"><div class="avatar">OD</div><div><div class="name">Ousmane Diop</div><div class="role">Responsable utilités</div></div></div>
+          <div class="desc">Garantit la performance des installations (froid, vapeur, air, eau).</div>
         </article>
 
-        <!-- QUALITÉ -->
-        <article class="member" data-group="quality">
-          <div class="member-top"><div class="avatar">NAD</div><div><div class="name">Ndèye Astou Diatta</div><div class="role" data-i18n="r_nad">Traçabilité & réclamations</div></div></div>
-          <div class="desc" data-i18n="d_nad">Assure la traçabilité et le suivi des réclamations.</div>
+        <article class="member" data-group="ops">
+          <div class="member-top"><div class="avatar">MHD</div><div><div class="name">Mamadou Hady Diallo</div><div class="role">Chef d’équipe</div></div></div>
+          <div class="desc">Encadre les équipes terrain.</div>
+        </article>
+
+        <article class="member" data-group="ops">
+          <div class="member-top"><div class="avatar">RP</div><div><div class="name">Responsable production</div><div class="role">Supervision des lignes</div></div></div>
+          <div class="desc">Organise volumes, rendements et qualité sur les lignes.</div>
         </article>
 
         <article class="member" data-group="quality">
-          <div class="member-top"><div class="avatar">SeD</div><div><div class="name">Seyni Diedhiou</div><div class="role" data-i18n="r_sed">HACCP / Food Safety</div></div></div>
-          <div class="desc" data-i18n="d_sed">Met en œuvre le plan HACCP et la sécurité alimentaire.</div>
+          <div class="member-top"><div class="avatar">NAD</div><div><div class="name">Ndèye Astou Diatta</div><div class="role">Traçabilité & réclamations</div></div></div>
+          <div class="desc">Assure la traçabilité et le suivi des réclamations.</div>
         </article>
 
-        <!-- SUPPORT -->
-        <article class="member" data-group="support">
-          <div class="member-top"><div class="avatar">AD</div><div><div class="name">Awa Diatta</div><div class="role" data-i18n="r_ad">Innovation</div></div></div>
-          <div class="desc" data-i18n="d_ad">Pilote les projets d’innovation (produits & procédés).</div>
-        </article>
-
-        <article class="member" data-group="support">
-          <div class="member-top"><div class="avatar">IKD</div><div><div class="name">Insa Koulissoret Diedhiou</div><div class="role" data-i18n="r_ikd">Technicien R&D</div></div></div>
-          <div class="desc" data-i18n="d_ikd">Contribue aux essais R&D et à l’amélioration continue.</div>
+        <article class="member" data-group="quality">
+          <div class="member-top"><div class="avatar">SeD</div><div><div class="name">Seyni Diedhiou</div><div class="role">HACCP / Food Safety</div></div></div>
+          <div class="desc">Met en œuvre le plan HACCP et la sécurité alimentaire.</div>
         </article>
 
         <article class="member" data-group="support">
-          <div class="member-top"><div class="avatar">IT</div><div><div class="name">Ibou Thiam</div><div class="role" data-i18n="r_it">Directeur RH</div></div></div>
-          <div class="desc" data-i18n="d_it">Gère recrutement, formation et relations sociales.</div>
+          <div class="member-top"><div class="avatar">AD</div><div><div class="name">Awa Diatta</div><div class="role">Innovation</div></div></div>
+          <div class="desc">Pilote les projets d’innovation (produits & procédés).</div>
         </article>
 
         <article class="member" data-group="support">
-          <div class="member-top"><div class="avatar">ED</div><div><div class="name">Emilie Diatta</div><div class="role" data-i18n="r_ed">RAF</div></div></div>
-          <div class="desc" data-i18n="d_ed">Supervise administratif, trésorerie et suivi financier.</div>
+          <div class="member-top"><div class="avatar">IKD</div><div><div class="name">Insa Koulissoret Diedhiou</div><div class="role">Technicien R&D</div></div></div>
+          <div class="desc">Contribue aux essais R&D et à l’amélioration continue.</div>
         </article>
 
         <article class="member" data-group="support">
-          <div class="member-top"><div class="avatar">IK</div><div><div class="name">Idy KA</div><div class="role" data-i18n="r_ik">Informatique</div></div></div>
-          <div class="desc" data-i18n="d_ik">Gère systèmes d’information et outils numériques.</div>
+          <div class="member-top"><div class="avatar">IT</div><div><div class="name">Ibou Thiam</div><div class="role">Directeur RH</div></div></div>
+          <div class="desc">Gère recrutement, formation et relations sociales.</div>
+        </article>
+
+        <article class="member" data-group="support">
+          <div class="member-top"><div class="avatar">ED</div><div><div class="name">Emilie Diatta</div><div class="role">RAF</div></div></div>
+          <div class="desc">Supervise administratif, trésorerie et suivi financier.</div>
+        </article>
+
+        <article class="member" data-group="support">
+          <div class="member-top"><div class="avatar">IK</div><div><div class="name">Idy KA</div><div class="role">Informatique</div></div></div>
+          <div class="desc">Gère systèmes d’information et outils numériques.</div>
         </article>
       </div>
     </section>
@@ -260,16 +257,18 @@
   <footer class="site-footer">
     <div>
       <strong>ORION FISH</strong><br>
-      Rufisque, Sénégal — RC : <strong>010112051 SN.DKR.2023.B.9159</strong><br>
-      Tél/WhatsApp : <a href="tel:+2212702457">+2212702457</a> — <a href="mailto:export@orionsfish.com">export@orionsfish.com</a>
+      Quartier Léona, Cité Filaos, Rufisque, 17000, Sénégal<br>
+      RC : <strong>010112051 SN.DKR.2023.B.9159</strong><br>
+      Tél/WhatsApp : <a href="tel:+2212702457">+2212702457</a> — <a href="mailto:export@orionsfish.com">export@orionsfish.com</a><br>
+      <a href="index.html#mentions-legales">Mentions légales</a> •
+      <a href="index.html#politique-de-confidentialite">Politique de confidentialité</a> •
+      <a href="index.html#conditions">Conditions</a>
     </div>
     <div class="footer-copy">© <span id="y"></span> ORION FISH</div>
   </footer>
 
   <script>
-    // Année
-    const y = new Date().getFullYear();
-    document.getElementById("y").textContent = y;
+    document.getElementById("y").textContent = new Date().getFullYear();
 
     // Filtres
     const chips = [...document.querySelectorAll(".chip")];
@@ -284,35 +283,16 @@
       });
     }));
 
-    // i18n FR/EN (résumé)
-    const dict = {
-      fr: {
-        nav_home:"Accueil", nav_contact:"Contact", nav_team:"Team",
-        team_title:"Team ORION FISH", team_sub:"Photos retirées : affichage en initiales (prénom + nom).",
-        filter_all:"Tous", filter_mgmt:"Direction", filter_sales:"Commercial / Marketing", filter_ops:"Opérations", filter_quality:"Qualité / HACCP", filter_support:"Support"
-      },
-      en: {
-        nav_home:"Home", nav_contact:"Contact", nav_team:"Team",
-        team_title:"ORION FISH Team", team_sub:"Photos removed: initials display (first name + last name).",
-        filter_all:"All", filter_mgmt:"Management", filter_sales:"Sales / Marketing", filter_ops:"Operations", filter_quality:"Quality / HACCP", filter_support:"Support"
-      }
-    };
-
+    // Toggle langue FR/EN (simple)
     function setLang(lang){
-      const d = dict[lang] || dict.fr;
       document.documentElement.lang = lang;
-      document.querySelectorAll("[data-i18n]").forEach(el=>{
-        const k = el.getAttribute("data-i18n");
-        if(d[k]) el.textContent = d[k];
-      });
-      document.getElementById("langToggle").textContent = (lang === "fr") ? "EN" : "FR";
+      const toggle = document.getElementById("langToggle");
+      if(toggle) toggle.textContent = (lang==="fr") ? "EN" : "FR";
       localStorage.setItem("lang", lang);
     }
-
     const stored = localStorage.getItem("lang");
     const initial = stored || ((navigator.language||"").toLowerCase().startsWith("fr") ? "fr" : "en");
     setLang(initial);
-
     document.getElementById("langToggle").addEventListener("click", ()=>{
       setLang(document.documentElement.lang === "fr" ? "en" : "fr");
     });
