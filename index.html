@@ -34,178 +34,297 @@
 
   <style>
     :root{
-      --bg:#020617;
-      --card:#0b1220;
-      --border:#1f2937;
-      --text:#e5e7eb;
-      --muted:#9ca3af;
+      /* BLANC */
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --border: #e2e8f0;
 
-      --accent:#f97316;
-      --accentHover:#ea580c;
+      /* BLEU (océan) */
+      --blue: #1d4ed8;
+      --blue-2: #0ea5e9;
 
-      --fresh:#14b8a6;  /* teal */
-      --freshSoft: rgba(20,184,166,.18);
-      --warmSoft: rgba(249,115,22,.20);
+      /* VERT (agriculture / fruits) */
+      --green: #16a34a;
+      --green-2: #22c55e;
+
+      /* JAUNE (plage/soleil) */
+      --sun: #facc15;
+
+      /* TEXTE (pas noir, bleu profond) */
+      --text: #0b2a4a;
+      --muted: #475569;
+
+      --shadow: 0 18px 40px rgba(2, 8, 23, 0.08);
+      --radius: 18px;
     }
 
     *{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
-
     body{
-      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-      line-height:1.6;color:var(--text);
+      font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      line-height: 1.6;
+      color: var(--text);
       background:
-        radial-gradient(circle at 12% 0%, var(--warmSoft), transparent 48%),
-        radial-gradient(circle at 88% 12%, var(--freshSoft), transparent 52%),
+        radial-gradient(circle at 8% 0%, rgba(29,78,216,.18), transparent 52%),
+        radial-gradient(circle at 92% 4%, rgba(34,197,94,.18), transparent 52%),
+        radial-gradient(circle at 50% 0%, rgba(250,204,21,.22), transparent 55%),
         var(--bg);
-      min-height:100vh;
+      min-height: 100vh;
     }
 
     a{color:inherit;text-decoration:none}
     .muted{color:var(--muted)}
 
+    /* HEADER */
     header{
-      position:sticky;top:0;z-index:10;
-      background:rgba(2,6,23,.96);
-      backdrop-filter:blur(8px);
-      border-bottom:1px solid rgba(148,163,184,.35);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(255,255,255,.86);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(226,232,240,.9);
     }
     .nav{
-      max-width:1100px;margin:0 auto;padding:.8rem 1.5rem;
-      display:flex;align-items:center;justify-content:space-between;gap:1rem;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: .85rem 1.5rem;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 1rem;
     }
     .logo{
-      font-weight:900;letter-spacing:.18em;text-transform:uppercase;
-      font-size:.95rem;white-space:nowrap;
+      font-weight: 900;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      font-size: .95rem;
+      white-space: nowrap;
+      color: var(--text);
     }
     nav ul{
-      list-style:none;display:flex;flex-wrap:wrap;gap:1rem;
-      align-items:center;justify-content:flex-end;font-size:.9rem;
+      list-style:none;
+      display:flex;
+      flex-wrap:wrap;
+      gap: 1rem;
+      align-items:center;
+      justify-content:flex-end;
+      font-size: .92rem;
     }
-    nav a{opacity:.85;transition:opacity .15s,transform .15s}
-    nav a:hover{opacity:1;transform:translateY(-1px)}
+    nav a{
+      opacity: .92;
+      transition: opacity .15s, transform .15s;
+    }
+    nav a:hover{
+      opacity: 1;
+      transform: translateY(-1px);
+    }
+
     .btn-lang{
-      border:1px solid rgba(148,163,184,.6);
-      background:rgba(15,23,42,.7);
-      color:var(--text);
-      padding:.45rem .75rem;border-radius:999px;
-      font-weight:900;cursor:pointer;
-      transition:transform .12s,background .12s;
+      border: 1px solid rgba(226,232,240,.9);
+      background: #ffffff;
+      color: var(--text);
+      padding: .45rem .75rem;
+      border-radius: 999px;
+      font-weight: 900;
+      cursor: pointer;
+      transition: transform .12s, box-shadow .12s;
+      box-shadow: 0 8px 18px rgba(2, 8, 23, 0.06);
     }
-    .btn-lang:hover{transform:translateY(-1px);background:rgba(15,23,42,.95)}
+    .btn-lang:hover{
+      transform: translateY(-1px);
+      box-shadow: 0 12px 24px rgba(2, 8, 23, 0.08);
+    }
 
-    .container{max-width:1100px;margin:0 auto;padding:1.5rem 1.5rem 2.5rem}
+    /* LAYOUT */
+    .container{
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1.6rem 1.5rem 2.6rem;
+    }
+
     section{
-      margin:2.2rem 0;
-      padding:2rem;
-      background:var(--card);
-      border:1px solid var(--border);
-      border-radius:1.5rem;
-      box-shadow:0 18px 45px rgba(15,23,42,.6);
+      margin: 2rem 0;
+      padding: 2rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
     }
-    h1{font-size:2.1rem;margin-bottom:.8rem}
-    h2{font-size:1.35rem;margin-bottom:.8rem}
-    p{margin-bottom:.7rem;font-size:.98rem}
 
+    h1{font-size: 2.1rem; line-height:1.15; margin-bottom:.65rem}
+    h2{font-size: 1.35rem; margin-bottom:.7rem}
+    p{margin-bottom:.7rem;font-size:1rem}
+
+    /* HERO */
     .hero{
-      display:grid;
-      grid-template-columns:minmax(0,3fr) minmax(0,2fr);
-      gap:1.6rem;align-items:flex-start;
+      padding: 2.2rem;
+      background:
+        radial-gradient(circle at 10% 0%, rgba(14,165,233,.20), transparent 52%),
+        radial-gradient(circle at 90% 0%, rgba(34,197,94,.18), transparent 52%),
+        linear-gradient(180deg, #ffffff, rgba(255,255,255,.92));
+      border: 1px solid rgba(226,232,240,.95);
     }
-    .box{
-      border:1px solid rgba(148,163,184,.25);
-      background:rgba(15,23,42,.55);
-      border-radius:1.2rem;
-      padding:1.1rem;
+    .hero-grid{
+      display:grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: 1.2rem;
+      align-items: start;
     }
 
-    .cta{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1rem}
+    .pill-row{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:.8rem}
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:.45rem;
+      padding:.28rem .75rem;
+      border-radius:999px;
+      font-weight: 800;
+      font-size: .8rem;
+      border: 1px solid rgba(226,232,240,.95);
+      background: #fff;
+    }
+    .dot{
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+    }
+    .dot.blue{background: var(--blue-2)}
+    .dot.green{background: var(--green)}
+    .dot.sun{background: var(--sun)}
+
+    .cta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:.8rem;
+      margin-top: 1rem;
+    }
     .btn{
       display:inline-block;
-      padding:.7rem 1.2rem;border-radius:999px;
-      font-weight:900;font-size:.92rem;
-      border:1px solid rgba(148,163,184,.55);
-      background:transparent;color:var(--text);
-      cursor:pointer;transition:transform .12s,background .12s,border-color .12s;
+      padding:.78rem 1.15rem;
+      border-radius:999px;
+      font-weight: 900;
+      font-size: .95rem;
+      border: 1px solid rgba(226,232,240,.95);
+      background: #fff;
+      cursor:pointer;
+      transition: transform .12s, box-shadow .12s, background .12s;
+      box-shadow: 0 10px 22px rgba(2,8,23,.06);
     }
-    .btn:hover{transform:translateY(-1px);background:rgba(15,23,42,.7)}
+    .btn:hover{transform: translateY(-1px); box-shadow: 0 14px 28px rgba(2,8,23,.08)}
     .btn-primary{
-      border-color:transparent;
-      background:var(--accent);
-      color:#111827;
-      box-shadow:0 10px 24px rgba(249,115,22,.18);
+      border-color: transparent;
+      background: linear-gradient(90deg, var(--blue), var(--blue-2));
+      color: #fff;
     }
-    .btn-primary:hover{background:var(--accentHover)}
+    .btn-green{
+      border-color: transparent;
+      background: linear-gradient(90deg, var(--green), var(--green-2));
+      color: #fff;
+    }
 
+    .info-card{
+      border-radius: 16px;
+      padding: 1.1rem;
+      border: 1px solid rgba(226,232,240,.95);
+      background: #fff;
+      box-shadow: 0 16px 34px rgba(2,8,23,.06);
+    }
+    .info-title{
+      font-weight: 950;
+      margin-bottom: .5rem;
+    }
+    .info-line{
+      color: var(--muted);
+      font-size: .96rem;
+      margin: .15rem 0;
+    }
+
+    /* GRIDS */
     .grid{
       display:grid;
-      grid-template-columns:repeat(3,minmax(0,1fr));
-      gap:1rem;margin-top:1rem;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
     }
     .card{
-      border:1px solid rgba(55,65,81,.9);
-      border-radius:1.1rem;
-      padding:1.1rem;
-      background:#08101d;
-      transition:transform .12s,box-shadow .12s,border-color .12s;
+      padding: 1.1rem;
+      border-radius: 16px;
+      border: 1px solid rgba(226,232,240,.95);
+      background: #fff;
+      box-shadow: 0 14px 30px rgba(2,8,23,.05);
+      transition: transform .12s, box-shadow .12s;
     }
-    .card:hover{transform:translateY(-2px);border-color:rgba(20,184,166,.85);box-shadow:0 10px 26px rgba(15,23,42,.8)}
+    .card:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 18px 40px rgba(2,8,23,.08);
+    }
     .label{
       display:inline-block;
-      font-size:.75rem;
-      padding:.12rem .55rem;
-      border-radius:999px;
-      background:rgba(20,184,166,.14);
-      color:#99f6e4;
-      margin-bottom:.5rem;
-      font-weight:900;
-      border:1px solid rgba(20,184,166,.22);
+      font-size:.78rem;
+      font-weight: 950;
+      padding:.18rem .55rem;
+      border-radius: 999px;
+      border: 1px solid rgba(226,232,240,.95);
+      margin-bottom: .6rem;
     }
-    .list{margin-top:.5rem;padding-left:1.1rem}
+    .label.blue{background: rgba(14,165,233,.14); color: #075985}
+    .label.green{background: rgba(34,197,94,.14); color: #166534}
+    .label.sun{background: rgba(250,204,21,.25); color: #854d0e}
+
+    .list{margin-top:.45rem;padding-left:1.1rem}
     .list li{margin:.25rem 0;color:var(--muted)}
 
+    /* FORM */
     form{display:grid;gap:1rem;margin-top:1rem}
-    label{font-size:.88rem;font-weight:900;margin-bottom:.2rem;display:inline-block}
+    label{font-size:.9rem;font-weight:950;margin-bottom:.2rem;display:inline-block}
     input,textarea{
       width:100%;
-      padding:.6rem .85rem;
-      border-radius:.75rem;
-      border:1px solid #4b5563;
-      background:#050b16;
-      color:var(--text);
-      font:inherit;
+      padding:.65rem .9rem;
+      border-radius: 14px;
+      border: 1px solid rgba(203,213,225,.95);
+      background: #fff;
+      color: var(--text);
+      font: inherit;
     }
     textarea{min-height:120px;resize:vertical}
     input:focus,textarea:focus{
-      outline:none;border-color:rgba(20,184,166,.9);
-      box-shadow:0 0 0 1px rgba(20,184,166,.45);
+      outline:none;
+      border-color: rgba(14,165,233,.85);
+      box-shadow: 0 0 0 3px rgba(14,165,233,.18);
     }
     .two{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
 
+    /* FOOTER */
     .footer{
-      max-width:1100px;margin:0 auto;
-      padding:1.8rem 1.5rem;
-      color:var(--muted);
-      font-size:.85rem;
-      border-top:1px solid rgba(148,163,184,.35);
+      max-width:1100px;
+      margin:0 auto;
+      padding: 1.8rem 1.5rem;
+      color: var(--muted);
+      font-size: .88rem;
+      border-top: 1px solid rgba(226,232,240,.95);
     }
     .footer a{text-decoration:underline;text-underline-offset:3px}
-    .foot-links{display:flex;flex-wrap:wrap;gap:.45rem;align-items:center;justify-content:center;margin-top:.8rem}
+    .foot-links{
+      display:flex;flex-wrap:wrap;gap:.45rem;align-items:center;justify-content:center;
+      margin-top:.8rem;
+    }
     .foot-copy{text-align:center;margin-top:.9rem}
 
-    @media (max-width:1024px){
+    @media (max-width: 1024px){
       .container{padding:1.5rem 1rem 2.5rem}
-      .hero{grid-template-columns:1fr}
-      .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-      .two{grid-template-columns:1fr}
+      .hero-grid{grid-template-columns: 1fr}
+      .grid{grid-template-columns: repeat(2, minmax(0,1fr))}
+      .two{grid-template-columns: 1fr}
+      section{padding:1.6rem}
+      .hero{padding:1.6rem}
     }
-    @media (max-width:640px){
-      .nav{flex-direction:column;align-items:flex-start;gap:.5rem}
+    @media (max-width: 640px){
+      .nav{flex-direction:column;align-items:flex-start;gap:.55rem}
       nav ul{justify-content:flex-start}
-      section{padding:1.4rem}
-      .grid{grid-template-columns:1fr}
-      h1{font-size:1.6rem}
+      h1{font-size:1.65rem}
       h2{font-size:1.2rem}
+      .grid{grid-template-columns: 1fr}
+      section{padding:1.35rem}
       .foot-links{justify-content:flex-start}
       .foot-copy{text-align:left}
     }
@@ -234,9 +353,15 @@
   </header>
 
   <main class="container">
-    <section id="accueil">
-      <div class="hero">
+    <section id="accueil" class="hero">
+      <div class="hero-grid">
         <div>
+          <div class="pill-row">
+            <span class="pill"><span class="dot blue"></span><span data-i18n="pill_ocean">Océan</span></span>
+            <span class="pill"><span class="dot green"></span><span data-i18n="pill_agri">Agriculture</span></span>
+            <span class="pill"><span class="dot sun"></span><span data-i18n="pill_sun">Plage & Soleil</span></span>
+          </div>
+
           <h1 data-i18n="h1">ORION FISH – Produits de la mer & jus de fruits</h1>
           <p class="muted" data-i18n="hero_sub">
             Produits de la mer, transformation de fruits en jus, vente et distribution au service des marchés locaux et internationaux.
@@ -247,30 +372,20 @@
 
           <div class="cta">
             <a class="btn btn-primary" href="rfq.html" data-i18n="cta_rfq">Demander un devis (RFQ)</a>
-            <a class="btn" href="compliance.html" data-i18n="cta_docs">Voir Documents & Compliance</a>
-          </div>
-
-          <div class="box" style="margin-top:1.1rem;">
-            <strong data-i18n="quick_title">Informations rapides export</strong>
-            <p class="muted" style="margin-top:.6rem;margin-bottom:.2rem;">
-              <span data-i18n="quick_loc">Localisation :</span> Rufisque (17000), Sénégal
-            </p>
-            <p class="muted" style="margin-bottom:0;">
-              <span data-i18n="quick_contact">Contact :</span>
-              <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a> •
-              <a href="tel:+221339138392">+221339138392</a>
-            </p>
+            <a class="btn btn-green" href="compliance.html#request" data-i18n="cta_docs">Demander des documents</a>
           </div>
         </div>
 
-        <div class="box">
-          <strong data-i18n="export_ready_title">Export-ready</strong>
-          <p class="muted" style="margin-top:.5rem" data-i18n="export_ready_p">
-            Traçabilité, hygiène, chaîne du froid, et documents d’export fournis selon destination. Consultez la page Documents.
-          </p>
-          <div class="cta" style="margin-top:.8rem">
-            <a class="btn btn-primary" href="compliance.html#request" data-i18n="export_ready_btn">Demander des documents</a>
-            <a class="btn" href="compliance.html" data-i18n="export_ready_btn2">Ouvrir Documents</a>
+        <div class="info-card">
+          <div class="info-title" data-i18n="quick_title">Informations rapides</div>
+          <div class="info-line"><strong data-i18n="quick_loc">Localisation :</strong> Rufisque (17000), Sénégal</div>
+          <div class="info-line"><strong data-i18n="quick_phone">Tel/WhatsApp :</strong> <a href="tel:+221339138392">+221339138392</a></div>
+          <div class="info-line"><strong data-i18n="quick_mail">Email :</strong> <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a></div>
+          <div class="info-line"><strong data-i18n="quick_exp">Export :</strong> <span data-i18n="quick_exp_text">Documents selon destination (B2B)</span></div>
+
+          <div class="cta" style="margin-top: .9rem;">
+            <a class="btn btn-primary" href="compliance.html" data-i18n="open_docs">Ouvrir Documents</a>
+            <a class="btn" href="#contact" data-i18n="talk_team">Parler à l’équipe</a>
           </div>
         </div>
       </div>
@@ -293,7 +408,7 @@
 
       <div class="grid">
         <div class="card">
-          <div class="label" data-i18n="sea_l1">Gamme</div>
+          <span class="label blue" data-i18n="sea_l1">Océan</span>
           <strong data-i18n="sea_t1">Frais & surgelé</strong>
           <ul class="list">
             <li data-i18n="sea_b1">Formats B2B</li>
@@ -301,8 +416,9 @@
             <li data-i18n="sea_b3">Chaîne du froid</li>
           </ul>
         </div>
+
         <div class="card">
-          <div class="label" data-i18n="sea_l2">Transformation</div>
+          <span class="label sun" data-i18n="sea_l2">Plage</span>
           <strong data-i18n="sea_t2">Préparation & conditionnement</strong>
           <ul class="list">
             <li data-i18n="sea_b4">Hygiène & contrôles</li>
@@ -310,8 +426,9 @@
             <li data-i18n="sea_b6">Cahier des charges</li>
           </ul>
         </div>
+
         <div class="card">
-          <div class="label" data-i18n="sea_l3">Logistique</div>
+          <span class="label blue" data-i18n="sea_l3">Export</span>
           <strong data-i18n="sea_t3">Expédition</strong>
           <ul class="list">
             <li data-i18n="sea_b7">Délais & suivi</li>
@@ -328,7 +445,7 @@
 
       <div class="grid">
         <div class="card">
-          <div class="label" data-i18n="j_l1">Sélection</div>
+          <span class="label green" data-i18n="j_l1">Agriculture</span>
           <strong data-i18n="j_t1">Fruits choisis</strong>
           <ul class="list">
             <li data-i18n="j_b1">Qualité & maturité</li>
@@ -336,8 +453,9 @@
             <li data-i18n="j_b3">Traçabilité</li>
           </ul>
         </div>
+
         <div class="card">
-          <div class="label" data-i18n="j_l2">Process</div>
+          <span class="label green" data-i18n="j_l2">Transformation</span>
           <strong data-i18n="j_t2">Tri, lavage, pressage</strong>
           <ul class="list">
             <li data-i18n="j_b4">Recettes sur demande</li>
@@ -345,8 +463,9 @@
             <li data-i18n="j_b6">Conformité</li>
           </ul>
         </div>
+
         <div class="card">
-          <div class="label" data-i18n="j_l3">Conditionnement</div>
+          <span class="label sun" data-i18n="j_l3">Marché</span>
           <strong data-i18n="j_t3">B2B / B2C</strong>
           <ul class="list">
             <li data-i18n="j_b7">Formats adaptés</li>
@@ -439,53 +558,83 @@
       fr:{
         nav_home:"Accueil", nav_about:"À propos", nav_sea:"Produits de la mer", nav_juice:"Fruits & jus",
         nav_rfq:"RFQ / Devis", nav_docs:"Documents", nav_team:"Team", nav_contact:"Contact", nav_legal:"Mentions",
+
+        pill_ocean:"Océan", pill_agri:"Agriculture", pill_sun:"Plage & Soleil",
+
         h1:"ORION FISH – Produits de la mer & jus de fruits",
         hero_sub:"Produits de la mer, transformation de fruits en jus, vente et distribution au service des marchés locaux et internationaux.",
         hero_p:"Nous accompagnons distributeurs, industriels et professionnels avec des solutions fiables, tracées et conformes aux exigences.",
-        cta_rfq:"Demander un devis (RFQ)", cta_docs:"Voir Documents & Compliance",
-        quick_title:"Informations rapides export", quick_loc:"Localisation :", quick_contact:"Contact :",
-        export_ready_title:"Export-ready",
-        export_ready_p:"Traçabilité, hygiène, chaîne du froid, et documents d’export fournis selon destination. Consultez la page Documents.",
-        export_ready_btn:"Demander des documents", export_ready_btn2:"Ouvrir Documents",
+
+        cta_rfq:"Demander un devis (RFQ)",
+        cta_docs:"Demander des documents",
+        open_docs:"Ouvrir Documents",
+        talk_team:"Parler à l’équipe",
+
+        quick_title:"Informations rapides",
+        quick_loc:"Localisation :",
+        quick_phone:"Tel/WhatsApp :",
+        quick_mail:"Email :",
+        quick_exp:"Export :",
+        quick_exp_text:"Documents selon destination (B2B)",
+
         about_h2:"À propos d’ORION FISH",
         about_p1:"ORION FISH est une entreprise agroalimentaire spécialisée dans la valorisation des produits de la mer et la transformation de fruits en jus.",
         about_p2:"Notre ambition : développer des filières durables et compétitives, adaptées aux besoins B2B.",
+
         sea_h2:"Produits de la mer", sea_p:"Collecte, transformation, conditionnement et distribution.",
-        sea_l1:"Gamme", sea_t1:"Frais & surgelé", sea_b1:"Formats B2B", sea_b2:"Traçabilité par lots", sea_b3:"Chaîne du froid",
-        sea_l2:"Transformation", sea_t2:"Préparation & conditionnement", sea_b4:"Hygiène & contrôles", sea_b5:"Étiquetage", sea_b6:"Cahier des charges",
-        sea_l3:"Logistique", sea_t3:"Expédition", sea_b7:"Délais & suivi", sea_b8:"Documents sur demande", sea_b9:"Incoterms",
+        sea_l1:"Océan", sea_t1:"Frais & surgelé", sea_b1:"Formats B2B", sea_b2:"Traçabilité par lots", sea_b3:"Chaîne du froid",
+        sea_l2:"Plage", sea_t2:"Préparation & conditionnement", sea_b4:"Hygiène & contrôles", sea_b5:"Étiquetage", sea_b6:"Cahier des charges",
+        sea_l3:"Export", sea_t3:"Expédition", sea_b7:"Délais & suivi", sea_b8:"Documents sur demande", sea_b9:"Incoterms",
+
         juice_h2:"Fruits & jus", juice_p:"Sélection, transformation et conditionnement selon marché.",
-        j_l1:"Sélection", j_t1:"Fruits choisis", j_b1:"Qualité & maturité", j_b2:"Approvisionnement", j_b3:"Traçabilité",
-        j_l2:"Process", j_t2:"Tri, lavage, pressage", j_b4:"Recettes sur demande", j_b5:"Contrôles qualité", j_b6:"Conformité",
-        j_l3:"Conditionnement", j_t3:"B2B / B2C", j_b7:"Formats adaptés", j_b8:"Étiquetage", j_b9:"Support export",
+        j_l1:"Agriculture", j_t1:"Fruits choisis", j_b1:"Qualité & maturité", j_b2:"Approvisionnement", j_b3:"Traçabilité",
+        j_l2:"Transformation", j_t2:"Tri, lavage, pressage", j_b4:"Recettes sur demande", j_b5:"Contrôles qualité", j_b6:"Conformité",
+        j_l3:"Marché", j_t3:"B2B / B2C", j_b7:"Formats adaptés", j_b8:"Étiquetage", j_b9:"Support export",
+
         contact_h2:"Contact", contact_p1:"Pour toute demande d’information ou partenariat, contactez-nous.",
         contact_p2:"Pour un devis rapide, utilisez la page RFQ.",
+
         f_name:"Nom / Entreprise", f_email:"E-mail", f_phone:"Téléphone", f_subject:"Objet", f_msg:"Message", f_send:"Envoyer"
       },
       en:{
         nav_home:"Home", nav_about:"About", nav_sea:"Seafood", nav_juice:"Fruits & Juices",
         nav_rfq:"RFQ / Quotation", nav_docs:"Documents", nav_team:"Team", nav_contact:"Contact", nav_legal:"Legal",
+
+        pill_ocean:"Ocean", pill_agri:"Agriculture", pill_sun:"Beach & Sun",
+
         h1:"ORION FISH – Seafood & fruit juices",
         hero_sub:"Seafood products and fruit juice processing for local and international markets.",
         hero_p:"We support distributors and industrial buyers with reliable, traceable and compliant solutions.",
-        cta_rfq:"Request a quotation (RFQ)", cta_docs:"View Documents & Compliance",
-        quick_title:"Export quick info", quick_loc:"Location:", quick_contact:"Contact:",
-        export_ready_title:"Export-ready",
-        export_ready_p:"Traceability, hygiene, cold chain and export documents depending on destination. See the Documents page.",
-        export_ready_btn:"Request documents", export_ready_btn2:"Open Documents",
+
+        cta_rfq:"Request a quotation (RFQ)",
+        cta_docs:"Request documents",
+        open_docs:"Open Documents",
+        talk_team:"Talk to the team",
+
+        quick_title:"Quick info",
+        quick_loc:"Location:",
+        quick_phone:"Tel/WhatsApp:",
+        quick_mail:"Email:",
+        quick_exp:"Export:",
+        quick_exp_text:"Documents depending on destination (B2B)",
+
         about_h2:"About ORION FISH",
         about_p1:"ORION FISH is a food company specialized in seafood value creation and fruit juice processing.",
         about_p2:"Our goal: sustainable and competitive supply chains designed for B2B needs.",
+
         sea_h2:"Seafood", sea_p:"Sourcing, processing, packaging and distribution.",
-        sea_l1:"Range", sea_t1:"Fresh & Frozen", sea_b1:"B2B formats", sea_b2:"Batch traceability", sea_b3:"Cold chain",
-        sea_l2:"Processing", sea_t2:"Preparation & packaging", sea_b4:"Hygiene & controls", sea_b5:"Labeling", sea_b6:"Specifications",
-        sea_l3:"Logistics", sea_t3:"Shipment", sea_b7:"Lead time & tracking", sea_b8:"Docs on request", sea_b9:"Incoterms",
+        sea_l1:"Ocean", sea_t1:"Fresh & Frozen", sea_b1:"B2B formats", sea_b2:"Batch traceability", sea_b3:"Cold chain",
+        sea_l2:"Beach", sea_t2:"Preparation & packaging", sea_b4:"Hygiene & controls", sea_b5:"Labeling", sea_b6:"Specifications",
+        sea_l3:"Export", sea_t3:"Shipment", sea_b7:"Lead time & tracking", sea_b8:"Docs on request", sea_b9:"Incoterms",
+
         juice_h2:"Fruits & juices", juice_p:"Selection, processing and packaging depending on the market.",
-        j_l1:"Selection", j_t1:"Selected fruits", j_b1:"Quality & maturity", j_b2:"Supply", j_b3:"Traceability",
-        j_l2:"Process", j_t2:"Sorting, washing, pressing", j_b4:"Recipes on request", j_b5:"Quality checks", j_b6:"Compliance",
-        j_l3:"Packaging", j_t3:"B2B / B2C", j_b7:"Adapted formats", j_b8:"Labeling", j_b9:"Export support",
+        j_l1:"Agriculture", j_t1:"Selected fruits", j_b1:"Quality & maturity", j_b2:"Supply", j_b3:"Traceability",
+        j_l2:"Processing", j_t2:"Sorting, washing, pressing", j_b4:"Recipes on request", j_b5:"Quality checks", j_b6:"Compliance",
+        j_l3:"Market", j_t3:"B2B / B2C", j_b7:"Adapted formats", j_b8:"Labeling", j_b9:"Export support",
+
         contact_h2:"Contact", contact_p1:"For information or partnerships, contact us.",
         contact_p2:"For a fast quotation, use the RFQ page.",
+
         f_name:"Name / Company", f_email:"Email", f_phone:"Phone", f_subject:"Subject", f_msg:"Message", f_send:"Send"
       }
     };
