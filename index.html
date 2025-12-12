@@ -54,13 +54,12 @@
       --radius: 18px;
 
       /* BOTTOM (noir + sable) */
-      --dz-bg: #020617;       /* noir */
-      --dz-card: #020617;     /* tout noir */
-      --sand: #e7d3b5;        /* sable */
+      --dz-bg: #020617;
+      --sand: #e7d3b5;
       --dz-text: #f8fafc;
       --dz-muted: #cbd5e1;
 
-      --line-yellow-dark: #a16207; /* jaune foncé */
+      --line-yellow-dark: #a16207;
     }
 
     *{box-sizing:border-box;margin:0;padding:0}
@@ -70,7 +69,7 @@
       line-height: 1.6;
       color: var(--text);
 
-      /* TOP intensité 100% : gradients plus forts */
+      /* TOP intensité 100% */
       background:
         radial-gradient(circle at 8% 0%, rgba(11,95,255,.60), transparent 52%),
         radial-gradient(circle at 92% 4%, rgba(34,197,94,.60), transparent 52%),
@@ -166,7 +165,7 @@
     .hero{
       padding: 2.2rem;
 
-      /* intensité 100% (encore plus marqué) */
+      /* intensité 100% */
       background:
         radial-gradient(circle at 10% 0%, rgba(6,182,255,.70), transparent 52%),
         radial-gradient(circle at 90% 0%, rgba(34,197,94,.65), transparent 52%),
@@ -252,9 +251,9 @@
       padding: 1.8rem 1.5rem 2.6rem;
     }
 
-    /* Sections en bas : tout noir + bordures sable */
+    /* Sections en bas : noir + bordures sable */
     .dark-zone section{
-      background: var(--dz-card);
+      background: var(--dz-bg);
       border: 1px solid var(--sand);
       box-shadow: none;
     }
@@ -273,124 +272,84 @@
       text-underline-offset: 3px;
     }
 
-    /* Grids bas */
+    /* GRIDS */
     .grid{
       display:grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 1rem;
       margin-top: 1rem;
     }
+
+    /* Cards bas : noir + sable */
     .card{
       padding: 1.1rem;
       border-radius: 16px;
-      border: 1px solid rgba(226,232,240,.98);
-      background: #fff;
-      box-shadow: 0 16px 34px rgba(2,8,23,.06);
-      transition: transform .12s, box-shadow .12s, filter .12s;
+      border: 1px solid var(--sand);
+      background: var(--dz-bg);
+      box-shadow: none;
+      transition: transform .12s, filter .12s;
     }
     .card:hover{
       transform: translateY(-2px);
-      box-shadow: 0 22px 46px rgba(2,8,23,.10);
       filter: saturate(1.06);
     }
 
-    /* Cards en bas : noir + sable */
-    .dark-zone .card{
-      background: var(--dz-bg);
-      border: 1px solid var(--sand);
-      box-shadow: none;
-    }
     .label{
       display:inline-block;
       font-size:.78rem;
       font-weight: 950;
       padding:.18rem .55rem;
       border-radius: 999px;
-      border: 1px solid rgba(226,232,240,.98);
-      margin-bottom: .6rem;
-    }
-    .label.blue{background: rgba(6,182,255,.26); color: #075985}
-    .label.green{background: rgba(34,197,94,.26); color: #166534}
-    .label.sun{background: rgba(251,191,36,.32); color: #854d0e}
-
-    /* Labels en bas : bordure sable */
-    .dark-zone .label{
       border: 1px solid var(--sand);
+      margin-bottom: .6rem;
+      background: rgba(231,211,181,.10);
+      color: var(--dz-text);
     }
 
     .list{margin-top:.45rem;padding-left:1.1rem}
-    .list li{margin:.25rem 0;color: var(--muted)}
-    .dark-zone .list li{color: var(--dz-muted)}
+    .dark-zone .list li{margin:.25rem 0;color: var(--dz-muted)}
 
-    /* FORM */
+    /* FORM (bas noir + sable) */
     form{display:grid;gap:1rem;margin-top:1rem}
     label{font-size:.9rem;font-weight:950;margin-bottom:.2rem;display:inline-block}
 
-    /* Inputs top */
+    .two{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+
     input,textarea{
       width:100%;
       padding:.65rem .9rem;
       border-radius: 14px;
-      border: 1px solid rgba(203,213,225,.98);
-      background: #fff;
-      color: var(--text);
+      background: #000;
+      color: var(--dz-text);
+      border: 1px solid var(--sand);
       font: inherit;
     }
     textarea{min-height:120px;resize:vertical}
+    input::placeholder, textarea::placeholder{color: rgba(231,211,181,.75)}
     input:focus,textarea:focus{
       outline:none;
-      border-color: rgba(6,182,255,.95);
-      box-shadow: 0 0 0 3px rgba(6,182,255,.22);
-    }
-    .two{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-
-    /* Inputs bas : noir + bordure sable */
-    .dark-zone input,
-    .dark-zone textarea{
-      background: #000000;
-      color: var(--dz-text);
-      border: 1px solid var(--sand);
-    }
-    .dark-zone input::placeholder,
-    .dark-zone textarea::placeholder{
-      color: rgba(231,211,181,.75);
-    }
-    .dark-zone input:focus,
-    .dark-zone textarea:focus{
       border-color: var(--sand);
       box-shadow: 0 0 0 3px rgba(231,211,181,.18);
     }
 
     /* Footer bas : noir + sable */
-    .footer{
-      color: var(--muted);
-      font-size: .88rem;
-      border-top: 1px solid rgba(226,232,240,.98);
-      padding: 1.8rem 1.5rem;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-    .foot-links{
-      display:flex;flex-wrap:wrap;gap:.45rem;align-items:center;justify-content:center;
-      margin-top:.8rem;
-    }
-    .foot-copy{text-align:center;margin-top:.9rem}
-
     .dark-footer{
       background: var(--dz-bg);
       border-top: 1px solid var(--sand);
       color: var(--dz-muted);
       padding: 1.8rem 0;
     }
-    .dark-footer .footer{
-      border-top: none;
-      color: var(--dz-muted);
+    .footer{
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      font-size: .88rem;
     }
-    .dark-footer a{
-      color: var(--dz-text);
-      text-decoration: underline;
-      text-underline-offset: 3px;
+    .foot-links{
+      display:flex;flex-wrap:wrap;gap:.45rem;align-items:center;justify-content:center;
+      margin-top:.2rem;
     }
+    .foot-copy{text-align:center;margin-top:.9rem}
 
     @media (max-width: 1024px){
       .container{padding:1.5rem 1rem 2.0rem}
@@ -494,7 +453,7 @@
 
           <div class="grid">
             <div class="card">
-              <span class="label blue" data-i18n="sea_l1">Gamme</span>
+              <span class="label" data-i18n="sea_l1">Gamme</span>
               <strong data-i18n="sea_t1">Frais & surgelé</strong>
               <ul class="list">
                 <li data-i18n="sea_b1">Formats B2B</li>
@@ -504,7 +463,7 @@
             </div>
 
             <div class="card">
-              <span class="label sun" data-i18n="sea_l2">Préparation</span>
+              <span class="label" data-i18n="sea_l2">Préparation</span>
               <strong data-i18n="sea_t2">Préparation & conditionnement</strong>
               <ul class="list">
                 <li data-i18n="sea_b4">Hygiène & contrôles</li>
@@ -514,7 +473,7 @@
             </div>
 
             <div class="card">
-              <span class="label blue" data-i18n="sea_l3">Logistique</span>
+              <span class="label" data-i18n="sea_l3">Logistique</span>
               <strong data-i18n="sea_t3">Expédition</strong>
               <ul class="list">
                 <li data-i18n="sea_b7">Délais & suivi</li>
@@ -531,7 +490,7 @@
 
           <div class="grid">
             <div class="card">
-              <span class="label green" data-i18n="j_l1">Sélection</span>
+              <span class="label" data-i18n="j_l1">Sélection</span>
               <strong data-i18n="j_t1">Fruits choisis</strong>
               <ul class="list">
                 <li data-i18n="j_b1">Qualité & maturité</li>
@@ -541,7 +500,7 @@
             </div>
 
             <div class="card">
-              <span class="label green" data-i18n="j_l2">Process</span>
+              <span class="label" data-i18n="j_l2">Process</span>
               <strong data-i18n="j_t2">Tri, lavage, pressage</strong>
               <ul class="list">
                 <li data-i18n="j_b4">Recettes sur demande</li>
@@ -551,7 +510,7 @@
             </div>
 
             <div class="card">
-              <span class="label sun" data-i18n="j_l3">Marché</span>
+              <span class="label" data-i18n="j_l3">Marché</span>
               <strong data-i18n="j_t3">B2B / B2C</strong>
               <ul class="list">
                 <li data-i18n="j_b7">Formats adaptés</li>
