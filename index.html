@@ -8,7 +8,6 @@
   <meta name="description" content="ORION FISH – Produits de la mer et transformation de fruits en jus. Vente, distribution et export (RFQ/Devis)." />
   <meta name="robots" content="index,follow" />
 
-  <!-- Bonus: redirection HTTPS côté navigateur (au cas où) -->
   <script>
     if (location.protocol === "http:" && location.hostname !== "localhost") {
       location.replace("https://" + location.host + location.pathname + location.search + location.hash);
@@ -22,7 +21,7 @@
     "name":"ORION FISH",
     "url":"https://orionsfish.com",
     "telephone":"+221339138392",
-    "email":"export@orionsfish.com",
+    "email":"contact@orionsfish.com",
     "address":{
       "@type":"PostalAddress",
       "streetAddress":"Quartier Léona, Cité Filaos",
@@ -212,6 +211,7 @@
           <li><a href="#mer" data-i18n="nav_sea">Produits de la mer</a></li>
           <li><a href="#jus" data-i18n="nav_juice">Fruits & jus</a></li>
           <li><a href="rfq.html" data-i18n="nav_rfq">RFQ / Devis</a></li>
+          <li><a href="compliance.html" data-i18n="nav_docs">Documents</a></li>
           <li><a href="team.html" data-i18n="nav_team">Team</a></li>
           <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
           <li><a href="#mentions" data-i18n="nav_legal">Mentions</a></li>
@@ -235,7 +235,7 @@
 
           <div class="cta">
             <a class="btn btn-primary" href="rfq.html" data-i18n="cta_rfq">Demander un devis (RFQ)</a>
-            <a class="btn" href="#contact" data-i18n="cta_contact">Contacter</a>
+            <a class="btn" href="compliance.html" data-i18n="cta_docs">Voir Documents & Compliance</a>
           </div>
 
           <div class="box" style="margin-top:1.1rem;">
@@ -244,20 +244,20 @@
               <span data-i18n="quick_loc">Localisation :</span> Rufisque (17000), Sénégal
             </p>
             <p class="muted" style="margin-bottom:0;">
-              <span data-i18n="quick_contact">Contact export :</span>
-              <a href="mailto:export@orionsfish.com">export@orionsfish.com</a> •
+              <span data-i18n="quick_contact">Contact :</span>
+              <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a> •
               <a href="tel:+221339138392">+221339138392</a>
             </p>
           </div>
         </div>
 
         <div class="box">
-          <strong data-i18n="rfq_box_title">Page RFQ recommandée</strong>
-          <p class="muted" style="margin-top:.5rem" data-i18n="rfq_box_p">
-            Pour une réponse rapide, indiquez produit, quantité, packaging, destination, incoterm et délai.
+          <strong data-i18n="export_ready_title">Export-ready</strong>
+          <p class="muted" style="margin-top:.5rem" data-i18n="export_ready_p">
+            Traçabilité, hygiène, chaîne du froid, et documents d’export fournis selon destination. Consultez la page Documents.
           </p>
           <div class="cta" style="margin-top:.8rem">
-            <a class="btn btn-primary" href="rfq.html" data-i18n="rfq_box_btn">Ouvrir RFQ / Devis</a>
+            <a class="btn btn-primary" href="compliance.html" data-i18n="export_ready_btn">Ouvrir Documents</a>
           </div>
         </div>
       </div>
@@ -350,13 +350,10 @@
       <p class="muted" data-i18n="contact_p2">Pour un devis rapide, utilisez la page RFQ.</p>
 
       <p class="muted" style="margin-bottom:1rem">
-        Export : <a href="mailto:export@orionsfish.com">export@orionsfish.com</a> •
-        Sales : <a href="mailto:sales@orionsfish.com">sales@orionsfish.com</a> •
-        Contact : <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a> •
+        Email : <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a> •
         Tel/WhatsApp : <a href="tel:+221339138392">+221339138392</a>
       </p>
 
-      <!-- FormSubmit: HTTPS + redirection vers ta page merci -->
       <form action="https://formsubmit.co/contact@orionsfish.com" method="POST">
         <input type="text" name="_honey" style="display:none">
         <input type="hidden" name="_subject" value="Message – ORION FISH (site web)">
@@ -403,10 +400,7 @@
         Responsable de publication : <strong>Diallo Mamadou</strong><br>
         Hébergeur : <strong>Hostinger</strong><br>
         Tél/WhatsApp : <a href="tel:+221339138392">+221339138392</a><br>
-        Email :
-        <a href="mailto:export@orionsfish.com">export@orionsfish.com</a> |
-        <a href="mailto:sales@orionsfish.com">sales@orionsfish.com</a> |
-        <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a>
+        Email : <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a>
       </p>
     </section>
   </main>
@@ -417,6 +411,8 @@
       <span>•</span>
       <a href="rfq.html">RFQ / Devis</a>
       <span>•</span>
+      <a href="compliance.html">Documents</a>
+      <span>•</span>
       <a href="team.html">Team</a>
     </div>
     <div class="foot-copy">© <span id="y"></span> ORION FISH. Tous droits réservés.</div>
@@ -426,16 +422,17 @@
     document.getElementById("y").textContent = new Date().getFullYear();
 
     const dict = {
-      fr: {
+      fr:{
         nav_home:"Accueil", nav_about:"À propos", nav_sea:"Produits de la mer", nav_juice:"Fruits & jus",
-        nav_rfq:"RFQ / Devis", nav_team:"Team", nav_contact:"Contact", nav_legal:"Mentions",
+        nav_rfq:"RFQ / Devis", nav_docs:"Documents", nav_team:"Team", nav_contact:"Contact", nav_legal:"Mentions",
         h1:"ORION FISH – Produits de la mer & jus de fruits",
         hero_sub:"Produits de la mer, transformation de fruits en jus, vente et distribution au service des marchés locaux et internationaux.",
         hero_p:"Nous accompagnons distributeurs, industriels et professionnels avec des solutions fiables, tracées et conformes aux exigences.",
-        cta_rfq:"Demander un devis (RFQ)", cta_contact:"Contacter",
-        quick_title:"Informations rapides export", quick_loc:"Localisation :", quick_contact:"Contact export :",
-        rfq_box_title:"Page RFQ recommandée", rfq_box_p:"Pour une réponse rapide, indiquez produit, quantité, packaging, destination, incoterm et délai.",
-        rfq_box_btn:"Ouvrir RFQ / Devis",
+        cta_rfq:"Demander un devis (RFQ)", cta_docs:"Voir Documents & Compliance",
+        quick_title:"Informations rapides export", quick_loc:"Localisation :", quick_contact:"Contact :",
+        export_ready_title:"Export-ready",
+        export_ready_p:"Traçabilité, hygiène, chaîne du froid, et documents d’export fournis selon destination. Consultez la page Documents.",
+        export_ready_btn:"Ouvrir Documents",
         about_h2:"À propos d’ORION FISH",
         about_p1:"ORION FISH est une entreprise agroalimentaire spécialisée dans la valorisation des produits de la mer et la transformation de fruits en jus.",
         about_p2:"Notre ambition : développer des filières durables et compétitives, adaptées aux besoins B2B.",
@@ -451,16 +448,17 @@
         contact_p2:"Pour un devis rapide, utilisez la page RFQ.",
         f_name:"Nom / Entreprise", f_email:"E-mail", f_phone:"Téléphone", f_subject:"Objet", f_msg:"Message", f_send:"Envoyer"
       },
-      en: {
+      en:{
         nav_home:"Home", nav_about:"About", nav_sea:"Seafood", nav_juice:"Fruits & Juices",
-        nav_rfq:"RFQ / Quotation", nav_team:"Team", nav_contact:"Contact", nav_legal:"Legal",
+        nav_rfq:"RFQ / Quotation", nav_docs:"Documents", nav_team:"Team", nav_contact:"Contact", nav_legal:"Legal",
         h1:"ORION FISH – Seafood & fruit juices",
         hero_sub:"Seafood products and fruit juice processing for local and international markets.",
         hero_p:"We support distributors and industrial buyers with reliable, traceable and compliant solutions.",
-        cta_rfq:"Request a quotation (RFQ)", cta_contact:"Contact",
-        quick_title:"Export quick info", quick_loc:"Location:", quick_contact:"Export contact:",
-        rfq_box_title:"Recommended RFQ page", rfq_box_p:"For a fast answer, provide product, quantity, packaging, destination, incoterm and lead time.",
-        rfq_box_btn:"Open RFQ / Quotation",
+        cta_rfq:"Request a quotation (RFQ)", cta_docs:"View Documents & Compliance",
+        quick_title:"Export quick info", quick_loc:"Location:", quick_contact:"Contact:",
+        export_ready_title:"Export-ready",
+        export_ready_p:"Traceability, hygiene, cold chain, and export documents provided depending on destination. See Documents page.",
+        export_ready_btn:"Open Documents",
         about_h2:"About ORION FISH",
         about_p1:"ORION FISH is a food company specialized in seafood value creation and fruit juice processing.",
         about_p2:"Our goal: sustainable and competitive supply chains designed for B2B needs.",
