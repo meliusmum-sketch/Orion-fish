@@ -3,18 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ORION FISH – Produits de la mer & Jus de fruits</title>
+  <title>Team ORION FISH</title>
 
-  <meta name="description" content="ORION FISH – Produits de la mer, transformation de fruits en jus, vente et distribution pour marchés locaux et internationaux." />
+  <meta name="description" content="Équipe ORION FISH – Direction, opérations, qualité, R&D, marketing et support." />
   <meta name="robots" content="index,follow" />
 
-  <!-- SEO / Confiance -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "ORION FISH",
-    "url": "https://orionsfish.com",
+    "url": "https://www.orionsfish.com",
     "telephone": "+2212702457",
     "email": "export@orionsfish.com",
     "address": {
@@ -31,7 +30,7 @@
     :root{
       --marine:#020617; --card:#020617; --card-border:#1f2937;
       --text-main:#e5e7eb; --text-muted:#9ca3af;
-      --orange:#f97316; --orange-soft:#ffedd5; --gold:#facc15; --good:#22c55e;
+      --orange:#f97316; --gold:#facc15;
     }
     *{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
@@ -42,13 +41,6 @@
       min-height:100vh;
     }
     a{color:inherit;text-decoration:none}
-    .skip-link{
-      position:absolute; top:-100px; left:12px;
-      background:#e5e7eb; color:#111827;
-      padding:.6rem .9rem; border-radius:.8rem;
-      z-index:9999; font-weight:800;
-    }
-    .skip-link:focus{top:12px}
 
     header{
       position:sticky; top:0; z-index:10;
@@ -66,7 +58,6 @@
       text-transform:uppercase; white-space:nowrap;
     }
     .logo-icon{width:30px;height:30px;flex-shrink:0}
-
     nav ul{
       list-style:none; display:flex; flex-wrap:wrap;
       gap:1rem; justify-content:flex-end; align-items:center;
@@ -74,7 +65,6 @@
     }
     nav a{opacity:.82; transition:opacity .15s, transform .15s}
     nav a:hover{opacity:1; transform:translateY(-1px)}
-
     .lang-toggle{
       border:1px solid rgba(148,163,184,.6);
       background:rgba(15,23,42,.7);
@@ -87,168 +77,70 @@
     .lang-toggle:hover{transform:translateY(-1px); background:rgba(15,23,42,.95)}
 
     .container{max-width:1100px;margin:0 auto;padding:1.5rem 1.5rem 2.5rem}
-
     section{
-      margin:3rem 0; padding:2rem;
+      margin:1.5rem 0; padding:2rem;
       background:var(--card);
       border-radius:1.5rem;
       box-shadow:0 18px 45px rgba(15,23,42,.6);
       border:1px solid var(--card-border);
     }
-    h1,h2,h3{margin-bottom:1rem}
-    h1{font-size:2.2rem}
-    h2{font-size:1.4rem}
-    p{margin-bottom:.7rem;font-size:.98rem}
+    h1{font-size:2.0rem;margin-bottom:.6rem}
+    p{margin-bottom:.7rem}
     .muted{color:var(--text-muted)}
 
-    /* HERO */
-    #accueil{
-      display:grid;
-      grid-template-columns:minmax(0,3fr) minmax(260px,2fr);
-      gap:2rem; align-items:flex-start;
+    .filters{
+      display:flex; flex-wrap:wrap; gap:.6rem; margin-top:1rem;
     }
-    .pill{
-      display:inline-flex; align-items:center; gap:.4rem;
-      padding:.18rem .8rem; border-radius:999px;
-      font-size:.78rem; background:var(--orange-soft); color:#9a3412;
-      margin-bottom:.9rem;
-    }
-    .pill-dot{width:7px;height:7px;border-radius:999px;background:var(--orange)}
-    .sous-titre{font-size:1.02rem;color:var(--text-muted);margin-bottom:1.2rem}
-
-    .btn-group{display:flex; flex-wrap:wrap; gap:.8rem; margin:1.2rem 0 1.2rem}
-    .btn{
-      display:inline-block; padding:.7rem 1.4rem; border-radius:999px;
-      border:none; cursor:pointer; font-size:.9rem; font-weight:900;
-      transition:transform .12s, box-shadow .12s, background .12s;
-    }
-    .btn-principal{
-      background:var(--orange); color:#111827;
-      box-shadow:0 10px 24px rgba(248,113,113,.35);
-    }
-    .btn-principal:hover{transform:translateY(-1px); box-shadow:0 14px 32px rgba(248,113,113,.45); background:#ea580c}
-    .btn-secondaire{
-      background:transparent; color:#e5e7eb;
-      border:1px solid rgba(148,163,184,.7);
-      backdrop-filter:blur(4px);
-    }
-    .btn-secondaire:hover{background:rgba(15,23,42,.7); transform:translateY(-1px)}
-
-    .hero-card{
-      background:radial-gradient(circle at top left,#0ea5e9,#020617 60%);
-      border-radius:1.5rem; padding:1.6rem;
-      position:relative; overflow:hidden; isolation:isolate;
-      border:1px solid rgba(148,163,184,.25);
-    }
-    .hero-card::before{
-      content:""; position:absolute; inset:0;
-      background:radial-gradient(circle at 110% -10%, rgba(248,250,252,.3), transparent 55%);
-      opacity:.7; pointer-events:none;
-    }
-    .hero-card-inner{position:relative; z-index:1}
-    .hero-tag{
-      display:inline-block; padding:.25rem .6rem; border-radius:999px;
-      border:1px solid rgba(248,250,252,.55);
-      font-size:.76rem; opacity:.92; margin-bottom:.4rem;
-    }
-    .hero-media{display:flex; gap:.8rem; flex-wrap:wrap; margin-bottom:.9rem}
-    .media-placeholder{
-      flex:1 1 220px; min-height:140px;
-      border-radius:1.1rem;
-      border:1px dashed rgba(148,163,184,.6);
-      background:rgba(2,6,23,.55);
-      display:grid; place-items:center;
-      padding:1rem; text-align:center;
-    }
-    .media-title{
-      font-weight:900; letter-spacing:.06em; text-transform:uppercase;
-      font-size:.82rem; margin-bottom:.25rem;
-    }
-    .media-text{color:var(--text-muted); font-size:.9rem}
-    .media-note{margin-top:.5rem; font-size:.78rem; color:rgba(229,231,235,.72)}
-
-    .hero-metrics{display:flex; flex-wrap:wrap; gap:1.2rem; margin-top:.9rem; font-size:.85rem}
-    .metric{display:flex; flex-direction:column}
-    .metric span:first-child{font-weight:900; font-size:1.05rem}
-    .metric span:last-child{opacity:.85}
-
-    /* EXPORT SNAPSHOT */
-    .export-box{
-      margin-top:1rem; padding:1rem 1.1rem;
-      border-radius:1.2rem;
-      border:1px solid rgba(148,163,184,.35);
-      background:rgba(15,23,42,.65);
-    }
-    .export-badges{display:flex; flex-wrap:wrap; gap:.5rem; margin:.6rem 0 .2rem}
-    .badge{
-      display:inline-flex; align-items:center; gap:.4rem;
-      padding:.18rem .65rem; border-radius:999px;
-      font-size:.78rem;
+    .chip{
+      display:inline-flex; align-items:center;
+      padding:.3rem .75rem;
+      border-radius:999px;
       border:1px solid rgba(148,163,184,.35);
       background:rgba(2,6,23,.8);
-      opacity:.95;
+      font-weight:900;
+      font-size:.82rem;
+      cursor:pointer;
+      opacity:.92;
+      transition:transform .12s, opacity .12s, border-color .12s;
+      user-select:none;
     }
-    .badge-dot{width:7px;height:7px;border-radius:999px;background:var(--good)}
-    .export-row{
-      display:grid; grid-template-columns:160px 1fr;
-      gap:.8rem; margin-top:.6rem; font-size:.92rem;
-    }
-    .export-row strong{color:#e5e7eb}
-    .export-row span{color:var(--text-muted)}
+    .chip:hover{transform:translateY(-1px); opacity:1}
+    .chip.active{border-color:rgba(250,204,21,.8)}
 
-    /* GRIDS */
-    .grid{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1.2rem; margin-top:1.5rem}
-    .card{
-      padding:1.1rem; border-radius:1.1rem;
+    .team-grid{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0,1fr));
+      gap:1rem;
+      margin-top:1.3rem;
+    }
+    .member{
+      padding:1.1rem;
+      border-radius:1.2rem;
       border:1px solid rgba(55,65,81,.9);
       background:#020617;
       transition:transform .12s, box-shadow .12s, border-color .12s;
     }
-    .card:hover{transform:translateY(-2px); border-color:#60a5fa; box-shadow:0 10px 26px rgba(15,23,42,.8)}
-    .card span.label{
-      display:inline-block; font-size:.75rem;
-      padding:.12rem .55rem; border-radius:999px;
-      background:rgba(37,99,235,.2); color:#bfdbfe;
-      margin-bottom:.4rem;
+    .member:hover{
+      transform:translateY(-2px);
+      border-color:#60a5fa;
+      box-shadow:0 10px 26px rgba(15,23,42,.8);
     }
-    .card .media-placeholder{min-height:170px; margin:.6rem 0 .7rem}
+    .member-top{
+      display:flex; gap:.8rem; align-items:center; margin-bottom:.7rem;
+    }
+    .avatar{
+      width:56px; height:56px; border-radius:999px;
+      border:2px solid rgba(250,204,21,.9);
+      background:rgba(148,163,184,.18);
+      display:grid; place-items:center;
+      font-weight:900; letter-spacing:.06em;
+      color:#e5e7eb;
+      flex-shrink:0;
+    }
+    .name{font-weight:900}
+    .role{color:#e5e7eb; opacity:.92; font-size:.9rem}
+    .desc{color:var(--text-muted); font-size:.9rem}
 
-    .apropos-grid{display:grid; grid-template-columns:2fr 2fr; gap:1.5rem}
-    .liste-simple{list-style:none; margin-top:.5rem; font-size:.95rem}
-    .liste-simple li{margin-bottom:.3rem}
-    .liste-simple li::before{content:"• "; opacity:.6}
-
-    .galerie-grid{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1rem; margin-top:1.2rem}
-    .galerie-item{
-      border-radius:1rem; overflow:hidden;
-      border:1px solid rgba(55,65,81,.9);
-      background:#020617;
-    }
-    .galerie-item .media-placeholder{
-      border-radius:0; min-height:200px; border:none;
-      border-bottom:1px solid rgba(55,65,81,.7);
-    }
-    .galerie-caption{
-      padding:.55rem .8rem; font-size:.85rem; color:var(--text-muted);
-      border-top:1px solid rgba(55,65,81,.7);
-    }
-
-    form{display:grid; gap:1rem; margin-top:1.2rem}
-    label{font-size:.88rem; font-weight:900; margin-bottom:.2rem; display:inline-block}
-    input,textarea,select{
-      width:100%; padding:.55rem .85rem;
-      border-radius:.7rem; border:1px solid #4b5563;
-      font:inherit; background:#020617; color:var(--text-main);
-    }
-    textarea{min-height:110px; resize:vertical}
-    input::placeholder,textarea::placeholder{color:#6b7280}
-    input:focus,textarea:focus,select:focus{
-      outline:none; border-color:#60a5fa;
-      box-shadow:0 0 0 1px rgba(37,99,235,.5);
-    }
-    .form-grid-2{display:grid; gap:1rem; grid-template-columns:1fr 1fr}
-
-    /* FOOTER PRO */
     .site-footer{
       max-width:1100px; margin:0 auto;
       padding:1.8rem 1.5rem;
@@ -256,897 +148,422 @@
       border-top:1px solid rgba(148,163,184,.35);
     }
     .site-footer a{text-decoration:underline; text-underline-offset:3px}
-    .footer-links{
-      margin-top:.9rem; display:flex; flex-wrap:wrap;
-      gap:.45rem; align-items:center; justify-content:center;
-    }
-    .footer-copy{margin-top:.9rem; text-align:center}
-
-    /* WhatsApp */
-    .whatsapp-float{
-      position:fixed; right:18px; bottom:18px; z-index:999;
-      display:inline-flex; align-items:center; gap:.6rem;
-      padding:.75rem 1rem; border-radius:999px;
-      background:var(--good); color:#052e16;
-      border:1px solid rgba(5,46,22,.25);
-      box-shadow:0 18px 40px rgba(0,0,0,.45);
-      font-weight:900;
-      transition:transform .12s;
-    }
-    .whatsapp-float:hover{transform:translateY(-2px)}
-    .whatsapp-float svg{width:20px;height:20px;display:block}
-    .whatsapp-label{font-size:.9rem}
+    .footer-copy{margin-top:.8rem}
 
     @media (max-width:1024px){
       .container{padding:1.5rem 1rem 2.5rem}
-      #accueil{grid-template-columns:1fr}
-      .hero-card{order:-1}
-      .apropos-grid{grid-template-columns:1fr}
-      .grid,.galerie-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-      .export-row{grid-template-columns:1fr}
-      .form-grid-2{grid-template-columns:1fr}
+      .team-grid{grid-template-columns:repeat(2, minmax(0,1fr))}
+      section{padding:1.6rem}
     }
     @media (max-width:640px){
       .nav-container{flex-direction:column; align-items:flex-start; gap:.4rem}
       nav ul{justify-content:flex-start; gap:.9rem}
-      section{padding:1.4rem; margin:2rem 0}
-      .btn-group{flex-direction:column; align-items:stretch}
-      .grid,.galerie-grid{grid-template-columns:1fr}
+      .team-grid{grid-template-columns:1fr}
       h1{font-size:1.6rem}
-      h2{font-size:1.2rem}
-      .footer-links{justify-content:flex-start}
-      .footer-copy{text-align:left}
-      .whatsapp-label{display:none}
-      .whatsapp-float{padding:.75rem}
     }
   </style>
 </head>
 
 <body>
-  <a class="skip-link" href="#mainContent" data-i18n="skip_link">Aller au contenu</a>
-
   <header>
     <div class="nav-container">
       <div class="logo">
         <svg class="logo-icon" viewBox="0 0 40 40" aria-hidden="true">
           <defs>
-            <linearGradient id="logoSea" x1="0" y1="0" x2="1" y2="1">
+            <linearGradient id="logoSea2" x1="0" y1="0" x2="1" y2="1">
               <stop offset="0%" stop-color="#0ea5e9" />
               <stop offset="100%" stop-color="#020617" />
             </linearGradient>
-            <linearGradient id="logoSun" x1="0" y1="0" x2="1" y2="1">
+            <linearGradient id="logoSun2" x1="0" y1="0" x2="1" y2="1">
               <stop offset="0%" stop-color="#facc15" />
               <stop offset="100%" stop-color="#f97316" />
             </linearGradient>
           </defs>
-          <circle cx="20" cy="20" r="19" fill="url(#logoSea)" />
+          <circle cx="20" cy="20" r="19" fill="url(#logoSea2)" />
           <path d="M4 22 C10 18, 16 26, 22 22 C27 18, 33 24, 36 21"
                 fill="none" stroke="#e5e7eb" stroke-width="2" stroke-linecap="round" />
           <path d="M13 18 C17 14, 23 14, 26 18 C23 22, 17 22, 13 18 Z"
                 fill="#e5e7eb" opacity="0.9" />
           <circle cx="17" cy="17.5" r="0.9" fill="#0b1120" />
           <path d="M26 18 L30 15 L30 21 Z" fill="#e5e7eb" opacity="0.9" />
-          <circle cx="29" cy="11" r="4" fill="url(#logoSun)" />
+          <circle cx="29" cy="11" r="4" fill="url(#logoSun2)" />
         </svg>
         <span>ORION FISH</span>
       </div>
 
       <nav aria-label="Navigation principale">
         <ul>
-          <li><a href="#accueil" data-i18n="nav_home">Accueil</a></li>
-          <li><a href="#apropos" data-i18n="nav_about">À propos</a></li>
-          <li><a href="#mer" data-i18n="nav_seafood">Produits de la mer</a></li>
-          <li><a href="#jus" data-i18n="nav_juice">Fruits & jus</a></li>
-          <li><a href="#galerie" data-i18n="nav_photos">Photos</a></li>
-          <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
-          <li><a href="team.html" data-i18n="nav_team">Team</a></li>
-          <li><a href="#mentions-legales" data-i18n="nav_legal">Mentions légales</a></li>
-          <li><button id="langToggle" class="lang-toggle" type="button" aria-label="Changer de langue">EN</button></li>
+          <li><a href="/index.html" data-i18n="nav_home">Accueil</a></li>
+          <li><a href="/index.html#contact" data-i18n="nav_contact">Contact</a></li>
+          <li><a href="/team.html" data-i18n="nav_team">Team</a></li>
+          <li><button id="langToggle" class="lang-toggle" type="button">EN</button></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <main id="mainContent" class="container">
-    <section id="accueil">
-      <div>
-        <div class="pill">
-          <span class="pill-dot"></span>
-          <span data-i18n="pill">Agroalimentaire – Mer & Fruits</span>
-        </div>
+  <main class="container">
+    <section>
+      <h1 data-i18n="team_title">Team ORION FISH</h1>
+      <p class="muted" data-i18n="team_sub">
+        Voici l’équipe ORION FISH. Photos retirées : affichage en initiales (nom + prénom).
+      </p>
 
-        <h1 data-i18n="h1">ORION FISH – Produits de la mer & jus de fruits</h1>
-
-        <p class="sous-titre" data-i18n="hero_sub">
-          Produits de la mer, transformation de fruits en jus, vente et distribution au service des marchés locaux et internationaux.
-        </p>
-
-        <p data-i18n="hero_p1">
-          ORION FISH collecte, transforme et distribue des produits de la mer ainsi que des jus de fruits
-          issus de matières premières rigoureusement sélectionnées. Nous accompagnons distributeurs, industriels
-          et professionnels avec des solutions fiables, tracées et conformes aux normes en vigueur.
-        </p>
-
-        <div class="btn-group">
-          <a href="#mer" class="btn btn-principal" data-i18n="btn_activities">Découvrir nos activités</a>
-          <a href="#contact" class="btn btn-secondaire" data-i18n="btn_talk">Parler à notre équipe</a>
-        </div>
-
-        <div class="export-box" aria-label="Export snapshot">
-          <h3 style="margin-bottom:.4rem;" data-i18n="export_title">Export snapshot</h3>
-          <p class="muted" style="margin-bottom:.6rem;" data-i18n="export_sub">Infos rapides pour demandes de devis (RFQ).</p>
-
-          <div class="export-badges">
-            <span class="badge"><span class="badge-dot"></span><span data-i18n="badge_b2b">B2B / RFQ</span></span>
-            <span class="badge"><span class="badge-dot"></span><span data-i18n="badge_incoterms">Incoterms: EXW / FOB / CIF</span></span>
-            <span class="badge"><span class="badge-dot"></span><span data-i18n="badge_profile">Company Profile (PDF)</span></span>
-          </div>
-
-          <div class="export-row">
-            <strong data-i18n="export_loc_k">Localisation</strong>
-            <span data-i18n="export_loc_v">Rufisque (17000), Sénégal</span>
-          </div>
-          <div class="export-row">
-            <strong data-i18n="export_contact_k">Contact export</strong>
-            <span><a href="mailto:export@orionsfish.com">export@orionsfish.com</a> • <a href="tel:+2212702457">+2212702457</a></span>
-          </div>
-          <div class="export-row">
-            <strong data-i18n="export_docs_k">Documents</strong>
-            <span data-i18n="export_docs_v">Disponibles selon produit & destination (sur demande).</span>
-          </div>
-          <div class="export-row">
-            <strong data-i18n="export_profile_k">Profil</strong>
-            <span><a href="company-profile.pdf" target="_blank" rel="noopener noreferrer" data-i18n="export_profile_v">Télécharger le Company Profile (PDF)</a></span>
-          </div>
-        </div>
+      <div class="filters" aria-label="Filtres équipe">
+        <span class="chip active" data-filter="all" data-i18n="filter_all">Tous</span>
+        <span class="chip" data-filter="management" data-i18n="filter_mgmt">Direction</span>
+        <span class="chip" data-filter="sales" data-i18n="filter_sales">Commercial / Marketing</span>
+        <span class="chip" data-filter="ops" data-i18n="filter_ops">Opérations</span>
+        <span class="chip" data-filter="quality" data-i18n="filter_quality">Qualité / HACCP</span>
+        <span class="chip" data-filter="support" data-i18n="filter_support">Support</span>
       </div>
 
-      <div class="hero-card">
-        <div class="hero-card-inner">
-          <div class="hero-media">
-            <div class="media-placeholder" role="note" aria-label="Visuel mer à venir">
-              <div>
-                <div class="media-title" data-i18n="ph_sea_title">Visuel mer</div>
-                <div class="media-text" data-i18n="ph_soon">Photo à venir</div>
-                <div class="media-note" data-i18n="ph_note">Ajoute une photo réelle (produits / usine / logistique).</div>
-              </div>
-            </div>
-            <div class="media-placeholder" role="note" aria-label="Visuel jus à venir">
-              <div>
-                <div class="media-title" data-i18n="ph_juice_title">Visuel jus</div>
-                <div class="media-text" data-i18n="ph_soon">Photo à venir</div>
-                <div class="media-note" data-i18n="ph_note">Ajoute une photo réelle (fruits / ligne / packaging).</div>
-              </div>
+      <div class="team-grid" id="teamGrid">
+        <!-- DIRECTION -->
+        <article class="member" data-group="management">
+          <div class="member-top">
+            <div class="avatar" aria-hidden="true">AM</div>
+            <div>
+              <div class="name">Amadou Mballo</div>
+              <div class="role" data-i18n="m_am_role">Directeur Général</div>
             </div>
           </div>
+          <div class="desc" data-i18n="m_am_desc">Pilote la stratégie globale, représente l’entreprise et assure l’alignement des activités mer & fruits.</div>
+        </article>
 
-          <span class="hero-tag" data-i18n="hero_tag">Filières intégrées</span>
-          <h3 data-i18n="hero_h3">Une double expertise, mer & fruits</h3>
-          <p data-i18n="hero_p2">
-            De la pêche à la transformation des fruits, ORION FISH s’engage sur la qualité, la traçabilité
-            et la sécurité alimentaire de ses produits.
-          </p>
-
-          <div class="hero-metrics">
-            <div class="metric">
-              <span data-i18n="metric_sea">Mer</span>
-              <span data-i18n="metric_sea_desc">Collecte, transformation et distribution des produits de la mer.</span>
-            </div>
-            <div class="metric">
-              <span data-i18n="metric_fruit">Fruits</span>
-              <span data-i18n="metric_fruit_desc">Jus issus d’oranges, mangues, mandarines et autres fruits sélectionnés.</span>
+        <article class="member" data-group="management">
+          <div class="member-top">
+            <div class="avatar" aria-hidden="true">MK</div>
+            <div>
+              <div class="name">Mouhamad Kébé</div>
+              <div class="role" data-i18n="m_mk_role">Gérant</div>
             </div>
           </div>
-        </div>
+          <div class="desc" data-i18n="m_mk_desc">Dirige l’entreprise au quotidien et coordonne l’exécution opérationnelle des activités.</div>
+        </article>
+
+        <article class="member" data-group="management">
+          <div class="member-top">
+            <div class="avatar" aria-hidden="true">SN</div>
+            <div>
+              <div class="name">Samba Ndiaye</div>
+              <div class="role" data-i18n="m_sn_role">Directeur d’usine</div>
+            </div>
+          </div>
+          <div class="desc" data-i18n="m_sn_desc">Supervise les opérations industrielles et coordonne les équipes de production pour garantir performance et qualité.</div>
+        </article>
+
+        <!-- COMMERCIAL / MARKETING -->
+        <article class="member" data-group="sales">
+          <div class="member-top">
+            <div class="avatar" aria-hidden="true">SD</div>
+            <div>
+              <div class="name">Souleymane Diallo</div>
+              <div class="role" data-i18n="m_sd_role">Directeur Service Commercial</div>
+            </div>
+          </div>
+          <div class="desc" data-i18n="m_sd_desc">Développe le portefeuille clients et les partenariats commerciaux sur les marchés cibles.</div>
+        </article>
+
+        <article class="member" data-group="sales">
+          <div class="member-top">
+            <div class="avatar" aria-hidden="true">NFW</div>
+            <div>
+              <div class="name">Ndèye Fatou Wade</div>
+              <div class="role" data-i18n="m_nw_role">Directrice Marketing / Clientèle</div>
+            </div>
+          </div>
+          <div class="desc" data-i18n="m_nw_desc">Pilote le marketing, la communication et la relation clientèle pour valoriser l’offre ORION FISH.</div>
+        </article>
+
+        <!-- OPÉRATIONS -->
+        <article class="member" data-group="ops">
+          <div class="member-top">
+            <div class="avatar" aria-hidden="true">LB</div>
+            <div>
+              <div class="name">Landing Badji</div>
+              <div class="role" data-i18n="m_lb_role">Opérateur de production</div>
+            </div>
+          </div>
+          <div class="desc" data-i18n="m_lb_desc">Participe aux opérations de transformation et de conditionnement au quotidien.</div>
+        </article>
+
+        <article class="member" data-group="ops">
+          <div class="member-top">
+            <div class="avatar" aria-hidden="true">ISB</div>
+            <div>
+              <div class="name">Ibrahima Sory Bindia</div>
+              <div class="role" data-i18n="m_ib_role">Responsable transport / distribution</div>
+            </div>
+          </div>
+          <div class="desc" data-i18n="m_ib_desc">Organise les livraisons, la disponibilité des véhicules et le respect des délais clients.</div>
+        </article>
+
+        <article class="member" data-group="ops">
+          <div class="member-top">
+            <div class="avatar" aria-hidden="true">OD</div>
+            <div>
+              <div class="name">Ousmane Diop</div>
+              <div class="role" data-i18n="m_od_role">Responsable utilités</div>
+            </div>
+          </div>
+          <div class="desc" data-i18n="m_od_desc">Garantit la performance des installations (froid, vapeur, air comprimé, eau).</div>
+        </article>
+
+        <article class="member" data-group="ops">
+          <div class="member-top">
+            <div class="avatar" aria-hidden="true">MHD</div>
+            <div>
+              <div class="name">Mamadou Hady Diallo</div>
+              <div class="role" data-i18n="m_mh_role">Chef d’équipe</div>
+            </div>
+          </div>
+          <div class="desc" data-i18n="m_mh_desc">Encadre les équipes sur le terrain et veille à la bonne exécution des opérations.</div>
+        </article>
+
+        <article class="member" data-group="ops">
+          <div class="member-top">
+            <div class="avatar" aria-hidden="true">RP</div>
+            <div>
+              <div class="name" data-i18n="m_rp_name">Responsable production</div>
+              <div class="role" data-i18n="m_rp_role">Supervision des lignes</div>
+            </div>
+          </div>
+          <div class="desc" data-i18n="m_rp_desc">Organise les volumes, les rendements et la qualité sur les lignes de production.</div>
+        </article>
+
+        <!-- QUALITÉ -->
+        <article class="member" data-group="quality">
+          <div class="member-top">
+            <div class="avatar" aria-hidden="true">NAD</div>
+            <div>
+              <div class="name">Ndèye Astou Diatta</div>
+              <div class="role" data-i18n="m_nd_role">Traçabilité & réclamations</div>
+            </div>
+          </div>
+          <div class="desc" data-i18n="m_nd_desc">Assure la traçabilité des produits et le suivi structuré des réclamations clients.</div>
+        </article>
+
+        <article class="member" data-group="quality">
+          <div class="member-top">
+            <div class="avatar" aria-hidden="true">SD</div>
+            <div>
+              <div class="name">Seyni Diedhiou</div>
+              <div class="role" data-i18n="m_sy_role">Responsable HACCP / Food Safety</div>
+            </div>
+          </div>
+          <div class="desc" data-i18n="m_sy_desc">Met en œuvre le plan HACCP et veille à la sécurité sanitaire des aliments.</div>
+        </article>
+
+        <!-- SUPPORT -->
+        <article class="member" data-group="support">
+          <div class="member-top">
+            <div class="avatar" aria-hidden="true">AD</div>
+            <div>
+              <div class="name">Awa Diatta</div>
+              <div class="role" data-i18n="m_ad_role">Cheffe de projet innovation</div>
+            </div>
+          </div>
+          <div class="desc" data-i18n="m_ad_desc">Conçoit et pilote les projets d’innovation : nouveaux produits et nouveaux procédés.</div>
+        </article>
+
+        <article class="member" data-group="support">
+          <div class="member-top">
+            <div class="avatar" aria-hidden="true">IKD</div>
+            <div>
+              <div class="name">Insa Koulissoret Diedhiou</div>
+              <div class="role" data-i18n="m_ik_role">Technicien R&D</div>
+            </div>
+          </div>
+          <div class="desc" data-i18n="m_ik_desc">Contribue aux essais R&D et à l’amélioration continue des produits et procédés.</div>
+        </article>
+
+        <article class="member" data-group="support">
+          <div class="member-top">
+            <div class="avatar" aria-hidden="true">IT</div>
+            <div>
+              <div class="name">Ibou Thiam</div>
+              <div class="role" data-i18n="m_it_role">Directeur Ressources Humaines</div>
+            </div>
+          </div>
+          <div class="desc" data-i18n="m_it_desc">Gère le capital humain : recrutement, formation, relations sociales et climat interne.</div>
+        </article>
+
+        <article class="member" data-group="support">
+          <div class="member-top">
+            <div class="avatar" aria-hidden="true">ED</div>
+            <div>
+              <div class="name">Emilie Diatta</div>
+              <div class="role" data-i18n="m_ed_role">Responsable administratif & financier</div>
+            </div>
+          </div>
+          <div class="desc" data-i18n="m_ed_desc">Supervise la gestion administrative, la trésorerie et le suivi financier de l’entreprise.</div>
+        </article>
+
+        <article class="member" data-group="support">
+          <div class="member-top">
+            <div class="avatar" aria-hidden="true">IK</div>
+            <div>
+              <div class="name">Idy KA</div>
+              <div class="role" data-i18n="m_idy_role">Responsable Informatique</div>
+            </div>
+          </div>
+          <div class="desc" data-i18n="m_idy_desc">Gère les systèmes d’information et les outils numériques supports aux opérations.</div>
+        </article>
       </div>
-    </section>
-
-    <section id="apropos">
-      <h2 data-i18n="about_h2">À propos d’ORION FISH</h2>
-      <div class="apropos-grid">
-        <div>
-          <p data-i18n="about_p1">
-            ORION FISH est une entreprise agroalimentaire spécialisée dans la valorisation des produits de la mer
-            et la transformation de fruits en jus. Nous travaillons avec un réseau de pêcheurs, de producteurs et
-            de partenaires sélectionnés pour offrir des produits fiables et compétitifs.
-          </p>
-          <p data-i18n="about_p2">
-            Notre ambition est de développer des filières durables, créatrices de valeur pour les territoires,
-            tout en répondant aux attentes des marchés locaux et internationaux.
-          </p>
-        </div>
-        <div>
-          <p><strong data-i18n="about_strengths">Nos atouts :</strong></p>
-          <ul class="liste-simple">
-            <li data-i18n="about_li1">Expertise dans les produits de la mer et les jus de fruits</li>
-            <li data-i18n="about_li2">Sélection rigoureuse des fournisseurs et zones de production</li>
-            <li data-i18n="about_li3">Respect des normes de qualité et de sécurité alimentaire</li>
-            <li data-i18n="about_li4">Logistique adaptée aux besoins des professionnels</li>
-            <li data-i18n="about_li5">Relation de confiance et partenariats de long terme</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section id="mer">
-      <h2 data-i18n="sea_h2">Produits de la mer</h2>
-      <p data-i18n="sea_p">ORION FISH collecte, transforme et distribue des produits de la mer pour les marchés locaux et internationaux.</p>
-
-      <div class="grid">
-        <div class="card">
-          <span class="label" data-i18n="card_range">Gamme</span>
-          <div class="media-placeholder" role="note">
-            <div>
-              <div class="media-title" data-i18n="ph_product_title">Produit</div>
-              <div class="media-text" data-i18n="ph_soon">Photo à venir</div>
-              <div class="media-note" data-i18n="ph_note2">Remplace par une photo réelle (poissons, cartons, étiquettes).</div>
-            </div>
-          </div>
-          <h3 data-i18n="sea_card1_h3">Produits frais & surgelés</h3>
-          <p data-i18n="sea_card1_p">Poissons entiers, filets et autres produits de la mer, disponibles en frais ou surgelé, selon vos besoins et vos marchés.</p>
-        </div>
-
-        <div class="card">
-          <span class="label" data-i18n="card_processing">Transformation</span>
-          <div class="media-placeholder" role="note">
-            <div>
-              <div class="media-title" data-i18n="ph_process_title">Process</div>
-              <div class="media-text" data-i18n="ph_soon">Photo à venir</div>
-              <div class="media-note" data-i18n="ph_note3">Ajoute une photo réelle (atelier, hygiène, découpe).</div>
-            </div>
-          </div>
-          <h3 data-i18n="sea_card2_h3">Préparation & conditionnement</h3>
-          <p data-i18n="sea_card2_p">Tri, nettoyage, découpe et conditionnement dans le respect strict des bonnes pratiques d’hygiène et des normes.</p>
-        </div>
-
-        <div class="card">
-          <span class="label" data-i18n="card_logistics">Logistique</span>
-          <div class="media-placeholder" role="note">
-            <div>
-              <div class="media-title" data-i18n="ph_log_title">Logistique</div>
-              <div class="media-text" data-i18n="ph_soon">Photo à venir</div>
-              <div class="media-note" data-i18n="ph_note4">Ajoute une photo réelle (camion froid, chambre froide).</div>
-            </div>
-          </div>
-          <h3 data-i18n="sea_card3_h3">Distribution & chaîne du froid</h3>
-          <p data-i18n="sea_card3_p">Organisation de la chaîne logistique, respect de la chaîne du froid et gestion des livraisons jusqu’au client final.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="jus">
-      <h2 data-i18n="juice_h2">Transformation de fruits en jus</h2>
-      <p data-i18n="juice_p">ORION FISH développe une filière de transformation de fruits en jus, avec une sélection rigoureuse des matières premières (oranges, mangues, mandarines et autres fruits).</p>
-
-      <div class="grid">
-        <div class="card">
-          <span class="label" data-i18n="card_selection">Sélection</span>
-          <div class="media-placeholder" role="note">
-            <div>
-              <div class="media-title" data-i18n="ph_fruits_title">Fruits</div>
-              <div class="media-text" data-i18n="ph_soon">Photo à venir</div>
-              <div class="media-note" data-i18n="ph_note5">Ajoute une photo réelle (matières premières).</div>
-            </div>
-          </div>
-          <h3 data-i18n="juice_card1_h3">Fruits choisis</h3>
-          <p data-i18n="juice_card1_p">Fruits issus de producteurs partenaires, choisis pour leur qualité, leur maturité et la régularité de l’approvisionnement.</p>
-        </div>
-
-        <div class="card">
-          <span class="label" data-i18n="card_process">Process</span>
-          <div class="media-placeholder" role="note">
-            <div>
-              <div class="media-title" data-i18n="ph_line_title">Ligne</div>
-              <div class="media-text" data-i18n="ph_soon">Photo à venir</div>
-              <div class="media-note" data-i18n="ph_note6">Ajoute une photo réelle (pressage, filtration, remplissage).</div>
-            </div>
-          </div>
-          <h3 data-i18n="juice_card2_h3">Transformation & formulation</h3>
-          <p data-i18n="juice_card2_p">Tri, lavage, pressage et filtration pour proposer des jus simples, des mélanges ou des recettes spécifiques adaptées à vos marchés.</p>
-        </div>
-
-        <div class="card">
-          <span class="label" data-i18n="card_distribution">Distribution</span>
-          <div class="media-placeholder" role="note">
-            <div>
-              <div class="media-title" data-i18n="ph_pack_title">Packaging</div>
-              <div class="media-text" data-i18n="ph_soon">Photo à venir</div>
-              <div class="media-note" data-i18n="ph_note7">Ajoute une photo réelle (bouteilles, étiquettes, cartons).</div>
-            </div>
-          </div>
-          <h3 data-i18n="juice_card3_h3">Conditionnement adapté</h3>
-          <p data-i18n="juice_card3_p">Conditionnement en formats B2B ou B2C, avec une traçabilité complète des produits transformés jusqu’au point de vente.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="galerie">
-      <h2 data-i18n="photos_h2">Photos d’ORION FISH</h2>
-      <p class="muted" data-i18n="photos_sub">Galerie générale : activités en mer, transformation en usine, jus de fruits.</p>
-
-      <div class="galerie-grid">
-        <div class="galerie-item">
-          <div class="media-placeholder" role="note">
-            <div>
-              <div class="media-title" data-i18n="ph_gallery1">Galerie – Mer</div>
-              <div class="media-text" data-i18n="ph_soon">Photo à venir</div>
-              <div class="media-note" data-i18n="ph_gallery_note">Ajoute des photos réelles (qualité export).</div>
-            </div>
-          </div>
-          <div class="galerie-caption" data-i18n="cap1">Sélection et préparation de produits de la mer.</div>
-        </div>
-
-        <div class="galerie-item">
-          <div class="media-placeholder" role="note">
-            <div>
-              <div class="media-title" data-i18n="ph_gallery2">Galerie – Usine</div>
-              <div class="media-text" data-i18n="ph_soon">Photo à venir</div>
-              <div class="media-note" data-i18n="ph_gallery_note">Ajoute des photos réelles (qualité export).</div>
-            </div>
-          </div>
-          <div class="galerie-caption" data-i18n="cap2">Ligne de transformation et conditionnement.</div>
-        </div>
-
-        <div class="galerie-item">
-          <div class="media-placeholder" role="note">
-            <div>
-              <div class="media-title" data-i18n="ph_gallery3">Galerie – Jus</div>
-              <div class="media-text" data-i18n="ph_soon">Photo à venir</div>
-              <div class="media-note" data-i18n="ph_gallery_note">Ajoute des photos réelles (qualité export).</div>
-            </div>
-          </div>
-          <div class="galerie-caption" data-i18n="cap3">Jus de fruits à base d’oranges, mangues, mandarines.</div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact">
-      <h2 data-i18n="contact_h2">Contact</h2>
-      <p data-i18n="contact_p1">Pour toute demande d’information, de partenariat ou de projet, contactez ORION FISH.</p>
-
-      <p class="muted" data-i18n="contact_p2">
-        Les données sont envoyées via une connexion sécurisée (HTTPS) vers un service de formulaire,
-        puis transmises à notre adresse e-mail.
-      </p>
-
-      <p>
-        <span data-i18n="contact_email">Email</span> :
-        <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a><br>
-        <span data-i18n="contact_export">Export</span> :
-        <a href="mailto:export@orionsfish.com">export@orionsfish.com</a><br>
-        <span data-i18n="contact_phone">Tél/WhatsApp</span> :
-        <a href="tel:+2212702457">+2212702457</a>
-      </p>
-
-      <h3 style="margin-top:1.2rem;" data-i18n="rfq_title">Demande de devis (RFQ) – Export</h3>
-      <p class="muted" data-i18n="rfq_sub">Pour un devis rapide : produit, quantité, destination, incoterm.</p>
-
-      <form action="https://formsubmit.co/export@orionsfish.com" method="POST">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_subject" value="Demande de devis (RFQ) – ORION FISH">
-        <input type="text" name="_honey" style="display:none">
-
-        <div class="form-grid-2">
-          <div>
-            <label for="rfq-type" data-i18n="rfq_type">Type</label>
-            <select id="rfq-type" name="Type" required>
-              <option value="" data-i18n="opt_choose">Choisir…</option>
-              <option value="Produits de la mer" data-i18n="opt_seafood">Produits de la mer</option>
-              <option value="Jus de fruits" data-i18n="opt_juice">Jus de fruits</option>
-              <option value="Les deux" data-i18n="opt_both">Les deux</option>
-            </select>
-          </div>
-
-          <div>
-            <label for="rfq-destination" data-i18n="rfq_destination">Destination (pays / port / ville)</label>
-            <input id="rfq-destination" name="Destination" type="text" required data-i18n-placeholder="ph_destination" placeholder="Ex: Pays-Bas – Rotterdam" />
-          </div>
-
-          <div>
-            <label for="rfq-produit" data-i18n="rfq_product">Produit / espèce / recette</label>
-            <input id="rfq-produit" name="Produit" type="text" required data-i18n-placeholder="ph_product" placeholder="Ex: Thiof filet / Jus mangue 1L" />
-          </div>
-
-          <div>
-            <label for="rfq-quantite" data-i18n="rfq_qty">Quantité</label>
-            <input id="rfq-quantite" name="Quantité" type="text" required data-i18n-placeholder="ph_qty" placeholder="Ex: 1 tonne / 2 palettes / 5 000 L" />
-          </div>
-
-          <div>
-            <label for="rfq-format" data-i18n="rfq_pack">Format & packaging</label>
-            <input id="rfq-format" name="Format & packaging" type="text" data-i18n-placeholder="ph_pack" placeholder="Ex: surgelé, carton 10 kg / bag-in-box" />
-          </div>
-
-          <div>
-            <label for="rfq-incoterm" data-i18n="rfq_incoterm">Incoterm souhaité</label>
-            <select id="rfq-incoterm" name="Incoterm">
-              <option value="" data-i18n="opt_choose">Choisir…</option>
-              <option value="EXW">EXW</option>
-              <option value="FOB">FOB</option>
-              <option value="CIF">CIF</option>
-              <option value="À discuter" data-i18n="opt_discuss">À discuter</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="form-grid-2">
-          <div>
-            <label for="rfq-email" data-i18n="rfq_email">E-mail</label>
-            <input id="rfq-email" name="Email" type="email" required data-i18n-placeholder="ph_email" placeholder="votremail@example.com" />
-          </div>
-
-          <div>
-            <label for="rfq-tel" data-i18n="rfq_phone">Téléphone / WhatsApp</label>
-            <input id="rfq-tel" name="Téléphone" type="tel" data-i18n-placeholder="ph_phone" placeholder="+221 … / +33 …" />
-          </div>
-        </div>
-
-        <div>
-          <label for="rfq-message" data-i18n="rfq_details">Détails (qualité, calibres, brix, délais…)</label>
-          <textarea id="rfq-message" name="Détails" required data-i18n-placeholder="ph_details" placeholder="Ex: filet 200–400g, livraison janvier, emballage export…"></textarea>
-        </div>
-
-        <button type="submit" class="btn btn-principal" data-i18n="rfq_send">Envoyer la demande de devis</button>
-      </form>
-
-      <hr style="margin:1.6rem 0; border:0; border-top:1px solid rgba(148,163,184,0.25);">
-
-      <h3 data-i18n="general_title">Message général</h3>
-      <form action="https://formsubmit.co/contact@orionsfish.com" method="POST">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_subject" value="Nouveau message – ORION FISH (site web)">
-        <input type="text" name="_honey" style="display:none">
-
-        <div>
-          <label for="gen-nom" data-i18n="gen_name">Nom / Entreprise</label>
-          <input id="gen-nom" name="Nom" type="text" required data-i18n-placeholder="ph_gen_name" placeholder="Votre nom ou celui de votre entreprise" />
-        </div>
-
-        <div>
-          <label for="gen-email" data-i18n="gen_email">E-mail</label>
-          <input id="gen-email" name="Email" type="email" required data-i18n-placeholder="ph_email" placeholder="votremail@example.com" />
-        </div>
-
-        <div>
-          <label for="gen-tel" data-i18n="gen_phone">Téléphone</label>
-          <input id="gen-tel" name="Téléphone" type="tel" data-i18n-placeholder="ph_phone_gen" placeholder="+221 XX XXX XX XX" />
-        </div>
-
-        <div>
-          <label for="gen-message" data-i18n="gen_message">Message</label>
-          <textarea id="gen-message" name="Message" required data-i18n-placeholder="ph_gen_message" placeholder="Décrivez votre besoin..."></textarea>
-        </div>
-
-        <button type="submit" class="btn btn-principal" data-i18n="gen_send">Envoyer</button>
-      </form>
-    </section>
-
-    <section id="mentions-legales">
-      <h2 data-i18n="legal_h2">Mentions légales</h2>
-      <p>
-        <strong data-i18n="legal_editor">Éditeur du site :</strong><br>
-        <strong>ORION FISH</strong><br>
-        Quartier Léona, Cité Filaos, Rufisque, 17000, Sénégal<br>
-        <span data-i18n="legal_reg">Registre de commerce</span> : <strong>010112051 SN.DKR.2023.B.9159</strong>
-      </p>
-      <p><strong data-i18n="legal_publisher">Responsable de publication :</strong> Diallo Mamadou</p>
-      <p>
-        <strong data-i18n="legal_contact">Contact :</strong><br>
-        <span data-i18n="contact_phone">Tél/WhatsApp</span> : <a href="tel:+2212702457">+2212702457</a><br>
-        Email : <a href="mailto:export@orionsfish.com">export@orionsfish.com</a> /
-        <a href="mailto:sales@orionsfish.com">sales@orionsfish.com</a> /
-        <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a>
-      </p>
-      <p><strong data-i18n="legal_hosting">Hébergement :</strong> Hostinger</p>
-    </section>
-
-    <section id="politique-de-confidentialite">
-      <h2 data-i18n="privacy_h2">Politique de confidentialité</h2>
-      <p data-i18n="privacy_p1">
-        ORION FISH traite les informations transmises via le formulaire de contact uniquement pour répondre à votre demande
-        (informations, devis, partenariat). Les données ne sont pas vendues.
-      </p>
-      <p data-i18n="privacy_p2">
-        Le formulaire utilise un service tiers de soumission (FormSubmit). Les messages sont transférés vers nos emails
-        (contact@orionsfish.com et/ou export@orionsfish.com).
-      </p>
-      <p class="muted" data-i18n="privacy_p3">
-        Vous pouvez demander la suppression de vos données en écrivant à contact@orionsfish.com.
-      </p>
-    </section>
-
-    <section id="conditions">
-      <h2 data-i18n="terms_h2">Conditions</h2>
-      <p data-i18n="terms_p1">
-        Les informations présentées sur ce site ont un objectif informatif. Les offres commerciales (prix, disponibilités,
-        délais, quantités minimales) sont communiquées sur demande via devis.
-      </p>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="footer-block">
+    <div>
       <strong>ORION FISH</strong><br>
       Quartier Léona, Cité Filaos, Rufisque, 17000, Sénégal<br>
       Registre de commerce : <strong>010112051 SN.DKR.2023.B.9159</strong><br>
-      Responsable de publication : <strong>Diallo Mamadou</strong><br>
-      Hébergeur : <strong>Hostinger</strong><br>
       Tél/WhatsApp : <a href="tel:+2212702457">+2212702457</a><br>
-      Email : <a href="mailto:export@orionsfish.com">export@orionsfish.com</a> |
-      <a href="mailto:sales@orionsfish.com">sales@orionsfish.com</a> |
-      <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a>
+      Email : <a href="mailto:export@orionsfish.com">export@orionsfish.com</a>
     </div>
-
-    <div class="footer-links">
-      <a href="#mentions-legales" data-i18n="footer_legal">Mentions légales</a>
-      <span>•</span>
-      <a href="#politique-de-confidentialite" data-i18n="footer_privacy">Politique de confidentialité</a>
-      <span>•</span>
-      <a href="#conditions" data-i18n="footer_terms">Conditions</a>
-      <span>•</span>
-      <a href="team.html" data-i18n="footer_team">Team</a>
-    </div>
-
-    <div class="footer-copy">
-      © <span id="y"></span> ORION FISH. <span data-i18n="footer_rights">Tous droits réservés.</span>
-    </div>
+    <div class="footer-copy">© <span id="y"></span> ORION FISH</div>
   </footer>
 
-  <a
-    class="whatsapp-float"
-    href="https://wa.me/2212702457?text=Bonjour%20ORION%20FISH%2C%20je%20souhaite%20un%20devis%20(RFQ).%20Produit%3A%20____%20%7C%20Quantit%C3%A9%3A%20____%20%7C%20Destination%3A%20____%20%7C%20Incoterm%3A%20____."
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="Contacter ORION FISH sur WhatsApp"
-  >
-    <svg viewBox="0 0 32 32" aria-hidden="true">
-      <path fill="#052e16" d="M16.02 3C9.4 3 4.03 8.3 4.03 14.83c0 2.33.7 4.51 1.9 6.35L4 29l7.98-1.86a12.2 12.2 0 0 0 4.04.68c6.62 0 11.99-5.3 11.99-11.83C28.01 8.3 22.64 3 16.02 3Zm0 22.6c-1.3 0-2.58-.22-3.78-.65l-.27-.1-4.74 1.1 1.02-4.56-.18-.29a10.55 10.55 0 0 1-1.63-5.67c0-5.77 4.74-10.47 10.58-10.47 5.84 0 10.58 4.7 10.58 10.47 0 5.78-4.74 10.47-10.58 10.47Zm6.15-7.82c-.34-.17-2-.98-2.3-1.1-.31-.12-.54-.17-.77.17-.23.35-.88 1.1-1.08 1.32-.2.23-.4.26-.75.09-.34-.17-1.46-.53-2.77-1.7-1.02-.9-1.7-2.02-1.9-2.36-.2-.35-.02-.54.15-.72.16-.16.34-.4.52-.6.17-.2.23-.35.35-.58.12-.23.06-.43-.03-.6-.09-.17-.77-1.84-1.06-2.52-.28-.68-.56-.58-.77-.6l-.66-.01c-.23 0-.6.09-.92.43-.31.35-1.2 1.16-1.2 2.84 0 1.68 1.23 3.3 1.4 3.53.17.23 2.42 3.68 5.86 5.15.82.35 1.46.56 1.96.72.82.26 1.56.22 2.15.13.66-.1 2-.82 2.29-1.62.28-.8.28-1.48.2-1.62-.09-.14-.31-.23-.66-.4Z"/>
-    </svg>
-    <span class="whatsapp-label">WhatsApp</span>
-  </a>
-
   <script>
-    // Année automatique
+    // Année
     const y = new Date().getFullYear();
     const elY = document.getElementById("y");
     if (elY) elY.textContent = y;
 
-    // i18n (FR/EN) — page principale
+    // Filtres
+    const chips = Array.from(document.querySelectorAll(".chip"));
+    const members = Array.from(document.querySelectorAll(".member"));
+    chips.forEach(ch => {
+      ch.addEventListener("click", () => {
+        chips.forEach(c => c.classList.remove("active"));
+        ch.classList.add("active");
+        const f = ch.getAttribute("data-filter");
+        members.forEach(m => {
+          const g = m.getAttribute("data-group");
+          m.style.display = (f === "all" || f === g) ? "" : "none";
+        });
+      });
+    });
+
+    // i18n (FR/EN)
     const dict = {
       fr: {
-        title: "ORION FISH – Produits de la mer & Jus de fruits",
-        meta_desc: "ORION FISH – Produits de la mer, transformation de fruits en jus, vente et distribution pour marchés locaux et internationaux.",
-        skip_link: "Aller au contenu",
-
+        title: "Team ORION FISH",
+        meta_desc: "Équipe ORION FISH – Direction, opérations, qualité, R&D, marketing et support.",
         nav_home: "Accueil",
-        nav_about: "À propos",
-        nav_seafood: "Produits de la mer",
-        nav_juice: "Fruits & jus",
-        nav_photos: "Photos",
         nav_contact: "Contact",
         nav_team: "Team",
-        nav_legal: "Mentions légales",
 
-        pill: "Agroalimentaire – Mer & Fruits",
-        h1: "ORION FISH – Produits de la mer & jus de fruits",
-        hero_sub: "Produits de la mer, transformation de fruits en jus, vente et distribution au service des marchés locaux et internationaux.",
-        hero_p1: "ORION FISH collecte, transforme et distribue des produits de la mer ainsi que des jus de fruits issus de matières premières rigoureusement sélectionnées. Nous accompagnons distributeurs, industriels et professionnels avec des solutions fiables, tracées et conformes aux normes en vigueur.",
-        btn_activities: "Découvrir nos activités",
-        btn_talk: "Parler à notre équipe",
+        team_title: "Team ORION FISH",
+        team_sub: "Voici l’équipe ORION FISH. Photos retirées : affichage en initiales (nom + prénom).",
 
-        export_title: "Export snapshot",
-        export_sub: "Infos rapides pour demandes de devis (RFQ).",
-        badge_b2b: "B2B / RFQ",
-        badge_incoterms: "Incoterms: EXW / FOB / CIF",
-        badge_profile: "Company Profile (PDF)",
-        export_loc_k: "Localisation",
-        export_loc_v: "Rufisque (17000), Sénégal",
-        export_contact_k: "Contact export",
-        export_docs_k: "Documents",
-        export_docs_v: "Disponibles selon produit & destination (sur demande).",
-        export_profile_k: "Profil",
-        export_profile_v: "Télécharger le Company Profile (PDF)",
+        filter_all: "Tous",
+        filter_mgmt: "Direction",
+        filter_sales: "Commercial / Marketing",
+        filter_ops: "Opérations",
+        filter_quality: "Qualité / HACCP",
+        filter_support: "Support",
 
-        hero_tag: "Filières intégrées",
-        hero_h3: "Une double expertise, mer & fruits",
-        hero_p2: "De la pêche à la transformation des fruits, ORION FISH s’engage sur la qualité, la traçabilité et la sécurité alimentaire de ses produits.",
-        metric_sea: "Mer",
-        metric_sea_desc: "Collecte, transformation et distribution des produits de la mer.",
-        metric_fruit: "Fruits",
-        metric_fruit_desc: "Jus issus d’oranges, mangues, mandarines et autres fruits sélectionnés.",
+        m_am_role: "Directeur Général",
+        m_am_desc: "Pilote la stratégie globale, représente l’entreprise et assure l’alignement des activités mer & fruits.",
+        m_mk_role: "Gérant",
+        m_mk_desc: "Dirige l’entreprise au quotidien et coordonne l’exécution opérationnelle des activités.",
+        m_sn_role: "Directeur d’usine",
+        m_sn_desc: "Supervise les opérations industrielles et coordonne les équipes de production pour garantir performance et qualité.",
 
-        ph_sea_title: "Visuel mer",
-        ph_juice_title: "Visuel jus",
-        ph_soon: "Photo à venir",
-        ph_note: "Ajoute une photo réelle (produits / usine / logistique).",
-        ph_product_title: "Produit",
-        ph_note2: "Remplace par une photo réelle (poissons, cartons, étiquettes).",
-        ph_process_title: "Process",
-        ph_note3: "Ajoute une photo réelle (atelier, hygiène, découpe).",
-        ph_log_title: "Logistique",
-        ph_note4: "Ajoute une photo réelle (camion froid, chambre froide).",
-        ph_fruits_title: "Fruits",
-        ph_note5: "Ajoute une photo réelle (matières premières).",
-        ph_line_title: "Ligne",
-        ph_note6: "Ajoute une photo réelle (pressage, filtration, remplissage).",
-        ph_pack_title: "Packaging",
-        ph_note7: "Ajoute une photo réelle (bouteilles, étiquettes, cartons).",
-        ph_gallery1: "Galerie – Mer",
-        ph_gallery2: "Galerie – Usine",
-        ph_gallery3: "Galerie – Jus",
-        ph_gallery_note: "Ajoute des photos réelles (qualité export).",
+        m_sd_role: "Directeur Service Commercial",
+        m_sd_desc: "Développe le portefeuille clients et les partenariats commerciaux sur les marchés cibles.",
+        m_nw_role: "Directrice Marketing / Clientèle",
+        m_nw_desc: "Pilote le marketing, la communication et la relation clientèle pour valoriser l’offre ORION FISH.",
 
-        about_h2: "À propos d’ORION FISH",
-        about_p1: "ORION FISH est une entreprise agroalimentaire spécialisée dans la valorisation des produits de la mer et la transformation de fruits en jus. Nous travaillons avec un réseau de pêcheurs, de producteurs et de partenaires sélectionnés pour offrir des produits fiables et compétitifs.",
-        about_p2: "Notre ambition est de développer des filières durables, créatrices de valeur pour les territoires, tout en répondant aux attentes des marchés locaux et internationaux.",
-        about_strengths: "Nos atouts :",
-        about_li1: "Expertise dans les produits de la mer et les jus de fruits",
-        about_li2: "Sélection rigoureuse des fournisseurs et zones de production",
-        about_li3: "Respect des normes de qualité et de sécurité alimentaire",
-        about_li4: "Logistique adaptée aux besoins des professionnels",
-        about_li5: "Relation de confiance et partenariats de long terme",
+        m_lb_role: "Opérateur de production",
+        m_lb_desc: "Participe aux opérations de transformation et de conditionnement au quotidien.",
+        m_ib_role: "Responsable transport / distribution",
+        m_ib_desc: "Organise les livraisons, la disponibilité des véhicules et le respect des délais clients.",
+        m_od_role: "Responsable utilités",
+        m_od_desc: "Garantit la performance des installations (froid, vapeur, air comprimé, eau).",
+        m_mh_role: "Chef d’équipe",
+        m_mh_desc: "Encadre les équipes sur le terrain et veille à la bonne exécution des opérations.",
+        m_rp_name: "Responsable production",
+        m_rp_role: "Supervision des lignes",
+        m_rp_desc: "Organise les volumes, les rendements et la qualité sur les lignes de production.",
 
-        sea_h2: "Produits de la mer",
-        sea_p: "ORION FISH collecte, transforme et distribue des produits de la mer pour les marchés locaux et internationaux.",
-        card_range: "Gamme",
-        card_processing: "Transformation",
-        card_logistics: "Logistique",
-        sea_card1_h3: "Produits frais & surgelés",
-        sea_card1_p: "Poissons entiers, filets et autres produits de la mer, disponibles en frais ou surgelé, selon vos besoins et vos marchés.",
-        sea_card2_h3: "Préparation & conditionnement",
-        sea_card2_p: "Tri, nettoyage, découpe et conditionnement dans le respect strict des bonnes pratiques d’hygiène et des normes.",
-        sea_card3_h3: "Distribution & chaîne du froid",
-        sea_card3_p: "Organisation de la chaîne logistique, respect de la chaîne du froid et gestion des livraisons jusqu’au client final.",
+        m_nd_role: "Traçabilité & réclamations",
+        m_nd_desc: "Assure la traçabilité des produits et le suivi structuré des réclamations clients.",
+        m_sy_role: "Responsable HACCP / Food Safety",
+        m_sy_desc: "Met en œuvre le plan HACCP et veille à la sécurité sanitaire des aliments.",
 
-        juice_h2: "Transformation de fruits en jus",
-        juice_p: "ORION FISH développe une filière de transformation de fruits en jus, avec une sélection rigoureuse des matières premières (oranges, mangues, mandarines et autres fruits).",
-        card_selection: "Sélection",
-        card_process: "Process",
-        card_distribution: "Distribution",
-        juice_card1_h3: "Fruits choisis",
-        juice_card1_p: "Fruits issus de producteurs partenaires, choisis pour leur qualité, leur maturité et la régularité de l’approvisionnement.",
-        juice_card2_h3: "Transformation & formulation",
-        juice_card2_p: "Tri, lavage, pressage et filtration pour proposer des jus simples, des mélanges ou des recettes spécifiques adaptées à vos marchés.",
-        juice_card3_h3: "Conditionnement adapté",
-        juice_card3_p: "Conditionnement en formats B2B ou B2C, avec une traçabilité complète des produits transformés jusqu’au point de vente.",
+        m_ad_role: "Cheffe de projet innovation",
+        m_ad_desc: "Conçoit et pilote les projets d’innovation : nouveaux produits et nouveaux procédés.",
+        m_ik_role: "Technicien R&D",
+        m_ik_desc: "Contribue aux essais R&D et à l’amélioration continue des produits et procédés.",
 
-        photos_h2: "Photos d’ORION FISH",
-        photos_sub: "Galerie générale : activités en mer, transformation en usine, jus de fruits.",
-        cap1: "Sélection et préparation de produits de la mer.",
-        cap2: "Ligne de transformation et conditionnement.",
-        cap3: "Jus de fruits à base d’oranges, mangues, mandarines.",
-
-        contact_h2: "Contact",
-        contact_p1: "Pour toute demande d’information, de partenariat ou de projet, contactez ORION FISH.",
-        contact_p2: "Les données sont envoyées via une connexion sécurisée (HTTPS) vers un service de formulaire, puis transmises à notre adresse e-mail.",
-        contact_email: "Email",
-        contact_export: "Export",
-        contact_phone: "Tél/WhatsApp",
-
-        rfq_title: "Demande de devis (RFQ) – Export",
-        rfq_sub: "Pour un devis rapide : produit, quantité, destination, incoterm.",
-        rfq_type: "Type",
-        rfq_destination: "Destination (pays / port / ville)",
-        rfq_product: "Produit / espèce / recette",
-        rfq_qty: "Quantité",
-        rfq_pack: "Format & packaging",
-        rfq_incoterm: "Incoterm souhaité",
-        rfq_email: "E-mail",
-        rfq_phone: "Téléphone / WhatsApp",
-        rfq_details: "Détails (qualité, calibres, brix, délais…)",
-        rfq_send: "Envoyer la demande de devis",
-        opt_choose: "Choisir…",
-        opt_seafood: "Produits de la mer",
-        opt_juice: "Jus de fruits",
-        opt_both: "Les deux",
-        opt_discuss: "À discuter",
-
-        ph_destination: "Ex: Pays-Bas – Rotterdam",
-        ph_product: "Ex: Thiof filet / Jus mangue 1L",
-        ph_qty: "Ex: 1 tonne / 2 palettes / 5 000 L",
-        ph_pack: "Ex: surgelé, carton 10 kg / bag-in-box",
-        ph_email: "votremail@example.com",
-        ph_phone: "+221 … / +33 …",
-        ph_details: "Ex: filet 200–400g, livraison janvier, emballage export…",
-        ph_gen_name: "Votre nom ou celui de votre entreprise",
-        ph_phone_gen: "+221 XX XXX XX XX",
-        ph_gen_message: "Décrivez votre besoin...",
-
-        general_title: "Message général",
-        gen_name: "Nom / Entreprise",
-        gen_email: "E-mail",
-        gen_phone: "Téléphone",
-        gen_message: "Message",
-        gen_send: "Envoyer",
-
-        legal_h2: "Mentions légales",
-        legal_editor: "Éditeur du site :",
-        legal_reg: "Registre de commerce",
-        legal_publisher: "Responsable de publication :",
-        legal_contact: "Contact :",
-        legal_hosting: "Hébergement :",
-
-        privacy_h2: "Politique de confidentialité",
-        privacy_p1: "ORION FISH traite les informations transmises via le formulaire de contact uniquement pour répondre à votre demande (informations, devis, partenariat). Les données ne sont pas vendues.",
-        privacy_p2: "Le formulaire utilise un service tiers de soumission (FormSubmit). Les messages sont transférés vers nos emails (contact@orionsfish.com et/ou export@orionsfish.com).",
-        privacy_p3: "Vous pouvez demander la suppression de vos données en écrivant à contact@orionsfish.com.",
-
-        terms_h2: "Conditions",
-        terms_p1: "Les informations présentées sur ce site ont un objectif informatif. Les offres commerciales (prix, disponibilités, délais, quantités minimales) sont communiquées sur demande via devis.",
-
-        footer_legal: "Mentions légales",
-        footer_privacy: "Politique de confidentialité",
-        footer_terms: "Conditions",
-        footer_team: "Team",
-        footer_rights: "Tous droits réservés."
+        m_it_role: "Directeur Ressources Humaines",
+        m_it_desc: "Gère le capital humain : recrutement, formation, relations sociales et climat interne.",
+        m_ed_role: "Responsable administratif & financier",
+        m_ed_desc: "Supervise la gestion administrative, la trésorerie et le suivi financier de l’entreprise.",
+        m_idy_role: "Responsable Informatique",
+        m_idy_desc: "Gère les systèmes d’information et les outils numériques supports aux opérations."
       },
 
       en: {
-        title: "ORION FISH – Seafood & Fruit Juices",
-        meta_desc: "ORION FISH – Seafood products and fruit juice processing, sales and distribution for local and international markets.",
-        skip_link: "Skip to content",
-
+        title: "ORION FISH Team",
+        meta_desc: "ORION FISH Team – management, operations, quality, R&D, marketing and support.",
         nav_home: "Home",
-        nav_about: "About",
-        nav_seafood: "Seafood",
-        nav_juice: "Fruits & Juices",
-        nav_photos: "Photos",
         nav_contact: "Contact",
         nav_team: "Team",
-        nav_legal: "Legal notice",
 
-        pill: "Food Industry – Sea & Fruits",
-        h1: "ORION FISH – Seafood & fruit juices",
-        hero_sub: "Seafood products and fruit juice processing, serving local and international markets.",
-        hero_p1: "ORION FISH sources, processes and distributes seafood products as well as fruit juices made from carefully selected raw materials. We support distributors, industrial buyers and professionals with reliable, traceable solutions aligned with applicable standards.",
-        btn_activities: "Explore our activities",
-        btn_talk: "Talk to our team",
+        team_title: "ORION FISH Team",
+        team_sub: "Meet the ORION FISH team. Photos removed: initials display (first name + last name).",
 
-        export_title: "Export snapshot",
-        export_sub: "Quick info for quotation requests (RFQ).",
-        badge_b2b: "B2B / RFQ",
-        badge_incoterms: "Incoterms: EXW / FOB / CIF",
-        badge_profile: "Company Profile (PDF)",
-        export_loc_k: "Location",
-        export_loc_v: "Rufisque (17000), Senegal",
-        export_contact_k: "Export contact",
-        export_docs_k: "Documents",
-        export_docs_v: "Available depending on product & destination (on request).",
-        export_profile_k: "Profile",
-        export_profile_v: "Download Company Profile (PDF)",
+        filter_all: "All",
+        filter_mgmt: "Management",
+        filter_sales: "Sales / Marketing",
+        filter_ops: "Operations",
+        filter_quality: "Quality / HACCP",
+        filter_support: "Support",
 
-        hero_tag: "Integrated value chains",
-        hero_h3: "Dual expertise: sea & fruits",
-        hero_p2: "From seafood sourcing to fruit processing, ORION FISH is committed to quality, traceability and food safety.",
-        metric_sea: "Seafood",
-        metric_sea_desc: "Sourcing, processing and distribution of seafood products.",
-        metric_fruit: "Fruits",
-        metric_fruit_desc: "Juices made from selected oranges, mangoes, mandarins and other fruits.",
+        m_am_role: "General Director",
+        m_am_desc: "Leads overall strategy, represents the company and aligns seafood & fruit activities.",
+        m_mk_role: "Company Manager",
+        m_mk_desc: "Leads day-to-day operations and coordinates execution of activities.",
+        m_sn_role: "Plant Manager",
+        m_sn_desc: "Supervises industrial operations and coordinates production teams to ensure performance and quality.",
 
-        ph_sea_title: "Sea visual",
-        ph_juice_title: "Juice visual",
-        ph_soon: "Photo coming soon",
-        ph_note: "Add real photos (products / facility / logistics).",
-        ph_product_title: "Product",
-        ph_note2: "Replace with real photos (fish, cartons, labels).",
-        ph_process_title: "Process",
-        ph_note3: "Add real photos (workshop, hygiene, cutting).",
-        ph_log_title: "Logistics",
-        ph_note4: "Add real photos (reefer truck, cold room).",
-        ph_fruits_title: "Fruits",
-        ph_note5: "Add real photos (raw materials).",
-        ph_line_title: "Production line",
-        ph_note6: "Add real photos (pressing, filtration, filling).",
-        ph_pack_title: "Packaging",
-        ph_note7: "Add real photos (bottles, labels, cartons).",
-        ph_gallery1: "Gallery – Sea",
-        ph_gallery2: "Gallery – Facility",
-        ph_gallery3: "Gallery – Juices",
-        ph_gallery_note: "Add real photos (export-grade quality).",
+        m_sd_role: "Sales Director",
+        m_sd_desc: "Develops the client portfolio and commercial partnerships in target markets.",
+        m_nw_role: "Marketing & Customer Relations Director",
+        m_nw_desc: "Leads marketing, communication and customer relations to strengthen the ORION FISH offer.",
 
-        about_h2: "About ORION FISH",
-        about_p1: "ORION FISH is a food company specializing in seafood value creation and fruit juice processing. We work with a network of fishermen, producers and selected partners to deliver reliable and competitive products.",
-        about_p2: "Our ambition is to develop sustainable value chains that create value for territories while meeting the expectations of local and international markets.",
-        about_strengths: "Our strengths:",
-        about_li1: "Expertise in seafood and fruit juices",
-        about_li2: "Careful selection of suppliers and sourcing areas",
-        about_li3: "Focus on quality and food safety practices",
-        about_li4: "Logistics adapted to professional needs",
-        about_li5: "Long-term partnerships and trust",
+        m_lb_role: "Production Operator",
+        m_lb_desc: "Supports daily processing and packaging operations.",
+        m_ib_role: "Transport & Distribution Manager",
+        m_ib_desc: "Organizes deliveries, vehicle availability and on-time performance.",
+        m_od_role: "Utilities Manager",
+        m_od_desc: "Ensures performance of utilities (cold, steam, compressed air, water).",
+        m_mh_role: "Team Leader",
+        m_mh_desc: "Supervises field teams and ensures proper execution of operations.",
+        m_rp_name: "Production Manager",
+        m_rp_role: "Line supervision",
+        m_rp_desc: "Organizes volumes, yields and quality across production lines.",
 
-        sea_h2: "Seafood",
-        sea_p: "ORION FISH sources, processes and distributes seafood products for local and international markets.",
-        card_range: "Range",
-        card_processing: "Processing",
-        card_logistics: "Logistics",
-        sea_card1_h3: "Fresh & frozen products",
-        sea_card1_p: "Whole fish, fillets and other seafood items, available fresh or frozen depending on your needs and markets.",
-        sea_card2_h3: "Preparation & packaging",
-        sea_card2_p: "Sorting, cleaning, cutting and packaging with strict hygiene and good practice requirements.",
-        sea_card3_h3: "Distribution & cold chain",
-        sea_card3_p: "Logistics organization, cold chain handling and delivery management to the final customer.",
+        m_nd_role: "Traceability & Claims",
+        m_nd_desc: "Ensures product traceability and structured follow-up of customer claims.",
+        m_sy_role: "HACCP / Food Safety Manager",
+        m_sy_desc: "Implements the HACCP plan and ensures food safety compliance.",
 
-        juice_h2: "Fruit juice processing",
-        juice_p: "ORION FISH develops a fruit-to-juice processing chain with careful raw material selection (oranges, mangoes, mandarins and other fruits).",
-        card_selection: "Selection",
-        card_process: "Process",
-        card_distribution: "Distribution",
-        juice_card1_h3: "Selected fruits",
-        juice_card1_p: "Fruits sourced from partner producers, selected for quality, maturity and supply consistency.",
-        juice_card2_h3: "Processing & formulation",
-        juice_card2_p: "Sorting, washing, pressing and filtration to provide single juices, blends or tailored recipes for your markets.",
-        juice_card3_h3: "Adapted packaging",
-        juice_card3_p: "Packaging for B2B or B2C, with traceability from processing to point of sale.",
+        m_ad_role: "Innovation Project Lead",
+        m_ad_desc: "Designs and leads innovation projects: new products and new processes.",
+        m_ik_role: "R&D Technician",
+        m_ik_desc: "Contributes to R&D trials and continuous improvement of products and processes.",
 
-        photos_h2: "ORION FISH photos",
-        photos_sub: "General gallery: seafood activities, processing, fruit juices.",
-        cap1: "Seafood selection and preparation.",
-        cap2: "Processing and packaging line.",
-        cap3: "Fruit juices made from oranges, mangoes, mandarins.",
-
-        contact_h2: "Contact",
-        contact_p1: "For information, partnerships or projects, contact ORION FISH.",
-        contact_p2: "Data is sent via a secure HTTPS connection to a form service, then forwarded to our email address.",
-        contact_email: "Email",
-        contact_export: "Export",
-        contact_phone: "Phone/WhatsApp",
-
-        rfq_title: "Request for quotation (RFQ) – Export",
-        rfq_sub: "For a quick quote: product, quantity, destination, incoterm.",
-        rfq_type: "Type",
-        rfq_destination: "Destination (country / port / city)",
-        rfq_product: "Product / species / recipe",
-        rfq_qty: "Quantity",
-        rfq_pack: "Format & packaging",
-        rfq_incoterm: "Preferred incoterm",
-        rfq_email: "Email",
-        rfq_phone: "Phone / WhatsApp",
-        rfq_details: "Details (quality, sizes, brix, lead time…)",
-        rfq_send: "Send RFQ",
-        opt_choose: "Choose…",
-        opt_seafood: "Seafood",
-        opt_juice: "Fruit juices",
-        opt_both: "Both",
-        opt_discuss: "To discuss",
-
-        ph_destination: "e.g., Netherlands – Rotterdam",
-        ph_product: "e.g., Grouper fillet / Mango juice 1L",
-        ph_qty: "e.g., 1 ton / 2 pallets / 5,000 L",
-        ph_pack: "e.g., frozen, 10 kg cartons / bag-in-box",
-        ph_email: "youremail@example.com",
-        ph_phone: "+221 … / +33 …",
-        ph_details: "e.g., fillet 200–400g, January delivery, export packing…",
-        ph_gen_name: "Your name or company name",
-        ph_phone_gen: "+221 XX XXX XX XX",
-        ph_gen_message: "Describe your request...",
-
-        general_title: "General message",
-        gen_name: "Name / Company",
-        gen_email: "Email",
-        gen_phone: "Phone",
-        gen_message: "Message",
-        gen_send: "Send",
-
-        legal_h2: "Legal notice",
-        legal_editor: "Website publisher:",
-        legal_reg: "Trade register",
-        legal_publisher: "Publisher:",
-        legal_contact: "Contact:",
-        legal_hosting: "Hosting:",
-
-        privacy_h2: "Privacy policy",
-        privacy_p1: "ORION FISH processes information sent via the contact forms only to respond to your request (information, quotation, partnership). Data is not sold.",
-        privacy_p2: "Forms use a third-party submission service (FormSubmit). Messages are forwarded to our emails (contact@orionsfish.com and/or export@orionsfish.com).",
-        privacy_p3: "You can request deletion of your data by emailing contact@orionsfish.com.",
-
-        terms_h2: "Terms",
-        terms_p1: "Information on this website is for informational purposes. Commercial offers (pricing, availability, lead time, minimum quantities) are provided on request via quotation.",
-
-        footer_legal: "Legal notice",
-        footer_privacy: "Privacy policy",
-        footer_terms: "Terms",
-        footer_team: "Team",
-        footer_rights: "All rights reserved."
+        m_it_role: "HR Director",
+        m_it_desc: "Manages human resources: recruitment, training, employee relations and internal climate.",
+        m_ed_role: "Administrative & Finance Manager",
+        m_ed_desc: "Oversees administration, cash management and the company’s financial monitoring.",
+        m_idy_role: "IT Manager",
+        m_idy_desc: "Manages information systems and digital tools supporting operations."
       }
     };
 
@@ -1154,16 +571,13 @@
       const d = dict[lang] || dict.fr;
       document.documentElement.lang = lang;
       document.title = d.title;
+
       const metaDesc = document.querySelector('meta[name="description"]');
       if(metaDesc) metaDesc.setAttribute("content", d.meta_desc);
 
       document.querySelectorAll("[data-i18n]").forEach(el=>{
         const key = el.getAttribute("data-i18n");
         if(d[key]) el.textContent = d[key];
-      });
-      document.querySelectorAll("[data-i18n-placeholder]").forEach(el=>{
-        const key = el.getAttribute("data-i18n-placeholder");
-        if(d[key]) el.setAttribute("placeholder", d[key]);
       });
 
       const toggle = document.getElementById("langToggle");
@@ -1187,4 +601,3 @@
   </script>
 </body>
 </html>
-
