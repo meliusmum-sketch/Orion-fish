@@ -28,605 +28,276 @@
   </script>
 
   <style>
-    :root {
-      --marine: #020617;
-      --marine-mid: #1e293b;
-      --marine-soft: #334155;
-      --marine-light: #e5e7eb;
-      --orange: #f97316;
-      --orange-soft: #ffedd5;
-      --gold-soft: #facc15;
-      --card: #020617;
-      --card-border: #1f2937;
-      --text-main: #e5e7eb;
-      --text-muted: #9ca3af;
-      --good: #22c55e;
+    :root{
+      --marine:#020617; --card:#020617; --card-border:#1f2937;
+      --text-main:#e5e7eb; --text-muted:#9ca3af;
+      --orange:#f97316; --orange-soft:#ffedd5; --gold:#facc15; --good:#22c55e;
     }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      line-height: 1.6;
-      color: var(--text-main);
-      background: radial-gradient(circle at top left, #1d4ed8, #020617 65%);
-      min-height: 100vh;
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      line-height:1.6; color:var(--text-main);
+      background:radial-gradient(circle at top left,#1d4ed8,#020617 65%);
+      min-height:100vh;
     }
-
-    a { color: inherit; text-decoration: none; }
-
-    .skip-link {
-      position: absolute;
-      top: -100px;
-      left: 12px;
-      background: #e5e7eb;
-      color: #111827;
-      padding: 0.6rem 0.9rem;
-      border-radius: 0.8rem;
-      z-index: 9999;
-      font-weight: 800;
+    a{color:inherit;text-decoration:none}
+    .skip-link{
+      position:absolute; top:-100px; left:12px;
+      background:#e5e7eb; color:#111827;
+      padding:.6rem .9rem; border-radius:.8rem;
+      z-index:9999; font-weight:800;
     }
-    .skip-link:focus { top: 12px; }
+    .skip-link:focus{top:12px}
 
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      background: rgba(2, 6, 23, 0.96);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid rgba(148, 163, 184, 0.4);
+    header{
+      position:sticky; top:0; z-index:10;
+      background:rgba(2,6,23,.96);
+      backdrop-filter:blur(8px);
+      border-bottom:1px solid rgba(148,163,184,.4);
     }
-
-    .nav-container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0.7rem 1.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 0.8rem;
+    .nav-container{
+      max-width:1100px; margin:0 auto; padding:.7rem 1.5rem;
+      display:flex; align-items:center; justify-content:space-between; gap:.8rem;
     }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      color: #e5e7eb;
-      font-weight: 700;
-      letter-spacing: 0.15em;
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      white-space: nowrap;
+    .logo{
+      display:flex; align-items:center; gap:.6rem;
+      font-weight:800; letter-spacing:.15em; font-size:.9rem;
+      text-transform:uppercase; white-space:nowrap;
     }
+    .logo-icon{width:30px;height:30px;flex-shrink:0}
 
-    .logo-icon { width: 30px; height: 30px; flex-shrink: 0; }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1.1rem;
-      font-size: 0.9rem;
-      color: #e5e7eb;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-      align-items: center;
+    nav ul{
+      list-style:none; display:flex; flex-wrap:wrap;
+      gap:1rem; justify-content:flex-end; align-items:center;
+      font-size:.9rem;
     }
+    nav a{opacity:.82; transition:opacity .15s, transform .15s}
+    nav a:hover{opacity:1; transform:translateY(-1px)}
 
-    nav a { opacity: 0.82; transition: opacity 0.15s, transform 0.15s; }
-    nav a:hover { opacity: 1; transform: translateY(-1px); }
-
-    .lang-toggle {
-      margin-left: 0.2rem;
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      background: rgba(15, 23, 42, 0.7);
-      color: #e5e7eb;
-      padding: 0.45rem 0.75rem;
-      border-radius: 999px;
-      font-weight: 800;
-      cursor: pointer;
-      transition: transform 0.12s, background 0.12s;
+    .lang-toggle{
+      border:1px solid rgba(148,163,184,.6);
+      background:rgba(15,23,42,.7);
+      color:#e5e7eb;
+      padding:.45rem .75rem;
+      border-radius:999px;
+      font-weight:900; cursor:pointer;
+      transition:transform .12s, background .12s;
     }
-    .lang-toggle:hover { transform: translateY(-1px); background: rgba(15, 23, 42, 0.95); }
+    .lang-toggle:hover{transform:translateY(-1px); background:rgba(15,23,42,.95)}
 
-    /* LAYOUT 3 COLONNES */
-    .page-shell {
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 1.5rem 1.5rem 2.5rem;
-      display: grid;
-      grid-template-columns: 260px minmax(0, 1fr) 260px;
-      gap: 1.5rem;
-      align-items: flex-start;
+    .container{max-width:1100px;margin:0 auto;padding:1.5rem 1.5rem 2.5rem}
+
+    section{
+      margin:3rem 0; padding:2rem;
+      background:var(--card);
+      border-radius:1.5rem;
+      box-shadow:0 18px 45px rgba(15,23,42,.6);
+      border:1px solid var(--card-border);
     }
-
-    .side-column {
-      display: flex;
-      flex-direction: column;
-      gap: 0.8rem;
-      padding-top: 1.5rem;
-    }
-
-    .side-column-title {
-      font-size: 0.9rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--marine-light);
-      opacity: 0.85;
-    }
-
-    .side-column-sep {
-      width: 40px;
-      height: 3px;
-      border-radius: 999px;
-      background: linear-gradient(90deg, #facc15, #f97316);
-      margin-bottom: 0.3rem;
-    }
-
-    main { padding: 0; }
-
-    section {
-      margin: 3rem 0;
-      padding: 2rem;
-      background: var(--card);
-      border-radius: 1.5rem;
-      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.6);
-      border: 1px solid var(--card-border);
-    }
-
-    h1, h2, h3 { margin-bottom: 1rem; }
-    h1 { font-size: 2.2rem; }
-    h2 { font-size: 1.4rem; }
-    h3 { font-size: 1.05rem; }
-
-    p { margin-bottom: 0.7rem; font-size: 0.98rem; }
-    .muted { color: var(--text-muted); }
+    h1,h2,h3{margin-bottom:1rem}
+    h1{font-size:2.2rem}
+    h2{font-size:1.4rem}
+    p{margin-bottom:.7rem;font-size:.98rem}
+    .muted{color:var(--text-muted)}
 
     /* HERO */
-    #accueil {
-      display: grid;
-      grid-template-columns: minmax(0, 3fr) minmax(260px, 2fr);
-      gap: 2rem;
-      align-items: flex-start;
+    #accueil{
+      display:grid;
+      grid-template-columns:minmax(0,3fr) minmax(260px,2fr);
+      gap:2rem; align-items:flex-start;
     }
-
-    .sous-titre { font-size: 1.02rem; color: var(--text-muted); margin-bottom: 1.2rem; }
-
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      padding: 0.18rem 0.8rem;
-      border-radius: 999px;
-      font-size: 0.78rem;
-      background: var(--orange-soft);
-      color: #9a3412;
-      margin-bottom: 0.9rem;
+    .pill{
+      display:inline-flex; align-items:center; gap:.4rem;
+      padding:.18rem .8rem; border-radius:999px;
+      font-size:.78rem; background:var(--orange-soft); color:#9a3412;
+      margin-bottom:.9rem;
     }
+    .pill-dot{width:7px;height:7px;border-radius:999px;background:var(--orange)}
+    .sous-titre{font-size:1.02rem;color:var(--text-muted);margin-bottom:1.2rem}
 
-    .pill-dot { width: 7px; height: 7px; border-radius: 999px; background: var(--orange); }
-
-    .btn-group {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.8rem;
-      margin-top: 1.2rem;
-      margin-bottom: 1.2rem;
+    .btn-group{display:flex; flex-wrap:wrap; gap:.8rem; margin:1.2rem 0 1.2rem}
+    .btn{
+      display:inline-block; padding:.7rem 1.4rem; border-radius:999px;
+      border:none; cursor:pointer; font-size:.9rem; font-weight:900;
+      transition:transform .12s, box-shadow .12s, background .12s;
     }
-
-    .btn {
-      display: inline-block;
-      padding: 0.7rem 1.4rem;
-      border-radius: 999px;
-      border: none;
-      cursor: pointer;
-      font-size: 0.9rem;
-      font-weight: 700;
-      transition: transform 0.12s, box-shadow 0.12s, background-color 0.12s, color 0.12s;
+    .btn-principal{
+      background:var(--orange); color:#111827;
+      box-shadow:0 10px 24px rgba(248,113,113,.35);
     }
-
-    .btn-principal {
-      background: var(--orange);
-      color: #111827;
-      box-shadow: 0 10px 24px rgba(248, 113, 113, 0.35);
+    .btn-principal:hover{transform:translateY(-1px); box-shadow:0 14px 32px rgba(248,113,113,.45); background:#ea580c}
+    .btn-secondaire{
+      background:transparent; color:#e5e7eb;
+      border:1px solid rgba(148,163,184,.7);
+      backdrop-filter:blur(4px);
     }
+    .btn-secondaire:hover{background:rgba(15,23,42,.7); transform:translateY(-1px)}
 
-    .btn-principal:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 14px 32px rgba(248, 113, 113, 0.45);
-      background: #ea580c;
+    .hero-card{
+      background:radial-gradient(circle at top left,#0ea5e9,#020617 60%);
+      border-radius:1.5rem; padding:1.6rem;
+      position:relative; overflow:hidden; isolation:isolate;
+      border:1px solid rgba(148,163,184,.25);
     }
-
-    .btn-secondaire {
-      background: transparent;
-      color: #e5e7eb;
-      border: 1px solid rgba(148, 163, 184, 0.7);
-      backdrop-filter: blur(4px);
+    .hero-card::before{
+      content:""; position:absolute; inset:0;
+      background:radial-gradient(circle at 110% -10%, rgba(248,250,252,.3), transparent 55%);
+      opacity:.7; pointer-events:none;
     }
-
-    .btn-secondaire:hover { background: rgba(15, 23, 42, 0.7); transform: translateY(-1px); }
-
-    .hero-card {
-      background: radial-gradient(circle at top left, #0ea5e9, #020617 60%);
-      color: #e5e7eb;
-      border-radius: 1.5rem;
-      padding: 1.6rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.7rem;
-      position: relative;
-      overflow: hidden;
-      isolation: isolate;
+    .hero-card-inner{position:relative; z-index:1}
+    .hero-tag{
+      display:inline-block; padding:.25rem .6rem; border-radius:999px;
+      border:1px solid rgba(248,250,252,.55);
+      font-size:.76rem; opacity:.92; margin-bottom:.4rem;
     }
-
-    .hero-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at 110% -10%, rgba(248, 250, 252, 0.3), transparent 55%);
-      opacity: 0.7;
-      pointer-events: none;
+    .hero-media{display:flex; gap:.8rem; flex-wrap:wrap; margin-bottom:.9rem}
+    .media-placeholder{
+      flex:1 1 220px; min-height:140px;
+      border-radius:1.1rem;
+      border:1px dashed rgba(148,163,184,.6);
+      background:rgba(2,6,23,.55);
+      display:grid; place-items:center;
+      padding:1rem; text-align:center;
     }
-
-    .hero-card-inner { position: relative; z-index: 1; }
-
-    .hero-tag {
-      display: inline-block;
-      padding: 0.25rem 0.6rem;
-      border-radius: 999px;
-      border: 1px solid rgba(248, 250, 252, 0.55);
-      font-size: 0.76rem;
-      opacity: 0.9;
-      margin-bottom: 0.4rem;
+    .media-title{
+      font-weight:900; letter-spacing:.06em; text-transform:uppercase;
+      font-size:.82rem; margin-bottom:.25rem;
     }
+    .media-text{color:var(--text-muted); font-size:.9rem}
+    .media-note{margin-top:.5rem; font-size:.78rem; color:rgba(229,231,235,.72)}
 
-    .hero-metrics {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.2rem;
-      margin-top: 0.9rem;
-      font-size: 0.85rem;
-    }
-
-    .metric { display: flex; flex-direction: column; }
-    .metric span:first-child { font-weight: 800; font-size: 1.05rem; }
-    .metric span:last-child { opacity: 0.85; }
-
-    .hero-photos { display: flex; gap: 0.6rem; margin-bottom: 0.9rem; }
-
-    .hero-img {
-      width: 100%;
-      height: auto;
-      border-radius: 1rem;
-      object-fit: contain;
-      display: block;
-      border: 1px solid rgba(248, 250, 252, 0.4);
-      background: #020617;
-    }
-
-    .hero-img-small { width: 40%; height: auto; }
-    .clickable-image { display: block; cursor: zoom-in; }
+    .hero-metrics{display:flex; flex-wrap:wrap; gap:1.2rem; margin-top:.9rem; font-size:.85rem}
+    .metric{display:flex; flex-direction:column}
+    .metric span:first-child{font-weight:900; font-size:1.05rem}
+    .metric span:last-child{opacity:.85}
 
     /* EXPORT SNAPSHOT */
-    .export-box {
-      margin-top: 1rem;
-      padding: 1rem 1.1rem;
-      border-radius: 1.2rem;
-      border: 1px solid rgba(148, 163, 184, 0.35);
-      background: rgba(15, 23, 42, 0.65);
+    .export-box{
+      margin-top:1rem; padding:1rem 1.1rem;
+      border-radius:1.2rem;
+      border:1px solid rgba(148,163,184,.35);
+      background:rgba(15,23,42,.65);
     }
-    .export-badges { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0.6rem 0 0.2rem; }
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      padding: 0.18rem 0.65rem;
-      border-radius: 999px;
-      font-size: 0.78rem;
-      border: 1px solid rgba(148, 163, 184, 0.35);
-      background: rgba(2, 6, 23, 0.8);
-      color: #e5e7eb;
-      opacity: 0.95;
+    .export-badges{display:flex; flex-wrap:wrap; gap:.5rem; margin:.6rem 0 .2rem}
+    .badge{
+      display:inline-flex; align-items:center; gap:.4rem;
+      padding:.18rem .65rem; border-radius:999px;
+      font-size:.78rem;
+      border:1px solid rgba(148,163,184,.35);
+      background:rgba(2,6,23,.8);
+      opacity:.95;
     }
-    .badge-dot { width: 7px; height: 7px; border-radius: 999px; background: var(--good); }
-    .export-row {
-      display: grid;
-      grid-template-columns: 160px 1fr;
-      gap: 0.8rem;
-      margin-top: 0.6rem;
-      font-size: 0.92rem;
+    .badge-dot{width:7px;height:7px;border-radius:999px;background:var(--good)}
+    .export-row{
+      display:grid; grid-template-columns:160px 1fr;
+      gap:.8rem; margin-top:.6rem; font-size:.92rem;
     }
-    .export-row strong { color: #e5e7eb; }
-    .export-row span { color: var(--text-muted); }
-
-    /* ÉQUIPE */
-    .team-feature-card {
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-      padding: 0.8rem 1rem;
-      border-radius: 1.3rem;
-      background: radial-gradient(circle at top left,
-        rgba(250, 250, 249, 0.06),
-        rgba(146, 64, 14, 0.25));
-      border: 1px solid rgba(245, 208, 117, 0.95);
-      box-shadow:
-        0 0 0 1px rgba(15, 23, 42, 0.8),
-        0 18px 42px rgba(15, 23, 42, 0.95);
-      transition: transform 0.15s, box-shadow 0.15s;
-    }
-
-    .team-feature-avatar {
-      width: 72px;
-      height: 72px;
-      border-radius: 999px;
-      overflow: hidden;
-      border: 2px solid rgba(250, 204, 21, 0.95);
-      flex-shrink: 0;
-      background: #020617;
-    }
-
-    .team-feature-avatar img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.15s;
-    }
-
-    .team-feature-card:hover {
-      transform: translateY(-2px);
-      box-shadow:
-        0 0 0 1px rgba(250, 204, 21, 0.3),
-        0 22px 50px rgba(15, 23, 42, 0.95);
-    }
-    .team-feature-card:hover .team-feature-avatar img { transform: scale(1.06); }
-
-    .team-feature-label {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--gold-soft);
-      margin-bottom: 0.15rem;
-    }
-
-    .team-feature-name { font-size: 0.95rem; font-weight: 800; }
-    .team-feature-text { font-size: 0.8rem; color: var(--marine-light); margin-top: 0.25rem; }
-
-    .team-item {
-      width: 100%;
-      font-size: 0.85rem;
-      padding: 0.7rem 0.8rem;
-      border-radius: 1rem;
-      background: rgba(15, 23, 42, 0.95);
-      border: 1px solid rgba(148, 163, 184, 0.4);
-    }
-
-    .team-item-top { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.35rem; }
-
-    .team-avatar {
-      width: 40px;
-      height: 40px;
-      border-radius: 999px;
-      overflow: hidden;
-      border: 2px solid rgba(250, 204, 21, 0.9);
-      flex-shrink: 0;
-      background: #020617;
-    }
-    .team-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
-
-    .team-avatar-placeholder {
-      width: 40px;
-      height: 40px;
-      border-radius: 999px;
-      flex-shrink: 0;
-      background: rgba(148, 163, 184, 0.25);
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.75rem;
-      font-weight: 800;
-      color: var(--marine-light);
-    }
-
-    .team-item-name { font-weight: 800; margin-bottom: 0.1rem; font-size: 0.9rem; }
-    .team-item-role { font-size: 0.8rem; color: #e5e7eb; opacity: 0.95; }
-    .team-item-text { font-size: 0.8rem; color: var(--marine-light); }
+    .export-row strong{color:#e5e7eb}
+    .export-row span{color:var(--text-muted)}
 
     /* GRIDS */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1.2rem;
-      margin-top: 1.5rem;
+    .grid{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1.2rem; margin-top:1.5rem}
+    .card{
+      padding:1.1rem; border-radius:1.1rem;
+      border:1px solid rgba(55,65,81,.9);
+      background:#020617;
+      transition:transform .12s, box-shadow .12s, border-color .12s;
+    }
+    .card:hover{transform:translateY(-2px); border-color:#60a5fa; box-shadow:0 10px 26px rgba(15,23,42,.8)}
+    .card span.label{
+      display:inline-block; font-size:.75rem;
+      padding:.12rem .55rem; border-radius:999px;
+      background:rgba(37,99,235,.2); color:#bfdbfe;
+      margin-bottom:.4rem;
+    }
+    .card .media-placeholder{min-height:170px; margin:.6rem 0 .7rem}
+
+    .apropos-grid{display:grid; grid-template-columns:2fr 2fr; gap:1.5rem}
+    .liste-simple{list-style:none; margin-top:.5rem; font-size:.95rem}
+    .liste-simple li{margin-bottom:.3rem}
+    .liste-simple li::before{content:"• "; opacity:.6}
+
+    .galerie-grid{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1rem; margin-top:1.2rem}
+    .galerie-item{
+      border-radius:1rem; overflow:hidden;
+      border:1px solid rgba(55,65,81,.9);
+      background:#020617;
+    }
+    .galerie-item .media-placeholder{
+      border-radius:0; min-height:200px; border:none;
+      border-bottom:1px solid rgba(55,65,81,.7);
+    }
+    .galerie-caption{
+      padding:.55rem .8rem; font-size:.85rem; color:var(--text-muted);
+      border-top:1px solid rgba(55,65,81,.7);
     }
 
-    .card {
-      padding: 1.1rem;
-      border-radius: 1.1rem;
-      border: 1px solid rgba(55, 65, 81, 0.9);
-      background: #020617;
-      font-size: 0.95rem;
-      transition: transform 0.12s, box-shadow 0.12s, border-color 0.12s, background-color 0.12s;
+    form{display:grid; gap:1rem; margin-top:1.2rem}
+    label{font-size:.88rem; font-weight:900; margin-bottom:.2rem; display:inline-block}
+    input,textarea,select{
+      width:100%; padding:.55rem .85rem;
+      border-radius:.7rem; border:1px solid #4b5563;
+      font:inherit; background:#020617; color:var(--text-main);
     }
-
-    .card img {
-      width: 100%;
-      height: auto;
-      max-height: 260px;
-      object-fit: contain;
-      border-radius: 0.8rem;
-      margin-bottom: 0.6rem;
-      background: #020617;
+    textarea{min-height:110px; resize:vertical}
+    input::placeholder,textarea::placeholder{color:#6b7280}
+    input:focus,textarea:focus,select:focus{
+      outline:none; border-color:#60a5fa;
+      box-shadow:0 0 0 1px rgba(37,99,235,.5);
     }
-
-    .card h3 { font-size: 1rem; margin-bottom: 0.4rem; }
-
-    .card span.label {
-      display: inline-block;
-      font-size: 0.75rem;
-      padding: 0.12rem 0.55rem;
-      border-radius: 999px;
-      background: rgba(37, 99, 235, 0.2);
-      color: #bfdbfe;
-      margin-bottom: 0.4rem;
-    }
-
-    .card:hover {
-      transform: translateY(-2px);
-      border-color: #60a5fa;
-      background: #020617;
-      box-shadow: 0 10px 26px rgba(15, 23, 42, 0.8);
-    }
-
-    .apropos-grid { display: grid; grid-template-columns: 2fr 2fr; gap: 1.5rem; }
-
-    .liste-simple { list-style: none; margin-top: 0.5rem; font-size: 0.95rem; }
-    .liste-simple li { margin-bottom: 0.3rem; }
-    .liste-simple li::before { content: "• "; opacity: 0.6; }
-
-    .galerie-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1rem;
-      margin-top: 1.2rem;
-    }
-
-    .galerie-item {
-      border-radius: 1rem;
-      overflow: hidden;
-      border: 1px solid rgba(55, 65, 81, 0.9);
-      background: #020617;
-    }
-
-    .galerie-item img {
-      width: 100%;
-      height: auto;
-      max-height: 260px;
-      object-fit: contain;
-      display: block;
-      background: #020617;
-    }
-
-    .galerie-caption {
-      padding: 0.55rem 0.8rem;
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      background: #020617;
-    }
-
-    form { display: grid; gap: 1rem; margin-top: 1.2rem; }
-
-    label {
-      font-size: 0.88rem;
-      font-weight: 700;
-      margin-bottom: 0.2rem;
-      display: inline-block;
-    }
-
-    input, textarea, select {
-      width: 100%;
-      padding: 0.55rem 0.85rem;
-      border-radius: 0.7rem;
-      border: 1px solid #4b5563;
-      font: inherit;
-      resize: vertical;
-      min-height: 40px;
-      background: #020617;
-      color: var(--text-main);
-    }
-
-    input::placeholder, textarea::placeholder { color: #6b7280; }
-
-    input:focus, textarea:focus, select:focus {
-      outline: none;
-      border-color: #60a5fa;
-      box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.5);
-      background: #020617;
-    }
-
-    textarea { min-height: 110px; }
-
-    .form-grid-2 {
-      display: grid;
-      gap: 1rem;
-      grid-template-columns: 1fr 1fr;
-    }
+    .form-grid-2{display:grid; gap:1rem; grid-template-columns:1fr 1fr}
 
     /* FOOTER PRO */
-    .site-footer {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 1.8rem 1.5rem;
-      color: var(--text-muted);
-      font-size: 0.85rem;
-      border-top: 1px solid rgba(148, 163, 184, 0.35);
+    .site-footer{
+      max-width:1100px; margin:0 auto;
+      padding:1.8rem 1.5rem;
+      color:var(--text-muted); font-size:.85rem;
+      border-top:1px solid rgba(148,163,184,.35);
     }
-
-    .site-footer a { text-decoration: underline; text-underline-offset: 3px; }
-
-    .footer-block { line-height: 1.65; }
-    .footer-links {
-      margin-top: 0.9rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.45rem;
-      align-items: center;
-      justify-content: center;
+    .site-footer a{text-decoration:underline; text-underline-offset:3px}
+    .footer-links{
+      margin-top:.9rem; display:flex; flex-wrap:wrap;
+      gap:.45rem; align-items:center; justify-content:center;
     }
-    .footer-copy { margin-top: 0.9rem; text-align: center; }
+    .footer-copy{margin-top:.9rem; text-align:center}
 
-    /* WhatsApp floating button */
-    .whatsapp-float {
-      position: fixed;
-      right: 18px;
-      bottom: 18px;
-      z-index: 999;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      padding: 0.75rem 1rem;
-      border-radius: 999px;
-      background: var(--good);
-      color: #052e16;
-      border: 1px solid rgba(5, 46, 22, 0.25);
-      box-shadow: 0 18px 40px rgba(0,0,0,0.45);
-      font-weight: 900;
-      transition: transform 0.12s;
+    /* WhatsApp */
+    .whatsapp-float{
+      position:fixed; right:18px; bottom:18px; z-index:999;
+      display:inline-flex; align-items:center; gap:.6rem;
+      padding:.75rem 1rem; border-radius:999px;
+      background:var(--good); color:#052e16;
+      border:1px solid rgba(5,46,22,.25);
+      box-shadow:0 18px 40px rgba(0,0,0,.45);
+      font-weight:900;
+      transition:transform .12s;
     }
-    .whatsapp-float:hover { transform: translateY(-2px); }
-    .whatsapp-float svg { width: 20px; height: 20px; display: block; }
-    .whatsapp-label { font-size: 0.9rem; }
+    .whatsapp-float:hover{transform:translateY(-2px)}
+    .whatsapp-float svg{width:20px;height:20px;display:block}
+    .whatsapp-label{font-size:.9rem}
 
-    @media (max-width: 1024px) {
-      .page-shell { display: block; padding: 1.5rem 1rem 2.5rem; }
-      main { margin-bottom: 2rem; }
-      .side-column { padding-top: 0; margin-bottom: 1.5rem; }
-      #accueil { grid-template-columns: 1fr; }
-      .hero-card { order: -1; }
-      .apropos-grid { grid-template-columns: 1fr; }
-      .grid, .galerie-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .export-row { grid-template-columns: 1fr; }
-      .form-grid-2 { grid-template-columns: 1fr; }
+    @media (max-width:1024px){
+      .container{padding:1.5rem 1rem 2.5rem}
+      #accueil{grid-template-columns:1fr}
+      .hero-card{order:-1}
+      .apropos-grid{grid-template-columns:1fr}
+      .grid,.galerie-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .export-row{grid-template-columns:1fr}
+      .form-grid-2{grid-template-columns:1fr}
     }
-
-    @media (max-width: 640px) {
-      .nav-container { flex-direction: column; align-items: flex-start; gap: 0.4rem; }
-      nav ul { justify-content: flex-start; gap: 0.9rem; }
-      section { padding: 1.4rem; margin: 2rem 0; }
-      .hero-photos { flex-direction: column; }
-      .hero-img-small { width: 100%; }
-      .btn-group { flex-direction: column; align-items: stretch; }
-      .grid, .galerie-grid { grid-template-columns: 1fr; }
-      h1 { font-size: 1.6rem; }
-      h2 { font-size: 1.2rem; }
-      p { font-size: 0.95rem; }
-      .footer-links { justify-content: flex-start; }
-      .footer-copy { text-align: left; }
-      .whatsapp-label { display: none; }
-      .whatsapp-float { padding: 0.75rem; }
+    @media (max-width:640px){
+      .nav-container{flex-direction:column; align-items:flex-start; gap:.4rem}
+      nav ul{justify-content:flex-start; gap:.9rem}
+      section{padding:1.4rem; margin:2rem 0}
+      .btn-group{flex-direction:column; align-items:stretch}
+      .grid,.galerie-grid{grid-template-columns:1fr}
+      h1{font-size:1.6rem}
+      h2{font-size:1.2rem}
+      .footer-links{justify-content:flex-start}
+      .footer-copy{text-align:left}
+      .whatsapp-label{display:none}
+      .whatsapp-float{padding:.75rem}
     }
   </style>
 </head>
@@ -668,675 +339,431 @@
           <li><a href="#jus" data-i18n="nav_juice">Fruits & jus</a></li>
           <li><a href="#galerie" data-i18n="nav_photos">Photos</a></li>
           <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
+          <li><a href="team.html" data-i18n="nav_team">Team</a></li>
           <li><a href="#mentions-legales" data-i18n="nav_legal">Mentions légales</a></li>
-          <li>
-            <button id="langToggle" class="lang-toggle" type="button" aria-label="Changer de langue">EN</button>
-          </li>
+          <li><button id="langToggle" class="lang-toggle" type="button" aria-label="Changer de langue">EN</button></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <div class="page-shell">
-    <!-- COLONNE GAUCHE -->
-    <aside class="side-column side-left" aria-label="Équipe">
-      <div class="side-column-sep"></div>
-      <div class="side-column-title" data-i18n="side_left_title">Équipe ORION FISH</div>
-
-      <div class="team-item">
-        <div class="team-item-top">
-          <div class="team-avatar">
-            <img src="mouhamad-kebe.jpg" alt="Photo de Mouhamad Kébé">
-          </div>
-          <div>
-            <div class="team-item-name">Mouhamad Kébé</div>
-            <div class="team-item-role" data-i18n="team_mouhamad_role">Gérant d'Orion Fish</div>
-          </div>
+  <main id="mainContent" class="container">
+    <section id="accueil">
+      <div>
+        <div class="pill">
+          <span class="pill-dot"></span>
+          <span data-i18n="pill">Agroalimentaire – Mer & Fruits</span>
         </div>
-        <div class="team-item-text" data-i18n="team_mouhamad_desc">
-          Dirige l’entreprise au quotidien et coordonne l’exécution opérationnelle des activités.
+
+        <h1 data-i18n="h1">ORION FISH – Produits de la mer & jus de fruits</h1>
+
+        <p class="sous-titre" data-i18n="hero_sub">
+          Produits de la mer, transformation de fruits en jus, vente et distribution au service des marchés locaux et internationaux.
+        </p>
+
+        <p data-i18n="hero_p1">
+          ORION FISH collecte, transforme et distribue des produits de la mer ainsi que des jus de fruits
+          issus de matières premières rigoureusement sélectionnées. Nous accompagnons distributeurs, industriels
+          et professionnels avec des solutions fiables, tracées et conformes aux normes en vigueur.
+        </p>
+
+        <div class="btn-group">
+          <a href="#mer" class="btn btn-principal" data-i18n="btn_activities">Découvrir nos activités</a>
+          <a href="#contact" class="btn btn-secondaire" data-i18n="btn_talk">Parler à notre équipe</a>
+        </div>
+
+        <div class="export-box" aria-label="Export snapshot">
+          <h3 style="margin-bottom:.4rem;" data-i18n="export_title">Export snapshot</h3>
+          <p class="muted" style="margin-bottom:.6rem;" data-i18n="export_sub">Infos rapides pour demandes de devis (RFQ).</p>
+
+          <div class="export-badges">
+            <span class="badge"><span class="badge-dot"></span><span data-i18n="badge_b2b">B2B / RFQ</span></span>
+            <span class="badge"><span class="badge-dot"></span><span data-i18n="badge_incoterms">Incoterms: EXW / FOB / CIF</span></span>
+            <span class="badge"><span class="badge-dot"></span><span data-i18n="badge_profile">Company Profile (PDF)</span></span>
+          </div>
+
+          <div class="export-row">
+            <strong data-i18n="export_loc_k">Localisation</strong>
+            <span data-i18n="export_loc_v">Rufisque (17000), Sénégal</span>
+          </div>
+          <div class="export-row">
+            <strong data-i18n="export_contact_k">Contact export</strong>
+            <span><a href="mailto:export@orionsfish.com">export@orionsfish.com</a> • <a href="tel:+2212702457">+2212702457</a></span>
+          </div>
+          <div class="export-row">
+            <strong data-i18n="export_docs_k">Documents</strong>
+            <span data-i18n="export_docs_v">Disponibles selon produit & destination (sur demande).</span>
+          </div>
+          <div class="export-row">
+            <strong data-i18n="export_profile_k">Profil</strong>
+            <span><a href="company-profile.pdf" target="_blank" rel="noopener noreferrer" data-i18n="export_profile_v">Télécharger le Company Profile (PDF)</a></span>
+          </div>
         </div>
       </div>
 
-      <div class="team-item">
-        <div class="team-item-top">
-          <div class="team-avatar">
-            <img src="souleymane-diallo.jpg" alt="Photo de Souleymane Diallo">
-          </div>
-          <div>
-            <div class="team-item-name">Souleymane Diallo</div>
-            <div class="team-item-role">
-              <span data-i18n="team_souleymane_role_prefix">Directeur Service Commercial – Tél. :</span>
-              <a href="tel:+221779540304">+221 77 954 03 04</a>
-            </div>
-          </div>
-        </div>
-        <div class="team-item-text" data-i18n="team_souleymane_desc">
-          Développe le portefeuille clients et les partenariats commerciaux sur les marchés cibles.
-        </div>
-      </div>
-
-      <div class="team-item">
-        <div class="team-item-top">
-          <div class="team-avatar">
-            <img src="ndeye-fatou-wade.png" alt="Photo de Ndèye Fatou Wade">
-          </div>
-          <div>
-            <div class="team-item-name">Ndèye Fatou Wade</div>
-            <div class="team-item-role" data-i18n="team_wade_role">Directrice Service Marketing / Clientèle</div>
-          </div>
-        </div>
-        <div class="team-item-text" data-i18n="team_wade_desc">
-          Pilote le marketing, la communication et la relation clientèle pour valoriser l’offre ORION FISH.
-        </div>
-      </div>
-
-      <div class="team-item">
-        <div class="team-item-top">
-          <div class="team-avatar">
-            <img src="idy-ka.png" alt="Photo de Idy KA">
-          </div>
-          <div>
-            <div class="team-item-name">Idy KA</div>
-            <div class="team-item-role" data-i18n="team_idy_role">Responsable Département Informatique</div>
-          </div>
-        </div>
-        <div class="team-item-text" data-i18n="team_idy_desc">
-          Gère les systèmes d’information et les outils numériques supports aux opérations.
-        </div>
-      </div>
-
-      <div class="team-item">
-        <div class="team-item-top">
-          <div class="team-avatar">
-            <img src="ndeye-astou-diatta.jpg" alt="Photo de Ndèye Astou Diatta">
-          </div>
-          <div>
-            <div class="team-item-name">Ndèye Astou Diatta</div>
-            <div class="team-item-role" data-i18n="team_astou_role">Responsable traçabilité & réclamations</div>
-          </div>
-        </div>
-        <div class="team-item-text" data-i18n="team_astou_desc">
-          Assure la traçabilité des produits et le suivi structuré des réclamations clients.
-        </div>
-      </div>
-
-      <div class="team-item">
-        <div class="team-item-top">
-          <div class="team-avatar-placeholder">ED</div>
-          <div>
-            <div class="team-item-name">Emilie Diatta</div>
-            <div class="team-item-role" data-i18n="team_emilie_role">Responsable administratif & financier (RAF)</div>
-          </div>
-        </div>
-        <div class="team-item-text" data-i18n="team_emilie_desc">
-          Supervise la gestion administrative, la trésorerie et le suivi financier de l’entreprise.
-        </div>
-      </div>
-
-      <div class="team-item">
-        <div class="team-item-top">
-          <div class="team-avatar-placeholder">MD</div>
-          <div>
-            <div class="team-item-name">Mamadou Hady Diallo</div>
-            <div class="team-item-role" data-i18n="team_hady_role">Chef d'équipe</div>
-          </div>
-        </div>
-        <div class="team-item-text" data-i18n="team_hady_desc">
-          Encadre les équipes sur le terrain et veille à la bonne exécution des opérations.
-        </div>
-      </div>
-
-      <div class="team-item">
-        <div class="team-item-top">
-          <div class="team-avatar">
-            <img src="awa-diatta.jpg" alt="Photo de Awa Diatta">
-          </div>
-          <div>
-            <div class="team-item-name">Awa Diatta</div>
-            <div class="team-item-role" data-i18n="team_awa_role">Cheffe de projet innovation</div>
-          </div>
-        </div>
-        <div class="team-item-text" data-i18n="team_awa_desc">
-          Conçoit et pilote les projets d’innovation : nouveaux produits et nouveaux procédés.
-        </div>
-      </div>
-    </aside>
-
-    <!-- COLONNE CENTRALE -->
-    <main id="mainContent">
-      <section id="accueil">
-        <div>
-          <div class="pill">
-            <span class="pill-dot"></span>
-            <span data-i18n="pill">Agroalimentaire – Mer & Fruits</span>
-          </div>
-
-          <h1 data-i18n="h1">ORION FISH – Produits de la mer & jus de fruits</h1>
-
-          <p class="sous-titre" data-i18n="hero_sub">
-            Produits de la mer, transformation de fruits en jus, vente et distribution au service des marchés locaux et internationaux.
-          </p>
-
-          <p data-i18n="hero_p1">
-            ORION FISH collecte, transforme et distribue des produits de la mer ainsi que des jus de fruits
-            issus de matières premières rigoureusement sélectionnées. Nous accompagnons distributeurs, industriels
-            et professionnels avec des solutions fiables, tracées et conformes aux normes en vigueur.
-          </p>
-
-          <div class="btn-group">
-            <a href="#mer" class="btn btn-principal" data-i18n="btn_activities">Découvrir nos activités</a>
-            <a href="#contact" class="btn btn-secondaire" data-i18n="btn_talk">Parler à notre équipe</a>
-          </div>
-
-          <div class="export-box" aria-label="Export snapshot">
-            <h3 style="margin-bottom:0.4rem;" data-i18n="export_title">Export snapshot</h3>
-            <p class="muted" style="margin-bottom:0.6rem;" data-i18n="export_sub">
-              Infos rapides pour demandes de devis (RFQ).
-            </p>
-
-            <div class="export-badges">
-              <span class="badge"><span class="badge-dot"></span><span data-i18n="badge_b2b">B2B / RFQ</span></span>
-              <span class="badge"><span class="badge-dot"></span><span data-i18n="badge_incoterms">Incoterms: EXW / FOB / CIF</span></span>
-              <span class="badge"><span class="badge-dot"></span><span data-i18n="badge_profile">Company Profile (PDF)</span></span>
-            </div>
-
-            <div class="export-row">
-              <strong data-i18n="export_loc_k">Localisation</strong>
-              <span data-i18n="export_loc_v">Rufisque (17000), Sénégal</span>
-            </div>
-            <div class="export-row">
-              <strong data-i18n="export_contact_k">Contact export</strong>
-              <span><a href="mailto:export@orionsfish.com">export@orionsfish.com</a> • <a href="tel:+2212702457">+2212702457</a></span>
-            </div>
-            <div class="export-row">
-              <strong data-i18n="export_docs_k">Documents</strong>
-              <span data-i18n="export_docs_v">Disponibles selon produit & destination (sur demande).</span>
-            </div>
-            <div class="export-row">
-              <strong data-i18n="export_profile_k">Profil</strong>
-              <span><a href="company-profile.pdf" target="_blank" rel="noopener noreferrer" data-i18n="export_profile_v">Télécharger le Company Profile (PDF)</a></span>
-            </div>
-          </div>
-        </div>
-
-        <div class="hero-card">
-          <div class="hero-card-inner">
-            <div class="hero-photos">
-              <a href="hero-poissons-frais.jpg.png" target="_blank" class="clickable-image" rel="noopener noreferrer">
-                <img src="hero-poissons-frais.jpg.png" alt="Poissons frais sur lit de glace" class="hero-img" />
-              </a>
-              <a href="hero-jus-fruits.jpg" target="_blank" class="clickable-image" rel="noopener noreferrer">
-                <img src="hero-jus-fruits.jpg" alt="Verres de jus d’orange, mangue et mandarine" class="hero-img hero-img-small" />
-              </a>
-            </div>
-
-            <span class="hero-tag" data-i18n="hero_tag">Filières intégrées</span>
-            <h3 data-i18n="hero_h3">Une double expertise, mer & fruits</h3>
-            <p data-i18n="hero_p2">
-              De la pêche à la transformation des fruits, ORION FISH s’engage sur la qualité, la traçabilité
-              et la sécurité alimentaire de ses produits.
-            </p>
-
-            <div class="hero-metrics">
-              <div class="metric">
-                <span data-i18n="metric_sea">Mer</span>
-                <span data-i18n="metric_sea_desc">Collecte, transformation et distribution des produits de la mer.</span>
+      <div class="hero-card">
+        <div class="hero-card-inner">
+          <div class="hero-media">
+            <div class="media-placeholder" role="note" aria-label="Visuel mer à venir">
+              <div>
+                <div class="media-title" data-i18n="ph_sea_title">Visuel mer</div>
+                <div class="media-text" data-i18n="ph_soon">Photo à venir</div>
+                <div class="media-note" data-i18n="ph_note">Ajoute une photo réelle (produits / usine / logistique).</div>
               </div>
-              <div class="metric">
-                <span data-i18n="metric_fruit">Fruits</span>
-                <span data-i18n="metric_fruit_desc">Jus issus d’oranges, mangues, mandarines et autres fruits sélectionnés.</span>
+            </div>
+            <div class="media-placeholder" role="note" aria-label="Visuel jus à venir">
+              <div>
+                <div class="media-title" data-i18n="ph_juice_title">Visuel jus</div>
+                <div class="media-text" data-i18n="ph_soon">Photo à venir</div>
+                <div class="media-note" data-i18n="ph_note">Ajoute une photo réelle (fruits / ligne / packaging).</div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
 
-      <section id="apropos">
-        <h2 data-i18n="about_h2">À propos d’ORION FISH</h2>
+          <span class="hero-tag" data-i18n="hero_tag">Filières intégrées</span>
+          <h3 data-i18n="hero_h3">Une double expertise, mer & fruits</h3>
+          <p data-i18n="hero_p2">
+            De la pêche à la transformation des fruits, ORION FISH s’engage sur la qualité, la traçabilité
+            et la sécurité alimentaire de ses produits.
+          </p>
 
-        <div class="apropos-grid">
-          <div>
-            <p data-i18n="about_p1">
-              ORION FISH est une entreprise agroalimentaire spécialisée dans la valorisation des produits de la mer
-              et la transformation de fruits en jus. Nous travaillons avec un réseau de pêcheurs, de producteurs et
-              de partenaires sélectionnés pour offrir des produits fiables et compétitifs.
-            </p>
-            <p data-i18n="about_p2">
-              Notre ambition est de développer des filières durables, créatrices de valeur pour les territoires,
-              tout en répondant aux attentes des marchés locaux et internationaux.
-            </p>
-          </div>
-          <div>
-            <p><strong data-i18n="about_strengths">Nos atouts :</strong></p>
-            <ul class="liste-simple">
-              <li data-i18n="about_li1">Expertise dans les produits de la mer et les jus de fruits</li>
-              <li data-i18n="about_li2">Sélection rigoureuse des fournisseurs et zones de production</li>
-              <li data-i18n="about_li3">Respect des normes de qualité et de sécurité alimentaire</li>
-              <li data-i18n="about_li4">Logistique adaptée aux besoins des professionnels</li>
-              <li data-i18n="about_li5">Relation de confiance et partenariats de long terme</li>
-            </ul>
+          <div class="hero-metrics">
+            <div class="metric">
+              <span data-i18n="metric_sea">Mer</span>
+              <span data-i18n="metric_sea_desc">Collecte, transformation et distribution des produits de la mer.</span>
+            </div>
+            <div class="metric">
+              <span data-i18n="metric_fruit">Fruits</span>
+              <span data-i18n="metric_fruit_desc">Jus issus d’oranges, mangues, mandarines et autres fruits sélectionnés.</span>
+            </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section id="mer">
-        <h2 data-i18n="sea_h2">Produits de la mer</h2>
-        <p data-i18n="sea_p">
-          ORION FISH collecte, transforme et distribue des produits de la mer pour les marchés locaux et internationaux.
-        </p>
-
-        <div class="grid">
-          <div class="card">
-            <span class="label" data-i18n="card_range">Gamme</span>
-            <a href="hero-poissons-frais.jpg.png" target="_blank" class="clickable-image" rel="noopener noreferrer">
-              <img src="hero-poissons-frais.jpg.png" alt="Poissons frais et filets prêts à être distribués">
-            </a>
-            <h3 data-i18n="sea_card1_h3">Produits frais & surgelés</h3>
-            <p data-i18n="sea_card1_p">
-              Poissons entiers, filets et autres produits de la mer, disponibles en frais ou surgelé, selon vos besoins
-              et vos marchés.
-            </p>
-          </div>
-
-          <div class="card">
-            <span class="label" data-i18n="card_processing">Transformation</span>
-            <a href="preparation-poissons.jpg" target="_blank" class="clickable-image" rel="noopener noreferrer">
-              <img src="preparation-poissons.jpg" alt="Préparation, nettoyage et découpe de poissons">
-            </a>
-            <h3 data-i18n="sea_card2_h3">Préparation & conditionnement</h3>
-            <p data-i18n="sea_card2_p">
-              Tri, nettoyage, découpe et conditionnement dans le respect strict des bonnes pratiques d’hygiène et des normes.
-            </p>
-          </div>
-
-          <div class="card">
-            <span class="label" data-i18n="card_logistics">Logistique</span>
-            <a href="logistique-froid.jpg" target="_blank" class="clickable-image" rel="noopener noreferrer">
-              <img src="logistique-froid.jpg" alt="Camions frigorifiques et entrepôts réfrigérés">
-            </a>
-            <h3 data-i18n="sea_card3_h3">Distribution & chaîne du froid</h3>
-            <p data-i18n="sea_card3_p">
-              Organisation de la chaîne logistique, respect de la chaîne du froid et gestion des livraisons jusqu’au client final.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section id="jus">
-        <h2 data-i18n="juice_h2">Transformation de fruits en jus</h2>
-        <p data-i18n="juice_p">
-          ORION FISH développe une filière de transformation de fruits en jus, avec une sélection rigoureuse des matières premières
-          (oranges, mangues, mandarines et autres fruits).
-        </p>
-
-        <div class="grid">
-          <div class="card">
-            <span class="label" data-i18n="card_selection">Sélection</span>
-            <a href="fruits-agrumes-mangues.jpg" target="_blank" class="clickable-image" rel="noopener noreferrer">
-              <img src="fruits-agrumes-mangues.jpg" alt="Oranges, mangues et mandarines fraîches">
-            </a>
-            <h3 data-i18n="juice_card1_h3">Fruits choisis</h3>
-            <p data-i18n="juice_card1_p">
-              Fruits issus de producteurs partenaires, choisis pour leur qualité, leur maturité et la régularité de l’approvisionnement.
-            </p>
-          </div>
-
-          <div class="card">
-            <span class="label" data-i18n="card_process">Process</span>
-            <a href="galerie-usine-transformation.jpg" target="_blank" class="clickable-image" rel="noopener noreferrer">
-              <img src="galerie-usine-transformation.jpg" alt="Ligne industrielle de transformation de jus de fruits">
-            </a>
-            <h3 data-i18n="juice_card2_h3">Transformation & formulation</h3>
-            <p data-i18n="juice_card2_p">
-              Tri, lavage, pressage et filtration pour proposer des jus simples, des mélanges ou des recettes spécifiques adaptées à vos marchés.
-            </p>
-          </div>
-
-          <div class="card">
-            <span class="label" data-i18n="card_distribution">Distribution</span>
-            <a href="hero-jus-fruits.jpg" target="_blank" class="clickable-image" rel="noopener noreferrer">
-              <img src="hero-jus-fruits.jpg" alt="Bouteilles ou verres de jus prêts à être distribués">
-            </a>
-            <h3 data-i18n="juice_card3_h3">Conditionnement adapté</h3>
-            <p data-i18n="juice_card3_p">
-              Conditionnement en formats B2B ou B2C, avec une traçabilité complète des produits transformés jusqu’au point de vente.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section id="galerie">
-        <h2 data-i18n="photos_h2">Photos d’ORION FISH</h2>
-        <p class="muted" data-i18n="photos_sub">Galerie générale : activités en mer, transformation en usine, jus de fruits.</p>
-
-        <div class="galerie-grid">
-          <div class="galerie-item">
-            <a href="hero-poissons-frais.jpg.png" target="_blank" class="clickable-image" rel="noopener noreferrer">
-              <img src="hero-poissons-frais.jpg.png" alt="Poissons issus de la mer">
-            </a>
-            <div class="galerie-caption" data-i18n="cap1">Sélection et préparation de produits de la mer.</div>
-          </div>
-
-          <div class="galerie-item">
-            <a href="galerie-usine-transformation.jpg" target="_blank" class="clickable-image" rel="noopener noreferrer">
-              <img src="galerie-usine-transformation.jpg" alt="Usine de transformation agroalimentaire">
-            </a>
-            <div class="galerie-caption" data-i18n="cap2">Ligne de transformation et conditionnement.</div>
-          </div>
-
-          <div class="galerie-item">
-            <a href="hero-jus-fruits.jpg" target="_blank" class="clickable-image" rel="noopener noreferrer">
-              <img src="hero-jus-fruits.jpg" alt="Verres de jus de fruits colorés">
-            </a>
-            <div class="galerie-caption" data-i18n="cap3">Jus de fruits à base d’oranges, mangues, mandarines.</div>
-          </div>
-        </div>
-      </section>
-
-      <section id="contact">
-        <h2 data-i18n="contact_h2">Contact</h2>
-        <p data-i18n="contact_p1">Pour toute demande d’information, de partenariat ou de projet, contactez ORION FISH.</p>
-
-        <p class="muted" data-i18n="contact_p2">
-          Les données sont envoyées via une connexion sécurisée (HTTPS) vers un service de formulaire,
-          puis transmises à notre adresse e-mail.
-        </p>
-
-        <p>
-          <span data-i18n="contact_email">Email</span> :
-          <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a><br>
-          <span data-i18n="contact_export">Export</span> :
-          <a href="mailto:export@orionsfish.com">export@orionsfish.com</a><br>
-          <span data-i18n="contact_phone">Tél/WhatsApp</span> :
-          <a href="tel:+2212702457">+2212702457</a>
-        </p>
-
-        <h3 style="margin-top:1.2rem;" data-i18n="rfq_title">Demande de devis (RFQ) – Export</h3>
-        <p class="muted" data-i18n="rfq_sub">Pour un devis rapide : produit, quantité, destination, incoterm.</p>
-
-        <form action="https://formsubmit.co/export@orionsfish.com" method="POST">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_subject" value="Demande de devis (RFQ) – ORION FISH">
-          <input type="text" name="_honey" style="display:none">
-
-          <div class="form-grid-2">
-            <div>
-              <label for="rfq-type" data-i18n="rfq_type">Type</label>
-              <select id="rfq-type" name="Type" required>
-                <option value="" data-i18n="opt_choose">Choisir…</option>
-                <option value="Produits de la mer" data-i18n="opt_seafood">Produits de la mer</option>
-                <option value="Jus de fruits" data-i18n="opt_juice">Jus de fruits</option>
-                <option value="Les deux" data-i18n="opt_both">Les deux</option>
-              </select>
-            </div>
-
-            <div>
-              <label for="rfq-destination" data-i18n="rfq_destination">Destination (pays / port / ville)</label>
-              <input id="rfq-destination" name="Destination" type="text" required data-i18n-placeholder="ph_destination" placeholder="Ex: Pays-Bas – Rotterdam" />
-            </div>
-
-            <div>
-              <label for="rfq-produit" data-i18n="rfq_product">Produit / espèce / recette</label>
-              <input id="rfq-produit" name="Produit" type="text" required data-i18n-placeholder="ph_product" placeholder="Ex: Thiof filet / Jus mangue 1L" />
-            </div>
-
-            <div>
-              <label for="rfq-quantite" data-i18n="rfq_qty">Quantité</label>
-              <input id="rfq-quantite" name="Quantité" type="text" required data-i18n-placeholder="ph_qty" placeholder="Ex: 1 tonne / 2 palettes / 5 000 L" />
-            </div>
-
-            <div>
-              <label for="rfq-format" data-i18n="rfq_pack">Format & packaging</label>
-              <input id="rfq-format" name="Format & packaging" type="text" data-i18n-placeholder="ph_pack" placeholder="Ex: surgelé, carton 10 kg / bag-in-box" />
-            </div>
-
-            <div>
-              <label for="rfq-incoterm" data-i18n="rfq_incoterm">Incoterm souhaité</label>
-              <select id="rfq-incoterm" name="Incoterm">
-                <option value="" data-i18n="opt_choose">Choisir…</option>
-                <option value="EXW">EXW</option>
-                <option value="FOB">FOB</option>
-                <option value="CIF">CIF</option>
-                <option value="À discuter" data-i18n="opt_discuss">À discuter</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="form-grid-2">
-            <div>
-              <label for="rfq-email" data-i18n="rfq_email">E-mail</label>
-              <input id="rfq-email" name="Email" type="email" required data-i18n-placeholder="ph_email" placeholder="votremail@example.com" />
-            </div>
-
-            <div>
-              <label for="rfq-tel" data-i18n="rfq_phone">Téléphone / WhatsApp</label>
-              <input id="rfq-tel" name="Téléphone" type="tel" data-i18n-placeholder="ph_phone" placeholder="+221 … / +33 …" />
-            </div>
-          </div>
-
-          <div>
-            <label for="rfq-message" data-i18n="rfq_details">Détails (qualité, calibres, brix, délais…)</label>
-            <textarea id="rfq-message" name="Détails" required data-i18n-placeholder="ph_details" placeholder="Ex: filet 200–400g, livraison janvier, emballage export…"></textarea>
-          </div>
-
-          <button type="submit" class="btn btn-principal" data-i18n="rfq_send">Envoyer la demande de devis</button>
-        </form>
-
-        <hr style="margin:1.6rem 0; border:0; border-top:1px solid rgba(148,163,184,0.25);">
-
-        <h3 data-i18n="general_title">Message général</h3>
-        <form action="https://formsubmit.co/contact@orionsfish.com" method="POST">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_subject" value="Nouveau message – ORION FISH (site web)">
-          <input type="text" name="_honey" style="display:none">
-
-          <div>
-            <label for="gen-nom" data-i18n="gen_name">Nom / Entreprise</label>
-            <input id="gen-nom" name="Nom" type="text" required data-i18n-placeholder="ph_gen_name" placeholder="Votre nom ou celui de votre entreprise" />
-          </div>
-
-          <div>
-            <label for="gen-email" data-i18n="gen_email">E-mail</label>
-            <input id="gen-email" name="Email" type="email" required data-i18n-placeholder="ph_email" placeholder="votremail@example.com" />
-          </div>
-
-          <div>
-            <label for="gen-tel" data-i18n="gen_phone">Téléphone</label>
-            <input id="gen-tel" name="Téléphone" type="tel" data-i18n-placeholder="ph_phone_gen" placeholder="+221 XX XXX XX XX" />
-          </div>
-
-          <div>
-            <label for="gen-message" data-i18n="gen_message">Message</label>
-            <textarea id="gen-message" name="Message" required data-i18n-placeholder="ph_gen_message" placeholder="Décrivez votre besoin..."></textarea>
-          </div>
-
-          <button type="submit" class="btn btn-principal" data-i18n="gen_send">Envoyer</button>
-        </form>
-      </section>
-
-      <section id="mentions-legales">
-        <h2 data-i18n="legal_h2">Mentions légales</h2>
-        <p>
-          <strong data-i18n="legal_editor">Éditeur du site :</strong><br>
-          <strong>ORION FISH</strong><br>
-          Quartier Léona, Cité Filaos, Rufisque, 17000, Sénégal<br>
-          <span data-i18n="legal_reg">Registre de commerce</span> : <strong>010112051 SN.DKR.2023.B.9159</strong>
-        </p>
-        <p><strong data-i18n="legal_publisher">Responsable de publication :</strong> Diallo Mamadou</p>
-        <p>
-          <strong data-i18n="legal_contact">Contact :</strong><br>
-          <span data-i18n="contact_phone">Tél/WhatsApp</span> : <a href="tel:+2212702457">+2212702457</a><br>
-          Email : <a href="mailto:export@orionsfish.com">export@orionsfish.com</a> /
-          <a href="mailto:sales@orionsfish.com">sales@orionsfish.com</a> /
-          <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a>
-        </p>
-        <p><strong data-i18n="legal_hosting">Hébergement :</strong> Hostinger</p>
-      </section>
-
-      <section id="politique-de-confidentialite">
-        <h2 data-i18n="privacy_h2">Politique de confidentialité</h2>
-        <p data-i18n="privacy_p1">
-          ORION FISH traite les informations transmises via le formulaire de contact uniquement pour répondre à votre demande
-          (informations, devis, partenariat). Les données ne sont pas vendues.
-        </p>
-        <p data-i18n="privacy_p2">
-          Le formulaire utilise un service tiers de soumission (FormSubmit). Les messages sont transférés vers nos emails
-          (contact@orionsfish.com et/ou export@orionsfish.com).
-        </p>
-        <p class="muted" data-i18n="privacy_p3">
-          Vous pouvez demander la suppression de vos données en écrivant à contact@orionsfish.com.
-        </p>
-      </section>
-
-      <section id="conditions">
-        <h2 data-i18n="terms_h2">Conditions</h2>
-        <p data-i18n="terms_p1">
-          Les informations présentées sur ce site ont un objectif informatif. Les offres commerciales (prix, disponibilités,
-          délais, quantités minimales) sont communiquées sur demande via devis.
-        </p>
-      </section>
-    </main>
-
-    <!-- COLONNE DROITE -->
-    <aside class="side-column side-right" aria-label="Direction et opérations">
-      <div class="team-feature-card">
-        <div class="team-feature-avatar">
-          <a href="amadou-mballo.jpg.png" target="_blank" class="clickable-image" rel="noopener noreferrer">
-            <img src="amadou-mballo.jpg.png" alt="Photo de Amadou Mballo">
-          </a>
+    <section id="apropos">
+      <h2 data-i18n="about_h2">À propos d’ORION FISH</h2>
+      <div class="apropos-grid">
+        <div>
+          <p data-i18n="about_p1">
+            ORION FISH est une entreprise agroalimentaire spécialisée dans la valorisation des produits de la mer
+            et la transformation de fruits en jus. Nous travaillons avec un réseau de pêcheurs, de producteurs et
+            de partenaires sélectionnés pour offrir des produits fiables et compétitifs.
+          </p>
+          <p data-i18n="about_p2">
+            Notre ambition est de développer des filières durables, créatrices de valeur pour les territoires,
+            tout en répondant aux attentes des marchés locaux et internationaux.
+          </p>
         </div>
         <div>
-          <div class="team-feature-label" data-i18n="right_feature_label">Direction générale</div>
-          <div class="team-feature-name">Amadou Mballo</div>
-          <div class="team-feature-text" data-i18n="right_feature_text">
-            Directeur Général d’ORION FISH, il pilote la stratégie globale, représente l’entreprise
-            et veille à l’alignement des équipes mer & fruits avec les objectifs.
-          </div>
+          <p><strong data-i18n="about_strengths">Nos atouts :</strong></p>
+          <ul class="liste-simple">
+            <li data-i18n="about_li1">Expertise dans les produits de la mer et les jus de fruits</li>
+            <li data-i18n="about_li2">Sélection rigoureuse des fournisseurs et zones de production</li>
+            <li data-i18n="about_li3">Respect des normes de qualité et de sécurité alimentaire</li>
+            <li data-i18n="about_li4">Logistique adaptée aux besoins des professionnels</li>
+            <li data-i18n="about_li5">Relation de confiance et partenariats de long terme</li>
+          </ul>
         </div>
       </div>
+    </section>
 
-      <div class="side-column-sep"></div>
-      <div class="side-column-title" data-i18n="side_right_title">Direction & opérations</div>
+    <section id="mer">
+      <h2 data-i18n="sea_h2">Produits de la mer</h2>
+      <p data-i18n="sea_p">ORION FISH collecte, transforme et distribue des produits de la mer pour les marchés locaux et internationaux.</p>
 
-      <div class="team-item">
-        <div class="team-item-top">
-          <div class="team-avatar">
-            <img src="landing-badji.jpg" alt="Photo de Landing Badji">
+      <div class="grid">
+        <div class="card">
+          <span class="label" data-i18n="card_range">Gamme</span>
+          <div class="media-placeholder" role="note">
+            <div>
+              <div class="media-title" data-i18n="ph_product_title">Produit</div>
+              <div class="media-text" data-i18n="ph_soon">Photo à venir</div>
+              <div class="media-note" data-i18n="ph_note2">Remplace par une photo réelle (poissons, cartons, étiquettes).</div>
+            </div>
           </div>
+          <h3 data-i18n="sea_card1_h3">Produits frais & surgelés</h3>
+          <p data-i18n="sea_card1_p">Poissons entiers, filets et autres produits de la mer, disponibles en frais ou surgelé, selon vos besoins et vos marchés.</p>
+        </div>
+
+        <div class="card">
+          <span class="label" data-i18n="card_processing">Transformation</span>
+          <div class="media-placeholder" role="note">
+            <div>
+              <div class="media-title" data-i18n="ph_process_title">Process</div>
+              <div class="media-text" data-i18n="ph_soon">Photo à venir</div>
+              <div class="media-note" data-i18n="ph_note3">Ajoute une photo réelle (atelier, hygiène, découpe).</div>
+            </div>
+          </div>
+          <h3 data-i18n="sea_card2_h3">Préparation & conditionnement</h3>
+          <p data-i18n="sea_card2_p">Tri, nettoyage, découpe et conditionnement dans le respect strict des bonnes pratiques d’hygiène et des normes.</p>
+        </div>
+
+        <div class="card">
+          <span class="label" data-i18n="card_logistics">Logistique</span>
+          <div class="media-placeholder" role="note">
+            <div>
+              <div class="media-title" data-i18n="ph_log_title">Logistique</div>
+              <div class="media-text" data-i18n="ph_soon">Photo à venir</div>
+              <div class="media-note" data-i18n="ph_note4">Ajoute une photo réelle (camion froid, chambre froide).</div>
+            </div>
+          </div>
+          <h3 data-i18n="sea_card3_h3">Distribution & chaîne du froid</h3>
+          <p data-i18n="sea_card3_p">Organisation de la chaîne logistique, respect de la chaîne du froid et gestion des livraisons jusqu’au client final.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="jus">
+      <h2 data-i18n="juice_h2">Transformation de fruits en jus</h2>
+      <p data-i18n="juice_p">ORION FISH développe une filière de transformation de fruits en jus, avec une sélection rigoureuse des matières premières (oranges, mangues, mandarines et autres fruits).</p>
+
+      <div class="grid">
+        <div class="card">
+          <span class="label" data-i18n="card_selection">Sélection</span>
+          <div class="media-placeholder" role="note">
+            <div>
+              <div class="media-title" data-i18n="ph_fruits_title">Fruits</div>
+              <div class="media-text" data-i18n="ph_soon">Photo à venir</div>
+              <div class="media-note" data-i18n="ph_note5">Ajoute une photo réelle (matières premières).</div>
+            </div>
+          </div>
+          <h3 data-i18n="juice_card1_h3">Fruits choisis</h3>
+          <p data-i18n="juice_card1_p">Fruits issus de producteurs partenaires, choisis pour leur qualité, leur maturité et la régularité de l’approvisionnement.</p>
+        </div>
+
+        <div class="card">
+          <span class="label" data-i18n="card_process">Process</span>
+          <div class="media-placeholder" role="note">
+            <div>
+              <div class="media-title" data-i18n="ph_line_title">Ligne</div>
+              <div class="media-text" data-i18n="ph_soon">Photo à venir</div>
+              <div class="media-note" data-i18n="ph_note6">Ajoute une photo réelle (pressage, filtration, remplissage).</div>
+            </div>
+          </div>
+          <h3 data-i18n="juice_card2_h3">Transformation & formulation</h3>
+          <p data-i18n="juice_card2_p">Tri, lavage, pressage et filtration pour proposer des jus simples, des mélanges ou des recettes spécifiques adaptées à vos marchés.</p>
+        </div>
+
+        <div class="card">
+          <span class="label" data-i18n="card_distribution">Distribution</span>
+          <div class="media-placeholder" role="note">
+            <div>
+              <div class="media-title" data-i18n="ph_pack_title">Packaging</div>
+              <div class="media-text" data-i18n="ph_soon">Photo à venir</div>
+              <div class="media-note" data-i18n="ph_note7">Ajoute une photo réelle (bouteilles, étiquettes, cartons).</div>
+            </div>
+          </div>
+          <h3 data-i18n="juice_card3_h3">Conditionnement adapté</h3>
+          <p data-i18n="juice_card3_p">Conditionnement en formats B2B ou B2C, avec une traçabilité complète des produits transformés jusqu’au point de vente.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="galerie">
+      <h2 data-i18n="photos_h2">Photos d’ORION FISH</h2>
+      <p class="muted" data-i18n="photos_sub">Galerie générale : activités en mer, transformation en usine, jus de fruits.</p>
+
+      <div class="galerie-grid">
+        <div class="galerie-item">
+          <div class="media-placeholder" role="note">
+            <div>
+              <div class="media-title" data-i18n="ph_gallery1">Galerie – Mer</div>
+              <div class="media-text" data-i18n="ph_soon">Photo à venir</div>
+              <div class="media-note" data-i18n="ph_gallery_note">Ajoute des photos réelles (qualité export).</div>
+            </div>
+          </div>
+          <div class="galerie-caption" data-i18n="cap1">Sélection et préparation de produits de la mer.</div>
+        </div>
+
+        <div class="galerie-item">
+          <div class="media-placeholder" role="note">
+            <div>
+              <div class="media-title" data-i18n="ph_gallery2">Galerie – Usine</div>
+              <div class="media-text" data-i18n="ph_soon">Photo à venir</div>
+              <div class="media-note" data-i18n="ph_gallery_note">Ajoute des photos réelles (qualité export).</div>
+            </div>
+          </div>
+          <div class="galerie-caption" data-i18n="cap2">Ligne de transformation et conditionnement.</div>
+        </div>
+
+        <div class="galerie-item">
+          <div class="media-placeholder" role="note">
+            <div>
+              <div class="media-title" data-i18n="ph_gallery3">Galerie – Jus</div>
+              <div class="media-text" data-i18n="ph_soon">Photo à venir</div>
+              <div class="media-note" data-i18n="ph_gallery_note">Ajoute des photos réelles (qualité export).</div>
+            </div>
+          </div>
+          <div class="galerie-caption" data-i18n="cap3">Jus de fruits à base d’oranges, mangues, mandarines.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2 data-i18n="contact_h2">Contact</h2>
+      <p data-i18n="contact_p1">Pour toute demande d’information, de partenariat ou de projet, contactez ORION FISH.</p>
+
+      <p class="muted" data-i18n="contact_p2">
+        Les données sont envoyées via une connexion sécurisée (HTTPS) vers un service de formulaire,
+        puis transmises à notre adresse e-mail.
+      </p>
+
+      <p>
+        <span data-i18n="contact_email">Email</span> :
+        <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a><br>
+        <span data-i18n="contact_export">Export</span> :
+        <a href="mailto:export@orionsfish.com">export@orionsfish.com</a><br>
+        <span data-i18n="contact_phone">Tél/WhatsApp</span> :
+        <a href="tel:+2212702457">+2212702457</a>
+      </p>
+
+      <h3 style="margin-top:1.2rem;" data-i18n="rfq_title">Demande de devis (RFQ) – Export</h3>
+      <p class="muted" data-i18n="rfq_sub">Pour un devis rapide : produit, quantité, destination, incoterm.</p>
+
+      <form action="https://formsubmit.co/export@orionsfish.com" method="POST">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_subject" value="Demande de devis (RFQ) – ORION FISH">
+        <input type="text" name="_honey" style="display:none">
+
+        <div class="form-grid-2">
           <div>
-            <div class="team-item-name">Landing Badji</div>
-            <div class="team-item-role" data-i18n="team_landing_role">Opérateur de production</div>
+            <label for="rfq-type" data-i18n="rfq_type">Type</label>
+            <select id="rfq-type" name="Type" required>
+              <option value="" data-i18n="opt_choose">Choisir…</option>
+              <option value="Produits de la mer" data-i18n="opt_seafood">Produits de la mer</option>
+              <option value="Jus de fruits" data-i18n="opt_juice">Jus de fruits</option>
+              <option value="Les deux" data-i18n="opt_both">Les deux</option>
+            </select>
           </div>
-        </div>
-        <div class="team-item-text" data-i18n="team_landing_desc">
-          Participe aux opérations de transformation et de conditionnement au quotidien.
-        </div>
-      </div>
 
-      <div class="team-item">
-        <div class="team-item-top">
-          <div class="team-avatar">
-            <img src="ibrahima-sory-bindia.jpg" alt="Photo de Ibrahima Sory Bindia">
-          </div>
           <div>
-            <div class="team-item-name">Ibrahima Sory Bindia</div>
-            <div class="team-item-role" data-i18n="team_ibrahima_role">Responsable transport / distribution</div>
+            <label for="rfq-destination" data-i18n="rfq_destination">Destination (pays / port / ville)</label>
+            <input id="rfq-destination" name="Destination" type="text" required data-i18n-placeholder="ph_destination" placeholder="Ex: Pays-Bas – Rotterdam" />
           </div>
-        </div>
-        <div class="team-item-text" data-i18n="team_ibrahima_desc">
-          Organise les livraisons, la disponibilité des véhicules et le respect des délais clients.
-        </div>
-      </div>
 
-      <div class="team-item">
-        <div class="team-item-top">
-          <div class="team-avatar">
-            <img src="ousmane-diop.png" alt="Photo de Ousmane Diop">
-          </div>
           <div>
-            <div class="team-item-name">Ousmane Diop</div>
-            <div class="team-item-role" data-i18n="team_ousmane_role">Responsable utilités (froid, vapeur, air comprimé, eau)</div>
+            <label for="rfq-produit" data-i18n="rfq_product">Produit / espèce / recette</label>
+            <input id="rfq-produit" name="Produit" type="text" required data-i18n-placeholder="ph_product" placeholder="Ex: Thiof filet / Jus mangue 1L" />
           </div>
-        </div>
-        <div class="team-item-text" data-i18n="team_ousmane_desc">
-          Garantit la performance des installations de froid, vapeur, air comprimé et eau de l’usine.
-        </div>
-      </div>
 
-      <div class="team-item">
-        <div class="team-item-top">
-          <div class="team-avatar">
-            <img src="ibou-thiam.jpg" alt="Photo de Ibou Thiam">
-          </div>
           <div>
-            <div class="team-item-name">Ibou Thiam</div>
-            <div class="team-item-role" data-i18n="team_ibou_role">Directeur Ressources Humaines</div>
+            <label for="rfq-quantite" data-i18n="rfq_qty">Quantité</label>
+            <input id="rfq-quantite" name="Quantité" type="text" required data-i18n-placeholder="ph_qty" placeholder="Ex: 1 tonne / 2 palettes / 5 000 L" />
           </div>
-        </div>
-        <div class="team-item-text" data-i18n="team_ibou_desc">
-          Gère le capital humain : recrutement, formation, relations sociales et climat interne.
-        </div>
-      </div>
 
-      <div class="team-item">
-        <div class="team-item-top">
-          <div class="team-avatar-placeholder">IK</div>
           <div>
-            <div class="team-item-name">Insa Koulissoret Diedhiou</div>
-            <div class="team-item-role" data-i18n="team_insa_role">Technicien R&D</div>
+            <label for="rfq-format" data-i18n="rfq_pack">Format & packaging</label>
+            <input id="rfq-format" name="Format & packaging" type="text" data-i18n-placeholder="ph_pack" placeholder="Ex: surgelé, carton 10 kg / bag-in-box" />
           </div>
-        </div>
-        <div class="team-item-text" data-i18n="team_insa_desc">
-          Contribue aux essais R&D et à l’amélioration continue des produits et procédés.
-        </div>
-      </div>
 
-      <div class="team-item">
-        <div class="team-item-top">
-          <div class="team-avatar-placeholder">SD</div>
           <div>
-            <div class="team-item-name">Seyni Diedhiou</div>
-            <div class="team-item-role" data-i18n="team_seyni_role">Responsable HACCP / Food Safety</div>
+            <label for="rfq-incoterm" data-i18n="rfq_incoterm">Incoterm souhaité</label>
+            <select id="rfq-incoterm" name="Incoterm">
+              <option value="" data-i18n="opt_choose">Choisir…</option>
+              <option value="EXW">EXW</option>
+              <option value="FOB">FOB</option>
+              <option value="CIF">CIF</option>
+              <option value="À discuter" data-i18n="opt_discuss">À discuter</option>
+            </select>
           </div>
         </div>
-        <div class="team-item-text" data-i18n="team_seyni_desc">
-          Met en œuvre le plan HACCP et veille à la sécurité sanitaire des aliments.
-        </div>
-      </div>
 
-      <div class="team-item">
-        <div class="team-item-top">
-          <div class="team-avatar-placeholder">SN</div>
+        <div class="form-grid-2">
           <div>
-            <div class="team-item-name">Samba Ndiaye</div>
-            <div class="team-item-role" data-i18n="team_samba_role">Directeur d’usine</div>
+            <label for="rfq-email" data-i18n="rfq_email">E-mail</label>
+            <input id="rfq-email" name="Email" type="email" required data-i18n-placeholder="ph_email" placeholder="votremail@example.com" />
           </div>
-        </div>
-        <div class="team-item-text" data-i18n="team_samba_desc">
-          Dirige l’usine ORION FISH, supervise les opérations industrielles et coordonne les équipes
-          de production pour garantir performance et qualité.
-        </div>
-      </div>
 
-      <div class="team-item">
-        <div class="team-item-top">
-          <div class="team-avatar">
-            <img src="Bodian.png" alt="Photo du Responsable production">
-          </div>
           <div>
-            <div class="team-item-name" data-i18n="team_prod_name">Responsable production</div>
-            <div class="team-item-role" data-i18n="team_prod_role">Supervision des lignes de production</div>
+            <label for="rfq-tel" data-i18n="rfq_phone">Téléphone / WhatsApp</label>
+            <input id="rfq-tel" name="Téléphone" type="tel" data-i18n-placeholder="ph_phone" placeholder="+221 … / +33 …" />
           </div>
         </div>
-        <div class="team-item-text" data-i18n="team_prod_desc">
-          Organise les volumes, les rendements et la qualité sur les lignes de production.
-        </div>
-      </div>
-    </aside>
-  </div>
 
-  <!-- FOOTER PRO -->
+        <div>
+          <label for="rfq-message" data-i18n="rfq_details">Détails (qualité, calibres, brix, délais…)</label>
+          <textarea id="rfq-message" name="Détails" required data-i18n-placeholder="ph_details" placeholder="Ex: filet 200–400g, livraison janvier, emballage export…"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-principal" data-i18n="rfq_send">Envoyer la demande de devis</button>
+      </form>
+
+      <hr style="margin:1.6rem 0; border:0; border-top:1px solid rgba(148,163,184,0.25);">
+
+      <h3 data-i18n="general_title">Message général</h3>
+      <form action="https://formsubmit.co/contact@orionsfish.com" method="POST">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_subject" value="Nouveau message – ORION FISH (site web)">
+        <input type="text" name="_honey" style="display:none">
+
+        <div>
+          <label for="gen-nom" data-i18n="gen_name">Nom / Entreprise</label>
+          <input id="gen-nom" name="Nom" type="text" required data-i18n-placeholder="ph_gen_name" placeholder="Votre nom ou celui de votre entreprise" />
+        </div>
+
+        <div>
+          <label for="gen-email" data-i18n="gen_email">E-mail</label>
+          <input id="gen-email" name="Email" type="email" required data-i18n-placeholder="ph_email" placeholder="votremail@example.com" />
+        </div>
+
+        <div>
+          <label for="gen-tel" data-i18n="gen_phone">Téléphone</label>
+          <input id="gen-tel" name="Téléphone" type="tel" data-i18n-placeholder="ph_phone_gen" placeholder="+221 XX XXX XX XX" />
+        </div>
+
+        <div>
+          <label for="gen-message" data-i18n="gen_message">Message</label>
+          <textarea id="gen-message" name="Message" required data-i18n-placeholder="ph_gen_message" placeholder="Décrivez votre besoin..."></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-principal" data-i18n="gen_send">Envoyer</button>
+      </form>
+    </section>
+
+    <section id="mentions-legales">
+      <h2 data-i18n="legal_h2">Mentions légales</h2>
+      <p>
+        <strong data-i18n="legal_editor">Éditeur du site :</strong><br>
+        <strong>ORION FISH</strong><br>
+        Quartier Léona, Cité Filaos, Rufisque, 17000, Sénégal<br>
+        <span data-i18n="legal_reg">Registre de commerce</span> : <strong>010112051 SN.DKR.2023.B.9159</strong>
+      </p>
+      <p><strong data-i18n="legal_publisher">Responsable de publication :</strong> Diallo Mamadou</p>
+      <p>
+        <strong data-i18n="legal_contact">Contact :</strong><br>
+        <span data-i18n="contact_phone">Tél/WhatsApp</span> : <a href="tel:+2212702457">+2212702457</a><br>
+        Email : <a href="mailto:export@orionsfish.com">export@orionsfish.com</a> /
+        <a href="mailto:sales@orionsfish.com">sales@orionsfish.com</a> /
+        <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a>
+      </p>
+      <p><strong data-i18n="legal_hosting">Hébergement :</strong> Hostinger</p>
+    </section>
+
+    <section id="politique-de-confidentialite">
+      <h2 data-i18n="privacy_h2">Politique de confidentialité</h2>
+      <p data-i18n="privacy_p1">
+        ORION FISH traite les informations transmises via le formulaire de contact uniquement pour répondre à votre demande
+        (informations, devis, partenariat). Les données ne sont pas vendues.
+      </p>
+      <p data-i18n="privacy_p2">
+        Le formulaire utilise un service tiers de soumission (FormSubmit). Les messages sont transférés vers nos emails
+        (contact@orionsfish.com et/ou export@orionsfish.com).
+      </p>
+      <p class="muted" data-i18n="privacy_p3">
+        Vous pouvez demander la suppression de vos données en écrivant à contact@orionsfish.com.
+      </p>
+    </section>
+
+    <section id="conditions">
+      <h2 data-i18n="terms_h2">Conditions</h2>
+      <p data-i18n="terms_p1">
+        Les informations présentées sur ce site ont un objectif informatif. Les offres commerciales (prix, disponibilités,
+        délais, quantités minimales) sont communiquées sur demande via devis.
+      </p>
+    </section>
+  </main>
+
   <footer class="site-footer">
     <div class="footer-block">
       <strong>ORION FISH</strong><br>
@@ -1356,6 +783,8 @@
       <a href="#politique-de-confidentialite" data-i18n="footer_privacy">Politique de confidentialité</a>
       <span>•</span>
       <a href="#conditions" data-i18n="footer_terms">Conditions</a>
+      <span>•</span>
+      <a href="team.html" data-i18n="footer_team">Team</a>
     </div>
 
     <div class="footer-copy">
@@ -1363,7 +792,6 @@
     </div>
   </footer>
 
-  <!-- Bouton WhatsApp flottant -->
   <a
     class="whatsapp-float"
     href="https://wa.me/2212702457?text=Bonjour%20ORION%20FISH%2C%20je%20souhaite%20un%20devis%20(RFQ).%20Produit%3A%20____%20%7C%20Quantit%C3%A9%3A%20____%20%7C%20Destination%3A%20____%20%7C%20Incoterm%3A%20____."
@@ -1383,12 +811,11 @@
     const elY = document.getElementById("y");
     if (elY) elY.textContent = y;
 
-    // i18n (FR/EN)
+    // i18n (FR/EN) — page principale
     const dict = {
       fr: {
         title: "ORION FISH – Produits de la mer & Jus de fruits",
         meta_desc: "ORION FISH – Produits de la mer, transformation de fruits en jus, vente et distribution pour marchés locaux et internationaux.",
-
         skip_link: "Aller au contenu",
 
         nav_home: "Accueil",
@@ -1397,6 +824,7 @@
         nav_juice: "Fruits & jus",
         nav_photos: "Photos",
         nav_contact: "Contact",
+        nav_team: "Team",
         nav_legal: "Mentions légales",
 
         pill: "Agroalimentaire – Mer & Fruits",
@@ -1426,6 +854,27 @@
         metric_sea_desc: "Collecte, transformation et distribution des produits de la mer.",
         metric_fruit: "Fruits",
         metric_fruit_desc: "Jus issus d’oranges, mangues, mandarines et autres fruits sélectionnés.",
+
+        ph_sea_title: "Visuel mer",
+        ph_juice_title: "Visuel jus",
+        ph_soon: "Photo à venir",
+        ph_note: "Ajoute une photo réelle (produits / usine / logistique).",
+        ph_product_title: "Produit",
+        ph_note2: "Remplace par une photo réelle (poissons, cartons, étiquettes).",
+        ph_process_title: "Process",
+        ph_note3: "Ajoute une photo réelle (atelier, hygiène, découpe).",
+        ph_log_title: "Logistique",
+        ph_note4: "Ajoute une photo réelle (camion froid, chambre froide).",
+        ph_fruits_title: "Fruits",
+        ph_note5: "Ajoute une photo réelle (matières premières).",
+        ph_line_title: "Ligne",
+        ph_note6: "Ajoute une photo réelle (pressage, filtration, remplissage).",
+        ph_pack_title: "Packaging",
+        ph_note7: "Ajoute une photo réelle (bouteilles, étiquettes, cartons).",
+        ph_gallery1: "Galerie – Mer",
+        ph_gallery2: "Galerie – Usine",
+        ph_gallery3: "Galerie – Jus",
+        ph_gallery_note: "Ajoute des photos réelles (qualité export).",
 
         about_h2: "À propos d’ORION FISH",
         about_p1: "ORION FISH est une entreprise agroalimentaire spécialisée dans la valorisation des produits de la mer et la transformation de fruits en jus. Nous travaillons avec un réseau de pêcheurs, de producteurs et de partenaires sélectionnés pour offrir des produits fiables et compétitifs.",
@@ -1499,6 +948,9 @@
         ph_email: "votremail@example.com",
         ph_phone: "+221 … / +33 …",
         ph_details: "Ex: filet 200–400g, livraison janvier, emballage export…",
+        ph_gen_name: "Votre nom ou celui de votre entreprise",
+        ph_phone_gen: "+221 XX XXX XX XX",
+        ph_gen_message: "Décrivez votre besoin...",
 
         general_title: "Message général",
         gen_name: "Nom / Entreprise",
@@ -1506,9 +958,6 @@
         gen_phone: "Téléphone",
         gen_message: "Message",
         gen_send: "Envoyer",
-        ph_gen_name: "Votre nom ou celui de votre entreprise",
-        ph_phone_gen: "+221 XX XXX XX XX",
-        ph_gen_message: "Décrivez votre besoin...",
 
         legal_h2: "Mentions légales",
         legal_editor: "Éditeur du site :",
@@ -1528,53 +977,13 @@
         footer_legal: "Mentions légales",
         footer_privacy: "Politique de confidentialité",
         footer_terms: "Conditions",
-        footer_rights: "Tous droits réservés.",
-
-        /* ✅ COLONNE GAUCHE/DROITE */
-        side_left_title: "Équipe ORION FISH",
-        team_mouhamad_role: "Gérant d'Orion Fish",
-        team_mouhamad_desc: "Dirige l’entreprise au quotidien et coordonne l’exécution opérationnelle des activités.",
-        team_souleymane_role_prefix: "Directeur Service Commercial – Tél. :",
-        team_souleymane_desc: "Développe le portefeuille clients et les partenariats commerciaux sur les marchés cibles.",
-        team_wade_role: "Directrice Service Marketing / Clientèle",
-        team_wade_desc: "Pilote le marketing, la communication et la relation clientèle pour valoriser l’offre ORION FISH.",
-        team_idy_role: "Responsable Département Informatique",
-        team_idy_desc: "Gère les systèmes d’information et les outils numériques supports aux opérations.",
-        team_astou_role: "Responsable traçabilité & réclamations",
-        team_astou_desc: "Assure la traçabilité des produits et le suivi structuré des réclamations clients.",
-        team_emilie_role: "Responsable administratif & financier (RAF)",
-        team_emilie_desc: "Supervise la gestion administrative, la trésorerie et le suivi financier de l’entreprise.",
-        team_hady_role: "Chef d'équipe",
-        team_hady_desc: "Encadre les équipes sur le terrain et veille à la bonne exécution des opérations.",
-        team_awa_role: "Cheffe de projet innovation",
-        team_awa_desc: "Conçoit et pilote les projets d’innovation : nouveaux produits et nouveaux procédés.",
-
-        right_feature_label: "Direction générale",
-        right_feature_text: "Directeur Général d’ORION FISH, il pilote la stratégie globale, représente l’entreprise et veille à l’alignement des équipes mer & fruits avec les objectifs.",
-        side_right_title: "Direction & opérations",
-        team_landing_role: "Opérateur de production",
-        team_landing_desc: "Participe aux opérations de transformation et de conditionnement au quotidien.",
-        team_ibrahima_role: "Responsable transport / distribution",
-        team_ibrahima_desc: "Organise les livraisons, la disponibilité des véhicules et le respect des délais clients.",
-        team_ousmane_role: "Responsable utilités (froid, vapeur, air comprimé, eau)",
-        team_ousmane_desc: "Garantit la performance des installations de froid, vapeur, air comprimé et eau de l’usine.",
-        team_ibou_role: "Directeur Ressources Humaines",
-        team_ibou_desc: "Gère le capital humain : recrutement, formation, relations sociales et climat interne.",
-        team_insa_role: "Technicien R&D",
-        team_insa_desc: "Contribue aux essais R&D et à l’amélioration continue des produits et procédés.",
-        team_seyni_role: "Responsable HACCP / Food Safety",
-        team_seyni_desc: "Met en œuvre le plan HACCP et veille à la sécurité sanitaire des aliments.",
-        team_samba_role: "Directeur d’usine",
-        team_samba_desc: "Dirige l’usine ORION FISH, supervise les opérations industrielles et coordonne les équipes de production pour garantir performance et qualité.",
-        team_prod_name: "Responsable production",
-        team_prod_role: "Supervision des lignes de production",
-        team_prod_desc: "Organise les volumes, les rendements et la qualité sur les lignes de production."
+        footer_team: "Team",
+        footer_rights: "Tous droits réservés."
       },
 
       en: {
         title: "ORION FISH – Seafood & Fruit Juices",
         meta_desc: "ORION FISH – Seafood products and fruit juice processing, sales and distribution for local and international markets.",
-
         skip_link: "Skip to content",
 
         nav_home: "Home",
@@ -1583,6 +992,7 @@
         nav_juice: "Fruits & Juices",
         nav_photos: "Photos",
         nav_contact: "Contact",
+        nav_team: "Team",
         nav_legal: "Legal notice",
 
         pill: "Food Industry – Sea & Fruits",
@@ -1612,6 +1022,27 @@
         metric_sea_desc: "Sourcing, processing and distribution of seafood products.",
         metric_fruit: "Fruits",
         metric_fruit_desc: "Juices made from selected oranges, mangoes, mandarins and other fruits.",
+
+        ph_sea_title: "Sea visual",
+        ph_juice_title: "Juice visual",
+        ph_soon: "Photo coming soon",
+        ph_note: "Add real photos (products / facility / logistics).",
+        ph_product_title: "Product",
+        ph_note2: "Replace with real photos (fish, cartons, labels).",
+        ph_process_title: "Process",
+        ph_note3: "Add real photos (workshop, hygiene, cutting).",
+        ph_log_title: "Logistics",
+        ph_note4: "Add real photos (reefer truck, cold room).",
+        ph_fruits_title: "Fruits",
+        ph_note5: "Add real photos (raw materials).",
+        ph_line_title: "Production line",
+        ph_note6: "Add real photos (pressing, filtration, filling).",
+        ph_pack_title: "Packaging",
+        ph_note7: "Add real photos (bottles, labels, cartons).",
+        ph_gallery1: "Gallery – Sea",
+        ph_gallery2: "Gallery – Facility",
+        ph_gallery3: "Gallery – Juices",
+        ph_gallery_note: "Add real photos (export-grade quality).",
 
         about_h2: "About ORION FISH",
         about_p1: "ORION FISH is a food company specializing in seafood value creation and fruit juice processing. We work with a network of fishermen, producers and selected partners to deliver reliable and competitive products.",
@@ -1685,6 +1116,9 @@
         ph_email: "youremail@example.com",
         ph_phone: "+221 … / +33 …",
         ph_details: "e.g., fillet 200–400g, January delivery, export packing…",
+        ph_gen_name: "Your name or company name",
+        ph_phone_gen: "+221 XX XXX XX XX",
+        ph_gen_message: "Describe your request...",
 
         general_title: "General message",
         gen_name: "Name / Company",
@@ -1692,9 +1126,6 @@
         gen_phone: "Phone",
         gen_message: "Message",
         gen_send: "Send",
-        ph_gen_name: "Your name or company name",
-        ph_phone_gen: "+221 XX XXX XX XX",
-        ph_gen_message: "Describe your request...",
 
         legal_h2: "Legal notice",
         legal_editor: "Website publisher:",
@@ -1714,89 +1145,46 @@
         footer_legal: "Legal notice",
         footer_privacy: "Privacy policy",
         footer_terms: "Terms",
-        footer_rights: "All rights reserved.",
-
-        /* ✅ COLONNE GAUCHE/DROITE */
-        side_left_title: "ORION FISH team",
-        team_mouhamad_role: "Company Manager",
-        team_mouhamad_desc: "Leads day-to-day operations and coordinates the execution of business activities.",
-        team_souleymane_role_prefix: "Sales Director – Phone:",
-        team_souleymane_desc: "Develops the client portfolio and commercial partnerships in target markets.",
-        team_wade_role: "Marketing & Customer Relations Director",
-        team_wade_desc: "Leads marketing, communication and customer relations to strengthen the ORION FISH offer.",
-        team_idy_role: "IT Department Manager",
-        team_idy_desc: "Manages information systems and digital tools supporting operations.",
-        team_astou_role: "Traceability & Claims Manager",
-        team_astou_desc: "Ensures product traceability and structured follow-up of customer claims.",
-        team_emilie_role: "Administrative & Finance Manager",
-        team_emilie_desc: "Oversees administration, cash management and the company’s financial monitoring.",
-        team_hady_role: "Team Leader",
-        team_hady_desc: "Supervises field teams and ensures proper execution of operations.",
-        team_awa_role: "Innovation Project Lead",
-        team_awa_desc: "Designs and leads innovation projects: new products and new processes.",
-
-        right_feature_label: "Executive management",
-        right_feature_text: "General Director of ORION FISH, leads the overall strategy, represents the company and ensures alignment between seafood & fruit teams and business goals.",
-        side_right_title: "Operations & management",
-        team_landing_role: "Production Operator",
-        team_landing_desc: "Supports daily processing and packaging operations.",
-        team_ibrahima_role: "Transport & Distribution Manager",
-        team_ibrahima_desc: "Organizes deliveries, vehicle availability and on-time performance.",
-        team_ousmane_role: "Utilities Manager (cold, steam, compressed air, water)",
-        team_ousmane_desc: "Ensures performance of cold, steam, compressed air and water utilities at the plant.",
-        team_ibou_role: "HR Director",
-        team_ibou_desc: "Manages human resources: recruitment, training, employee relations and internal climate.",
-        team_insa_role: "R&D Technician",
-        team_insa_desc: "Contributes to R&D trials and continuous improvement of products and processes.",
-        team_seyni_role: "HACCP / Food Safety Manager",
-        team_seyni_desc: "Implements the HACCP plan and ensures food safety compliance.",
-        team_samba_role: "Plant Manager",
-        team_samba_desc: "Leads the ORION FISH plant, supervises industrial operations and coordinates production teams to ensure performance and quality.",
-        team_prod_name: "Production Manager",
-        team_prod_role: "Production line supervision",
-        team_prod_desc: "Organizes volumes, yields and quality across production lines."
+        footer_team: "Team",
+        footer_rights: "All rights reserved."
       }
     };
 
-    function setLang(lang) {
+    function setLang(lang){
       const d = dict[lang] || dict.fr;
-
       document.documentElement.lang = lang;
       document.title = d.title;
-
       const metaDesc = document.querySelector('meta[name="description"]');
-      if (metaDesc) metaDesc.setAttribute("content", d.meta_desc);
+      if(metaDesc) metaDesc.setAttribute("content", d.meta_desc);
 
-      document.querySelectorAll("[data-i18n]").forEach(el => {
+      document.querySelectorAll("[data-i18n]").forEach(el=>{
         const key = el.getAttribute("data-i18n");
-        if (d[key]) el.textContent = d[key];
+        if(d[key]) el.textContent = d[key];
       });
-
-      document.querySelectorAll("[data-i18n-placeholder]").forEach(el => {
+      document.querySelectorAll("[data-i18n-placeholder]").forEach(el=>{
         const key = el.getAttribute("data-i18n-placeholder");
-        if (d[key]) el.setAttribute("placeholder", d[key]);
+        if(d[key]) el.setAttribute("placeholder", d[key]);
       });
 
       const toggle = document.getElementById("langToggle");
-      if (toggle) toggle.textContent = (lang === "fr") ? "EN" : "FR";
+      if(toggle) toggle.textContent = (lang==="fr") ? "EN" : "FR";
 
       localStorage.setItem("lang", lang);
     }
 
-    // Init
     const stored = localStorage.getItem("lang");
-    const browser = (navigator.language || "").toLowerCase();
+    const browser = (navigator.language||"").toLowerCase();
     const initial = stored || (browser.startsWith("fr") ? "fr" : "en");
     setLang(initial);
 
-    // Toggle
     const btn = document.getElementById("langToggle");
-    if (btn) {
-      btn.addEventListener("click", () => {
-        const current = document.documentElement.lang === "fr" ? "fr" : "en";
-        setLang(current === "fr" ? "en" : "fr");
+    if(btn){
+      btn.addEventListener("click", ()=>{
+        const current = document.documentElement.lang==="fr" ? "fr" : "en";
+        setLang(current==="fr" ? "en" : "fr");
       });
     }
   </script>
 </body>
 </html>
+
