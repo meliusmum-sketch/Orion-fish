@@ -136,6 +136,7 @@
         <ul>
           <li><a href="index.html" data-i18n="nav_home">Accueil</a></li>
           <li><a href="rfq.html" data-i18n="nav_rfq">RFQ / Devis</a></li>
+          <li><a href="compliance.html" data-i18n="nav_docs">Documents</a></li>
           <li><a href="team.html" data-i18n="nav_team">Team</a></li>
           <li><a href="index.html#contact" data-i18n="nav_contact">Contact</a></li>
           <li><button class="btn-lang" id="langBtn" type="button">EN</button></li>
@@ -155,11 +156,11 @@
         <strong data-i18n="contact_title">Contact direct</strong>
         <p class="muted" style="margin-top:.5rem;margin-bottom:0;">
           Email : <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a><br>
-          Tel/WhatsApp : <a href="tel:+221339138392">+221339138392</a>
+          Tel/WhatsApp : <a href="tel:+221339138392">+221339138392</a><br>
+          <span class="muted">Docs & Compliance : <a href="compliance.html">compliance.html</a></span>
         </p>
       </div>
 
-      <!-- IMPORTANT: action vers une adresse qui EXISTE -->
       <form action="https://formsubmit.co/contact@orionsfish.com" method="POST">
         <input type="text" name="_honey" style="display:none">
         <input type="hidden" name="_subject" value="RFQ – ORION FISH (site web)">
@@ -246,7 +247,7 @@
 
         <div>
           <label for="message" data-i18n="f_msg">Détails / exigences</label>
-          <textarea id="message" name="Message" placeholder="Normes, étiquetage, documents, contraintes..."></textarea>
+          <textarea id="message" name="Message" placeholder="Normes, étiquetage, documents requis, contraintes..."></textarea>
         </div>
 
         <button class="btn btn-primary" type="submit" data-i18n="f_send">Envoyer la demande RFQ</button>
@@ -273,7 +274,7 @@
 
     const dict = {
       fr:{
-        nav_home:"Accueil", nav_rfq:"RFQ / Devis", nav_team:"Team", nav_contact:"Contact",
+        nav_home:"Accueil", nav_rfq:"RFQ / Devis", nav_docs:"Documents", nav_team:"Team", nav_contact:"Contact",
         title:"RFQ / Demande de devis",
         sub:"Remplissez ce formulaire pour recevoir une cotation rapide. Plus c’est précis, plus la réponse est rapide.",
         contact_title:"Contact direct",
@@ -286,7 +287,7 @@
         tips_title:"Conseils", tips:"Si vous avez déjà un cahier des charges (spec sheet), copiez les points dans “Détails / exigences”."
       },
       en:{
-        nav_home:"Home", nav_rfq:"RFQ / Quotation", nav_team:"Team", nav_contact:"Contact",
+        nav_home:"Home", nav_rfq:"RFQ / Quotation", nav_docs:"Documents", nav_team:"Team", nav_contact:"Contact",
         title:"RFQ / Quotation Request",
         sub:"Fill out this form to get a fast quotation. The more precise you are, the faster we reply.",
         contact_title:"Direct contact",
