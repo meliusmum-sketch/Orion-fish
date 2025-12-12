@@ -8,7 +8,7 @@
   <meta name="description" content="ORION FISH – Produits de la mer, transformation de fruits en jus, vente et distribution pour marchés locaux et internationaux." />
   <meta name="robots" content="index,follow" />
 
-  <!-- SEO / Confiance (invisible pour les visiteurs) -->
+  <!-- SEO / Confiance -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -44,7 +44,6 @@
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { scroll-behavior: smooth; }
 
     body {
@@ -66,7 +65,7 @@
       padding: 0.6rem 0.9rem;
       border-radius: 0.8rem;
       z-index: 9999;
-      font-weight: 700;
+      font-weight: 800;
     }
     .skip-link:focus { top: 12px; }
 
@@ -124,7 +123,7 @@
       color: #e5e7eb;
       padding: 0.45rem 0.75rem;
       border-radius: 999px;
-      font-weight: 700;
+      font-weight: 800;
       cursor: pointer;
       transition: transform 0.12s, background 0.12s;
     }
@@ -150,11 +149,11 @@
 
     .side-column-title {
       font-size: 0.9rem;
-      font-weight: 600;
+      font-weight: 700;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--marine-light);
-      opacity: 0.8;
+      opacity: 0.85;
     }
 
     .side-column-sep {
@@ -223,7 +222,7 @@
       border: none;
       cursor: pointer;
       font-size: 0.9rem;
-      font-weight: 500;
+      font-weight: 700;
       transition: transform 0.12s, box-shadow 0.12s, background-color 0.12s, color 0.12s;
     }
 
@@ -291,7 +290,7 @@
     }
 
     .metric { display: flex; flex-direction: column; }
-    .metric span:first-child { font-weight: 700; font-size: 1.05rem; }
+    .metric span:first-child { font-weight: 800; font-size: 1.05rem; }
     .metric span:last-child { opacity: 0.85; }
 
     .hero-photos { display: flex; gap: 0.6rem; margin-bottom: 0.9rem; }
@@ -330,12 +329,7 @@
       color: #e5e7eb;
       opacity: 0.95;
     }
-    .badge-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-      background: var(--good);
-    }
+    .badge-dot { width: 7px; height: 7px; border-radius: 999px; background: var(--good); }
     .export-row {
       display: grid;
       grid-template-columns: 160px 1fr;
@@ -387,7 +381,6 @@
         0 0 0 1px rgba(250, 204, 21, 0.3),
         0 22px 50px rgba(15, 23, 42, 0.95);
     }
-
     .team-feature-card:hover .team-feature-avatar img { transform: scale(1.06); }
 
     .team-feature-label {
@@ -398,7 +391,7 @@
       margin-bottom: 0.15rem;
     }
 
-    .team-feature-name { font-size: 0.95rem; font-weight: 700; }
+    .team-feature-name { font-size: 0.95rem; font-weight: 800; }
     .team-feature-text { font-size: 0.8rem; color: var(--marine-light); margin-top: 0.25rem; }
 
     .team-item {
@@ -421,7 +414,6 @@
       flex-shrink: 0;
       background: #020617;
     }
-
     .team-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
     .team-avatar-placeholder {
@@ -435,12 +427,12 @@
       align-items: center;
       justify-content: center;
       font-size: 0.75rem;
-      font-weight: 700;
+      font-weight: 800;
       color: var(--marine-light);
     }
 
-    .team-item-name { font-weight: 700; margin-bottom: 0.1rem; font-size: 0.9rem; }
-    .team-item-role { font-size: 0.8rem; color: #e5e7eb; opacity: 0.9; }
+    .team-item-name { font-weight: 800; margin-bottom: 0.1rem; font-size: 0.9rem; }
+    .team-item-role { font-size: 0.8rem; color: #e5e7eb; opacity: 0.95; }
     .team-item-text { font-size: 0.8rem; color: var(--marine-light); }
 
     /* GRIDS */
@@ -529,7 +521,7 @@
 
     label {
       font-size: 0.88rem;
-      font-weight: 600;
+      font-weight: 700;
       margin-bottom: 0.2rem;
       display: inline-block;
     }
@@ -601,12 +593,10 @@
       color: #052e16;
       border: 1px solid rgba(5, 46, 22, 0.25);
       box-shadow: 0 18px 40px rgba(0,0,0,0.45);
-      font-weight: 800;
+      font-weight: 900;
       transition: transform 0.12s;
     }
-
     .whatsapp-float:hover { transform: translateY(-2px); }
-
     .whatsapp-float svg { width: 20px; height: 20px; display: block; }
     .whatsapp-label { font-size: 0.9rem; }
 
@@ -642,7 +632,7 @@
 </head>
 
 <body>
-  <a class="skip-link" href="#mainContent">Aller au contenu</a>
+  <a class="skip-link" href="#mainContent" data-i18n="skip_link">Aller au contenu</a>
 
   <header>
     <div class="nav-container">
@@ -691,7 +681,7 @@
     <!-- COLONNE GAUCHE -->
     <aside class="side-column side-left" aria-label="Équipe">
       <div class="side-column-sep"></div>
-      <div class="side-column-title">Équipe ORION FISH</div>
+      <div class="side-column-title" data-i18n="side_left_title">Équipe ORION FISH</div>
 
       <div class="team-item">
         <div class="team-item-top">
@@ -700,10 +690,12 @@
           </div>
           <div>
             <div class="team-item-name">Mouhamad Kébé</div>
-            <div class="team-item-role">Gérant d'Orion Fish</div>
+            <div class="team-item-role" data-i18n="team_mouhamad_role">Gérant d'Orion Fish</div>
           </div>
         </div>
-        <div class="team-item-text">Dirige l’entreprise au quotidien et coordonne l’exécution opérationnelle des activités.</div>
+        <div class="team-item-text" data-i18n="team_mouhamad_desc">
+          Dirige l’entreprise au quotidien et coordonne l’exécution opérationnelle des activités.
+        </div>
       </div>
 
       <div class="team-item">
@@ -713,10 +705,15 @@
           </div>
           <div>
             <div class="team-item-name">Souleymane Diallo</div>
-            <div class="team-item-role">Directeur Service Commercial – <a href="tel:+221779540304">+221 77 954 03 04</a></div>
+            <div class="team-item-role">
+              <span data-i18n="team_souleymane_role_prefix">Directeur Service Commercial – Tél. :</span>
+              <a href="tel:+221779540304">+221 77 954 03 04</a>
+            </div>
           </div>
         </div>
-        <div class="team-item-text">Développe le portefeuille clients et les partenariats commerciaux sur les marchés cibles.</div>
+        <div class="team-item-text" data-i18n="team_souleymane_desc">
+          Développe le portefeuille clients et les partenariats commerciaux sur les marchés cibles.
+        </div>
       </div>
 
       <div class="team-item">
@@ -726,10 +723,12 @@
           </div>
           <div>
             <div class="team-item-name">Ndèye Fatou Wade</div>
-            <div class="team-item-role">Directrice Service Marketing / Clientèle</div>
+            <div class="team-item-role" data-i18n="team_wade_role">Directrice Service Marketing / Clientèle</div>
           </div>
         </div>
-        <div class="team-item-text">Pilote le marketing, la communication et la relation clientèle pour valoriser l’offre ORION FISH.</div>
+        <div class="team-item-text" data-i18n="team_wade_desc">
+          Pilote le marketing, la communication et la relation clientèle pour valoriser l’offre ORION FISH.
+        </div>
       </div>
 
       <div class="team-item">
@@ -739,10 +738,12 @@
           </div>
           <div>
             <div class="team-item-name">Idy KA</div>
-            <div class="team-item-role">Responsable Département Informatique</div>
+            <div class="team-item-role" data-i18n="team_idy_role">Responsable Département Informatique</div>
           </div>
         </div>
-        <div class="team-item-text">Gère les systèmes d’information et les outils numériques supports aux opérations.</div>
+        <div class="team-item-text" data-i18n="team_idy_desc">
+          Gère les systèmes d’information et les outils numériques supports aux opérations.
+        </div>
       </div>
 
       <div class="team-item">
@@ -752,10 +753,12 @@
           </div>
           <div>
             <div class="team-item-name">Ndèye Astou Diatta</div>
-            <div class="team-item-role">Responsable traçabilité & réclamations</div>
+            <div class="team-item-role" data-i18n="team_astou_role">Responsable traçabilité & réclamations</div>
           </div>
         </div>
-        <div class="team-item-text">Assure la traçabilité des produits et le suivi structuré des réclamations clients.</div>
+        <div class="team-item-text" data-i18n="team_astou_desc">
+          Assure la traçabilité des produits et le suivi structuré des réclamations clients.
+        </div>
       </div>
 
       <div class="team-item">
@@ -763,10 +766,12 @@
           <div class="team-avatar-placeholder">ED</div>
           <div>
             <div class="team-item-name">Emilie Diatta</div>
-            <div class="team-item-role">Responsable administratif & financier (RAF)</div>
+            <div class="team-item-role" data-i18n="team_emilie_role">Responsable administratif & financier (RAF)</div>
           </div>
         </div>
-        <div class="team-item-text">Supervise la gestion administrative, la trésorerie et le suivi financier de l’entreprise.</div>
+        <div class="team-item-text" data-i18n="team_emilie_desc">
+          Supervise la gestion administrative, la trésorerie et le suivi financier de l’entreprise.
+        </div>
       </div>
 
       <div class="team-item">
@@ -774,10 +779,12 @@
           <div class="team-avatar-placeholder">MD</div>
           <div>
             <div class="team-item-name">Mamadou Hady Diallo</div>
-            <div class="team-item-role">Chef d'équipe</div>
+            <div class="team-item-role" data-i18n="team_hady_role">Chef d'équipe</div>
           </div>
         </div>
-        <div class="team-item-text">Encadre les équipes sur le terrain et veille à la bonne exécution des opérations.</div>
+        <div class="team-item-text" data-i18n="team_hady_desc">
+          Encadre les équipes sur le terrain et veille à la bonne exécution des opérations.
+        </div>
       </div>
 
       <div class="team-item">
@@ -787,10 +794,12 @@
           </div>
           <div>
             <div class="team-item-name">Awa Diatta</div>
-            <div class="team-item-role">Cheffe de projet innovation</div>
+            <div class="team-item-role" data-i18n="team_awa_role">Cheffe de projet innovation</div>
           </div>
         </div>
-        <div class="team-item-text">Conçoit et pilote les projets d’innovation : nouveaux produits et nouveaux procédés.</div>
+        <div class="team-item-text" data-i18n="team_awa_desc">
+          Conçoit et pilote les projets d’innovation : nouveaux produits et nouveaux procédés.
+        </div>
       </div>
     </aside>
 
@@ -1198,9 +1207,9 @@
           </a>
         </div>
         <div>
-          <div class="team-feature-label">Direction générale</div>
+          <div class="team-feature-label" data-i18n="right_feature_label">Direction générale</div>
           <div class="team-feature-name">Amadou Mballo</div>
-          <div class="team-feature-text">
+          <div class="team-feature-text" data-i18n="right_feature_text">
             Directeur Général d’ORION FISH, il pilote la stratégie globale, représente l’entreprise
             et veille à l’alignement des équipes mer & fruits avec les objectifs.
           </div>
@@ -1208,7 +1217,7 @@
       </div>
 
       <div class="side-column-sep"></div>
-      <div class="side-column-title">Direction & opérations</div>
+      <div class="side-column-title" data-i18n="side_right_title">Direction & opérations</div>
 
       <div class="team-item">
         <div class="team-item-top">
@@ -1217,10 +1226,12 @@
           </div>
           <div>
             <div class="team-item-name">Landing Badji</div>
-            <div class="team-item-role">Opérateur de production</div>
+            <div class="team-item-role" data-i18n="team_landing_role">Opérateur de production</div>
           </div>
         </div>
-        <div class="team-item-text">Participe aux opérations de transformation et de conditionnement au quotidien.</div>
+        <div class="team-item-text" data-i18n="team_landing_desc">
+          Participe aux opérations de transformation et de conditionnement au quotidien.
+        </div>
       </div>
 
       <div class="team-item">
@@ -1230,10 +1241,12 @@
           </div>
           <div>
             <div class="team-item-name">Ibrahima Sory Bindia</div>
-            <div class="team-item-role">Responsable transport / distribution</div>
+            <div class="team-item-role" data-i18n="team_ibrahima_role">Responsable transport / distribution</div>
           </div>
         </div>
-        <div class="team-item-text">Organise les livraisons, la disponibilité des véhicules et le respect des délais clients.</div>
+        <div class="team-item-text" data-i18n="team_ibrahima_desc">
+          Organise les livraisons, la disponibilité des véhicules et le respect des délais clients.
+        </div>
       </div>
 
       <div class="team-item">
@@ -1243,10 +1256,12 @@
           </div>
           <div>
             <div class="team-item-name">Ousmane Diop</div>
-            <div class="team-item-role">Responsable utilités (froid, vapeur, air comprimé, eau)</div>
+            <div class="team-item-role" data-i18n="team_ousmane_role">Responsable utilités (froid, vapeur, air comprimé, eau)</div>
           </div>
         </div>
-        <div class="team-item-text">Garantit la performance des installations de froid, vapeur, air comprimé et eau de l’usine.</div>
+        <div class="team-item-text" data-i18n="team_ousmane_desc">
+          Garantit la performance des installations de froid, vapeur, air comprimé et eau de l’usine.
+        </div>
       </div>
 
       <div class="team-item">
@@ -1256,10 +1271,12 @@
           </div>
           <div>
             <div class="team-item-name">Ibou Thiam</div>
-            <div class="team-item-role">Directeur Ressources Humaines</div>
+            <div class="team-item-role" data-i18n="team_ibou_role">Directeur Ressources Humaines</div>
           </div>
         </div>
-        <div class="team-item-text">Gère le capital humain : recrutement, formation, relations sociales et climat interne.</div>
+        <div class="team-item-text" data-i18n="team_ibou_desc">
+          Gère le capital humain : recrutement, formation, relations sociales et climat interne.
+        </div>
       </div>
 
       <div class="team-item">
@@ -1267,10 +1284,12 @@
           <div class="team-avatar-placeholder">IK</div>
           <div>
             <div class="team-item-name">Insa Koulissoret Diedhiou</div>
-            <div class="team-item-role">Technicien R&D</div>
+            <div class="team-item-role" data-i18n="team_insa_role">Technicien R&D</div>
           </div>
         </div>
-        <div class="team-item-text">Contribue aux essais R&D et à l’amélioration continue des produits et procédés.</div>
+        <div class="team-item-text" data-i18n="team_insa_desc">
+          Contribue aux essais R&D et à l’amélioration continue des produits et procédés.
+        </div>
       </div>
 
       <div class="team-item">
@@ -1278,10 +1297,12 @@
           <div class="team-avatar-placeholder">SD</div>
           <div>
             <div class="team-item-name">Seyni Diedhiou</div>
-            <div class="team-item-role">Responsable HACCP / Food Safety</div>
+            <div class="team-item-role" data-i18n="team_seyni_role">Responsable HACCP / Food Safety</div>
           </div>
         </div>
-        <div class="team-item-text">Met en œuvre le plan HACCP et veille à la sécurité sanitaire des aliments.</div>
+        <div class="team-item-text" data-i18n="team_seyni_desc">
+          Met en œuvre le plan HACCP et veille à la sécurité sanitaire des aliments.
+        </div>
       </div>
 
       <div class="team-item">
@@ -1289,10 +1310,10 @@
           <div class="team-avatar-placeholder">SN</div>
           <div>
             <div class="team-item-name">Samba Ndiaye</div>
-            <div class="team-item-role">Directeur d’usine</div>
+            <div class="team-item-role" data-i18n="team_samba_role">Directeur d’usine</div>
           </div>
         </div>
-        <div class="team-item-text">
+        <div class="team-item-text" data-i18n="team_samba_desc">
           Dirige l’usine ORION FISH, supervise les opérations industrielles et coordonne les équipes
           de production pour garantir performance et qualité.
         </div>
@@ -1304,11 +1325,13 @@
             <img src="Bodian.png" alt="Photo du Responsable production">
           </div>
           <div>
-            <div class="team-item-name">Responsable production</div>
-            <div class="team-item-role">Supervision des lignes de production</div>
+            <div class="team-item-name" data-i18n="team_prod_name">Responsable production</div>
+            <div class="team-item-role" data-i18n="team_prod_role">Supervision des lignes de production</div>
           </div>
         </div>
-        <div class="team-item-text">Organise les volumes, les rendements et la qualité sur les lignes de production.</div>
+        <div class="team-item-text" data-i18n="team_prod_desc">
+          Organise les volumes, les rendements et la qualité sur les lignes de production.
+        </div>
       </div>
     </aside>
   </div>
@@ -1365,6 +1388,8 @@
       fr: {
         title: "ORION FISH – Produits de la mer & Jus de fruits",
         meta_desc: "ORION FISH – Produits de la mer, transformation de fruits en jus, vente et distribution pour marchés locaux et internationaux.",
+
+        skip_link: "Aller au contenu",
 
         nav_home: "Accueil",
         nav_about: "À propos",
@@ -1503,12 +1528,54 @@
         footer_legal: "Mentions légales",
         footer_privacy: "Politique de confidentialité",
         footer_terms: "Conditions",
-        footer_rights: "Tous droits réservés."
+        footer_rights: "Tous droits réservés.",
+
+        /* ✅ COLONNE GAUCHE/DROITE */
+        side_left_title: "Équipe ORION FISH",
+        team_mouhamad_role: "Gérant d'Orion Fish",
+        team_mouhamad_desc: "Dirige l’entreprise au quotidien et coordonne l’exécution opérationnelle des activités.",
+        team_souleymane_role_prefix: "Directeur Service Commercial – Tél. :",
+        team_souleymane_desc: "Développe le portefeuille clients et les partenariats commerciaux sur les marchés cibles.",
+        team_wade_role: "Directrice Service Marketing / Clientèle",
+        team_wade_desc: "Pilote le marketing, la communication et la relation clientèle pour valoriser l’offre ORION FISH.",
+        team_idy_role: "Responsable Département Informatique",
+        team_idy_desc: "Gère les systèmes d’information et les outils numériques supports aux opérations.",
+        team_astou_role: "Responsable traçabilité & réclamations",
+        team_astou_desc: "Assure la traçabilité des produits et le suivi structuré des réclamations clients.",
+        team_emilie_role: "Responsable administratif & financier (RAF)",
+        team_emilie_desc: "Supervise la gestion administrative, la trésorerie et le suivi financier de l’entreprise.",
+        team_hady_role: "Chef d'équipe",
+        team_hady_desc: "Encadre les équipes sur le terrain et veille à la bonne exécution des opérations.",
+        team_awa_role: "Cheffe de projet innovation",
+        team_awa_desc: "Conçoit et pilote les projets d’innovation : nouveaux produits et nouveaux procédés.",
+
+        right_feature_label: "Direction générale",
+        right_feature_text: "Directeur Général d’ORION FISH, il pilote la stratégie globale, représente l’entreprise et veille à l’alignement des équipes mer & fruits avec les objectifs.",
+        side_right_title: "Direction & opérations",
+        team_landing_role: "Opérateur de production",
+        team_landing_desc: "Participe aux opérations de transformation et de conditionnement au quotidien.",
+        team_ibrahima_role: "Responsable transport / distribution",
+        team_ibrahima_desc: "Organise les livraisons, la disponibilité des véhicules et le respect des délais clients.",
+        team_ousmane_role: "Responsable utilités (froid, vapeur, air comprimé, eau)",
+        team_ousmane_desc: "Garantit la performance des installations de froid, vapeur, air comprimé et eau de l’usine.",
+        team_ibou_role: "Directeur Ressources Humaines",
+        team_ibou_desc: "Gère le capital humain : recrutement, formation, relations sociales et climat interne.",
+        team_insa_role: "Technicien R&D",
+        team_insa_desc: "Contribue aux essais R&D et à l’amélioration continue des produits et procédés.",
+        team_seyni_role: "Responsable HACCP / Food Safety",
+        team_seyni_desc: "Met en œuvre le plan HACCP et veille à la sécurité sanitaire des aliments.",
+        team_samba_role: "Directeur d’usine",
+        team_samba_desc: "Dirige l’usine ORION FISH, supervise les opérations industrielles et coordonne les équipes de production pour garantir performance et qualité.",
+        team_prod_name: "Responsable production",
+        team_prod_role: "Supervision des lignes de production",
+        team_prod_desc: "Organise les volumes, les rendements et la qualité sur les lignes de production."
       },
 
       en: {
         title: "ORION FISH – Seafood & Fruit Juices",
         meta_desc: "ORION FISH – Seafood products and fruit juice processing, sales and distribution for local and international markets.",
+
+        skip_link: "Skip to content",
 
         nav_home: "Home",
         nav_about: "About",
@@ -1647,7 +1714,47 @@
         footer_legal: "Legal notice",
         footer_privacy: "Privacy policy",
         footer_terms: "Terms",
-        footer_rights: "All rights reserved."
+        footer_rights: "All rights reserved.",
+
+        /* ✅ COLONNE GAUCHE/DROITE */
+        side_left_title: "ORION FISH team",
+        team_mouhamad_role: "Company Manager",
+        team_mouhamad_desc: "Leads day-to-day operations and coordinates the execution of business activities.",
+        team_souleymane_role_prefix: "Sales Director – Phone:",
+        team_souleymane_desc: "Develops the client portfolio and commercial partnerships in target markets.",
+        team_wade_role: "Marketing & Customer Relations Director",
+        team_wade_desc: "Leads marketing, communication and customer relations to strengthen the ORION FISH offer.",
+        team_idy_role: "IT Department Manager",
+        team_idy_desc: "Manages information systems and digital tools supporting operations.",
+        team_astou_role: "Traceability & Claims Manager",
+        team_astou_desc: "Ensures product traceability and structured follow-up of customer claims.",
+        team_emilie_role: "Administrative & Finance Manager",
+        team_emilie_desc: "Oversees administration, cash management and the company’s financial monitoring.",
+        team_hady_role: "Team Leader",
+        team_hady_desc: "Supervises field teams and ensures proper execution of operations.",
+        team_awa_role: "Innovation Project Lead",
+        team_awa_desc: "Designs and leads innovation projects: new products and new processes.",
+
+        right_feature_label: "Executive management",
+        right_feature_text: "General Director of ORION FISH, leads the overall strategy, represents the company and ensures alignment between seafood & fruit teams and business goals.",
+        side_right_title: "Operations & management",
+        team_landing_role: "Production Operator",
+        team_landing_desc: "Supports daily processing and packaging operations.",
+        team_ibrahima_role: "Transport & Distribution Manager",
+        team_ibrahima_desc: "Organizes deliveries, vehicle availability and on-time performance.",
+        team_ousmane_role: "Utilities Manager (cold, steam, compressed air, water)",
+        team_ousmane_desc: "Ensures performance of cold, steam, compressed air and water utilities at the plant.",
+        team_ibou_role: "HR Director",
+        team_ibou_desc: "Manages human resources: recruitment, training, employee relations and internal climate.",
+        team_insa_role: "R&D Technician",
+        team_insa_desc: "Contributes to R&D trials and continuous improvement of products and processes.",
+        team_seyni_role: "HACCP / Food Safety Manager",
+        team_seyni_desc: "Implements the HACCP plan and ensures food safety compliance.",
+        team_samba_role: "Plant Manager",
+        team_samba_desc: "Leads the ORION FISH plant, supervises industrial operations and coordinates production teams to ensure performance and quality.",
+        team_prod_name: "Production Manager",
+        team_prod_role: "Production line supervision",
+        team_prod_desc: "Organizes volumes, yields and quality across production lines."
       }
     };
 
