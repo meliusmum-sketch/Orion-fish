@@ -21,7 +21,7 @@
       --text:#e5e7eb;
       --muted:#9ca3af;
       --accent:#f97316;
-      --accent2:#60a5fa;
+      --accent2:#facc15;
       --ok:#22c55e;
       --warn:#facc15;
     }
@@ -30,11 +30,13 @@
     body{
       font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
       line-height:1.6;color:var(--text);
-      background:radial-gradient(circle at top left,#1d4ed8,var(--bg) 65%);
+      /* FOND SANS BLEU */
+      background: radial-gradient(circle at top left, rgba(249,115,22,.28), var(--bg) 65%);
       min-height:100vh;
     }
     a{color:inherit;text-decoration:none}
     .muted{color:var(--muted)}
+
     header{
       position:sticky;top:0;z-index:10;
       background:rgba(2,6,23,.96);
@@ -106,4 +108,305 @@
     .btn-primary{
       border-color:transparent;
       background:var(--accent);
-      color:
+      color:#111827;
+      box-shadow:0 10px 24px rgba(249,115,22,.22);
+    }
+    .btn-primary:hover{background:#ea580c}
+
+    .note{
+      border:1px solid rgba(250,204,21,.28);
+      background:rgba(250,204,21,.08);
+      border-radius:1.1rem;
+      padding:1rem;
+      margin-top:1rem;
+      color:var(--muted);
+      font-size:.95rem;
+    }
+
+    table{
+      width:100%;
+      border-collapse:separate;
+      border-spacing:0;
+      overflow:hidden;
+      border-radius:1rem;
+      border:1px solid rgba(55,65,81,.9);
+      margin-top:1rem;
+      background:#020617;
+    }
+    th,td{
+      text-align:left;
+      padding:.85rem .9rem;
+      border-bottom:1px solid rgba(55,65,81,.6);
+      vertical-align:top;
+      font-size:.95rem;
+    }
+    th{color:var(--text);font-weight:900;background:rgba(15,23,42,.55)}
+    td{color:var(--muted)}
+    tr:last-child td{border-bottom:none}
+
+    .footer{
+      max-width:1100px;margin:0 auto;padding:1.8rem 1.5rem;
+      color:var(--muted);font-size:.85rem;
+      border-top:1px solid rgba(148,163,184,.35);
+    }
+    .footer a{text-decoration:underline;text-underline-offset:3px}
+    .copy{text-align:center;margin-top:.9rem}
+
+    @media (max-width:1024px){
+      .container{padding:1.5rem 1rem 2.5rem}
+      .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+      section{padding:1.6rem}
+    }
+    @media (max-width:640px){
+      .nav{flex-direction:column;align-items:flex-start;gap:.5rem}
+      nav ul{justify-content:flex-start}
+      .grid{grid-template-columns:1fr}
+      section{padding:1.4rem}
+      h1{font-size:1.6rem}
+      .copy{text-align:left}
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="nav">
+      <div class="logo">ORION FISH</div>
+      <nav aria-label="Navigation">
+        <ul>
+          <li><a href="index.html" data-i18n="nav_home">Accueil</a></li>
+          <li><a href="rfq.html" data-i18n="nav_rfq">RFQ / Devis</a></li>
+          <li><a href="compliance.html" data-i18n="nav_docs">Documents</a></li>
+          <li><a href="team.html" data-i18n="nav_team">Team</a></li>
+          <li><a href="index.html#contact" data-i18n="nav_contact">Contact</a></li>
+          <li><button class="btn-lang" id="langBtn" type="button">EN</button></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section>
+      <h1 data-i18n="title">Documents & Compliance</h1>
+      <p class="muted" data-i18n="sub">
+        Notre approche qualité, traçabilité et documents d’export. Les documents sont fournis selon la destination et les exigences du client.
+      </p>
+
+      <div class="cta">
+        <a class="btn btn-primary" href="rfq.html" data-i18n="cta_rfq">Demander un devis (RFQ)</a>
+        <a class="btn" href="mailto:contact@orionsfish.com?subject=Documents%20%26%20Compliance%20-%20Demande" data-i18n="cta_email">Demander des documents</a>
+      </div>
+
+      <div class="note" data-i18n="note">
+        Important : nous évitons d’afficher des certificats publics sur le site. Sur demande, nous transmettons les documents adaptés à votre pays (import rules), votre produit et votre incoterm.
+      </div>
+    </section>
+
+    <section>
+      <h2 data-i18n="h2_ready">Export-ready (B2B)</h2>
+
+      <div class="grid">
+        <div class="card">
+          <div class="badge"><span class="dot"></span><span data-i18n="b1">Traçabilité</span></div>
+          <p class="muted" data-i18n="b1p">Suivi lots, fournisseurs, production, expédition.</p>
+          <ul class="list">
+            <li data-i18n="b1l1">Référence lot / date</li>
+            <li data-i18n="b1l2">Contrôles internes</li>
+            <li data-i18n="b1l3">Gestion réclamations</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="badge"><span class="dot"></span><span data-i18n="b2">Food Safety</span></div>
+          <p class="muted" data-i18n="b2p">Bonnes pratiques, hygiène, procédures de contrôle.</p>
+          <ul class="list">
+            <li data-i18n="b2l1">Plan HACCP / mesures</li>
+            <li data-i18n="b2l2">Nettoyage & sanitation</li>
+            <li data-i18n="b2l3">Contrôles qualité</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="badge"><span class="dot"></span><span data-i18n="b3">Chaîne du froid</span></div>
+          <p class="muted" data-i18n="b3p">Maîtrise température selon produit et logistique.</p>
+          <ul class="list">
+            <li data-i18n="b3l1">Stockage & manutention</li>
+            <li data-i18n="b3l2">Préparation expédition</li>
+            <li data-i18n="b3l3">Suivi transport (selon projet)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 data-i18n="h2_docs">Documents export (selon destination)</h2>
+      <p class="muted" data-i18n="docs_p">
+        Voici les documents généralement demandés. La liste finale dépend de la destination, des règles d’importation et du produit.
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th data-i18n="t1">Document</th>
+            <th data-i18n="t2">Utilité</th>
+            <th data-i18n="t3">Statut</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-i18n="d1">Proforma Invoice / Quotation</td>
+            <td data-i18n="d1u">Offre commerciale, prix, incoterm, délais.</td>
+            <td data-i18n="d1s">Sur RFQ</td>
+          </tr>
+          <tr>
+            <td data-i18n="d2">Commercial Invoice</td>
+            <td data-i18n="d2u">Facture finale pour douane/import.</td>
+            <td data-i18n="d2s">Selon expédition</td>
+          </tr>
+          <tr>
+            <td data-i18n="d3">Packing List</td>
+            <td data-i18n="d3u">Détails colis, poids, volumes, lots.</td>
+            <td data-i18n="d3s">Selon expédition</td>
+          </tr>
+          <tr>
+            <td data-i18n="d4">Certificate of Origin</td>
+            <td data-i18n="d4u">Origine marchandise (si requis).</td>
+            <td data-i18n="d4s">Selon destination</td>
+          </tr>
+          <tr>
+            <td data-i18n="d5">Health / Sanitary Certificate</td>
+            <td data-i18n="d5u">Certificat sanitaire requis pour certains marchés.</td>
+            <td data-i18n="d5s">Selon réglementation</td>
+          </tr>
+          <tr>
+            <td data-i18n="d6">Lab Tests / COA</td>
+            <td data-i18n="d6u">Analyses selon cahier des charges (si requis).</td>
+            <td data-i18n="d6s">Sur demande</td>
+          </tr>
+          <tr>
+            <td data-i18n="d7">Label / Packaging info</td>
+            <td data-i18n="d7u">Étiquetage, langue, mentions obligatoires.</td>
+            <td data-i18n="d7s">Selon marché</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="note">
+        <span data-i18n="docs_note">
+          Si vous avez une exigence (UE, Norvège, etc.), indiquez-la dans la RFQ : nous préparons la liste documentaire exacte.
+        </span>
+      </div>
+    </section>
+
+    <section>
+      <h2 data-i18n="h2_rfq">Checklist RFQ (pour une réponse rapide)</h2>
+      <ul class="list">
+        <li data-i18n="c1">Produit + spécifications (espèce / grade / brix / format)</li>
+        <li data-i18n="c2">Quantité (tonnes, conteneur, unités)</li>
+        <li data-i18n="c3">Packaging (carton, bouteille, étiquetage)</li>
+        <li data-i18n="c4">Destination (pays/port/ville) + incoterm (EXW/FOB/CIF/DAP)</li>
+        <li data-i18n="c5">Délai / calendrier souhaité</li>
+      </ul>
+
+      <div class="cta">
+        <a class="btn btn-primary" href="rfq.html" data-i18n="cta_rfq2">Ouvrir RFQ / Devis</a>
+        <a class="btn" href="tel:+221339138392">+221339138392</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div>
+      <strong>ORION FISH</strong><br>
+      Quartier Léona, Cité Filaos, Rufisque, 17000, Sénégal<br>
+      Tel/WhatsApp : <a href="tel:+221339138392">+221339138392</a><br>
+      <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a>
+    </div>
+    <div class="copy">© <span id="y"></span> ORION FISH</div>
+  </footer>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+
+    const dict = {
+      fr:{
+        nav_home:"Accueil", nav_rfq:"RFQ / Devis", nav_docs:"Documents", nav_team:"Team", nav_contact:"Contact",
+        title:"Documents & Compliance",
+        sub:"Notre approche qualité, traçabilité et documents d’export. Les documents sont fournis selon la destination et les exigences du client.",
+        cta_rfq:"Demander un devis (RFQ)", cta_email:"Demander des documents",
+        note:"Important : nous évitons d’afficher des certificats publics sur le site. Sur demande, nous transmettons les documents adaptés à votre pays (import rules), votre produit et votre incoterm.",
+        h2_ready:"Export-ready (B2B)",
+        b1:"Traçabilité", b1p:"Suivi lots, fournisseurs, production, expédition.", b1l1:"Référence lot / date", b1l2:"Contrôles internes", b1l3:"Gestion réclamations",
+        b2:"Food Safety", b2p:"Bonnes pratiques, hygiène, procédures de contrôle.", b2l1:"Plan HACCP / mesures", b2l2:"Nettoyage & sanitation", b2l3:"Contrôles qualité",
+        b3:"Chaîne du froid", b3p:"Maîtrise température selon produit et logistique.", b3l1:"Stockage & manutention", b3l2:"Préparation expédition", b3l3:"Suivi transport (selon projet)",
+        h2_docs:"Documents export (selon destination)",
+        docs_p:"Voici les documents généralement demandés. La liste finale dépend de la destination, des règles d’importation et du produit.",
+        t1:"Document", t2:"Utilité", t3:"Statut",
+        d1:"Proforma Invoice / Quotation", d1u:"Offre commerciale, prix, incoterm, délais.", d1s:"Sur RFQ",
+        d2:"Commercial Invoice", d2u:"Facture finale pour douane/import.", d2s:"Selon expédition",
+        d3:"Packing List", d3u:"Détails colis, poids, volumes, lots.", d3s:"Selon expédition",
+        d4:"Certificate of Origin", d4u:"Origine marchandise (si requis).", d4s:"Selon destination",
+        d5:"Health / Sanitary Certificate", d5u:"Certificat sanitaire requis pour certains marchés.", d5s:"Selon réglementation",
+        d6:"Lab Tests / COA", d6u:"Analyses selon cahier des charges (si requis).", d6s:"Sur demande",
+        d7:"Label / Packaging info", d7u:"Étiquetage, langue, mentions obligatoires.", d7s:"Selon marché",
+        docs_note:"Si vous avez une exigence (UE, Norvège, etc.), indiquez-la dans la RFQ : nous préparons la liste documentaire exacte.",
+        h2_rfq:"Checklist RFQ (pour une réponse rapide)",
+        c1:"Produit + spécifications (espèce / grade / brix / format)",
+        c2:"Quantité (tonnes, conteneur, unités)",
+        c3:"Packaging (carton, bouteille, étiquetage)",
+        c4:"Destination (pays/port/ville) + incoterm (EXW/FOB/CIF/DAP)",
+        c5:"Délai / calendrier souhaité",
+        cta_rfq2:"Ouvrir RFQ / Devis"
+      },
+      en:{
+        nav_home:"Home", nav_rfq:"RFQ / Quotation", nav_docs:"Documents", nav_team:"Team", nav_contact:"Contact",
+        title:"Documents & Compliance",
+        sub:"Our quality, traceability and export documentation approach. Documents are provided depending on destination and customer requirements.",
+        cta_rfq:"Request a quotation (RFQ)", cta_email:"Request documents",
+        note:"Important: we avoid posting certificates publicly on the website. Upon request, we share documents adapted to your country, product and incoterm.",
+        h2_ready:"Export-ready (B2B)",
+        b1:"Traceability", b1p:"Batch, suppliers, production and shipment tracking.", b1l1:"Batch reference / date", b1l2:"Internal checks", b1l3:"Claims handling",
+        b2:"Food Safety", b2p:"Good practices, hygiene and control procedures.", b2l1:"HACCP plan / controls", b2l2:"Cleaning & sanitation", b2l3:"Quality checks",
+        b3:"Cold chain", b3p:"Temperature control depending on product and logistics.", b3l1:"Storage & handling", b3l2:"Shipment preparation", b3l3:"Transport monitoring (project-based)",
+        h2_docs:"Export documents (depending on destination)",
+        docs_p:"Below are common documents. Final list depends on destination, import rules and product requirements.",
+        t1:"Document", t2:"Purpose", t3:"Status",
+        d1:"Proforma Invoice / Quotation", d1u:"Commercial offer, price, incoterm, lead time.", d1s:"With RFQ",
+        d2:"Commercial Invoice", d2u:"Final invoice for customs/import.", d2s:"Per shipment",
+        d3:"Packing List", d3u:"Cartons, weights, volumes, batches.", d3s:"Per shipment",
+        d4:"Certificate of Origin", d4u:"Goods origin (if required).", d4s:"Depending on destination",
+        d5:"Health / Sanitary Certificate", d5u:"Sanitary certificate required for some markets.", d5s:"Depending on regulation",
+        d6:"Lab Tests / COA", d6u:"Testing per specification (if required).", d6s:"Upon request",
+        d7:"Label / Packaging info", d7u:"Label language and mandatory mentions.", d7s:"Market-specific",
+        docs_note:"If you have a specific requirement (EU, Norway, etc.), mention it in the RFQ so we prepare the exact document list.",
+        h2_rfq:"RFQ checklist (to get a fast reply)",
+        c1:"Product + specifications (species / grade / brix / format)",
+        c2:"Quantity (tons, container, units)",
+        c3:"Packaging (cartons, bottles, labeling)",
+        c4:"Destination (country/port/city) + incoterm (EXW/FOB/CIF/DAP)",
+        c5:"Target lead time / schedule",
+        cta_rfq2:"Open RFQ / Quotation"
+      }
+    };
+
+    function setLang(lang){
+      const d = dict[lang] || dict.fr;
+      document.documentElement.lang = lang;
+      document.querySelectorAll("[data-i18n]").forEach(el=>{
+        const k = el.getAttribute("data-i18n");
+        if(d[k]) el.textContent = d[k];
+      });
+      document.getElementById("langBtn").textContent = (lang==="fr") ? "EN" : "FR";
+      localStorage.setItem("lang", lang);
+    }
+
+    const stored = localStorage.getItem("lang");
+    const initial = stored || ((navigator.language||"").toLowerCase().startsWith("fr") ? "fr" : "en");
+    setLang(initial);
+
+    document.getElementById("langBtn").addEventListener("click", ()=>{
+      setLang(document.documentElement.lang === "fr" ? "en" : "fr");
+    });
+  </script>
+</body>
+</html>
