@@ -1,0 +1,9 @@
+RewriteEngine On
+
+# Force HTTPS
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# (Optionnel mais recommandé) Sécurité HSTS
+# À activer seulement si ton site fonctionne 100% en HTTPS
+# Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
