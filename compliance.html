@@ -16,24 +16,33 @@
   <style>
     :root{
       --bg:#020617;
-      --card:#020617;
+      --card:#0b1220;
       --border:#1f2937;
       --text:#e5e7eb;
       --muted:#9ca3af;
+
       --accent:#f97316;
-      --accent2:#facc15;
-      --ok:#22c55e;
-      --warn:#facc15;
-      --blue:#60a5fa;
+      --accentHover:#ea580c;
+
+      --fresh:#14b8a6; /* teal */
+      --freshSoft: rgba(20,184,166,.18);
+      --warmSoft: rgba(249,115,22,.20);
+
+      --blueFocus:#60a5fa; /* juste pour le focus si tu veux, pas de fond bleu */
     }
+
     *{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
     body{
       font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
       line-height:1.6;color:var(--text);
-      background: radial-gradient(circle at top left, rgba(249,115,22,.28), var(--bg) 65%);
+      background:
+        radial-gradient(circle at 12% 0%, var(--warmSoft), transparent 48%),
+        radial-gradient(circle at 88% 12%, var(--freshSoft), transparent 52%),
+        var(--bg);
       min-height:100vh;
     }
+
     a{color:inherit;text-decoration:none}
     .muted{color:var(--muted)}
 
@@ -73,26 +82,6 @@
     h2{font-size:1.25rem;margin-top:1.2rem;margin-bottom:.6rem}
     p{margin:.45rem 0}
 
-    .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin-top:1rem}
-    .card{
-      border:1px solid rgba(55,65,81,.9);
-      border-radius:1.1rem;
-      padding:1.1rem;
-      background:#020617;
-    }
-    .badge{
-      display:inline-flex;align-items:center;gap:.45rem;
-      font-size:.78rem;font-weight:900;
-      border:1px solid rgba(148,163,184,.35);
-      background:rgba(2,6,23,.8);
-      padding:.18rem .65rem;border-radius:999px;
-      margin-bottom:.55rem;
-      opacity:.95;
-    }
-    .dot{width:8px;height:8px;border-radius:999px;background:var(--ok)}
-    .list{margin-top:.45rem;padding-left:1.1rem}
-    .list li{margin:.25rem 0;color:var(--muted)}
-
     .cta{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1rem}
     .btn{
       display:inline-block;
@@ -108,19 +97,41 @@
       border-color:transparent;
       background:var(--accent);
       color:#111827;
-      box-shadow:0 10px 24px rgba(249,115,22,.22);
+      box-shadow:0 10px 24px rgba(249,115,22,.18);
     }
-    .btn-primary:hover{background:#ea580c}
+    .btn-primary:hover{background:var(--accentHover)}
 
     .note{
-      border:1px solid rgba(250,204,21,.28);
-      background:rgba(250,204,21,.08);
+      border:1px solid rgba(20,184,166,.25);
+      background:rgba(20,184,166,.08);
       border-radius:1.1rem;
       padding:1rem;
       margin-top:1rem;
       color:var(--muted);
       font-size:.95rem;
     }
+
+    .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin-top:1rem}
+    .cardbox{
+      border:1px solid rgba(55,65,81,.9);
+      border-radius:1.1rem;
+      padding:1.1rem;
+      background:#08101d;
+      transition:transform .12s,box-shadow .12s,border-color .12s;
+    }
+    .cardbox:hover{transform:translateY(-2px);border-color:rgba(20,184,166,.85);box-shadow:0 10px 26px rgba(15,23,42,.8)}
+    .badge{
+      display:inline-flex;align-items:center;gap:.45rem;
+      font-size:.78rem;font-weight:900;
+      border:1px solid rgba(148,163,184,.35);
+      background:rgba(2,6,23,.8);
+      padding:.18rem .65rem;border-radius:999px;
+      margin-bottom:.55rem;
+      opacity:.95;
+    }
+    .dot{width:8px;height:8px;border-radius:999px;background:var(--fresh)}
+    .list{margin-top:.45rem;padding-left:1.1rem}
+    .list li{margin:.25rem 0;color:var(--muted)}
 
     table{
       width:100%;
@@ -130,7 +141,7 @@
       border-radius:1rem;
       border:1px solid rgba(55,65,81,.9);
       margin-top:1rem;
-      background:#020617;
+      background:#050b16;
     }
     th,td{
       text-align:left;
@@ -151,14 +162,14 @@
       padding:.6rem .85rem;
       border-radius:.75rem;
       border:1px solid #4b5563;
-      background:#020617;
+      background:#050b16;
       color:var(--text);
       font:inherit;
     }
     textarea{min-height:130px;resize:vertical}
     input:focus,textarea:focus,select:focus{
-      outline:none;border-color:var(--blue);
-      box-shadow:0 0 0 1px rgba(37,99,235,.5);
+      outline:none;border-color:rgba(20,184,166,.9);
+      box-shadow:0 0 0 1px rgba(20,184,166,.45);
     }
     .two{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
     .checks{display:grid;gap:.5rem;margin-top:.2rem}
@@ -222,7 +233,6 @@
 
       <div class="cta">
         <a class="btn btn-primary" href="rfq.html" data-i18n="cta_rfq">Demander un devis (RFQ)</a>
-        <!-- ICI: on va vers un FORMULAIRE au lieu du mailto -->
         <a class="btn" href="#request" data-i18n="cta_form">Demander des documents</a>
       </div>
 
@@ -235,7 +245,7 @@
       <h2 data-i18n="h2_ready">Export-ready (B2B)</h2>
 
       <div class="grid">
-        <div class="card">
+        <div class="cardbox">
           <div class="badge"><span class="dot"></span><span data-i18n="b1">Traçabilité</span></div>
           <p class="muted" data-i18n="b1p">Suivi lots, fournisseurs, production, expédition.</p>
           <ul class="list">
@@ -245,7 +255,7 @@
           </ul>
         </div>
 
-        <div class="card">
+        <div class="cardbox">
           <div class="badge"><span class="dot"></span><span data-i18n="b2">Food Safety</span></div>
           <p class="muted" data-i18n="b2p">Bonnes pratiques, hygiène, procédures de contrôle.</p>
           <ul class="list">
@@ -255,7 +265,7 @@
           </ul>
         </div>
 
-        <div class="card">
+        <div class="cardbox">
           <div class="badge"><span class="dot"></span><span data-i18n="b3">Chaîne du froid</span></div>
           <p class="muted" data-i18n="b3p">Maîtrise température selon produit et logistique.</p>
           <ul class="list">
@@ -327,7 +337,6 @@
       </div>
     </section>
 
-    <!-- FORMULAIRE SÉCURISÉ -->
     <section id="request">
       <h2 data-i18n="req_h2">Demande de documents (formulaire sécurisé)</h2>
       <p class="muted" data-i18n="req_p">
@@ -335,11 +344,8 @@
       </p>
 
       <form action="https://formsubmit.co/contact@orionsfish.com" method="POST">
-        <!-- Anti-spam -->
         <input type="text" name="_honey" style="display:none">
         <input type="hidden" name="_captcha" value="false">
-
-        <!-- Email format + sujet + redirection -->
         <input type="hidden" name="_subject" value="Documents & Compliance – Request (Website)">
         <input type="hidden" name="_template" value="table">
         <input type="hidden" name="_next" value="https://orionsfish.com/merci.html">
@@ -402,21 +408,9 @@
 
         <button class="btn btn-primary" type="submit" data-i18n="f_send">Envoyer la demande</button>
       </form>
-    </section>
 
-    <section>
-      <h2 data-i18n="h2_rfq">Checklist RFQ (pour une réponse rapide)</h2>
-      <ul class="list">
-        <li data-i18n="c1">Produit + spécifications (espèce / grade / brix / format)</li>
-        <li data-i18n="c2">Quantité (tonnes, conteneur, unités)</li>
-        <li data-i18n="c3">Packaging (carton, bouteille, étiquetage)</li>
-        <li data-i18n="c4">Destination (pays/port/ville) + incoterm (EXW/FOB/CIF/DAP)</li>
-        <li data-i18n="c5">Délai / calendrier souhaité</li>
-      </ul>
-
-      <div class="cta">
-        <a class="btn btn-primary" href="rfq.html" data-i18n="cta_rfq2">Ouvrir RFQ / Devis</a>
-        <a class="btn" href="tel:+221339138392">+221339138392</a>
+      <div class="note" data-i18n="req_note">
+        Astuce : pour une réponse rapide, indiquez votre incoterm (EXW/FOB/CIF/DAP) et le port/ville de destination.
       </div>
     </section>
   </main>
@@ -425,8 +419,11 @@
     <div>
       <strong>ORION FISH</strong><br>
       Quartier Léona, Cité Filaos, Rufisque, 17000, Sénégal<br>
+      Registre de commerce : <strong>010112051 SN.DKR.2023.B.9159</strong><br>
+      Responsable de publication : <strong>Diallo Mamadou</strong><br>
+      Hébergeur : <strong>Hostinger</strong><br>
       Tel/WhatsApp : <a href="tel:+221339138392">+221339138392</a><br>
-      <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a>
+      Email : <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a>
     </div>
     <div class="copy">© <span id="y"></span> ORION FISH</div>
   </footer>
@@ -456,19 +453,11 @@
         d6:"Lab Tests / COA", d6u:"Analyses selon cahier des charges (si requis).", d6s:"Sur demande",
         d7:"Label / Packaging info", d7u:"Étiquetage, langue, mentions obligatoires.", d7s:"Selon marché",
         docs_note:"Si vous avez une exigence (UE, Norvège, etc.), indiquez-la dans la RFQ : nous préparons la liste documentaire exacte.",
-
         req_h2:"Demande de documents (formulaire sécurisé)",
         req_p:"Ce formulaire est envoyé via HTTPS. Indiquez votre pays/destination et les documents souhaités.",
         f_company:"Entreprise", f_name:"Nom", f_email:"E-mail", f_phone:"Téléphone", f_dest:"Pays / Destination", f_cat:"Catégorie",
         f_docs:"Documents souhaités", f_msg:"Message (exigences)", f_send:"Envoyer la demande",
-
-        h2_rfq:"Checklist RFQ (pour une réponse rapide)",
-        c1:"Produit + spécifications (espèce / grade / brix / format)",
-        c2:"Quantité (tonnes, conteneur, unités)",
-        c3:"Packaging (carton, bouteille, étiquetage)",
-        c4:"Destination (pays/port/ville) + incoterm (EXW/FOB/CIF/DAP)",
-        c5:"Délai / calendrier souhaité",
-        cta_rfq2:"Ouvrir RFQ / Devis"
+        req_note:"Astuce : pour une réponse rapide, indiquez votre incoterm (EXW/FOB/CIF/DAP) et le port/ville de destination."
       },
       en:{
         nav_home:"Home", nav_rfq:"RFQ / Quotation", nav_docs:"Documents", nav_team:"Team", nav_contact:"Contact",
@@ -491,19 +480,11 @@
         d6:"Lab Tests / COA", d6u:"Testing per specification (if required).", d6s:"Upon request",
         d7:"Label / Packaging info", d7u:"Label language and mandatory mentions.", d7s:"Market-specific",
         docs_note:"If you have a specific requirement (EU, Norway, etc.), mention it in the RFQ so we prepare the exact document list.",
-
         req_h2:"Document request (secure form)",
         req_p:"This form is sent over HTTPS. Please specify destination country and requested documents.",
         f_company:"Company", f_name:"Name", f_email:"Email", f_phone:"Phone", f_dest:"Country / Destination", f_cat:"Category",
         f_docs:"Requested documents", f_msg:"Message (requirements)", f_send:"Send request",
-
-        h2_rfq:"RFQ checklist (to get a fast reply)",
-        c1:"Product + specifications (species / grade / brix / format)",
-        c2:"Quantity (tons, container, units)",
-        c3:"Packaging (cartons, bottles, labeling)",
-        c4:"Destination (country/port/city) + incoterm (EXW/FOB/CIF/DAP)",
-        c5:"Target lead time / schedule",
-        cta_rfq2:"Open RFQ / Quotation"
+        req_note:"Tip: for a fast reply, specify your incoterm (EXW/FOB/CIF/DAP) and destination port/city."
       }
     };
 
