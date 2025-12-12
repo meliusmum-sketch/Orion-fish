@@ -8,6 +8,13 @@
   <meta name="description" content="ORION FISH – Produits de la mer et transformation de fruits en jus. Vente, distribution et export (RFQ/Devis)." />
   <meta name="robots" content="index,follow" />
 
+  <!-- Bonus: redirection HTTPS côté navigateur (au cas où) -->
+  <script>
+    if (location.protocol === "http:" && location.hostname !== "localhost") {
+      location.replace("https://" + location.host + location.pathname + location.search + location.hash);
+    }
+  </script>
+
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -344,17 +351,17 @@
 
       <p class="muted" style="margin-bottom:1rem">
         Export : <a href="mailto:export@orionsfish.com">export@orionsfish.com</a> •
-        Sales : <a h
-::contentReference[oaicite:0]{index=0}
-ref="mailto:sales@orionsfish.com">sales@orionsfish.com</a> •
+        Sales : <a href="mailto:sales@orionsfish.com">sales@orionsfish.com</a> •
         Contact : <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a> •
         Tel/WhatsApp : <a href="tel:+221339138392">+221339138392</a>
       </p>
 
+      <!-- FormSubmit: HTTPS + redirection vers ta page merci -->
       <form action="https://formsubmit.co/contact@orionsfish.com" method="POST">
-        <input type="hidden" name="_captcha" value="false">
         <input type="text" name="_honey" style="display:none">
         <input type="hidden" name="_subject" value="Message – ORION FISH (site web)">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_next" value="https://orionsfish.com/merci.html">
 
         <div class="two">
           <div>
@@ -363,7 +370,7 @@ ref="mailto:sales@orionsfish.com">sales@orionsfish.com</a> •
           </div>
           <div>
             <label for="email" data-i18n="f_email">E-mail</label>
-            <input id="email" name="Email" type="email" required placeholder="name@company.com" />
+            <input id="email" name="email" type="email" required placeholder="name@company.com" />
           </div>
         </div>
 
@@ -429,7 +436,8 @@ ref="mailto:sales@orionsfish.com">sales@orionsfish.com</a> •
         quick_title:"Informations rapides export", quick_loc:"Localisation :", quick_contact:"Contact export :",
         rfq_box_title:"Page RFQ recommandée", rfq_box_p:"Pour une réponse rapide, indiquez produit, quantité, packaging, destination, incoterm et délai.",
         rfq_box_btn:"Ouvrir RFQ / Devis",
-        about_h2:"À propos d’ORION FISH", about_p1:"ORION FISH est une entreprise agroalimentaire spécialisée dans la valorisation des produits de la mer et la transformation de fruits en jus.",
+        about_h2:"À propos d’ORION FISH",
+        about_p1:"ORION FISH est une entreprise agroalimentaire spécialisée dans la valorisation des produits de la mer et la transformation de fruits en jus.",
         about_p2:"Notre ambition : développer des filières durables et compétitives, adaptées aux besoins B2B.",
         sea_h2:"Produits de la mer", sea_p:"Collecte, transformation, conditionnement et distribution.",
         sea_l1:"Gamme", sea_t1:"Frais & surgelé", sea_b1:"Formats B2B", sea_b2:"Traçabilité par lots", sea_b3:"Chaîne du froid",
@@ -453,7 +461,8 @@ ref="mailto:sales@orionsfish.com">sales@orionsfish.com</a> •
         quick_title:"Export quick info", quick_loc:"Location:", quick_contact:"Export contact:",
         rfq_box_title:"Recommended RFQ page", rfq_box_p:"For a fast answer, provide product, quantity, packaging, destination, incoterm and lead time.",
         rfq_box_btn:"Open RFQ / Quotation",
-        about_h2:"About ORION FISH", about_p1:"ORION FISH is a food company specialized in seafood value creation and fruit juice processing.",
+        about_h2:"About ORION FISH",
+        about_p1:"ORION FISH is a food company specialized in seafood value creation and fruit juice processing.",
         about_p2:"Our goal: sustainable and competitive supply chains designed for B2B needs.",
         sea_h2:"Seafood", sea_p:"Sourcing, processing, packaging and distribution.",
         sea_l1:"Range", sea_t1:"Fresh & Frozen", sea_b1:"B2B formats", sea_b2:"Batch traceability", sea_b3:"Cold chain",
