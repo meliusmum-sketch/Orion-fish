@@ -4,6 +4,28 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ORION FISH – Produits de la mer & Jus de fruits</title>
+  <meta name="description" content="ORION FISH – Produits de la mer, transformation de fruits en jus, vente et distribution pour marchés locaux et internationaux." />
+  <meta name="robots" content="index,follow" />
+
+  <!-- SEO / Confiance (invisible pour les visiteurs) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "ORION FISH",
+    "url": "https://orionsfish.com",
+    "telephone": "+2212702457",
+    "email": "export@orionsfish.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Quartier Léona, Cité Filaos",
+      "addressLocality": "Rufisque",
+      "postalCode": "17000",
+      "addressCountry": "SN"
+    }
+  }
+  </script>
+
   <style>
     :root {
       --marine: #020617;
@@ -19,11 +41,7 @@
       --text-muted: #9ca3af;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -33,10 +51,7 @@
       min-height: 100vh;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+    a { color: inherit; text-decoration: none; }
 
     header {
       position: sticky;
@@ -69,11 +84,7 @@
       white-space: nowrap;
     }
 
-    .logo-icon {
-      width: 30px;
-      height: 30px;
-      flex-shrink: 0;
-    }
+    .logo-icon { width: 30px; height: 30px; flex-shrink: 0; }
 
     nav ul {
       list-style: none;
@@ -85,15 +96,8 @@
       justify-content: flex-end;
     }
 
-    nav a {
-      opacity: 0.8;
-      transition: opacity 0.15s, transform 0.15s;
-    }
-
-    nav a:hover {
-      opacity: 1;
-      transform: translateY(-1px);
-    }
+    nav a { opacity: 0.8; transition: opacity 0.15s, transform 0.15s; }
+    nav a:hover { opacity: 1; transform: translateY(-1px); }
 
     /* LAYOUT 3 COLONNES */
     .page-shell {
@@ -130,9 +134,7 @@
       margin-bottom: 0.3rem;
     }
 
-    main {
-      padding: 0;
-    }
+    main { padding: 0; }
 
     section {
       margin: 3rem 0;
@@ -143,26 +145,12 @@
       border: 1px solid var(--card-border);
     }
 
-    h1, h2 {
-      margin-bottom: 1rem;
-    }
+    h1, h2 { margin-bottom: 1rem; }
+    h1 { font-size: 2.2rem; }
+    h2 { font-size: 1.4rem; }
 
-    h1 {
-      font-size: 2.2rem;
-    }
-
-    h2 {
-      font-size: 1.4rem;
-    }
-
-    p {
-      margin-bottom: 0.7rem;
-      font-size: 0.98rem;
-    }
-
-    .muted {
-      color: var(--text-muted);
-    }
+    p { margin-bottom: 0.7rem; font-size: 0.98rem; }
+    .muted { color: var(--text-muted); }
 
     /* HERO */
     #accueil {
@@ -172,11 +160,7 @@
       align-items: flex-start;
     }
 
-    .sous-titre {
-      font-size: 1.02rem;
-      color: var(--text-muted);
-      margin-bottom: 1.2rem;
-    }
+    .sous-titre { font-size: 1.02rem; color: var(--text-muted); margin-bottom: 1.2rem; }
 
     .pill {
       display: inline-flex;
@@ -190,12 +174,7 @@
       margin-bottom: 0.9rem;
     }
 
-    .pill-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-      background: var(--orange);
-    }
+    .pill-dot { width: 7px; height: 7px; border-radius: 999px; background: var(--orange); }
 
     .btn-group {
       display: flex;
@@ -235,10 +214,7 @@
       backdrop-filter: blur(4px);
     }
 
-    .btn-secondaire:hover {
-      background: rgba(15, 23, 42, 0.7);
-      transform: translateY(-1px);
-    }
+    .btn-secondaire:hover { background: rgba(15, 23, 42, 0.7); transform: translateY(-1px); }
 
     .hero-card {
       background: radial-gradient(circle at top left, #0ea5e9, #020617 60%);
@@ -262,10 +238,7 @@
       pointer-events: none;
     }
 
-    .hero-card-inner {
-      position: relative;
-      z-index: 1;
-    }
+    .hero-card-inner { position: relative; z-index: 1; }
 
     .hero-tag {
       display: inline-block;
@@ -277,10 +250,7 @@
       margin-bottom: 0.4rem;
     }
 
-    .hero-card h3 {
-      font-size: 1.05rem;
-      margin-top: 0.3rem;
-    }
+    .hero-card h3 { font-size: 1.05rem; margin-top: 0.3rem; }
 
     .hero-metrics {
       display: flex;
@@ -290,25 +260,11 @@
       font-size: 0.85rem;
     }
 
-    .metric {
-      display: flex;
-      flex-direction: column;
-    }
+    .metric { display: flex; flex-direction: column; }
+    .metric span:first-child { font-weight: 600; font-size: 1.1rem; }
+    .metric span:last-child { opacity: 0.8; }
 
-    .metric span:first-child {
-      font-weight: 600;
-      font-size: 1.1rem;
-    }
-
-    .metric span:last-child {
-      opacity: 0.8;
-    }
-
-    .hero-photos {
-      display: flex;
-      gap: 0.6rem;
-      margin-bottom: 0.9rem;
-    }
+    .hero-photos { display: flex; gap: 0.6rem; margin-bottom: 0.9rem; }
 
     .hero-img {
       width: 100%;
@@ -320,15 +276,8 @@
       background: #020617;
     }
 
-    .hero-img-small {
-      width: 40%;
-      height: auto;
-    }
-
-    .clickable-image {
-      display: block;
-      cursor: zoom-in;
-    }
+    .hero-img-small { width: 40%; height: auto; }
+    .clickable-image { display: block; cursor: zoom-in; }
 
     /* ÉQUIPE */
     .team-feature-card {
@@ -372,9 +321,7 @@
         0 22px 50px rgba(15, 23, 42, 0.95);
     }
 
-    .team-feature-card:hover .team-feature-avatar img {
-      transform: scale(1.06);
-    }
+    .team-feature-card:hover .team-feature-avatar img { transform: scale(1.06); }
 
     .team-feature-label {
       font-size: 0.75rem;
@@ -384,16 +331,8 @@
       margin-bottom: 0.15rem;
     }
 
-    .team-feature-name {
-      font-size: 0.95rem;
-      font-weight: 600;
-    }
-
-    .team-feature-text {
-      font-size: 0.8rem;
-      color: var(--marine-light);
-      margin-top: 0.25rem;
-    }
+    .team-feature-name { font-size: 0.95rem; font-weight: 600; }
+    .team-feature-text { font-size: 0.8rem; color: var(--marine-light); margin-top: 0.25rem; }
 
     .team-item {
       width: 100%;
@@ -404,12 +343,7 @@
       border: 1px solid rgba(148, 163, 184, 0.4);
     }
 
-    .team-item-top {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      margin-bottom: 0.35rem;
-    }
+    .team-item-top { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.35rem; }
 
     .team-avatar {
       width: 40px;
@@ -421,14 +355,8 @@
       background: #020617;
     }
 
-    .team-avatar img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
+    .team-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-    /* AVATAR SANS PHOTO */
     .team-avatar-placeholder {
       width: 40px;
       height: 40px;
@@ -444,22 +372,9 @@
       color: var(--marine-light);
     }
 
-    .team-item-name {
-      font-weight: 600;
-      margin-bottom: 0.1rem;
-      font-size: 0.9rem;
-    }
-
-    .team-item-role {
-      font-size: 0.8rem;
-      color: #e5e7eb;
-      opacity: 0.9;
-    }
-
-    .team-item-text {
-      font-size: 0.8rem;
-      color: var(--marine-light);
-    }
+    .team-item-name { font-weight: 600; margin-bottom: 0.1rem; font-size: 0.9rem; }
+    .team-item-role { font-size: 0.8rem; color: #e5e7eb; opacity: 0.9; }
+    .team-item-text { font-size: 0.8rem; color: var(--marine-light); }
 
     /* GRIDS */
     .grid {
@@ -488,10 +403,7 @@
       background: #020617;
     }
 
-    .card h3 {
-      font-size: 1rem;
-      margin-bottom: 0.4rem;
-    }
+    .card h3 { font-size: 1rem; margin-bottom: 0.4rem; }
 
     .card span.label {
       display: inline-block;
@@ -510,26 +422,11 @@
       box-shadow: 0 10px 26px rgba(15, 23, 42, 0.8);
     }
 
-    .apropos-grid {
-      display: grid;
-      grid-template-columns: 2fr 2fr;
-      gap: 1.5rem;
-    }
+    .apropos-grid { display: grid; grid-template-columns: 2fr 2fr; gap: 1.5rem; }
 
-    .liste-simple {
-      list-style: none;
-      margin-top: 0.5rem;
-      font-size: 0.95rem;
-    }
-
-    .liste-simple li {
-      margin-bottom: 0.3rem;
-    }
-
-    .liste-simple li::before {
-      content: "• ";
-      opacity: 0.6;
-    }
+    .liste-simple { list-style: none; margin-top: 0.5rem; font-size: 0.95rem; }
+    .liste-simple li { margin-bottom: 0.3rem; }
+    .liste-simple li::before { content: "• "; opacity: 0.6; }
 
     .galerie-grid {
       display: grid;
@@ -561,11 +458,7 @@
       background: #020617;
     }
 
-    form {
-      display: grid;
-      gap: 1rem;
-      margin-top: 1.2rem;
-    }
+    form { display: grid; gap: 1rem; margin-top: 1.2rem; }
 
     label {
       font-size: 0.88rem;
@@ -574,8 +467,7 @@
       display: inline-block;
     }
 
-    input,
-    textarea {
+    input, textarea {
       width: 100%;
       padding: 0.55rem 0.85rem;
       border-radius: 0.7rem;
@@ -587,111 +479,60 @@
       color: var(--text-main);
     }
 
-    input::placeholder,
-    textarea::placeholder {
-      color: #6b7280;
-    }
+    input::placeholder, textarea::placeholder { color: #6b7280; }
 
-    input:focus,
-    textarea:focus {
+    input:focus, textarea:focus {
       outline: none;
       border-color: #60a5fa;
       box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.5);
       background: #020617;
     }
 
-    textarea {
-      min-height: 110px;
+    textarea { min-height: 110px; }
+
+    /* FOOTER PRO */
+    .site-footer {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1.8rem 1.5rem;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      border-top: 1px solid rgba(148, 163, 184, 0.35);
     }
 
-    footer {
-      text-align: center;
-      padding: 1.5rem;
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }
+    .site-footer a { text-decoration: underline; text-underline-offset: 3px; }
+
+    .footer-block { line-height: 1.65; }
+    .footer-links { margin-top: 0.9rem; display: flex; flex-wrap: wrap; gap: 0.45rem; align-items: center; justify-content: center; }
+    .footer-copy { margin-top: 0.9rem; text-align: center; }
 
     @media (max-width: 1024px) {
-      .page-shell {
-        display: block;
-        padding: 1.5rem 1rem 2.5rem;
-      }
-
-      main {
-        margin-bottom: 2rem;
-      }
-
-      .side-column {
-        padding-top: 0;
-        margin-bottom: 1.5rem;
-      }
-
-      #accueil {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-card {
-        order: -1;
-      }
-
-      .apropos-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .grid,
-      .galerie-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
+      .page-shell { display: block; padding: 1.5rem 1rem 2.5rem; }
+      main { margin-bottom: 2rem; }
+      .side-column { padding-top: 0; margin-bottom: 1.5rem; }
+      #accueil { grid-template-columns: 1fr; }
+      .hero-card { order: -1; }
+      .apropos-grid { grid-template-columns: 1fr; }
+      .grid, .galerie-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
 
     @media (max-width: 640px) {
-      .nav-container {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.4rem;
-      }
-
-      nav ul {
-        justify-content: flex-start;
-      }
-
-      section {
-        padding: 1.4rem;
-        margin: 2rem 0;
-      }
-
-      .hero-photos {
-        flex-direction: column;
-      }
-
-      .hero-img-small {
-        width: 100%;
-      }
-
-      .btn-group {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .grid,
-      .galerie-grid {
-        grid-template-columns: 1fr;
-      }
-
-      h1 {
-        font-size: 1.6rem;
-      }
-
-      h2 {
-        font-size: 1.2rem;
-      }
-
-      p {
-        font-size: 0.95rem;
-      }
+      .nav-container { flex-direction: column; align-items: flex-start; gap: 0.4rem; }
+      nav ul { justify-content: flex-start; }
+      section { padding: 1.4rem; margin: 2rem 0; }
+      .hero-photos { flex-direction: column; }
+      .hero-img-small { width: 100%; }
+      .btn-group { flex-direction: column; align-items: stretch; }
+      .grid, .galerie-grid { grid-template-columns: 1fr; }
+      h1 { font-size: 1.6rem; }
+      h2 { font-size: 1.2rem; }
+      p { font-size: 0.95rem; }
+      .footer-links { justify-content: flex-start; }
+      .footer-copy { text-align: left; }
     }
   </style>
 </head>
+
 <body>
   <header>
     <div class="nav-container">
@@ -726,6 +567,7 @@
           <li><a href="#jus">Fruits & jus</a></li>
           <li><a href="#galerie">Photos</a></li>
           <li><a href="#contact">Contact</a></li>
+          <li><a href="#mentions-legales">Mentions légales</a></li>
         </ul>
       </nav>
     </div>
@@ -759,7 +601,7 @@
           </div>
           <div>
             <div class="team-item-name">Souleymane Diallo</div>
-            <div class="team-item-role">Directeur Service Commercial – Tél. : 77 954 03 04</div>
+            <div class="team-item-role">Directeur Service Commercial – Tél. : +221 77 954 03 04</div>
           </div>
         </div>
         <div class="team-item-text">
@@ -812,7 +654,6 @@
         </div>
       </div>
 
-      <!-- Emilie DIATTA : SANS PHOTO -->
       <div class="team-item">
         <div class="team-item-top">
           <div class="team-avatar-placeholder">ED</div>
@@ -826,7 +667,6 @@
         </div>
       </div>
 
-      <!-- Mamadou HADY DIALLO : SANS PHOTO -->
       <div class="team-item">
         <div class="team-item-top">
           <div class="team-avatar-placeholder">MD</div>
@@ -882,6 +722,8 @@
         <div class="hero-card">
           <div class="hero-card-inner">
             <div class="hero-photos">
+              <!-- IMPORTANT: ton fichier s'appelle "hero-poissons-frais.jpg.png".
+                   Si tu peux, renomme-le en "hero-poissons-frais.png" et mets à jour ici. -->
               <a href="hero-poissons-frais.jpg.png" target="_blank" class="clickable-image">
                 <img
                   src="hero-poissons-frais.jpg.png"
@@ -946,9 +788,7 @@
 
       <section id="mer">
         <h2>Produits de la mer</h2>
-        <p>
-          ORION FISH collecte, transforme et distribue des produits de la mer pour les marchés locaux et internationaux.
-        </p>
+        <p>ORION FISH collecte, transforme et distribue des produits de la mer pour les marchés locaux et internationaux.</p>
 
         <div class="grid">
           <div class="card">
@@ -957,30 +797,25 @@
               <img src="hero-poissons-frais.jpg.png" alt="Poissons frais et filets prêts à être distribués">
             </a>
             <h3>Produits frais & surgelés</h3>
-            <p>
-              Poissons entiers, filets et autres produits de la mer, disponibles en frais ou surgelé, selon vos besoins
-              et vos marchés.
-            </p>
+            <p>Poissons entiers, filets et autres produits de la mer, disponibles en frais ou surgelé, selon vos besoins et vos marchés.</p>
           </div>
+
           <div class="card">
             <span class="label">Transformation</span>
             <a href="preparation-poissons.jpg" target="_blank" class="clickable-image">
               <img src="preparation-poissons.jpg" alt="Préparation, nettoyage et découpe de poissons">
             </a>
             <h3>Préparation & conditionnement</h3>
-            <p>
-              Tri, nettoyage, découpe et conditionnement dans le respect strict des bonnes pratiques d’hygiène et des normes.
-            </p>
+            <p>Tri, nettoyage, découpe et conditionnement dans le respect strict des bonnes pratiques d’hygiène et des normes.</p>
           </div>
+
           <div class="card">
             <span class="label">Logistique</span>
             <a href="logistique-froid.jpg" target="_blank" class="clickable-image">
               <img src="logistique-froid.jpg" alt="Camions frigorifiques et entrepôts réfrigérés">
             </a>
             <h3>Distribution & chaîne du froid</h3>
-            <p>
-              Organisation de la chaîne logistique, respect de la chaîne du froid et gestion des livraisons jusqu’au client final.
-            </p>
+            <p>Organisation de la chaîne logistique, respect de la chaîne du froid et gestion des livraisons jusqu’au client final.</p>
           </div>
         </div>
       </section>
@@ -999,38 +834,33 @@
               <img src="fruits-agrumes-mangues.jpg" alt="Oranges, mangues et mandarines fraîches">
             </a>
             <h3>Fruits choisis</h3>
-            <p>
-              Fruits issus de producteurs partenaires, choisis pour leur qualité, leur maturité et la régularité de l’approvisionnement.
-            </p>
+            <p>Fruits issus de producteurs partenaires, choisis pour leur qualité, leur maturité et la régularité de l’approvisionnement.</p>
           </div>
+
           <div class="card">
             <span class="label">Process</span>
             <a href="galerie-usine-transformation.jpg" target="_blank" class="clickable-image">
               <img src="galerie-usine-transformation.jpg" alt="Ligne industrielle de transformation de jus de fruits">
             </a>
             <h3>Transformation & formulation</h3>
-            <p>
-              Tri, lavage, pressage et filtration pour proposer des jus simples, des mélanges ou des recettes spécifiques adaptées à vos marchés.
-            </p>
+            <p>Tri, lavage, pressage et filtration pour proposer des jus simples, des mélanges ou des recettes spécifiques adaptées à vos marchés.</p>
           </div>
+
           <div class="card">
             <span class="label">Distribution</span>
             <a href="hero-jus-fruits.jpg" target="_blank" class="clickable-image">
               <img src="hero-jus-fruits.jpg" alt="Bouteilles ou verres de jus prêts à être distribués">
             </a>
             <h3>Conditionnement adapté</h3>
-            <p>
-              Conditionnement en formats B2B ou B2C, avec une traçabilité complète des produits transformés jusqu’au point de vente.
-            </p>
+            <p>Conditionnement en formats B2B ou B2C, avec une traçabilité complète des produits transformés jusqu’au point de vente.</p>
           </div>
         </div>
       </section>
 
       <section id="galerie">
         <h2>Photos d’ORION FISH</h2>
-        <p class="muted">
-          Galerie générale : activités en mer, transformation en usine, jus de fruits.
-        </p>
+        <p class="muted">Galerie générale : activités en mer, transformation en usine, jus de fruits.</p>
+
         <div class="galerie-grid">
           <div class="galerie-item">
             <a href="hero-poissons-frais.jpg.png" target="_blank" class="clickable-image">
@@ -1038,12 +868,14 @@
             </a>
             <div class="galerie-caption">Sélection et préparation de produits de la mer.</div>
           </div>
+
           <div class="galerie-item">
             <a href="galerie-usine-transformation.jpg" target="_blank" class="clickable-image">
               <img src="galerie-usine-transformation.jpg" alt="Usine de transformation agroalimentaire">
             </a>
             <div class="galerie-caption">Ligne de transformation et conditionnement.</div>
           </div>
+
           <div class="galerie-item">
             <a href="hero-jus-fruits.jpg" target="_blank" class="clickable-image">
               <img src="hero-jus-fruits.jpg" alt="Verres de jus de fruits colorés">
@@ -1055,39 +887,83 @@
 
       <section id="contact">
         <h2>Contact</h2>
-        <p>
-          Pour toute demande d’information, de partenariat ou de projet, contactez ORION FISH via le formulaire ci-dessous.
-        </p>
+        <p>Pour toute demande d’information, de partenariat ou de projet, contactez ORION FISH via le formulaire ci-dessous.</p>
+
         <p class="muted">
           Les données sont envoyées via une connexion sécurisée (HTTPS) vers un service de formulaire,
           puis transmises à notre adresse e-mail.
         </p>
+
         <p>
-          Vous pouvez également nous écrire directement à
-          <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a>.
+          Email : <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a><br>
+          Tél/WhatsApp : <a href="tel:+2212702457">+2212702457</a>
         </p>
 
         <form action="https://formsubmit.co/contact@orionsfish.com" method="POST">
           <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_subject" value="Nouveau message – ORION FISH (site web)">
 
           <div>
             <label for="nom">Nom / Entreprise</label>
             <input id="nom" name="Nom" type="text" placeholder="Votre nom ou celui de votre entreprise" required />
           </div>
+
           <div>
             <label for="email">E-mail</label>
             <input id="email" name="Email" type="email" placeholder="votremail@example.com" required />
           </div>
+
           <div>
             <label for="tel">Téléphone</label>
-            <input id="tel" name="Téléphone" type="tel" placeholder="+XXX XX XX XX XX" />
+            <input id="tel" name="Téléphone" type="tel" placeholder="+221 XX XXX XX XX" />
           </div>
+
           <div>
             <label for="message">Message</label>
             <textarea id="message" name="Message" placeholder="Décrivez votre besoin..." required></textarea>
           </div>
+
           <button type="submit" class="btn btn-principal">Envoyer</button>
         </form>
+      </section>
+
+      <!-- SECTIONS LÉGALES (pour que les liens du footer fonctionnent tout de suite) -->
+      <section id="mentions-legales">
+        <h2>Mentions légales</h2>
+        <p><strong>Éditeur du site :</strong><br>
+          <strong>ORION FISH</strong><br>
+          Quartier Léona, Cité Filaos, Rufisque, 17000, Sénégal<br>
+          Registre de commerce : <strong>010112051 SN.DKR.2023.B.9159</strong>
+        </p>
+        <p><strong>Responsable de publication :</strong> Diallo Mamadou</p>
+        <p><strong>Contact :</strong><br>
+          Tél/WhatsApp : <a href="tel:+2212702457">+2212702457</a><br>
+          Email : <a href="mailto:export@orionsfish.com">export@orionsfish.com</a> / <a href="mailto:sales@orionsfish.com">sales@orionsfish.com</a> / <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a>
+        </p>
+        <p><strong>Hébergement :</strong> Hostinger</p>
+      </section>
+
+      <section id="politique-de-confidentialite">
+        <h2>Politique de confidentialité</h2>
+        <p>
+          ORION FISH traite les informations transmises via le formulaire de contact uniquement pour répondre à votre demande
+          (informations, devis, partenariat). Les données ne sont pas vendues.
+        </p>
+        <p>
+          Le formulaire utilise un service tiers de soumission (FormSubmit). Les messages sont transférés vers
+          notre email <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a>.
+        </p>
+        <p class="muted">
+          Vous pouvez demander la suppression de vos données en écrivant à <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a>.
+        </p>
+      </section>
+
+      <section id="conditions">
+        <h2>Conditions</h2>
+        <p>
+          Les informations présentées sur ce site ont un objectif informatif. Les offres commerciales (prix, disponibilités,
+          délais, quantités minimales) sont communiquées sur demande via devis.
+        </p>
       </section>
     </main>
 
@@ -1122,9 +998,7 @@
             <div class="team-item-role">Opérateur de production</div>
           </div>
         </div>
-        <div class="team-item-text">
-          Participe aux opérations de transformation et de conditionnement au quotidien.
-        </div>
+        <div class="team-item-text">Participe aux opérations de transformation et de conditionnement au quotidien.</div>
       </div>
 
       <div class="team-item">
@@ -1137,9 +1011,7 @@
             <div class="team-item-role">Responsable transport / distribution</div>
           </div>
         </div>
-        <div class="team-item-text">
-          Organise les livraisons, la disponibilité des véhicules et le respect des délais clients.
-        </div>
+        <div class="team-item-text">Organise les livraisons, la disponibilité des véhicules et le respect des délais clients.</div>
       </div>
 
       <div class="team-item">
@@ -1152,9 +1024,7 @@
             <div class="team-item-role">Responsable utilités (froid, vapeur, air comprimé, eau)</div>
           </div>
         </div>
-        <div class="team-item-text">
-          Garantit la performance des installations de froid, vapeur, air comprimé et eau de l’usine.
-        </div>
+        <div class="team-item-text">Garantit la performance des installations de froid, vapeur, air comprimé et eau de l’usine.</div>
       </div>
 
       <div class="team-item">
@@ -1167,12 +1037,9 @@
             <div class="team-item-role">Directeur Ressources Humaines</div>
           </div>
         </div>
-        <div class="team-item-text">
-          Gère le capital humain : recrutement, formation, relations sociales et climat interne.
-        </div>
+        <div class="team-item-text">Gère le capital humain : recrutement, formation, relations sociales et climat interne.</div>
       </div>
 
-      <!-- Insa : SANS PHOTO -->
       <div class="team-item">
         <div class="team-item-top">
           <div class="team-avatar-placeholder">IK</div>
@@ -1181,12 +1048,9 @@
             <div class="team-item-role">Technicien R&D</div>
           </div>
         </div>
-        <div class="team-item-text">
-          Contribue aux essais R&D et à l’amélioration continue des produits et procédés.
-        </div>
+        <div class="team-item-text">Contribue aux essais R&D et à l’amélioration continue des produits et procédés.</div>
       </div>
 
-      <!-- Seyni : SANS PHOTO -->
       <div class="team-item">
         <div class="team-item-top">
           <div class="team-avatar-placeholder">SD</div>
@@ -1195,12 +1059,9 @@
             <div class="team-item-role">Responsable HACCP / Food Safety</div>
           </div>
         </div>
-        <div class="team-item-text">
-          Met en œuvre le plan HACCP et veille à la sécurité sanitaire des aliments.
-        </div>
+        <div class="team-item-text">Met en œuvre le plan HACCP et veille à la sécurité sanitaire des aliments.</div>
       </div>
 
-      <!-- Samba : SANS PHOTO -->
       <div class="team-item">
         <div class="team-item-top">
           <div class="team-avatar-placeholder">SN</div>
@@ -1215,7 +1076,6 @@
         </div>
       </div>
 
-      <!-- Responsable production : on garde la photo existante -->
       <div class="team-item">
         <div class="team-item-top">
           <div class="team-avatar">
@@ -1226,19 +1086,43 @@
             <div class="team-item-role">Supervision des lignes de production</div>
           </div>
         </div>
-        <div class="team-item-text">
-          Organise les volumes, les rendements et la qualité sur les lignes de production.
-        </div>
+        <div class="team-item-text">Organise les volumes, les rendements et la qualité sur les lignes de production.</div>
       </div>
     </aside>
   </div>
 
-  <footer>
-    © <span id="year"></span> – ORION FISH. Tous droits réservés.
+  <!-- FOOTER PRO (remplace l'ancien footer simple) -->
+  <footer class="site-footer">
+    <div class="footer-block">
+      <strong>ORION FISH</strong><br>
+      Quartier Léona, Cité Filaos, Rufisque, 17000, Sénégal<br>
+      Registre de commerce : <strong>010112051 SN.DKR.2023.B.9159</strong><br>
+      Responsable de publication : <strong>Diallo Mamadou</strong><br>
+      Hébergeur : <strong>Hostinger</strong><br>
+      Tél/WhatsApp : <a href="tel:+2212702457">+2212702457</a><br>
+      Email : <a href="mailto:export@orionsfish.com">export@orionsfish.com</a> |
+      <a href="mailto:sales@orionsfish.com">sales@orionsfish.com</a> |
+      <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a>
+    </div>
+
+    <div class="footer-links">
+      <a href="#mentions-legales">Mentions légales</a>
+      <span>•</span>
+      <a href="#politique-de-confidentialite">Politique de confidentialité</a>
+      <span>•</span>
+      <a href="#conditions">Conditions</a>
+    </div>
+
+    <div class="footer-copy">
+      © <span id="y"></span> ORION FISH. Tous droits réservés.
+    </div>
   </footer>
 
   <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
+    // Année automatique
+    const y = new Date().getFullYear();
+    const el = document.getElementById("y");
+    if (el) el.textContent = y;
   </script>
 </body>
 </html>
