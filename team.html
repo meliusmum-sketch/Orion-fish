@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Team ORION FISH</title>
+
+  <meta name="description" content="Équipe ORION FISH – Direction, opérations, qualité, R&D, marketing et support." />
+  <meta name="robots" content="index,follow" />
+
+  <style>
+    :root{
+      --marine:#020617; --card:#020617; --card-border:#1f2937;
+      --text-main:#e5e7eb; --text-muted:#9ca3af;
+      --orange:#f97316; --gold:#facc15;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      line-height:1.6; color:var(--text-main);
+      background:radial-gradient(circle at top left,#1d4ed8,#020617 65%);
+      min-height:100vh;
+    }
+    a{color:inherit;text-decoration:none}
+    header{
+      position:sticky; top:0; z-index:10;
+      background:rgba(2,6,23,.96);
+      backdrop-filter:blur(8px);
+      border-bottom:1px solid rgba(148,163,184,.4);
+    }
+    .nav-container{
+      max-width:1100px; margin:0 auto; padding:.7rem 1.5rem;
+      display:flex; align-items:center; justify-content:space-between; gap:.8rem;
+    }
+    .logo{
+      display:flex; align-items:center; gap:.6rem;
+      font-weight:800; letter-spacing:.15em; font-size:.9rem;
+      text-transform:uppercase; white-space:nowrap;
+    }
+    nav ul{
+      list-style:none; display:flex; flex-wrap:wrap;
+      gap:1rem; justify-content:flex-end; align-items:center;
+      font-size:.9rem;
+    }
+    nav a{opacity:.82; transition:opacity .15s, transform .15s}
+    nav a:hover{opacity:1; transform:translateY(-1px)}
+    .lang-toggle{
+      border:1px solid rgba(148,163,184,.6);
+      background:rgba(15,23,42,.7);
+      color:#e5e7eb;
+      padding:.45rem .75rem;
+      border-radius:999px;
+      font-weight:900; cursor:pointer;
+      transition:transform .12s, background .12s;
+    }
+    .lang-toggle:hover{transform:translateY(-1px); background:rgba(15,23,42,.95)}
+
+    .container{max-width:1100px;margin:0 auto;padding:1.5rem 1.5rem 2.5rem}
+    section{
+      margin:1.5rem 0; padding:2rem;
+      background:var(--card);
+      border-radius:1.5rem;
+      box-shadow:0 18px 45px rgba(15,23,42,.6);
+      border:1px solid var(--card-border);
+    }
+    h1{font-size:2.0rem;margin-bottom:.6rem}
+    p{margin-bottom:.7rem}
+    .muted{color:var(--text-muted)}
+
+    .filters{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1rem}
+    .chip{
+      display:inline-flex;align-items:center;
+      padding:.3rem .75rem;border-radius:999px;
+      border:1px solid rgba(148,163,184,.35);
+      background:rgba(2,6,23,.8);
+      font-weight:900;font-size:.82rem;
+      cursor:pointer;opacity:.92;
+      transition:transform .12s, opacity .12s, border-color .12s;
+      user-select:none;
+    }
+    .chip:hover{transform:translateY(-1px);opacity:1}
+    .chip.active{border-color:rgba(250,204,21,.8)}
+
+    .team-grid{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:1rem;margin-top:1.3rem;
+    }
+    .member{
+      padding:1.1rem;border-radius:1.2rem;
+      border:1px solid rgba(55,65,81,.9);
+      background:#020617;
+      transition:transform .12s, box-shadow .12s, border-color .12s;
+    }
+    .member:hover{
+      transform:translateY(-2px);
+      border-color:#60a5fa;
+      box-shadow:0 10px 26px rgba(15,23,42,.8);
+    }
+    .member-top{display:flex;gap:.8rem;align-items:center;margin-bottom:.7rem}
+    .avatar{
+      width:56px;height:56px;border-radius:999px;
+      border:2px solid rgba(250,204,21,.9);
+      background:rgba(148,163,184,.18);
+      display:grid;place-items:center;
+      font-weight:900;letter-spacing:.06em;
+      color:#e5e7eb;flex-shrink:0;
+    }
+    .name{font-weight:900}
+    .role{opacity:.92;font-size:.9rem}
+    .desc{color:var(--text-muted);font-size:.9rem}
+
+    .site-footer{
+      max-width:1100px; margin:0 auto;
+      padding:1.8rem 1.5rem;
+      color:var(--text-muted); font-size:.85rem;
+      border-top:1px solid rgba(148,163,184,.35);
+    }
+    .site-footer a{text-decoration:underline;text-underline-offset:3px}
+    .footer-copy{margin-top:.8rem}
+
+    @media (max-width:1024px){
+      .container{padding:1.5rem 1rem 2.5rem}
+      .team-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+      section{padding:1.6rem}
+    }
+    @media (max-width:640px){
+      .nav-container{flex-direction:column;align-items:flex-start;gap:.4rem}
+      nav ul{justify-content:flex-start;gap:.9rem}
+      .team-grid{grid-template-columns:1fr}
+      h1{font-size:1.6rem}
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="nav-container">
+      <div class="logo">ORION FISH</div>
+      <nav>
+        <ul>
+          <li><a href="index.html" data-i18n="nav_home">Accueil</a></li>
+          <li><a href="index.html#contact" data-i18n="nav_contact">Contact</a></li>
+          <li><a href="team.html" data-i18n="nav_team">Team</a></li>
+          <li><button id="langToggle" class="lang-toggle" type="button">EN</button></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section>
+      <h1 data-i18n="team_title">Team ORION FISH</h1>
+      <p class="muted" data-i18n="team_sub">Photos retirées : affichage en initiales (prénom + nom).</p>
+
+      <div class="filters">
+        <span class="chip active" data-filter="all" data-i18n="filter_all">Tous</span>
+        <span class="chip" data-filter="management" data-i18n="filter_mgmt">Direction</span>
+        <span class="chip" data-filter="sales" data-i18n="filter_sales">Commercial / Marketing</span>
+        <span class="chip" data-filter="ops" data-i18n="filter_ops">Opérations</span>
+        <span class="chip" data-filter="quality" data-i18n="filter_quality">Qualité / HACCP</span>
+        <span class="chip" data-filter="support" data-i18n="filter_support">Support</span>
+      </div>
+
+      <div class="team-grid">
+        <!-- DIRECTION -->
+        <article class="member" data-group="management">
+          <div class="member-top"><div class="avatar">AM</div><div><div class="name">Amadou Mballo</div><div class="role" data-i18n="r_am">Directeur Général</div></div></div>
+          <div class="desc" data-i18n="d_am">Pilote la stratégie globale et l’alignement des activités mer & fruits.</div>
+        </article>
+
+        <article class="member" data-group="management">
+          <div class="member-top"><div class="avatar">MK</div><div><div class="name">Mouhamad Kébé</div><div class="role" data-i18n="r_mk">Gérant</div></div></div>
+          <div class="desc" data-i18n="d_mk">Coordonne l’exécution opérationnelle des activités.</div>
+        </article>
+
+        <article class="member" data-group="management">
+          <div class="member-top"><div class="avatar">SN</div><div><div class="name">Samba Ndiaye</div><div class="role" data-i18n="r_sn">Directeur d’usine</div></div></div>
+          <div class="desc" data-i18n="d_sn">Supervise la production et la performance industrielle.</div>
+        </article>
+
+        <!-- COMMERCIAL / MARKETING -->
+        <article class="member" data-group="sales">
+          <div class="member-top"><div class="avatar">SD</div><div><div class="name">Souleymane Diallo</div><div class="role" data-i18n="r_sou">Directeur Service Commercial</div></div></div>
+          <div class="desc" data-i18n="d_sou">Développe le portefeuille clients et les partenariats.</div>
+        </article>
+
+        <article class="member" data-group="sales">
+          <div class="member-top"><div class="avatar">NFW</div><div><div class="name">Ndèye Fatou Wade</div><div class="role" data-i18n="r_nfw">Directrice Marketing / Clientèle</div></div></div>
+          <div class="desc" data-i18n="d_nfw">Pilote le marketing, la communication et la relation clientèle.</div>
+        </article>
+
+        <!-- OPS -->
+        <article class="member" data-group="ops">
+          <div class="member-top"><div class="avatar">LB</div><div><div class="name">Landing Badji</div><div class="role" data-i18n="r_lb">Opérateur de production</div></div></div>
+          <div class="desc" data-i18n="d_lb">Participe aux opérations de transformation et conditionnement.</div>
+        </article>
+
+        <article class="member" data-group="ops">
+          <div class="member-top"><div class="avatar">ISB</div><div><div class="name">Ibrahima Sory Bindia</div><div class="role" data-i18n="r_isb">Transport / distribution</div></div></div>
+          <div class="desc" data-i18n="d_isb">Organise les livraisons et le respect des délais.</div>
+        </article>
+
+        <article class="member" data-group="ops">
+          <div class="member-top"><div class="avatar">OD</div><div><div class="name">Ousmane Diop</div><div class="role" data-i18n="r_od">Responsable utilités</div></div></div>
+          <div class="desc" data-i18n="d_od">Garantit la performance des installations (froid, vapeur, air, eau).</div>
+        </article>
+
+        <article class="member" data-group="ops">
+          <div class="member-top"><div class="avatar">MHD</div><div><div class="name">Mamadou Hady Diallo</div><div class="role" data-i18n="r_mhd">Chef d’équipe</div></div></div>
+          <div class="desc" data-i18n="d_mhd">Encadre les équipes terrain.</div>
+        </article>
+
+        <article class="member" data-group="ops">
+          <div class="member-top"><div class="avatar">RP</div><div><div class="name">Responsable production</div><div class="role" data-i18n="r_rp">Supervision des lignes</div></div></div>
+          <div class="desc" data-i18n="d_rp">Organise volumes, rendements et qualité sur les lignes.</div>
+        </article>
+
+        <!-- QUALITÉ -->
+        <article class="member" data-group="quality">
+          <div class="member-top"><div class="avatar">NAD</div><div><div class="name">Ndèye Astou Diatta</div><div class="role" data-i18n="r_nad">Traçabilité & réclamations</div></div></div>
+          <div class="desc" data-i18n="d_nad">Assure la traçabilité et le suivi des réclamations.</div>
+        </article>
+
+        <article class="member" data-group="quality">
+          <div class="member-top"><div class="avatar">SeD</div><div><div class="name">Seyni Diedhiou</div><div class="role" data-i18n="r_sed">HACCP / Food Safety</div></div></div>
+          <div class="desc" data-i18n="d_sed">Met en œuvre le plan HACCP et la sécurité alimentaire.</div>
+        </article>
+
+        <!-- SUPPORT -->
+        <article class="member" data-group="support">
+          <div class="member-top"><div class="avatar">AD</div><div><div class="name">Awa Diatta</div><div class="role" data-i18n="r_ad">Innovation</div></div></div>
+          <div class="desc" data-i18n="d_ad">Pilote les projets d’innovation (produits & procédés).</div>
+        </article>
+
+        <article class="member" data-group="support">
+          <div class="member-top"><div class="avatar">IKD</div><div><div class="name">Insa Koulissoret Diedhiou</div><div class="role" data-i18n="r_ikd">Technicien R&D</div></div></div>
+          <div class="desc" data-i18n="d_ikd">Contribue aux essais R&D et à l’amélioration continue.</div>
+        </article>
+
+        <article class="member" data-group="support">
+          <div class="member-top"><div class="avatar">IT</div><div><div class="name">Ibou Thiam</div><div class="role" data-i18n="r_it">Directeur RH</div></div></div>
+          <div class="desc" data-i18n="d_it">Gère recrutement, formation et relations sociales.</div>
+        </article>
+
+        <article class="member" data-group="support">
+          <div class="member-top"><div class="avatar">ED</div><div><div class="name">Emilie Diatta</div><div class="role" data-i18n="r_ed">RAF</div></div></div>
+          <div class="desc" data-i18n="d_ed">Supervise administratif, trésorerie et suivi financier.</div>
+        </article>
+
+        <article class="member" data-group="support">
+          <div class="member-top"><div class="avatar">IK</div><div><div class="name">Idy KA</div><div class="role" data-i18n="r_ik">Informatique</div></div></div>
+          <div class="desc" data-i18n="d_ik">Gère systèmes d’information et outils numériques.</div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div>
+      <strong>ORION FISH</strong><br>
+      Rufisque, Sénégal — RC : <strong>010112051 SN.DKR.2023.B.9159</strong><br>
+      Tél/WhatsApp : <a href="tel:+2212702457">+2212702457</a> — <a href="mailto:export@orionsfish.com">export@orionsfish.com</a>
+    </div>
+    <div class="footer-copy">© <span id="y"></span> ORION FISH</div>
+  </footer>
+
+  <script>
+    // Année
+    const y = new Date().getFullYear();
+    document.getElementById("y").textContent = y;
+
+    // Filtres
+    const chips = [...document.querySelectorAll(".chip")];
+    const members = [...document.querySelectorAll(".member")];
+    chips.forEach(ch => ch.addEventListener("click", () => {
+      chips.forEach(c => c.classList.remove("active"));
+      ch.classList.add("active");
+      const f = ch.dataset.filter;
+      members.forEach(m => {
+        const g = m.dataset.group;
+        m.style.display = (f === "all" || f === g) ? "" : "none";
+      });
+    }));
+
+    // i18n FR/EN (résumé)
+    const dict = {
+      fr: {
+        nav_home:"Accueil", nav_contact:"Contact", nav_team:"Team",
+        team_title:"Team ORION FISH", team_sub:"Photos retirées : affichage en initiales (prénom + nom).",
+        filter_all:"Tous", filter_mgmt:"Direction", filter_sales:"Commercial / Marketing", filter_ops:"Opérations", filter_quality:"Qualité / HACCP", filter_support:"Support"
+      },
+      en: {
+        nav_home:"Home", nav_contact:"Contact", nav_team:"Team",
+        team_title:"ORION FISH Team", team_sub:"Photos removed: initials display (first name + last name).",
+        filter_all:"All", filter_mgmt:"Management", filter_sales:"Sales / Marketing", filter_ops:"Operations", filter_quality:"Quality / HACCP", filter_support:"Support"
+      }
+    };
+
+    function setLang(lang){
+      const d = dict[lang] || dict.fr;
+      document.documentElement.lang = lang;
+      document.querySelectorAll("[data-i18n]").forEach(el=>{
+        const k = el.getAttribute("data-i18n");
+        if(d[k]) el.textContent = d[k];
+      });
+      document.getElementById("langToggle").textContent = (lang === "fr") ? "EN" : "FR";
+      localStorage.setItem("lang", lang);
+    }
+
+    const stored = localStorage.getItem("lang");
+    const initial = stored || ((navigator.language||"").toLowerCase().startsWith("fr") ? "fr" : "en");
+    setLang(initial);
+
+    document.getElementById("langToggle").addEventListener("click", ()=>{
+      setLang(document.documentElement.lang === "fr" ? "en" : "fr");
+    });
+  </script>
+</body>
+</html>
