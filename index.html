@@ -11,7 +11,6 @@
   <link rel="icon" href="/logo-orion-fish.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/logo-orion-fish.svg">
 
-  <!-- ✅ CSS commun -->
   <link rel="stylesheet" href="/styles.css">
 
   <script>
@@ -44,7 +43,6 @@
 <body class="page-home">
   <a class="skip" href="#main">Aller au contenu</a>
 
-  <!-- TOPBAR -->
   <div class="topbar">
     <div class="container">
       <div class="topbar-row">
@@ -64,7 +62,6 @@
     </div>
   </div>
 
-  <!-- HEADER -->
   <header>
     <div class="container">
       <div class="nav">
@@ -91,7 +88,6 @@
   </header>
 
   <main id="main">
-    <!-- SEARCH BAR -->
     <section class="hero-search" aria-label="Recherche">
       <div class="container">
         <div class="search-card">
@@ -133,7 +129,6 @@
       </div>
     </section>
 
-    <!-- CONTENU -->
     <div class="container">
       <section id="accueil" class="hero">
         <div class="hero-grid">
@@ -333,11 +328,11 @@
   </main>
 
   <script>
-    // année footer (safe)
+    // Année
     const y = document.getElementById("year");
     if (y && !y.textContent.trim()) y.textContent = new Date().getFullYear();
 
-    // Tabs (visuel)
+    // Tabs visuels
     const tabs = document.querySelectorAll(".tab");
     tabs.forEach(btn => {
       btn.addEventListener("click", () => {
@@ -363,16 +358,13 @@
 
       const url = new URL("/rfq.html", location.origin);
       if (q) url.searchParams.set("q", q);
-
-      // évite l'option placeholder
       if (zone && zone !== "Zone / Pays") url.searchParams.set("zone", zone);
-
       url.searchParams.set("type", type);
+
       location.href = url.toString();
     }
 
     if (searchBtn) searchBtn.addEventListener("click", goToRFQ);
-
     if (qInput) {
       qInput.addEventListener("keydown", (e) => {
         if (e.key === "Enter") {
