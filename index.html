@@ -11,7 +11,452 @@
   <link rel="icon" href="/logo-orion-fish.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/logo-orion-fish.svg">
 
-  <link rel="stylesheet" href="/styles.css" />
+  <!-- ✅ Styles intégrés (tu n'as pas besoin de styles.css) -->
+  <style>
+    :root{
+      --brand-red:#DF261D;
+      --brand-orange:#FF8B00;
+
+      --bg:#f4f6f8;
+      --surface:#ffffff;
+
+      --text:#1f2937;
+      --muted:#6b7280;
+
+      --border:#e5e7eb;
+      --shadow:0 2px 10px rgba(0,0,0,.06);
+
+      --radius:16px;
+      --radius-sm:12px;
+
+      --container:1180px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,Arial,sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.5;
+    }
+    img{max-width:100%;display:block}
+    a{color:inherit;text-decoration:none}
+    p{margin:0 0 12px}
+    h1,h2{margin:0 0 10px;line-height:1.15}
+    h1{font-size:clamp(26px,3vw,38px)}
+    h2{font-size:clamp(20px,2.2vw,28px)}
+    .muted{color:var(--muted)}
+
+    .container{
+      max-width:var(--container);
+      margin:0 auto;
+      padding:0 16px;
+    }
+
+    .skip{
+      position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;
+    }
+    .skip:focus{
+      left:16px;top:16px;width:auto;height:auto;padding:10px 12px;
+      background:#fff;border:1px solid var(--border);border-radius:12px;z-index:9999;
+      box-shadow:var(--shadow);
+    }
+
+    /* TOPBAR */
+    .topbar{
+      background:#fff;
+      border-bottom:1px solid var(--border);
+      font-size:13px;
+      color:var(--muted);
+    }
+    .topbar-row{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      padding:10px 0;
+    }
+    .topbar-links{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+    .sep{color:#9ca3af}
+
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:6px 10px;
+      border:1px solid var(--border);
+      border-radius:999px;
+      background:#fff;
+      color:var(--text);
+      font-weight:900;
+    }
+    .dot{
+      width:8px;height:8px;border-radius:999px;
+      background:var(--brand-red);
+      display:inline-block;
+    }
+
+    .btn-lang{
+      border:1px solid var(--border);
+      background:var(--surface);
+      padding:8px 10px;
+      border-radius:999px;
+      font-weight:900;
+      cursor:pointer;
+    }
+    .btn-lang:hover{box-shadow:var(--shadow)}
+
+    /* HEADER */
+    header{
+      background:var(--surface);
+      border-bottom:1px solid var(--border);
+      position:sticky;
+      top:0;
+      z-index:50;
+    }
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      padding:14px 0;
+    }
+
+    .logo-link{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width:220px;
+    }
+    .logo-mark{
+      width:38px;height:38px;
+      border-radius:12px;
+      box-shadow:inset 0 0 0 2px rgba(255,255,255,.25);
+    }
+    .logo-text{display:flex;flex-direction:column;line-height:1.1}
+    .logo-title{font-weight:900;letter-spacing:.2px}
+    .logo-sub{font-size:12px;color:var(--muted)}
+
+    /* Ton menu <nav><ul><li> */
+    nav ul{
+      margin:0;
+      padding:0;
+      list-style:none;
+      display:flex;
+      align-items:center;
+      gap:6px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    nav a{
+      display:inline-flex;
+      padding:8px 10px;
+      border-radius:12px;
+      color:var(--muted);
+      font-weight:900;
+      font-size:14px;
+    }
+    nav a:hover{
+      background:#f7f7f8;
+      color:var(--text);
+    }
+
+    /* Buttons */
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:11px 14px;
+      border-radius:14px;
+      border:1px solid var(--border);
+      background:var(--surface);
+      font-weight:900;
+      cursor:pointer;
+      transition:filter .12s ease, box-shadow .12s ease, transform .12s ease;
+    }
+    .btn:hover{box-shadow:var(--shadow); transform:translateY(-1px)}
+    .btn:active{transform:translateY(0)}
+    .btn-primary{
+      border-color:transparent;
+      background:var(--brand-orange);
+      color:#111827;
+    }
+    .btn-outline{
+      background:transparent;
+      border-color:var(--border);
+      color:var(--text);
+    }
+    .btn-green{
+      border-color:rgba(223,38,29,.25);
+      background:rgba(223,38,29,.06);
+      color:var(--text);
+    }
+
+    /* SEARCH HERO (Kompass-like) */
+    .hero-search{
+      background:#fff;
+      border-bottom:1px solid var(--border);
+      padding:18px 0 14px;
+    }
+    .search-card{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:18px;
+      box-shadow:var(--shadow);
+      padding:14px;
+    }
+    .tabs{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      margin-bottom:12px;
+    }
+    .tab{
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background:#fff;
+      color:var(--muted);
+      font-weight:900;
+      font-size:14px;
+      cursor:pointer;
+    }
+    .tab[aria-selected="true"]{
+      border-color:rgba(223,38,29,.25);
+      background:rgba(223,38,29,.06);
+      color:var(--text);
+    }
+    .search-row{
+      display:grid;
+      grid-template-columns:1fr 190px 160px;
+      gap:10px;
+    }
+    .field{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      border:1px solid var(--border);
+      border-radius:14px;
+      background:#fff;
+      padding:10px 12px;
+    }
+    .field input, .field select{
+      width:100%;
+      border:0;
+      outline:0;
+      font-size:14px;
+      background:transparent;
+      color:var(--text);
+    }
+    .search-btn{
+      border:0;
+      border-radius:14px;
+      background:var(--brand-orange);
+      font-weight:900;
+      cursor:pointer;
+    }
+    .search-btn:hover{filter:brightness(.97)}
+    .hint{
+      margin-top:10px;
+      color:var(--muted);
+      font-size:13px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+
+    .breadcrumb{
+      padding:12px 0 0;
+      color:var(--muted);
+      font-size:13px;
+    }
+    .breadcrumb a{color:var(--muted)}
+    .breadcrumb a:hover{color:var(--text);text-decoration:underline}
+
+    /* HERO (ton bloc accueil en card) */
+    main{padding:0 0 40px}
+    .hero{padding:18px 0}
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:16px;
+      align-items:start;
+
+      background:var(--surface);
+      border:1px solid var(--border);
+      border-radius:18px;
+      box-shadow:var(--shadow);
+      padding:16px;
+    }
+    .cta{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:12px;
+    }
+    .info-card{
+      background:var(--surface);
+      border:1px solid var(--border);
+      border-radius:18px;
+      box-shadow:var(--shadow);
+      padding:14px;
+    }
+    .info-title{
+      font-weight:900;
+      font-size:13px;
+      text-transform:uppercase;
+      letter-spacing:.06em;
+      margin-bottom:10px;
+    }
+    .info-line{
+      color:var(--muted);
+      font-size:14px;
+      padding:8px 0;
+      border-top:1px solid var(--border);
+    }
+    .info-line:first-of-type{border-top:0}
+    .info-line strong{color:var(--text)}
+
+    /* Divider */
+    .full-sep{
+      height:1px;
+      background:var(--border);
+      margin:18px 0;
+    }
+
+    /* Sections */
+    .dark-zone{background:var(--bg)}
+    section{scroll-margin-top:110px} /* pour les ancres avec header sticky */
+
+    /* Cards grids */
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0, 1fr));
+      gap:12px;
+      margin-top:12px;
+    }
+    .card{
+      background:var(--surface);
+      border:1px solid var(--border);
+      border-radius:18px;
+      box-shadow:var(--shadow);
+      padding:14px;
+    }
+    .label{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:7px 10px;
+      border-radius:999px;
+      font-size:12px;
+      font-weight:900;
+      background:rgba(223,38,29,.06);
+      border:1px solid rgba(223,38,29,.18);
+      margin-bottom:10px;
+    }
+    .card strong{
+      display:block;
+      margin-bottom:8px;
+      font-size:16px;
+    }
+    .list{
+      margin:0;
+      padding-left:18px;
+      color:var(--muted);
+      list-style:disc;
+    }
+    .list li{margin:6px 0}
+
+    /* Form */
+    form{
+      margin-top:12px;
+      background:var(--surface);
+      border:1px solid var(--border);
+      border-radius:18px;
+      box-shadow:var(--shadow);
+      padding:14px;
+    }
+    label{
+      display:block;
+      font-weight:900;
+      font-size:13px;
+      margin:10px 0 6px;
+    }
+    input, textarea, select{
+      width:100%;
+      padding:11px 12px;
+      border-radius:14px;
+      border:1px solid var(--border);
+      outline:none;
+      background:#fff;
+      font-size:14px;
+      color:var(--text);
+    }
+    textarea{min-height:140px;resize:vertical}
+    input:focus, textarea:focus, select:focus{
+      border-color:rgba(223,38,29,.35);
+      box-shadow:0 0 0 4px rgba(223,38,29,.10);
+    }
+    .two{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+    }
+
+    /* Footer */
+    .dark-footer{
+      background:var(--surface);
+      border-top:1px solid var(--border);
+      margin-top:26px;
+    }
+    .footer{
+      max-width:var(--container);
+      margin:0 auto;
+      padding:18px 16px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:16px;
+      flex-wrap:wrap;
+      color:var(--muted);
+      font-size:13px;
+    }
+    .foot-links{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+    .foot-links a{
+      color:var(--muted);
+      font-weight:900;
+      padding:6px 8px;
+      border-radius:12px;
+    }
+    .foot-links a:hover{
+      background:#f7f7f8;
+      color:var(--text);
+    }
+    .foot-copy{color:var(--muted)}
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .topbar-row{flex-direction:column;align-items:flex-start}
+      .search-row{grid-template-columns:1fr}
+      .hero-grid{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr}
+      .two{grid-template-columns:1fr}
+    }
+  </style>
 
   <script>
     if (location.protocol === "http:" && location.hostname !== "localhost") {
@@ -43,7 +488,7 @@
 <body>
   <a class="skip" href="#main">Aller au contenu</a>
 
-  <!-- TOPBAR (style Kompass) -->
+  <!-- TOPBAR -->
   <div class="topbar">
     <div class="container">
       <div class="topbar-row">
@@ -57,14 +502,13 @@
         <div class="topbar-links">
           <a href="/#contact" data-i18n="nav_contact">Contact</a>
           <span class="sep">•</span>
-          <!-- On garde ton bouton langue (id inchangé pour ton JS i18n) -->
           <button class="btn-lang" id="langBtn" type="button">EN</button>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- HEADER -->
+  <!-- HEADER (ton header, légèrement simplifié) -->
   <header>
     <div class="container">
       <div class="nav">
@@ -76,25 +520,23 @@
           </span>
         </a>
 
-        <nav aria-label="Navigation principale" class="primary-nav">
-          <a href="/" data-i18n="nav_home">Accueil</a>
-          <a href="/#mer">Mer</a>
-          <a href="/#jus">Jus</a>
-          <a href="/#contact" data-i18n="nav_contact">Contact</a>
-          <a href="/#mentions" data-i18n="nav_legal">Mentions</a>
+        <nav aria-label="Navigation">
+          <ul>
+            <li><a href="/" data-i18n="nav_home">Accueil</a></li>
+            <li><a href="/rfq.html" data-i18n="nav_rfq">RFQ / Devis</a></li>
+            <li><a href="/compliance.html" data-i18n="nav_docs">Documents</a></li>
+            <li><a href="/team.html" data-i18n="nav_team">Team</a></li>
+            <li><a href="/#contact" data-i18n="nav_contact">Contact</a></li>
+            <li><a href="/#mentions" data-i18n="nav_legal">Mentions</a></li>
+          </ul>
         </nav>
-
-        <div class="header-actions">
-          <a class="btn btn-outline" href="/compliance.html" data-i18n="nav_docs">Documents</a>
-          <a class="btn btn-primary" href="/rfq.html" data-i18n="nav_rfq">RFQ / Devis</a>
-        </div>
       </div>
     </div>
   </header>
 
   <main id="main">
-    <!-- SEARCH HERO (style Kompass) -->
-    <section class="hero hero-search" aria-label="Recherche">
+    <!-- SEARCH BAR (style Kompass) -->
+    <section class="hero-search" aria-label="Recherche">
       <div class="container">
         <div class="search-card">
           <div class="tabs" role="tablist" aria-label="Type de recherche">
@@ -130,17 +572,16 @@
         </div>
 
         <div class="breadcrumb" aria-label="Fil d’Ariane">
-          <a href="/">Accueil</a> <span>›</span>
-          <span>ORION FISH</span>
+          <a href="/">Accueil</a> <span>›</span> <span>ORION FISH</span>
         </div>
       </div>
     </section>
 
-    <!-- Ton contenu existant, juste “mis en cards” -->
-    <section id="accueil" class="hero">
-      <div class="container">
+    <!-- Ton contenu original -->
+    <div class="container">
+      <section id="accueil" class="hero">
         <div class="hero-grid">
-          <div class="hero-text">
+          <div>
             <h1 data-i18n="home_h1">ORION FISH – Produits de la mer & jus de fruits</h1>
             <p class="muted" data-i18n="home_sub">
               Produits de la mer, transformation de fruits en jus, vente et distribution au service des marchés locaux et internationaux.
@@ -167,15 +608,15 @@
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
 
     <div class="full-sep" aria-hidden="true"></div>
 
     <div class="dark-zone">
       <div class="container">
 
-        <section id="apropos" class="panel-section">
+        <section id="apropos">
           <h2 data-i18n="about_h2">À propos d’ORION FISH</h2>
           <p data-i18n="about_p1">
             ORION FISH est une entreprise agroalimentaire spécialisée dans la valorisation des produits de la mer et la transformation de fruits en jus.
@@ -185,7 +626,7 @@
           </p>
         </section>
 
-        <section id="mer" class="panel-section">
+        <section id="mer">
           <h2 data-i18n="sea_h2">Produits de la mer</h2>
           <p class="muted" data-i18n="sea_p">Collecte, transformation, conditionnement et distribution.</p>
 
@@ -220,7 +661,7 @@
           </div>
         </section>
 
-        <section id="jus" class="panel-section">
+        <section id="jus">
           <h2 data-i18n="juice_h2">Fruits & jus</h2>
           <p class="muted" data-i18n="juice_p">Sélection, transformation et conditionnement selon marché.</p>
 
@@ -255,7 +696,7 @@
           </div>
         </section>
 
-        <section id="contact" class="panel-section">
+        <section id="contact">
           <h2 data-i18n="contact_h2">Contact</h2>
           <p data-i18n="contact_p1">Pour toute demande d’information ou partenariat, contactez-nous.</p>
           <p class="muted" data-i18n="contact_p2">Pour un devis rapide, utilisez la page RFQ.</p>
@@ -303,7 +744,7 @@
           </form>
         </section>
 
-        <section id="mentions" class="panel-section">
+        <section id="mentions">
           <h2 data-i18n="nav_legal">Mentions</h2>
           <p class="muted" style="margin-top:.6rem">
             <strong>ORION FISH</strong><br>
@@ -335,13 +776,13 @@
     </div>
   </main>
 
-  <!-- Petit JS “safe” (n’écrase pas ton site.js) -->
+  <!-- Petit JS sans conflit -->
   <script>
-    // année footer si jamais pas déjà fait dans site.js
+    // année footer si pas déjà fait dans site.js
     const y = document.getElementById("year");
     if (y && !y.textContent.trim()) y.textContent = new Date().getFullYear();
 
-    // Tabs (visuel) pour la search bar
+    // Tabs (visuel)
     const tabs = document.querySelectorAll(".tab");
     tabs.forEach(btn => {
       btn.addEventListener("click", () => {
