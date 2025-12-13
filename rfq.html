@@ -13,279 +13,412 @@
     }
   </script>
 
+  <!-- ✅ Style Kompass-like (intégré, pas besoin de styles.css) -->
   <style>
     :root{
-      --bg:#020617;
-      --card:#0b1220;
-      --border:#1f2937;
-      --text:#e5e7eb;
-      --muted:#9ca3af;
+      --brand-red:#DF261D;
+      --brand-orange:#FF8B00;
 
-      --accent:#f97316;
-      --accentHover:#ea580c;
+      --bg:#f4f6f8;
+      --surface:#ffffff;
 
-      --fresh:#14b8a6;
-      --freshSoft: rgba(20,184,166,.18);
-      --warmSoft: rgba(249,115,22,.20);
+      --text:#1f2937;
+      --muted:#6b7280;
+
+      --border:#e5e7eb;
+      --shadow:0 2px 10px rgba(0,0,0,.06);
+
+      --container:1180px;
     }
-    *{box-sizing:border-box;margin:0;padding:0}
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
     body{
-      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-      line-height:1.6;color:var(--text);
-      background:
-        radial-gradient(circle at 12% 0%, var(--warmSoft), transparent 48%),
-        radial-gradient(circle at 88% 12%, var(--freshSoft), transparent 52%),
-        var(--bg);
-      min-height:100vh;
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,Arial,sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.5;
     }
     a{color:inherit;text-decoration:none}
+    p{margin:0 0 12px}
+    h1,h2{margin:0 0 10px;line-height:1.15}
+    h1{font-size:clamp(24px,2.6vw,34px)}
+    h2{font-size:clamp(18px,2vw,24px)}
     .muted{color:var(--muted)}
+
+    .container{
+      max-width:var(--container);
+      margin:0 auto;
+      padding:0 16px;
+    }
+
+    .skip{
+      position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;
+    }
+    .skip:focus{
+      left:16px;top:16px;width:auto;height:auto;padding:10px 12px;
+      background:#fff;border:1px solid var(--border);border-radius:12px;z-index:9999;
+      box-shadow:var(--shadow);
+    }
+
+    /* TOPBAR */
+    .topbar{
+      background:#fff;
+      border-bottom:1px solid var(--border);
+      font-size:13px;
+      color:var(--muted);
+    }
+    .topbar-row{
+      display:flex;align-items:center;justify-content:space-between;
+      gap:12px;padding:10px 0;flex-wrap:wrap;
+    }
+    .topbar-links{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+    .sep{color:#9ca3af}
+    .pill{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:6px 10px;border:1px solid var(--border);
+      border-radius:999px;background:#fff;color:var(--text);
+      font-weight:900;
+    }
+    .dot{width:8px;height:8px;border-radius:999px;background:var(--brand-red);display:inline-block}
+
+    .btn-lang{
+      border:1px solid var(--border);
+      background:var(--surface);
+      padding:8px 10px;
+      border-radius:999px;
+      font-weight:900;
+      cursor:pointer;
+    }
+    .btn-lang:hover{box-shadow:var(--shadow)}
+
+    /* HEADER */
     header{
-      position:sticky;top:0;z-index:10;
-      background:rgba(2,6,23,.96);
-      backdrop-filter:blur(8px);
-      border-bottom:1px solid rgba(148,163,184,.35);
+      background:var(--surface);
+      border-bottom:1px solid var(--border);
+      position:sticky;
+      top:0;
+      z-index:50;
     }
     .nav{
-      max-width:1100px;margin:0 auto;padding:.8rem 1.5rem;
-      display:flex;align-items:center;justify-content:space-between;gap:1rem;
+      display:flex;align-items:center;justify-content:space-between;
+      gap:16px;padding:14px 0;flex-wrap:wrap;
     }
-    .logo{font-weight:900;letter-spacing:.18em;text-transform:uppercase;font-size:.95rem;white-space:nowrap}
-    nav ul{list-style:none;display:flex;flex-wrap:wrap;gap:1rem;align-items:center;font-size:.9rem}
-    nav a{opacity:.85;transition:opacity .15s,transform .15s}
-    nav a:hover{opacity:1;transform:translateY(-1px)}
-    .btn-lang{
-      border:1px solid rgba(148,163,184,.6);
-      background:rgba(15,23,42,.7);
-      color:var(--text);
-      padding:.45rem .75rem;border-radius:999px;
-      font-weight:900;cursor:pointer;
+    .logo-link{
+      display:flex;align-items:center;gap:12px;min-width:220px;
     }
+    .logo-mark{
+      width:38px;height:38px;border-radius:12px;
+      box-shadow:inset 0 0 0 2px rgba(255,255,255,.25);
+    }
+    .logo-text{display:flex;flex-direction:column;line-height:1.1}
+    .logo-title{font-weight:900;letter-spacing:.2px}
+    .logo-sub{font-size:12px;color:var(--muted)}
 
-    .container{max-width:1100px;margin:0 auto;padding:1.5rem 1.5rem 2.5rem}
-    section{
-      margin:1.8rem 0;padding:2rem;
-      background:var(--card);
-      border:1px solid var(--border);
-      border-radius:1.5rem;
-      box-shadow:0 18px 45px rgba(15,23,42,.6);
+    nav ul{
+      margin:0;padding:0;list-style:none;
+      display:flex;align-items:center;gap:6px;flex-wrap:wrap;
+      justify-content:flex-end;
     }
-    h1{font-size:2.0rem;margin-bottom:.6rem}
-    h2{font-size:1.25rem;margin-top:1.2rem;margin-bottom:.6rem}
+    nav a{
+      display:inline-flex;
+      padding:8px 10px;border-radius:12px;
+      color:var(--muted);font-weight:900;font-size:14px;
+    }
+    nav a:hover{background:#f7f7f8;color:var(--text)}
+
+    /* Page top */
+    main{padding:18px 0 40px}
+    .breadcrumb{
+      padding:12px 0 0;
+      color:var(--muted);
+      font-size:13px;
+    }
+    .breadcrumb a{color:var(--muted)}
+    .breadcrumb a:hover{color:var(--text);text-decoration:underline}
+
+    /* Card section */
+    .panel{
+      margin-top:14px;
+      background:var(--surface);
+      border:1px solid var(--border);
+      border-radius:18px;
+      box-shadow:var(--shadow);
+      padding:16px;
+    }
 
     .box{
-      border:1px solid rgba(148,163,184,.25);
-      background:rgba(15,23,42,.55);
-      border-radius:1.2rem;
-      padding:1.1rem;
-      margin-top:1rem;
+      border:1px solid var(--border);
+      background:#fff;
+      border-radius:16px;
+      padding:12px 14px;
+      margin-top:12px;
+      color:var(--muted);
     }
 
-    form{display:grid;gap:1rem;margin-top:1rem}
-    label{font-size:.88rem;font-weight:900;margin-bottom:.2rem;display:inline-block}
-    input,textarea,select{
-      width:100%;
-      padding:.6rem .85rem;
-      border-radius:.75rem;
-      border:1px solid #4b5563;
-      background:#050b16;
+    /* Notice pré-rempli */
+    .prefill{
+      display:none;
+      margin-top:12px;
+      padding:10px 12px;
+      border-radius:14px;
+      background:rgba(223,38,29,.06);
+      border:1px solid rgba(223,38,29,.18);
+      font-weight:800;
       color:var(--text);
-      font:inherit;
     }
-    textarea{min-height:130px;resize:vertical}
-    input:focus,textarea:focus,select:focus{
-      outline:none;border-color:rgba(20,184,166,.9);
-      box-shadow:0 0 0 1px rgba(20,184,166,.45);
+
+    /* Form */
+    form{display:grid;gap:12px;margin-top:14px}
+    label{display:block;font-weight:900;font-size:13px;margin:10px 0 6px}
+    input, textarea, select{
+      width:100%;
+      padding:11px 12px;
+      border-radius:14px;
+      border:1px solid var(--border);
+      outline:none;
+      background:#fff;
+      font-size:14px;
+      color:var(--text);
     }
-    .two{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+    textarea{min-height:140px;resize:vertical}
+    input:focus, textarea:focus, select:focus{
+      border-color:rgba(223,38,29,.35);
+      box-shadow:0 0 0 4px rgba(223,38,29,.10);
+    }
+    .two{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+    }
 
     .btn{
-      display:inline-block;
-      padding:.75rem 1.2rem;border-radius:999px;
-      font-weight:900;font-size:.95rem;
-      border:1px solid rgba(148,163,184,.55);
-      background:transparent;color:var(--text);
-      cursor:pointer;
-      transition:transform .12s,background .12s;
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:11px 14px;border-radius:14px;
+      border:1px solid var(--border);
+      background:var(--surface);
+      font-weight:900;cursor:pointer;
+      transition:filter .12s ease, box-shadow .12s ease, transform .12s ease;
       width:fit-content;
     }
-    .btn:hover{transform:translateY(-1px);background:rgba(15,23,42,.7)}
+    .btn:hover{box-shadow:var(--shadow); transform:translateY(-1px)}
+    .btn:active{transform:translateY(0)}
     .btn-primary{
       border-color:transparent;
-      background:var(--accent);
+      background:var(--brand-orange);
       color:#111827;
-      box-shadow:0 10px 24px rgba(249,115,22,.18);
     }
-    .btn-primary:hover{background:var(--accentHover)}
 
-    .footer{
-      max-width:1100px;margin:0 auto;padding:1.8rem 1.5rem;
-      color:var(--muted);font-size:.85rem;
-      border-top:1px solid rgba(148,163,184,.35);
+    /* Footer */
+    footer{
+      background:#fff;
+      border-top:1px solid var(--border);
+      color:var(--muted);
+      padding:18px 0;
+      font-size:13px;
     }
-    .footer a{text-decoration:underline;text-underline-offset:3px}
-    .copy{text-align:center;margin-top:.9rem}
+    .footer-inner{
+      display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:flex-start;
+    }
 
-    @media (max-width:1024px){
-      .container{padding:1.5rem 1rem 2.5rem}
+    @media (max-width: 980px){
       .two{grid-template-columns:1fr}
-      section{padding:1.6rem}
-    }
-    @media (max-width:640px){
-      .nav{flex-direction:column;align-items:flex-start;gap:.5rem}
-      nav ul{justify-content:flex-start}
-      section{padding:1.4rem}
-      h1{font-size:1.6rem}
-      .copy{text-align:left}
+      .logo-link{min-width:auto}
     }
   </style>
 </head>
 
 <body>
+  <a class="skip" href="#main">Aller au contenu</a>
+
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <div class="container">
+      <div class="topbar-row">
+        <div class="topbar-links">
+          <a class="pill" href="/"><span class="dot" aria-hidden="true"></span><span>ORION FISH</span></a>
+          <a class="pill" href="/rfq.html" data-i18n="nav_rfq">RFQ / Devis</a>
+          <a class="pill" href="/compliance.html" data-i18n="nav_docs">Documents</a>
+          <a class="pill" href="/team.html" data-i18n="nav_team">Team</a>
+        </div>
+        <div class="topbar-links">
+          <a href="/#contact" data-i18n="nav_contact">Contact</a>
+          <span class="sep">•</span>
+          <button class="btn-lang" id="langBtn" type="button">EN</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER -->
   <header>
-    <div class="nav">
-      <div class="logo">ORION FISH</div>
-      <nav>
-        <ul>
-          <li><a href="index.html" data-i18n="nav_home">Accueil</a></li>
-          <li><a href="rfq.html" data-i18n="nav_rfq">RFQ / Devis</a></li>
-          <li><a href="compliance.html" data-i18n="nav_docs">Documents</a></li>
-          <li><a href="team.html" data-i18n="nav_team">Team</a></li>
-          <li><a href="index.html#contact" data-i18n="nav_contact">Contact</a></li>
-          <li><button class="btn-lang" id="langBtn" type="button">EN</button></li>
-        </ul>
-      </nav>
+    <div class="container">
+      <div class="nav">
+        <a class="logo-link" href="/" aria-label="ORION FISH Home">
+          <img class="logo-mark" src="/logo-orion-fish.svg" alt="Logo ORION FISH">
+          <span class="logo-text">
+            <span class="logo-title">ORION FISH</span>
+            <span class="logo-sub">Seafood & Juices</span>
+          </span>
+        </a>
+
+        <nav aria-label="Navigation">
+          <ul>
+            <li><a href="/" data-i18n="nav_home">Accueil</a></li>
+            <li><a href="/rfq.html" data-i18n="nav_rfq">RFQ / Devis</a></li>
+            <li><a href="/compliance.html" data-i18n="nav_docs">Documents</a></li>
+            <li><a href="/team.html" data-i18n="nav_team">Team</a></li>
+            <li><a href="/#contact" data-i18n="nav_contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="breadcrumb" aria-label="Fil d’Ariane">
+        <a href="/" data-i18n="nav_home">Accueil</a> <span>›</span> <span data-i18n="nav_rfq">RFQ / Devis</span>
+      </div>
     </div>
   </header>
 
-  <main class="container">
-    <section>
-      <h1 data-i18n="title">RFQ / Demande de devis</h1>
-      <p class="muted" data-i18n="sub">
-        Remplissez ce formulaire pour recevoir une cotation rapide. Plus c’est précis, plus la réponse est rapide.
-      </p>
-
-      <div class="box">
-        <strong data-i18n="contact_title">Contact direct</strong>
-        <p class="muted" style="margin-top:.5rem;margin-bottom:0;">
-          Email : <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a><br>
-          Tel/WhatsApp : <a href="tel:+221339138392">+221339138392</a><br>
-          Documents : <a href="compliance.html">compliance.html</a>
+  <main id="main">
+    <div class="container">
+      <section class="panel">
+        <h1 data-i18n="title">RFQ / Demande de devis</h1>
+        <p class="muted" data-i18n="sub">
+          Remplissez ce formulaire pour recevoir une cotation rapide. Plus c’est précis, plus la réponse est rapide.
         </p>
-      </div>
 
-      <form action="https://formsubmit.co/contact@orionsfish.com" method="POST">
-        <input type="text" name="_honey" style="display:none">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_subject" value="RFQ – ORION FISH (site web)">
-        <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_next" value="https://orionsfish.com/merci.html">
+        <div id="prefillNote" class="prefill" aria-live="polite"></div>
 
-        <div class="two">
-          <div>
-            <label for="company" data-i18n="f_company">Entreprise</label>
-            <input id="company" name="Entreprise" type="text" required placeholder="Company name" />
-          </div>
-          <div>
-            <label for="name" data-i18n="f_name">Nom</label>
-            <input id="name" name="Nom" type="text" required placeholder="Your name" />
-          </div>
+        <div class="box">
+          <strong data-i18n="contact_title">Contact direct</strong>
+          <p style="margin-top:.5rem;margin-bottom:0;">
+            Email : <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a><br>
+            Tel/WhatsApp : <a href="tel:+221339138392">+221339138392</a><br>
+            Documents : <a href="/compliance.html">compliance.html</a>
+          </p>
         </div>
 
-        <div class="two">
-          <div>
-            <label for="email" data-i18n="f_email">E-mail</label>
-            <input id="email" name="email" type="email" required placeholder="name@company.com" />
-          </div>
-          <div>
-            <label for="phone" data-i18n="f_phone">Téléphone</label>
-            <input id="phone" name="Téléphone" type="tel" placeholder="+221 ..." />
-          </div>
-        </div>
+        <form action="https://formsubmit.co/contact@orionsfish.com" method="POST">
+          <input type="text" name="_honey" style="display:none">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_subject" value="RFQ – ORION FISH (site web)">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_next" value="https://orionsfish.com/merci.html">
 
-        <div class="two">
-          <div>
-            <label for="category" data-i18n="f_cat">Catégorie</label>
-            <select id="category" name="Catégorie" required>
-              <option value="" selected disabled>—</option>
-              <option value="Seafood">Produits de la mer</option>
-              <option value="Juices">Fruits & jus</option>
-              <option value="Other">Autre</option>
-            </select>
+          <div class="two">
+            <div>
+              <label for="company" data-i18n="f_company">Entreprise</label>
+              <input id="company" name="Entreprise" type="text" required placeholder="Company name" />
+            </div>
+            <div>
+              <label for="name" data-i18n="f_name">Nom</label>
+              <input id="name" name="Nom" type="text" required placeholder="Your name" />
+            </div>
           </div>
-          <div>
-            <label for="product" data-i18n="f_product">Produit demandé</label>
-            <input id="product" name="Produit" type="text" required placeholder="Ex: fish fillet / mango juice..." />
-          </div>
-        </div>
 
-        <div class="two">
-          <div>
-            <label for="spec" data-i18n="f_spec">Spécifications</label>
-            <input id="spec" name="Spécifications" type="text" placeholder="Espèce / grade / brix / format / etc." />
+          <div class="two">
+            <div>
+              <label for="email" data-i18n="f_email">E-mail</label>
+              <input id="email" name="email" type="email" required placeholder="name@company.com" />
+            </div>
+            <div>
+              <label for="phone" data-i18n="f_phone">Téléphone</label>
+              <input id="phone" name="Téléphone" type="tel" placeholder="+221 ..." />
+            </div>
           </div>
-          <div>
-            <label for="pack" data-i18n="f_pack">Packaging</label>
-            <input id="pack" name="Packaging" type="text" placeholder="Ex: cartons 10kg / bottles 1L..." />
-          </div>
-        </div>
 
-        <div class="two">
-          <div>
-            <label for="qty" data-i18n="f_qty">Quantité</label>
-            <input id="qty" name="Quantité" type="text" required placeholder="Ex: 1 container / 5 tons..." />
+          <div class="two">
+            <div>
+              <label for="category" data-i18n="f_cat">Catégorie</label>
+              <select id="category" name="Catégorie" required>
+                <option value="" selected disabled>—</option>
+                <option value="Seafood">Produits de la mer</option>
+                <option value="Juices">Fruits & jus</option>
+                <option value="Other">Autre</option>
+              </select>
+            </div>
+            <div>
+              <label for="product" data-i18n="f_product">Produit demandé</label>
+              <input id="product" name="Produit" type="text" required placeholder="Ex: fish fillet / mango juice..." />
+            </div>
           </div>
-          <div>
-            <label for="lead" data-i18n="f_lead">Délai souhaité</label>
-            <input id="lead" name="Délai" type="text" placeholder="Ex: ASAP / March 2026..." />
+
+          <div class="two">
+            <div>
+              <label for="spec" data-i18n="f_spec">Spécifications</label>
+              <input id="spec" name="Spécifications" type="text" placeholder="Espèce / grade / brix / format / etc." />
+            </div>
+            <div>
+              <label for="pack" data-i18n="f_pack">Packaging</label>
+              <input id="pack" name="Packaging" type="text" placeholder="Ex: cartons 10kg / bottles 1L..." />
+            </div>
           </div>
-        </div>
 
-        <div class="two">
-          <div>
-            <label for="destination" data-i18n="f_dest">Destination (pays / port / ville)</label>
-            <input id="destination" name="Destination" type="text" required placeholder="Ex: Rotterdam, NL" />
+          <div class="two">
+            <div>
+              <label for="qty" data-i18n="f_qty">Quantité</label>
+              <input id="qty" name="Quantité" type="text" required placeholder="Ex: 1 container / 5 tons..." />
+            </div>
+            <div>
+              <label for="lead" data-i18n="f_lead">Délai souhaité</label>
+              <input id="lead" name="Délai" type="text" placeholder="Ex: ASAP / March 2026..." />
+            </div>
           </div>
-          <div>
-            <label for="incoterm" data-i18n="f_incoterm">Incoterm</label>
-            <select id="incoterm" name="Incoterm" required>
-              <option value="" selected disabled>—</option>
-              <option value="EXW">EXW</option>
-              <option value="FOB">FOB</option>
-              <option value="CIF">CIF</option>
-              <option value="DAP">DAP</option>
-              <option value="Other">Autre</option>
-            </select>
+
+          <div class="two">
+            <div>
+              <label for="destination" data-i18n="f_dest">Destination (pays / port / ville)</label>
+              <input id="destination" name="Destination" type="text" required placeholder="Ex: Rotterdam, NL" />
+            </div>
+            <div>
+              <label for="incoterm" data-i18n="f_incoterm">Incoterm</label>
+              <select id="incoterm" name="Incoterm" required>
+                <option value="" selected disabled>—</option>
+                <option value="EXW">EXW</option>
+                <option value="FOB">FOB</option>
+                <option value="CIF">CIF</option>
+                <option value="DAP">DAP</option>
+                <option value="Other">Autre</option>
+              </select>
+            </div>
           </div>
-        </div>
 
-        <div>
-          <label for="message" data-i18n="f_msg">Détails / exigences</label>
-          <textarea id="message" name="Message" placeholder="Normes, étiquetage, documents requis, contraintes..."></textarea>
-        </div>
+          <div>
+            <label for="message" data-i18n="f_msg">Détails / exigences</label>
+            <textarea id="message" name="Message" placeholder="Normes, étiquetage, documents requis, contraintes..."></textarea>
+          </div>
 
-        <button class="btn btn-primary" type="submit" data-i18n="f_send">Envoyer la demande RFQ</button>
-      </form>
+          <button class="btn btn-primary" type="submit" data-i18n="f_send">Envoyer la demande RFQ</button>
+        </form>
 
-      <h2 data-i18n="tips_title">Conseils</h2>
-      <p class="muted" data-i18n="tips">
-        Si vous avez déjà un cahier des charges (spec sheet), copiez les points dans “Détails / exigences”.
-      </p>
-    </section>
+        <h2 data-i18n="tips_title" style="margin-top:16px;">Conseils</h2>
+        <p class="muted" data-i18n="tips">
+          Si vous avez déjà un cahier des charges (spec sheet), copiez les points dans “Détails / exigences”.
+        </p>
+      </section>
+    </div>
   </main>
 
-  <footer class="footer">
-    <div>
-      <strong>ORION FISH</strong><br>
-      Quartier Léona, Cité Filaos, Rufisque, 17000, Sénégal<br>
-      Tel/WhatsApp : <a href="tel:+221339138392">+221339138392</a> — <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a>
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <strong>ORION FISH</strong><br>
+          Quartier Léona, Cité Filaos, Rufisque, 17000, Sénégal<br>
+          Tel/WhatsApp : <a href="tel:+221339138392">+221339138392</a> —
+          <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a>
+        </div>
+        <div>© <span id="y"></span> ORION FISH</div>
+      </div>
     </div>
-    <div class="copy">© <span id="y"></span> ORION FISH</div>
   </footer>
 
   <script>
+    // ---- Year
     document.getElementById("y").textContent = new Date().getFullYear();
 
+    // ---- i18n (ton code, inchangé)
     const dict = {
       fr:{
         nav_home:"Accueil", nav_rfq:"RFQ / Devis", nav_docs:"Documents", nav_team:"Team", nav_contact:"Contact",
@@ -333,6 +466,57 @@
     document.getElementById("langBtn").addEventListener("click", ()=>{
       setLang(document.documentElement.lang === "fr" ? "en" : "fr");
     });
+
+    // ---- ✅ Prefill depuis /rfq.html?q=...&zone=...&type=...
+    (function prefillFromURL(){
+      const params = new URLSearchParams(location.search);
+      const q = (params.get("q") || "").trim();
+      const zone = (params.get("zone") || "").trim();
+      const type = (params.get("type") || "").trim(); // sea | juice | rfq
+
+      const category = document.getElementById("category");
+      const product = document.getElementById("product");
+      const destination = document.getElementById("destination");
+      const message = document.getElementById("message");
+      const note = document.getElementById("prefillNote");
+
+      function setIfEmpty(el, value){
+        if(!el) return;
+        if((el.value || "").trim() === "") el.value = value;
+      }
+
+      // map type -> category
+      if (category && type) {
+        if (type === "sea") category.value = "Seafood";
+        if (type === "juice") category.value = "Juices";
+        if (type === "rfq" && category.value === "") category.value = ""; // laisse vide
+      }
+
+      // q -> product
+      if (q) setIfEmpty(product, q);
+
+      // zone -> destination (si vide)
+      if (zone) setIfEmpty(destination, zone);
+
+      // message : ajouter contexte sans écraser
+      const lines = [];
+      if (q) lines.push(`Recherche: ${q}`);
+      if (zone) lines.push(`Zone: ${zone}`);
+      if (type) lines.push(`Type: ${type}`);
+      if (lines.length && message) {
+        const prefix = `[Pré-rempli depuis la recherche]\n${lines.join(" • ")}\n\n`;
+        if ((message.value || "").trim() === "") message.value = prefix;
+        else if (!message.value.includes("[Pré-rempli depuis la recherche]")) message.value = prefix + message.value;
+      }
+
+      // petite alerte visuelle
+      if (lines.length && note) {
+        note.style.display = "block";
+        note.textContent = (document.documentElement.lang === "fr")
+          ? `Formulaire pré-rempli depuis votre recherche : ${lines.join(" • ")}`
+          : `Form prefilled from your search: ${lines.join(" • ")}`;
+      }
+    })();
   </script>
 </body>
 </html>
