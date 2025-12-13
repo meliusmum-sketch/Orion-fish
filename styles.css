@@ -543,3 +543,20 @@ nav a:hover{
   border-color: var(--sand) !important;
   color: #ffffff !important;
 }
+/* ==========================================
+   PARTIE INFÉRIEURE (.dark-zone)
+   -> bleu ciel nuageux intense
+   ========================================== */
+:root{
+  --sky-1:#e6f6ff;  /* ciel clair */
+  --sky-2:#95d5ff;  /* ciel intense */
+  --sky-3:#3b82f6;  /* profondeur (bleu plus fort) */
+}
+
+.dark-zone{
+  background:
+    radial-gradient(circle at 18% 22%, rgba(255,255,255,.96), rgba(255,255,255,0) 46%),
+    radial-gradient(circle at 78% 18%, rgba(255,255,255,.88), rgba(255,255,255,0) 52%),
+    radial-gradient(circle at 55% 62%, rgba(255,255,255,.78), rgba(255,255,255,0) 58%),
+    linear-gradient(180deg, var(--sky-1) 0%, var(--sky-2) 55%, var(--sky-3) 100%) !important;
+}
