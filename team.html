@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Team ORION FISH</title>
-  <meta name="description" content="Équipe ORION FISH – Direction, opérations, qualité, R&D, marketing et support." />
+  <title>Team – ORION FISH</title>
+  <meta name="description" content="Équipe ORION FISH – contact, roles, support commercial et qualité." />
   <meta name="robots" content="index,follow" />
 
   <script>
@@ -15,308 +15,310 @@
 
   <style>
     :root{
-      --bg:#020617;
-      --card:#0b1220;
-      --border:#1f2937;
-      --text:#e5e7eb;
-      --muted:#9ca3af;
-
-      --accent:#f97316;
-      --accentHover:#ea580c;
-
-      --fresh:#14b8a6;
-      --freshSoft: rgba(20,184,166,.18);
-      --warmSoft: rgba(249,115,22,.20);
-
-      --gold:#facc15;
+      --brand-red:#DF261D;
+      --brand-orange:#FF8B00;
+      --bg:#f4f6f8;
+      --surface:#ffffff;
+      --text:#1f2937;
+      --muted:#6b7280;
+      --border:#e5e7eb;
+      --shadow:0 2px 10px rgba(0,0,0,.06);
+      --container:1180px;
     }
-    *{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth}
+    *{box-sizing:border-box}
+    html,body{height:100%}
     body{
-      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-      line-height:1.6;color:var(--text);
-      background:
-        radial-gradient(circle at 12% 0%, var(--warmSoft), transparent 48%),
-        radial-gradient(circle at 88% 12%, var(--freshSoft), transparent 52%),
-        var(--bg);
-      min-height:100vh;
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,Arial,sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.5;
     }
     a{color:inherit;text-decoration:none}
+    p{margin:0 0 12px}
+    h1,h2,h3{margin:0 0 10px;line-height:1.15}
+    h1{font-size:clamp(24px,2.6vw,34px)}
+    h2{font-size:clamp(18px,2vw,24px)}
     .muted{color:var(--muted)}
+    .container{max-width:var(--container);margin:0 auto;padding:0 16px}
 
-    header{
-      position:sticky;top:0;z-index:10;
-      background:rgba(2,6,23,.96);
-      backdrop-filter:blur(8px);
-      border-bottom:1px solid rgba(148,163,184,.35);
-    }
-    .nav{
-      max-width:1100px;margin:0 auto;padding:.8rem 1.5rem;
-      display:flex;align-items:center;justify-content:space-between;gap:1rem;
-    }
-    .logo{font-weight:900;letter-spacing:.18em;text-transform:uppercase;font-size:.95rem;white-space:nowrap}
-    nav ul{list-style:none;display:flex;flex-wrap:wrap;gap:1rem;align-items:center;font-size:.9rem}
-    nav a{opacity:.85;transition:opacity .15s,transform .15s}
-    nav a:hover{opacity:1;transform:translateY(-1px)}
-    .btn-lang{
-      border:1px solid rgba(148,163,184,.6);
-      background:rgba(15,23,42,.7);
-      color:var(--text);
-      padding:.45rem .75rem;border-radius:999px;
-      font-weight:900;cursor:pointer;
-    }
+    .skip{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+    .skip:focus{left:16px;top:16px;width:auto;height:auto;padding:10px 12px;background:#fff;border:1px solid var(--border);border-radius:12px;z-index:9999;box-shadow:var(--shadow)}
 
-    .container{max-width:1100px;margin:0 auto;padding:1.5rem 1.5rem 2.5rem}
-    section{
-      margin:1.8rem 0;padding:2rem;
-      background:var(--card);
+    /* TOPBAR */
+    .topbar{background:#fff;border-bottom:1px solid var(--border);font-size:13px;color:var(--muted)}
+    .topbar-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0;flex-wrap:wrap}
+    .topbar-links{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+    .sep{color:#9ca3af}
+    .pill{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border:1px solid var(--border);border-radius:999px;background:#fff;color:var(--text);font-weight:900}
+    .dot{width:8px;height:8px;border-radius:999px;background:var(--brand-red);display:inline-block}
+    .btn-lang{border:1px solid var(--border);background:var(--surface);padding:8px 10px;border-radius:999px;font-weight:900;cursor:pointer}
+    .btn-lang:hover{box-shadow:var(--shadow)}
+
+    /* HEADER */
+    header{background:var(--surface);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:50}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0;flex-wrap:wrap}
+    .logo-link{display:flex;align-items:center;gap:12px;min-width:220px}
+    .logo-mark{width:38px;height:38px;border-radius:12px;box-shadow:inset 0 0 0 2px rgba(255,255,255,.25)}
+    .logo-text{display:flex;flex-direction:column;line-height:1.1}
+    .logo-title{font-weight:900;letter-spacing:.2px}
+    .logo-sub{font-size:12px;color:var(--muted)}
+
+    nav ul{margin:0;padding:0;list-style:none;display:flex;align-items:center;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+    nav a{display:inline-flex;padding:8px 10px;border-radius:12px;color:var(--muted);font-weight:900;font-size:14px}
+    nav a:hover{background:#f7f7f8;color:var(--text)}
+
+    /* Page */
+    main{padding:18px 0 40px}
+    .breadcrumb{padding:12px 0 0;color:var(--muted);font-size:13px}
+    .breadcrumb a{color:var(--muted)}
+    .breadcrumb a:hover{color:var(--text);text-decoration:underline}
+
+    .panel{
+      margin-top:14px;
+      background:var(--surface);
       border:1px solid var(--border);
-      border-radius:1.5rem;
-      box-shadow:0 18px 45px rgba(15,23,42,.6);
+      border-radius:18px;
+      box-shadow:var(--shadow);
+      padding:16px;
     }
-    h1{font-size:2.0rem;margin-bottom:.6rem}
 
-    .filters{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1rem}
-    .chip{
-      display:inline-flex;align-items:center;
-      padding:.3rem .75rem;border-radius:999px;
-      border:1px solid rgba(148,163,184,.35);
-      background:rgba(2,6,23,.8);
-      font-weight:900;font-size:.82rem;
-      cursor:pointer;opacity:.92;
-      user-select:none;
+    /* Layout */
+    .layout{display:grid;grid-template-columns:1fr 340px;gap:14px;align-items:start;margin-top:10px}
+    .side{
+      position:sticky;top:110px;
+      background:#fff;border:1px solid var(--border);border-radius:18px;box-shadow:var(--shadow);
+      padding:14px;height:fit-content;
     }
-    .chip.active{border-color:rgba(20,184,166,.9)}
 
-    .team-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin-top:1.2rem}
+    .badge{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:7px 10px;border-radius:999px;
+      background:rgba(223,38,29,.06);border:1px solid rgba(223,38,29,.18);
+      font-weight:900;font-size:12px;margin-bottom:10px;
+    }
+
+    /* Team cards */
+    .team-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:10px}
     .member{
-      padding:1.1rem;border-radius:1.2rem;
-      border:1px solid rgba(55,65,81,.9);
-      background:#08101d;
-      transition:transform .12s,box-shadow .12s,border-color .12s;
+      background:#fff;border:1px solid var(--border);border-radius:18px;box-shadow:var(--shadow);
+      padding:14px;
+      display:flex;gap:12px;align-items:flex-start;
     }
-    .member:hover{transform:translateY(-2px);border-color:rgba(20,184,166,.85);box-shadow:0 10px 26px rgba(15,23,42,.8)}
-    .top{display:flex;gap:.8rem;align-items:center;margin-bottom:.7rem}
     .avatar{
-      width:56px;height:56px;border-radius:999px;
-      border:2px solid rgba(250,204,21,.9);
-      background:rgba(148,163,184,.14);
-      display:grid;place-items:center;
-      font-weight:900;letter-spacing:.06em;
-      flex-shrink:0;
-      font-size:.95rem;
+      width:44px;height:44px;border-radius:14px;
+      background:rgba(249,115,22,.18);
+      border:1px solid rgba(249,115,22,.22);
+      display:flex;align-items:center;justify-content:center;
+      font-weight:900;
     }
-    .name{font-weight:900}
-    .role{opacity:.92;font-size:.9rem}
-    .desc{color:var(--muted);font-size:.9rem}
+    .role{color:var(--muted);font-weight:800;font-size:13px;margin-top:2px}
+    .links{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+    .chip{
+      font-size:12px;font-weight:900;color:var(--muted);
+      border:1px solid var(--border);border-radius:999px;padding:6px 10px;background:#fff;
+    }
 
-    .footer{
-      max-width:1100px;margin:0 auto;padding:1.8rem 1.5rem;
-      color:var(--muted);font-size:.85rem;
-      border-top:1px solid rgba(148,163,184,.35);
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:11px 14px;border-radius:14px;border:1px solid var(--border);
+      background:#fff;font-weight:900;cursor:pointer;
+      transition:box-shadow .12s ease, transform .12s ease;
     }
-    .footer a{text-decoration:underline;text-underline-offset:3px}
-    .copy{text-align:center;margin-top:.9rem}
+    .btn:hover{box-shadow:var(--shadow);transform:translateY(-1px)}
+    .btn-primary{border-color:transparent;background:var(--brand-orange);color:#111827}
 
-    @media (max-width:1024px){
-      .container{padding:1.5rem 1rem 2.5rem}
-      .team-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-    }
-    @media (max-width:640px){
-      .nav{flex-direction:column;align-items:flex-start;gap:.5rem}
-      nav ul{justify-content:flex-start}
+    footer{background:#fff;border-top:1px solid var(--border);color:var(--muted);padding:18px 0;font-size:13px}
+    .footer-inner{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:flex-start}
+
+    @media (max-width:980px){
+      .layout{grid-template-columns:1fr}
+      .side{position:static}
       .team-grid{grid-template-columns:1fr}
-      section{padding:1.4rem}
-      h1{font-size:1.6rem}
-      .copy{text-align:left}
+      .logo-link{min-width:auto}
     }
   </style>
 </head>
 
 <body>
+  <a class="skip" href="#main">Aller au contenu</a>
+
+  <div class="topbar">
+    <div class="container">
+      <div class="topbar-row">
+        <div class="topbar-links">
+          <a class="pill" href="/"><span class="dot" aria-hidden="true"></span><span>ORION FISH</span></a>
+          <a class="pill" href="/rfq.html" data-i18n="nav_rfq">RFQ / Devis</a>
+          <a class="pill" href="/compliance.html" data-i18n="nav_docs">Documents</a>
+          <a class="pill" href="/team.html" data-i18n="nav_team">Team</a>
+        </div>
+        <div class="topbar-links">
+          <a href="/#contact" data-i18n="nav_contact">Contact</a>
+          <span class="sep">•</span>
+          <button class="btn-lang" id="langBtn" type="button">EN</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <header>
-    <div class="nav">
-      <div class="logo">ORION FISH</div>
-      <nav>
-        <ul>
-          <li><a href="index.html" data-i18n="nav_home">Accueil</a></li>
-          <li><a href="rfq.html" data-i18n="nav_rfq">RFQ / Devis</a></li>
-          <li><a href="compliance.html" data-i18n="nav_docs">Documents</a></li>
-          <li><a href="team.html" data-i18n="nav_team">Team</a></li>
-          <li><a href="index.html#contact" data-i18n="nav_contact">Contact</a></li>
-          <li><button class="btn-lang" id="langBtn" type="button">EN</button></li>
-        </ul>
-      </nav>
+    <div class="container">
+      <div class="nav">
+        <a class="logo-link" href="/" aria-label="ORION FISH Home">
+          <img class="logo-mark" src="/logo-orion-fish.svg" alt="Logo ORION FISH">
+          <span class="logo-text">
+            <span class="logo-title">ORION FISH</span>
+            <span class="logo-sub">Seafood & Juices</span>
+          </span>
+        </a>
+
+        <nav aria-label="Navigation">
+          <ul>
+            <li><a href="/" data-i18n="nav_home">Accueil</a></li>
+            <li><a href="/rfq.html" data-i18n="nav_rfq">RFQ / Devis</a></li>
+            <li><a href="/compliance.html" data-i18n="nav_docs">Documents</a></li>
+            <li><a href="/team.html" data-i18n="nav_team">Team</a></li>
+            <li><a href="/#contact" data-i18n="nav_contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="breadcrumb" aria-label="Fil d’Ariane">
+        <a href="/" data-i18n="nav_home">Accueil</a> <span>›</span> <span data-i18n="nav_team">Team</span>
+      </div>
     </div>
   </header>
 
-  <main class="container">
-    <section>
-      <h1 data-i18n="title">Team ORION FISH</h1>
-      <p class="muted" data-i18n="sub">Photos retirées : affichage en initiales (prénom + nom).</p>
+  <main id="main">
+    <div class="container">
+      <section class="panel">
+        <h1 data-i18n="team_title">Notre équipe</h1>
+        <p class="muted" data-i18n="team_sub">
+          Un point de contact clair pour les demandes commerciales, qualité, documents et export.
+        </p>
 
-      <div class="filters">
-        <span class="chip active" data-filter="all" data-i18n="f_all">Tous</span>
-        <span class="chip" data-filter="management" data-i18n="f_mgmt">Direction</span>
-        <span class="chip" data-filter="sales" data-i18n="f_sales">Commercial / Marketing</span>
-        <span class="chip" data-filter="ops" data-i18n="f_ops">Opérations</span>
-        <span class="chip" data-filter="quality" data-i18n="f_quality">Qualité / HACCP</span>
-        <span class="chip" data-filter="support" data-i18n="f_support">Support</span>
-      </div>
+        <div class="layout">
+          <div>
+            <div class="badge" data-i18n="team_badge">✔ Contacts (exemples à remplacer)</div>
 
-      <div class="team-grid">
-        <article class="member" data-group="management">
-          <div class="top"><div class="avatar">AM</div><div><div class="name">Amadou Mballo</div><div class="role" data-i18n="r_am">Directeur Général</div></div></div>
-          <div class="desc" data-i18n="d_am">Pilote la stratégie globale et l’alignement des activités mer & fruits.</div>
-        </article>
+            <div class="team-grid">
+              <!-- ✅ Remplace ces membres par tes vrais membres -->
+              <article class="member">
+                <div class="avatar" aria-hidden="true">OF</div>
+                <div>
+                  <h3 style="margin:0;">Nom Prénom</h3>
+                  <div class="role">Commercial / Sales</div>
+                  <div class="links">
+                    <span class="chip">Devis (RFQ)</span>
+                    <a class="chip" href="mailto:contact@orionsfish.com?subject=Contact%20Commercial%20-%20ORION%20FISH">Email</a>
+                  </div>
+                </div>
+              </article>
 
-        <article class="member" data-group="management">
-          <div class="top"><div class="avatar">MK</div><div><div class="name">Mouhamad Kébé</div><div class="role" data-i18n="r_mk">Gérant</div></div></div>
-          <div class="desc" data-i18n="d_mk">Coordonne l’exécution opérationnelle des activités.</div>
-        </article>
+              <article class="member">
+                <div class="avatar" aria-hidden="true">QA</div>
+                <div>
+                  <h3 style="margin:0;">Nom Prénom</h3>
+                  <div class="role">Qualité / Compliance</div>
+                  <div class="links">
+                    <span class="chip">Docs</span>
+                    <a class="chip" href="mailto:contact@orionsfish.com?subject=Demande%20Documents%20-%20ORION%20FISH">Email</a>
+                  </div>
+                </div>
+              </article>
 
-        <article class="member" data-group="management">
-          <div class="top"><div class="avatar">SN</div><div><div class="name">Samba Ndiaye</div><div class="role" data-i18n="r_sn">Directeur d’usine</div></div></div>
-          <div class="desc" data-i18n="d_sn">Supervise la production et la performance industrielle.</div>
-        </article>
+              <article class="member">
+                <div class="avatar" aria-hidden="true">EX</div>
+                <div>
+                  <h3 style="margin:0;">Nom Prénom</h3>
+                  <div class="role">Export / Logistique</div>
+                  <div class="links">
+                    <span class="chip">Incoterms</span>
+                    <span class="chip">Délais</span>
+                  </div>
+                </div>
+              </article>
 
-        <article class="member" data-group="sales">
-          <div class="top"><div class="avatar">SD</div><div><div class="name">Souleymane Diallo</div><div class="role" data-i18n="r_sd">Directeur Service Commercial</div></div></div>
-          <div class="desc" data-i18n="d_sd">Développe le portefeuille clients et les partenariats.</div>
-        </article>
+              <article class="member">
+                <div class="avatar" aria-hidden="true">CS</div>
+                <div>
+                  <h3 style="margin:0;">Nom Prénom</h3>
+                  <div class="role">Support / Coordination</div>
+                  <div class="links">
+                    <span class="chip">Suivi</span>
+                    <span class="chip">Partenariats</span>
+                  </div>
+                </div>
+              </article>
+            </div>
 
-        <article class="member" data-group="sales">
-          <div class="top"><div class="avatar">NFW</div><div><div class="name">Ndèye Fatou Wade</div><div class="role" data-i18n="r_nfw">Directrice Marketing / Clientèle</div></div></div>
-          <div class="desc" data-i18n="d_nfw">Pilote le marketing, la communication et la relation clientèle.</div>
-        </article>
+            <h2 style="margin-top:16px;" data-i18n="values_title">Ce qu’on garantit</h2>
+            <p class="muted" data-i18n="values_sub">
+              Réponses rapides, traçabilité, documentation selon destination, et support B2B.
+            </p>
+          </div>
 
-        <article class="member" data-group="ops">
-          <div class="top"><div class="avatar">LB</div><div><div class="name">Landing Badji</div><div class="role" data-i18n="r_lb">Opérateur de production</div></div></div>
-          <div class="desc" data-i18n="d_lb">Participe aux opérations de transformation et conditionnement.</div>
-        </article>
+          <aside class="side">
+            <h3 style="margin:0 0 10px" data-i18n="quick_title">Contact rapide</h3>
+            <p class="muted" style="margin:0 0 10px">
+              Email : <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a><br>
+              Tel/WhatsApp : <a href="tel:+221339138392">+221339138392</a>
+            </p>
+            <div style="display:flex;gap:10px;flex-wrap:wrap">
+              <a class="btn btn-primary" href="/rfq.html" data-i18n="cta_rfq">Faire un RFQ</a>
+              <a class="btn" href="/compliance.html" data-i18n="cta_docs">Documents</a>
+            </div>
 
-        <article class="member" data-group="ops">
-          <div class="top"><div class="avatar">ISB</div><div><div class="name">Ibrahima Sory Bindia</div><div class="role" data-i18n="r_isb">Transport / distribution</div></div></div>
-          <div class="desc" data-i18n="d_isb">Organise les livraisons et le respect des délais.</div>
-        </article>
-
-        <article class="member" data-group="ops">
-          <div class="top"><div class="avatar">OD</div><div><div class="name">Ousmane Diop</div><div class="role" data-i18n="r_od">Responsable utilités</div></div></div>
-          <div class="desc" data-i18n="d_od">Garantit la performance des installations (froid, vapeur, air, eau).</div>
-        </article>
-
-        <article class="member" data-group="ops">
-          <div class="top"><div class="avatar">MHD</div><div><div class="name">Mamadou Hady Diallo</div><div class="role" data-i18n="r_mhd">Chef d’équipe</div></div></div>
-          <div class="desc" data-i18n="d_mhd">Encadre les équipes terrain.</div>
-        </article>
-
-        <article class="member" data-group="ops">
-          <div class="top"><div class="avatar">RP</div><div><div class="name">Responsable production</div><div class="role" data-i18n="r_rp">Supervision des lignes</div></div></div>
-          <div class="desc" data-i18n="d_rp">Organise volumes, rendements et qualité sur les lignes.</div>
-        </article>
-
-        <article class="member" data-group="quality">
-          <div class="top"><div class="avatar">NAD</div><div><div class="name">Ndèye Astou Diatta</div><div class="role" data-i18n="r_nad">Traçabilité & réclamations</div></div></div>
-          <div class="desc" data-i18n="d_nad">Assure la traçabilité et le suivi des réclamations.</div>
-        </article>
-
-        <article class="member" data-group="quality">
-          <div class="top"><div class="avatar">SeD</div><div><div class="name">Seyni Diedhiou</div><div class="role" data-i18n="r_sed">HACCP / Food Safety</div></div></div>
-          <div class="desc" data-i18n="d_sed">Met en œuvre le plan HACCP et la sécurité alimentaire.</div>
-        </article>
-
-        <article class="member" data-group="support">
-          <div class="top"><div class="avatar">AD</div><div><div class="name">Awa Diatta</div><div class="role" data-i18n="r_ad">Innovation</div></div></div>
-          <div class="desc" data-i18n="d_ad">Pilote les projets d’innovation (produits & procédés).</div>
-        </article>
-
-        <article class="member" data-group="support">
-          <div class="top"><div class="avatar">IKD</div><div><div class="name">Insa Koulissoret Diedhiou</div><div class="role" data-i18n="r_ikd">Technicien R&D</div></div></div>
-          <div class="desc" data-i18n="d_ikd">Contribue aux essais R&D et à l’amélioration continue.</div>
-        </article>
-
-        <article class="member" data-group="support">
-          <div class="top"><div class="avatar">IT</div><div><div class="name">Ibou Thiam</div><div class="role" data-i18n="r_it">Directeur RH</div></div></div>
-          <div class="desc" data-i18n="d_it">Gère recrutement, formation et relations sociales.</div>
-        </article>
-
-        <article class="member" data-group="support">
-          <div class="top"><div class="avatar">ED</div><div><div class="name">Emilie Diatta</div><div class="role" data-i18n="r_ed">RAF</div></div></div>
-          <div class="desc" data-i18n="d_ed">Supervise administratif, trésorerie et suivi financier.</div>
-        </article>
-
-        <article class="member" data-group="support">
-          <div class="top"><div class="avatar">IK</div><div><div class="name">Idy KA</div><div class="role" data-i18n="r_ik">Informatique</div></div></div>
-          <div class="desc" data-i18n="d_ik">Gère systèmes d’information et outils numériques.</div>
-        </article>
-      </div>
-    </section>
+            <p class="muted" style="margin-top:12px;font-size:13px" data-i18n="quick_tip">
+              Astuce : indique ton produit + quantité + destination pour une réponse plus rapide.
+            </p>
+          </aside>
+        </div>
+      </section>
+    </div>
   </main>
 
-  <footer class="footer">
-    <div>
-      <strong>ORION FISH</strong><br>
-      Rufisque, Sénégal — RC : <strong>010112051 SN.DKR.2023.B.9159</strong><br>
-      Tel/WhatsApp : <a href="tel:+221339138392">+221339138392</a><br>
-      <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a>
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <strong>ORION FISH</strong><br>
+          Quartier Léona, Cité Filaos, Rufisque, 17000, Sénégal<br>
+          Tel/WhatsApp : <a href="tel:+221339138392">+221339138392</a> —
+          <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a>
+        </div>
+        <div>© <span id="y"></span> ORION FISH</div>
+      </div>
     </div>
-    <div class="copy">© <span id="y"></span> ORION FISH</div>
   </footer>
 
   <script>
     document.getElementById("y").textContent = new Date().getFullYear();
 
-    const chips = [...document.querySelectorAll(".chip")];
-    const members = [...document.querySelectorAll(".member")];
-    chips.forEach(ch => ch.addEventListener("click", () => {
-      chips.forEach(c => c.classList.remove("active"));
-      ch.classList.add("active");
-      const f = ch.dataset.filter;
-      members.forEach(m => {
-        m.style.display = (f === "all" || m.dataset.group === f) ? "" : "none";
-      });
-    }));
-
     const dict = {
-      fr:{ nav_home:"Accueil", nav_rfq:"RFQ / Devis", nav_docs:"Documents", nav_team:"Team", nav_contact:"Contact", title:"Team ORION FISH", sub:"Photos retirées : affichage en initiales (prénom + nom).",
-        f_all:"Tous", f_mgmt:"Direction", f_sales:"Commercial / Marketing", f_ops:"Opérations", f_quality:"Qualité / HACCP", f_support:"Support",
-        r_am:"Directeur Général", d_am:"Pilote la stratégie globale et l’alignement des activités mer & fruits.",
-        r_mk:"Gérant", d_mk:"Coordonne l’exécution opérationnelle des activités.",
-        r_sn:"Directeur d’usine", d_sn:"Supervise la production et la performance industrielle.",
-        r_sd:"Directeur Service Commercial", d_sd:"Développe le portefeuille clients et les partenariats.",
-        r_nfw:"Directrice Marketing / Clientèle", d_nfw:"Pilote le marketing, la communication et la relation clientèle.",
-        r_lb:"Opérateur de production", d_lb:"Participe aux opérations de transformation et conditionnement.",
-        r_isb:"Transport / distribution", d_isb:"Organise les livraisons et le respect des délais.",
-        r_od:"Responsable utilités", d_od:"Garantit la performance des installations (froid, vapeur, air, eau).",
-        r_mhd:"Chef d’équipe", d_mhd:"Encadre les équipes terrain.",
-        r_rp:"Supervision des lignes", d_rp:"Organise volumes, rendements et qualité sur les lignes.",
-        r_nad:"Traçabilité & réclamations", d_nad:"Assure la traçabilité et le suivi des réclamations.",
-        r_sed:"HACCP / Food Safety", d_sed:"Met en œuvre le plan HACCP et la sécurité alimentaire.",
-        r_ad:"Innovation", d_ad:"Pilote les projets d’innovation (produits & procédés).",
-        r_ikd:"Technicien R&D", d_ikd:"Contribue aux essais R&D et à l’amélioration continue.",
-        r_it:"Directeur RH", d_it:"Gère recrutement, formation et relations sociales.",
-        r_ed:"RAF", d_ed:"Supervise administratif, trésorerie et suivi financier.",
-        r_ik:"Informatique", d_ik:"Gère systèmes d’information et outils numériques."
+      fr:{
+        nav_home:"Accueil", nav_rfq:"RFQ / Devis", nav_docs:"Documents", nav_team:"Team", nav_contact:"Contact",
+        team_title:"Notre équipe",
+        team_sub:"Un point de contact clair pour les demandes commerciales, qualité, documents et export.",
+        team_badge:"✔ Contacts (exemples à remplacer)",
+        values_title:"Ce qu’on garantit",
+        values_sub:"Réponses rapides, traçabilité, documentation selon destination, et support B2B.",
+        quick_title:"Contact rapide",
+        cta_rfq:"Faire un RFQ",
+        cta_docs:"Documents",
+        quick_tip:"Astuce : indique ton produit + quantité + destination pour une réponse plus rapide."
       },
-      en:{ nav_home:"Home", nav_rfq:"RFQ / Quotation", nav_docs:"Documents", nav_team:"Team", nav_contact:"Contact", title:"ORION FISH Team", sub:"Photos removed: initials display (first name + last name).",
-        f_all:"All", f_mgmt:"Management", f_sales:"Sales / Marketing", f_ops:"Operations", f_quality:"Quality / HACCP", f_support:"Support",
-        r_am:"CEO / General Manager", d_am:"Leads overall strategy and alignment of seafood & fruits activities.",
-        r_mk:"Operations Manager", d_mk:"Coordinates daily operations.",
-        r_sn:"Plant Manager", d_sn:"Oversees production and industrial performance.",
-        r_sd:"Sales Director", d_sd:"Develops customer portfolio and partnerships.",
-        r_nfw:"Marketing / Customer Director", d_nfw:"Leads marketing, communication and customer relations.",
-        r_lb:"Production operator", d_lb:"Supports processing and packaging operations.",
-        r_isb:"Transport / distribution", d_isb:"Organizes deliveries and lead times.",
-        r_od:"Utilities manager", d_od:"Ensures utilities performance (cold, steam, air, water).",
-        r_mhd:"Team leader", d_mhd:"Supervises field teams.",
-        r_rp:"Production supervision", d_rp:"Manages volumes, yields and quality on lines.",
-        r_nad:"Traceability & claims", d_nad:"Ensures traceability and customer claims follow-up.",
-        r_sed:"HACCP / Food Safety", d_sed:"Implements HACCP plan and food safety.",
-        r_ad:"Innovation", d_ad:"Leads innovation projects (products & processes).",
-        r_ikd:"R&D Technician", d_ikd:"Contributes to R&D trials and continuous improvement.",
-        r_it:"HR Director", d_it:"Manages recruitment, training and social relations.",
-        r_ed:"Admin & Finance", d_ed:"Oversees administration, cash management and finance follow-up.",
-        r_ik:"IT", d_ik:"Manages information systems and digital tools."
+      en:{
+        nav_home:"Home", nav_rfq:"RFQ / Quotation", nav_docs:"Documents", nav_team:"Team", nav_contact:"Contact",
+        team_title:"Our team",
+        team_sub:"Clear contacts for sales, quality, documents, and export.",
+        team_badge:"✔ Contacts (replace examples)",
+        values_title:"What we ensure",
+        values_sub:"Fast replies, traceability, destination-ready documentation, and B2B support.",
+        quick_title:"Quick contact",
+        cta_rfq:"Start an RFQ",
+        cta_docs:"Documents",
+        quick_tip:"Tip: add product + quantity + destination for faster replies."
       }
     };
 
