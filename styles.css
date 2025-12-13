@@ -400,3 +400,66 @@ nav a:hover{
   background:rgba(255,255,255,.55);
 }
 
+/* ================================
+   HAUT en #c649b4
+   (topbar + header + hero-search)
+   ================================ */
+
+:root{ --top:#c649b4; }
+
+.topbar,
+header,
+.page-home .hero-search{
+  background:var(--top) !important;
+  border-bottom:1px solid rgba(255,255,255,.25) !important;
+}
+
+/* Textes en blanc pour contraste */
+.topbar,
+header,
+.page-home .hero-search,
+.topbar a,
+header a,
+header nav a{
+  color:#ffffff !important;
+}
+
+/* Sous-titre logo */
+.logo-sub{ color:rgba(255,255,255,.80) !important; }
+
+/* Liens menu */
+nav a{
+  color:rgba(255,255,255,.92) !important;
+}
+nav a:hover{
+  background:rgba(255,255,255,.18) !important;
+  color:#ffffff !important;
+}
+
+/* Pills */
+.pill{
+  background:rgba(255,255,255,.14) !important;
+  border-color:rgba(255,255,255,.28) !important;
+  color:#ffffff !important;
+}
+
+/* Bouton langue */
+.btn-lang{
+  background:rgba(255,255,255,.14) !important;
+  border-color:rgba(255,255,255,.30) !important;
+  color:#ffffff !important;
+}
+.btn-lang:hover{
+  box-shadow:none !important;
+  background:rgba(255,255,255,.20) !important;
+}
+
+/* Breadcrumb si visible sur cette zone */
+.breadcrumb,
+.breadcrumb a{
+  color:rgba(255,255,255,.85) !important;
+}
+.breadcrumb a:hover{
+  color:#ffffff !important;
+  text-decoration:underline;
+}
