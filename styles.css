@@ -463,3 +463,83 @@ nav a:hover{
   color:#ffffff !important;
   text-decoration:underline;
 }
+/* ==========================================
+   CADRES DU HAUT : noir pro + bordures sable
+   ========================================== */
+
+/* Si tu as déjà --card-black, garde-le. Sinon, ça le définit aussi. */
+:root{
+  --card-black: #0b0f14; /* noir pro */
+  --sand: #d8caa5;       /* sable */
+  --sandRGB: 216,202,165;
+}
+
+/* Cadres principaux en haut (page accueil) */
+.page-home .search-card,
+.page-home .hero-grid,
+.page-home .info-card{
+  background: var(--card-black) !important;
+  border: 1px solid var(--sand) !important;
+  color: #f3f4f6;
+  box-shadow: 0 18px 45px rgba(0,0,0,.35) !important;
+}
+
+/* Textes dans ces cadres */
+.page-home .search-card .muted,
+.page-home .hero-grid .muted,
+.page-home .info-card .info-line{
+  color: #cbd5e1 !important;
+}
+
+.page-home .hero-grid h1,
+.page-home .hero-grid h2,
+.page-home .search-card,
+.page-home .info-card .info-title{
+  color:#f8fafc !important;
+}
+
+/* Lignes de l'info-card */
+.page-home .info-card .info-line{
+  border-top: 1px solid rgba(var(--sandRGB), .35) !important;
+}
+.page-home .info-card .info-line strong{
+  color:#ffffff !important;
+}
+
+/* Onglets (tabs) de la recherche */
+.page-home .tab{
+  background: var(--card-black) !important;
+  border: 1px solid var(--sand) !important;
+  color: rgba(255,255,255,.85) !important;
+}
+.page-home .tab[aria-selected="true"]{
+  background: rgba(var(--sandRGB), .14) !important;
+  border-color: var(--sand) !important;
+  color: #ffffff !important;
+}
+
+/* Champs de recherche (cadres input/select) */
+.page-home .field{
+  background: var(--card-black) !important;
+  border: 1px solid rgba(var(--sandRGB), .85) !important;
+}
+.page-home .field input,
+.page-home .field select{
+  color:#f3f4f6 !important;
+}
+.page-home .field input::placeholder{
+  color: rgba(203,213,225,.75) !important;
+}
+
+/* Texte "hint" dans la search-card */
+.page-home .hint{
+  color: rgba(226,232,240,.80) !important;
+}
+
+/* Optionnel (mais joli) : pills + bouton langue en noir + sable */
+.topbar .pill,
+.topbar .btn-lang{
+  background: var(--card-black) !important;
+  border-color: var(--sand) !important;
+  color: #ffffff !important;
+}
