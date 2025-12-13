@@ -2,7 +2,7 @@
   --brand-red:#DF261D;
   --brand-orange:#FF8B00;
 
-  /* ✅ Fond BLEU ROI */
+  /* ✅ Fond bleu roi */
   --bg:#2563eb;
 
   --surface:#ffffff;
@@ -14,6 +14,10 @@
   --shadow:0 2px 10px rgba(0,0,0,.06);
 
   --container:1180px;
+
+  /* ✅ OR + Noir pro (pour les carrés dans la partie bleue) */
+  --gold:#d4af37;
+  --card-black:#0b0f14;
 }
 
 *{box-sizing:border-box}
@@ -57,10 +61,8 @@ h2{font-size:clamp(18px,2vw,24px)}
 .btn-lang{
   border:1px solid var(--border);
   background:var(--surface);
-  padding:8px 10px;
-  border-radius:999px;
-  font-weight:900;
-  cursor:pointer;
+  padding:8px 10px;border-radius:999px;
+  font-weight:900;cursor:pointer;
 }
 .btn-lang:hover{box-shadow:var(--shadow)}
 
@@ -101,7 +103,7 @@ nav a:hover{background:#f7f7f8;color:var(--text)}
 .breadcrumb a{color:var(--muted)}
 .breadcrumb a:hover{color:var(--text);text-decoration:underline}
 
-/* Cards / Panels */
+/* Panels / Cards */
 .panel{
   margin-top:14px;
   background:var(--surface);
@@ -111,6 +113,8 @@ nav a:hover{background:#f7f7f8;color:var(--text)}
   padding:16px;
 }
 .full-sep{height:1px;background:var(--border);margin:18px 0}
+
+/* Zone bleue */
 .dark-zone{background:var(--bg)}
 section{scroll-margin-top:110px}
 
@@ -138,7 +142,7 @@ input:focus, textarea:focus, select:focus{
 footer{background:#fff;border-top:1px solid var(--border);color:var(--muted);padding:18px 0;font-size:13px}
 .footer-inner{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:flex-start}
 
-/* Footer "dark-footer" (index) */
+/* Footer index */
 .dark-footer{background:var(--surface);border-top:1px solid var(--border);margin-top:26px}
 .footer{
   max-width:var(--container);
@@ -226,12 +230,98 @@ footer{background:#fff;border-top:1px solid var(--border);color:var(--muted);pad
 .page-home .list li{margin:6px 0}
 
 /* =========================
-   RFQ / DOCS / TEAM
+   RFQ (rfq.html)
    ========================= */
 .page-rfq main{padding:18px 0 40px}
-.page-docs main{padding:18px 0 40px}
-.page-team main{padding:18px 0 40px}
+.page-rfq .prefill{
+  display:none;
+  margin-top:12px;
+  padding:10px 12px;
+  border-radius:14px;
+  background:rgba(223,38,29,.06);
+  border:1px solid rgba(223,38,29,.18);
+  font-weight:900;
+  color:var(--text);
+}
 
+/* =========================
+   DOCS (compliance.html)
+   ========================= */
+.page-docs main{padding:18px 0 40px}
+.page-docs .tabs{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+.page-docs .tab{
+  padding:8px 12px;border-radius:999px;border:1px solid var(--border);
+  background:#fff;color:var(--muted);font-weight:900;font-size:14px;cursor:pointer;
+}
+.page-docs .tab[aria-selected="true"]{border-color:rgba(223,38,29,.25);background:rgba(223,38,29,.06);color:var(--text)}
+
+.page-docs .grid{display:grid;grid-template-columns:320px 1fr;gap:14px;align-items:start;margin-top:10px}
+.page-docs .side{
+  position:sticky;top:110px;
+  background:#fff;border:1px solid var(--border);border-radius:18px;box-shadow:var(--shadow);
+  padding:14px;height:fit-content;
+}
+.page-docs .side h3{font-size:14px;text-transform:uppercase;letter-spacing:.06em;margin:0 0 10px}
+.page-docs .mini{width:100%;padding:11px 12px;border-radius:14px;border:1px solid var(--border);outline:none}
+.page-docs .mini:focus{border-color:rgba(223,38,29,.35);box-shadow:0 0 0 4px rgba(223,38,29,.10)}
+.page-docs .check{display:flex;align-items:center;gap:10px;color:var(--muted);padding:8px 0}
+.page-docs .check input{width:16px;height:16px}
+
+.page-docs .cards{display:flex;flex-direction:column;gap:12px}
+.page-docs .card{
+  background:#fff;border:1px solid var(--border);border-radius:18px;box-shadow:var(--shadow);
+  padding:14px;display:grid;grid-template-columns:1fr 220px;gap:12px;
+}
+.page-docs .badge{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:7px 10px;border-radius:999px;
+  background:rgba(223,38,29,.06);border:1px solid rgba(223,38,29,.18);
+  font-weight:900;font-size:12px;margin-bottom:10px;
+}
+.page-docs .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.page-docs .chip{
+  font-size:12px;font-weight:900;color:var(--muted);
+  border:1px solid var(--border);border-radius:999px;padding:6px 10px;background:#fff;
+}
+.page-docs .card-side{border-left:1px solid var(--border);padding-left:12px;display:flex;flex-direction:column;justify-content:space-between;gap:10px}
+.page-docs .card-side .btn{width:100%}
+
+/* =========================
+   TEAM (team.html)
+   ========================= */
+.page-team main{padding:18px 0 40px}
+.page-team .layout{display:grid;grid-template-columns:1fr 340px;gap:14px;align-items:start;margin-top:10px}
+.page-team .side{
+  position:sticky;top:110px;
+  background:#fff;border:1px solid var(--border);border-radius:18px;box-shadow:var(--shadow);
+  padding:14px;height:fit-content;
+}
+.page-team .badge{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:7px 10px;border-radius:999px;
+  background:rgba(223,38,29,.06);border:1px solid rgba(223,38,29,.18);
+  font-weight:900;font-size:12px;margin-bottom:10px;
+}
+.page-team .team-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:10px}
+.page-team .member{
+  background:#fff;border:1px solid var(--border);border-radius:18px;box-shadow:var(--shadow);
+  padding:14px;display:flex;gap:12px;align-items:flex-start;
+}
+.page-team .avatar{
+  width:44px;height:44px;border-radius:14px;
+  background:rgba(249,115,22,.18);
+  border:1px solid rgba(249,115,22,.22);
+  display:flex;align-items:center;justify-content:center;
+  font-weight:900;
+}
+.page-team .role{color:var(--muted);font-weight:800;font-size:13px;margin-top:2px}
+.page-team .links{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+.page-team .chip{
+  font-size:12px;font-weight:900;color:var(--muted);
+  border:1px solid var(--border);border-radius:999px;padding:6px 10px;background:#fff;
+}
+
+/* Responsive */
 @media (max-width: 980px){
   .topbar-row{flex-direction:column;align-items:flex-start}
   .two{grid-template-columns:1fr}
@@ -239,5 +329,38 @@ footer{background:#fff;border-top:1px solid var(--border);color:var(--muted);pad
   .page-home .search-row{grid-template-columns:1fr}
   .page-home .hero-grid{grid-template-columns:1fr}
   .page-home .grid{grid-template-columns:1fr}
+
+  .page-docs .grid{grid-template-columns:1fr}
+  .page-docs .side{position:static}
+  .page-docs .card{grid-template-columns:1fr}
+  .page-docs .card-side{border-left:0;border-top:1px solid var(--border);padding-left:0;padding-top:12px}
+
+  .page-team .layout{grid-template-columns:1fr}
+  .page-team .side{position:static}
+  .page-team .team-grid{grid-template-columns:1fr}
   .logo-link{min-width:auto}
+}
+
+/* =========================================================
+   ✅ MODIF DEMANDÉE : carrés dans la partie bleue = noir + OR
+   (uniquement les .card à l'intérieur de .dark-zone)
+   ========================================================= */
+.dark-zone .card{
+  background:var(--card-black);
+  border:1px solid var(--gold);
+  box-shadow:0 18px 45px rgba(0,0,0,.35);
+}
+
+.dark-zone .card strong{
+  color:#f3f4f6;
+}
+
+.dark-zone .list{
+  color:#cbd5e1;
+}
+
+.dark-zone .label{
+  background:rgba(212,175,55,.14);
+  border:1px solid rgba(212,175,55,.55);
+  color:#fde68a;
 }
