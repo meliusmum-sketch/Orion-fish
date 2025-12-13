@@ -7,145 +7,16 @@
   <meta name="description" content="Documents et conformité ORION FISH – certificats, spécifications, traçabilité, documents export. Demande de documents." />
   <meta name="robots" content="index,follow" />
 
+  <link rel="stylesheet" href="/styles.css">
+
   <script>
     if (location.protocol === "http:" && location.hostname !== "localhost") {
       location.replace("https://" + location.host + location.pathname + location.search + location.hash);
     }
   </script>
-
-  <style>
-    :root{
-      --brand-red:#DF261D;
-      --brand-orange:#FF8B00;
-      --bg:#f4f6f8;
-      --surface:#ffffff;
-      --text:#1f2937;
-      --muted:#6b7280;
-      --border:#e5e7eb;
-      --shadow:0 2px 10px rgba(0,0,0,.06);
-      --container:1180px;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,Arial,sans-serif;
-      background:var(--bg);
-      color:var(--text);
-      line-height:1.5;
-    }
-    a{color:inherit;text-decoration:none}
-    p{margin:0 0 12px}
-    h1,h2,h3{margin:0 0 10px;line-height:1.15}
-    h1{font-size:clamp(24px,2.6vw,34px)}
-    h2{font-size:clamp(18px,2vw,24px)}
-    .muted{color:var(--muted)}
-    .container{max-width:var(--container);margin:0 auto;padding:0 16px}
-
-    .skip{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
-    .skip:focus{left:16px;top:16px;width:auto;height:auto;padding:10px 12px;background:#fff;border:1px solid var(--border);border-radius:12px;z-index:9999;box-shadow:var(--shadow)}
-
-    /* TOPBAR */
-    .topbar{background:#fff;border-bottom:1px solid var(--border);font-size:13px;color:var(--muted)}
-    .topbar-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0;flex-wrap:wrap}
-    .topbar-links{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
-    .sep{color:#9ca3af}
-    .pill{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border:1px solid var(--border);border-radius:999px;background:#fff;color:var(--text);font-weight:900}
-    .dot{width:8px;height:8px;border-radius:999px;background:var(--brand-red);display:inline-block}
-    .btn-lang{border:1px solid var(--border);background:var(--surface);padding:8px 10px;border-radius:999px;font-weight:900;cursor:pointer}
-    .btn-lang:hover{box-shadow:var(--shadow)}
-
-    /* HEADER */
-    header{background:var(--surface);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:50}
-    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0;flex-wrap:wrap}
-    .logo-link{display:flex;align-items:center;gap:12px;min-width:220px}
-    .logo-mark{width:38px;height:38px;border-radius:12px;box-shadow:inset 0 0 0 2px rgba(255,255,255,.25)}
-    .logo-text{display:flex;flex-direction:column;line-height:1.1}
-    .logo-title{font-weight:900;letter-spacing:.2px}
-    .logo-sub{font-size:12px;color:var(--muted)}
-
-    nav ul{margin:0;padding:0;list-style:none;display:flex;align-items:center;gap:6px;flex-wrap:wrap;justify-content:flex-end}
-    nav a{display:inline-flex;padding:8px 10px;border-radius:12px;color:var(--muted);font-weight:900;font-size:14px}
-    nav a:hover{background:#f7f7f8;color:var(--text)}
-
-    /* Page */
-    main{padding:18px 0 40px}
-    .breadcrumb{padding:12px 0 0;color:var(--muted);font-size:13px}
-    .breadcrumb a{color:var(--muted)}
-    .breadcrumb a:hover{color:var(--text);text-decoration:underline}
-
-    .panel{
-      margin-top:14px;
-      background:var(--surface);
-      border:1px solid var(--border);
-      border-radius:18px;
-      box-shadow:var(--shadow);
-      padding:16px;
-    }
-
-    /* Tabs */
-    .tabs{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
-    .tab{
-      padding:8px 12px;border-radius:999px;border:1px solid var(--border);
-      background:#fff;color:var(--muted);font-weight:900;font-size:14px;cursor:pointer;
-    }
-    .tab[aria-selected="true"]{border-color:rgba(223,38,29,.25);background:rgba(223,38,29,.06);color:var(--text)}
-
-    /* Layout */
-    .grid{display:grid;grid-template-columns:320px 1fr;gap:14px;align-items:start;margin-top:10px}
-    .side{
-      position:sticky;top:110px;
-      background:#fff;border:1px solid var(--border);border-radius:18px;box-shadow:var(--shadow);
-      padding:14px;
-      height:fit-content;
-    }
-    .side h3{font-size:14px;text-transform:uppercase;letter-spacing:.06em;margin:0 0 10px}
-    .mini{width:100%;padding:11px 12px;border-radius:14px;border:1px solid var(--border);outline:none}
-    .mini:focus{border-color:rgba(223,38,29,.35);box-shadow:0 0 0 4px rgba(223,38,29,.10)}
-    .check{display:flex;align-items:center;gap:10px;color:var(--muted);padding:8px 0}
-    .check input{width:16px;height:16px}
-
-    /* Cards */
-    .cards{display:flex;flex-direction:column;gap:12px}
-    .card{
-      background:#fff;border:1px solid var(--border);border-radius:18px;box-shadow:var(--shadow);
-      padding:14px;
-      display:grid;grid-template-columns:1fr 220px;gap:12px;
-    }
-    .badge{
-      display:inline-flex;align-items:center;gap:8px;
-      padding:7px 10px;border-radius:999px;
-      background:rgba(223,38,29,.06);border:1px solid rgba(223,38,29,.18);
-      font-weight:900;font-size:12px;margin-bottom:10px;
-    }
-    .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
-    .chip{font-size:12px;font-weight:900;color:var(--muted);border:1px solid var(--border);border-radius:999px;padding:6px 10px;background:#fff}
-    .card-side{border-left:1px solid var(--border);padding-left:12px;display:flex;flex-direction:column;justify-content:space-between;gap:10px}
-    .btn{
-      display:inline-flex;align-items:center;justify-content:center;
-      padding:11px 14px;border-radius:14px;border:1px solid var(--border);
-      background:#fff;font-weight:900;cursor:pointer;
-      transition:box-shadow .12s ease, transform .12s ease, filter .12s ease;
-      width:100%;
-    }
-    .btn:hover{box-shadow:var(--shadow);transform:translateY(-1px)}
-    .btn:active{transform:translateY(0)}
-    .btn-primary{border-color:transparent;background:var(--brand-orange);color:#111827}
-
-    /* Footer */
-    footer{background:#fff;border-top:1px solid var(--border);color:var(--muted);padding:18px 0;font-size:13px}
-    .footer-inner{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:flex-start}
-
-    @media (max-width:980px){
-      .grid{grid-template-columns:1fr}
-      .side{position:static}
-      .card{grid-template-columns:1fr}
-      .card-side{border-left:0;border-top:1px solid var(--border);padding-left:0;padding-top:12px}
-    }
-  </style>
 </head>
 
-<body>
+<body class="page-docs">
   <a class="skip" href="#main">Aller au contenu</a>
 
   <div class="topbar">
@@ -177,7 +48,7 @@
           </span>
         </a>
 
-        <nav aria-label="Navigation">
+        <nav>
           <ul>
             <li><a href="/" data-i18n="nav_home">Accueil</a></li>
             <li><a href="/rfq.html" data-i18n="nav_rfq">RFQ / Devis</a></li>
@@ -188,7 +59,7 @@
         </nav>
       </div>
 
-      <div class="breadcrumb" aria-label="Fil d’Ariane">
+      <div class="breadcrumb">
         <a href="/" data-i18n="nav_home">Accueil</a> <span>›</span> <span data-i18n="nav_docs">Documents</span>
       </div>
     </div>
@@ -202,7 +73,7 @@
           Demandez rapidement les certificats, spécifications et documents export selon votre marché.
         </p>
 
-        <div class="tabs" role="tablist" aria-label="Catégories">
+        <div class="tabs" role="tablist">
           <button class="tab" role="tab" aria-selected="true" data-tab="all" data-i18n="tab_all">Tout</button>
           <button class="tab" role="tab" aria-selected="false" data-tab="cert" data-i18n="tab_cert">Certificats</button>
           <button class="tab" role="tab" aria-selected="false" data-tab="spec" data-i18n="tab_spec">Spécifications</button>
@@ -210,7 +81,7 @@
         </div>
 
         <div class="grid">
-          <aside class="side" aria-label="Filtres">
+          <aside class="side">
             <h3 data-i18n="filters">Filtres</h3>
             <input class="mini" id="docSearch" type="search" placeholder="Rechercher un document…" />
 
@@ -219,14 +90,13 @@
             <label class="check"><input type="checkbox" id="fExport"> <span data-i18n="f_export">Besoin export</span></label>
 
             <p class="muted" style="margin-top:10px">
-              <span data-i18n="tip_mail">Astuce :</span>
-              <br />
+              <span data-i18n="tip_mail">Astuce :</span><br>
               <span data-i18n="tip_mail2">Clique sur “Demander” pour générer un email.</span>
             </p>
           </aside>
 
-          <section class="cards" aria-label="Liste de documents">
-            <!-- ✅ Remplace ces cartes par tes vrais docs -->
+          <section class="cards">
+            <!-- Exemples à remplacer -->
             <article class="card" data-kind="cert" data-tags="sea export">
               <div>
                 <div class="badge">✔ Document (exemple)</div>
@@ -239,11 +109,8 @@
                 </div>
               </div>
               <div class="card-side">
-                <div class="muted" style="font-size:13px">
-                  Format : PDF<br>
-                  Délai : sur demande
-                </div>
-                <a class="btn btn-primary" href="mailto:contact@orionsfish.com?subject=Demande%20document%20-%20Certificat%20sanitaire&body=Bonjour%2C%0A%0AMerci%20de%20nous%20envoyer%20le%20certificat%20sanitaire.%0A%0AMarch%C3%A9%20%2F%20destination%20%3A%20%0AProduit%20%3A%20%0AQuantit%C3%A9%20%3A%20%0A%0ACordialement%2C">
+                <div class="muted" style="font-size:13px">Format : PDF<br>Délai : sur demande</div>
+                <a class="btn btn-primary" href="mailto:contact@orionsfish.com?subject=Demande%20document%20-%20Certificat%20sanitaire&body=Bonjour%2C%0A%0AMerci%20de%20nous%20envoyer%20le%20certificat%20sanitaire.%0A%0ADestination%20%3A%20%0AProduit%20%3A%20%0A%0ACordialement%2C">
                   Demander
                 </a>
               </div>
@@ -260,11 +127,8 @@
                 </div>
               </div>
               <div class="card-side">
-                <div class="muted" style="font-size:13px">
-                  Format : PDF<br>
-                  Version : sur demande
-                </div>
-                <a class="btn btn-primary" href="mailto:contact@orionsfish.com?subject=Demande%20document%20-%20Fiche%20technique&body=Bonjour%2C%0A%0AMerci%20de%20nous%20envoyer%20la%20fiche%20technique%20pour%20%3A%20%0A%0AMarch%C3%A9%20%2F%20destination%20%3A%20%0A%0ACordialement%2C">
+                <div class="muted" style="font-size:13px">Format : PDF<br>Version : sur demande</div>
+                <a class="btn btn-primary" href="mailto:contact@orionsfish.com?subject=Demande%20document%20-%20Fiche%20technique&body=Bonjour%2C%0A%0AMerci%20de%20nous%20envoyer%20la%20fiche%20technique%20pour%20%3A%20%0A%0ACordialement%2C">
                   Demander
                 </a>
               </div>
@@ -273,7 +137,7 @@
             <article class="card" data-kind="export" data-tags="sea juice export">
               <div>
                 <div class="badge">✔ Document (exemple)</div>
-                <h3 style="margin:0 0 6px;">Liste documents export</h3>
+                <h3 style="margin:0 0 6px;">Checklist documents export</h3>
                 <p class="muted">Checklist documents selon pays / incoterm.</p>
                 <div class="chips">
                   <span class="chip">Export</span>
@@ -282,11 +146,8 @@
                 </div>
               </div>
               <div class="card-side">
-                <div class="muted" style="font-size:13px">
-                  Format : PDF<br>
-                  Personnalisation : oui
-                </div>
-                <a class="btn btn-primary" href="mailto:contact@orionsfish.com?subject=Demande%20document%20-%20Checklist%20export&body=Bonjour%2C%0A%0AMerci%20de%20nous%20envoyer%20la%20checklist%20export.%0A%0ADestination%20%3A%20%0AIncoterm%20%3A%20%0AProduit%20%3A%20%0A%0ACordialement%2C">
+                <div class="muted" style="font-size:13px">Format : PDF<br>Personnalisation : oui</div>
+                <a class="btn btn-primary" href="mailto:contact@orionsfish.com?subject=Demande%20document%20-%20Checklist%20export&body=Bonjour%2C%0A%0AMerci%20de%20nous%20envoyer%20la%20checklist%20export.%0A%0ADestination%20%3A%20%0AIncoterm%20%3A%20%0A%0ACordialement%2C">
                   Demander
                 </a>
               </div>
@@ -312,10 +173,9 @@
   </footer>
 
   <script>
-    // year
     document.getElementById("y").textContent = new Date().getFullYear();
 
-    // tabs
+    // Tabs + filtres
     const tabs = document.querySelectorAll(".tab");
     tabs.forEach(btn=>{
       btn.addEventListener("click", ()=>{
@@ -325,7 +185,6 @@
       });
     });
 
-    // filters
     const docSearch = document.getElementById("docSearch");
     const fSea = document.getElementById("fSea");
     const fJuice = document.getElementById("fJuice");
@@ -344,18 +203,13 @@
       cards.forEach(card=>{
         const kind = (card.dataset.kind || "all");
         const tags = (card.dataset.tags || "").toLowerCase();
-
         let ok = true;
 
-        // tab filter
         if (tab !== "all" && kind !== tab) ok = false;
-
-        // checkboxes
         if (ok && fSea.checked && !tags.includes("sea")) ok = false;
         if (ok && fJuice.checked && !tags.includes("juice")) ok = false;
         if (ok && fExport.checked && !tags.includes("export")) ok = false;
 
-        // text search
         if (ok && q){
           const text = card.textContent.toLowerCase();
           if (!text.includes(q)) ok = false;
@@ -370,7 +224,7 @@
       el.addEventListener("change", applyFilters);
     });
 
-    // i18n minimal (tu peux enrichir)
+    // i18n mini
     const dict = {
       fr:{
         nav_home:"Accueil", nav_rfq:"RFQ / Devis", nav_docs:"Documents", nav_team:"Team", nav_contact:"Contact",
