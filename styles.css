@@ -364,3 +364,39 @@ footer{background:#fff;border-top:1px solid var(--border);color:var(--muted);pad
   border:1px solid rgba(212,175,55,.55);
   color:#fde68a;
 }
+
+/* ================================
+   HAUT : bleu ciel nuageux prononcé
+   (topbar + header + hero-search)
+   ================================ */
+
+:root{
+  --sky-1:#dff2ff;  /* haut très clair */
+  --sky-2:#bfe4ff;  /* bleu ciel */
+  --sky-3:#9fd3ff;  /* bleu ciel plus prononcé */
+}
+
+.topbar,
+header,
+.page-home .hero-search{
+  background:
+    radial-gradient(circle at 18% 25%, rgba(255,255,255,.92), rgba(255,255,255,0) 52%),
+    radial-gradient(circle at 72% 18%, rgba(255,255,255,.85), rgba(255,255,255,0) 55%),
+    radial-gradient(circle at 55% 60%, rgba(255,255,255,.70), rgba(255,255,255,0) 58%),
+    linear-gradient(180deg, var(--sky-1) 0%, var(--sky-2) 45%, var(--sky-3) 100%);
+}
+
+/* petites bordures propres */
+.topbar{ border-bottom:1px solid rgba(15,23,42,.10); }
+header{ border-bottom:1px solid rgba(15,23,42,.12); }
+.page-home .hero-search{ border-bottom:1px solid rgba(15,23,42,.10); }
+
+/* pour que les “pills” restent lisibles sur le ciel */
+.pill{
+  background:rgba(255,255,255,.70);
+  border-color:rgba(15,23,42,.10);
+}
+nav a:hover{
+  background:rgba(255,255,255,.55);
+}
+
