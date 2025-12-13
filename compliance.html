@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Documents & Compliance – ORION FISH</title>
-  <meta name="description" content="ORION FISH – Qualité, traçabilité, HACCP, chaîne du froid et documents export disponibles sur demande selon la destination." />
+  <title>Documents / Conformité – ORION FISH</title>
+  <meta name="description" content="Documents et conformité ORION FISH – certificats, spécifications, traçabilité, documents export. Demande de documents." />
   <meta name="robots" content="index,follow" />
 
   <script>
@@ -15,476 +15,380 @@
 
   <style>
     :root{
-      --bg:#020617;
-      --card:#0b1220;
-      --border:#1f2937;
-      --text:#e5e7eb;
-      --muted:#9ca3af;
-
-      --accent:#f97316;
-      --accentHover:#ea580c;
-
-      --fresh:#14b8a6; /* teal */
-      --freshSoft: rgba(20,184,166,.18);
-      --warmSoft: rgba(249,115,22,.20);
-
-      --blueFocus:#60a5fa; /* juste pour le focus si tu veux, pas de fond bleu */
+      --brand-red:#DF261D;
+      --brand-orange:#FF8B00;
+      --bg:#f4f6f8;
+      --surface:#ffffff;
+      --text:#1f2937;
+      --muted:#6b7280;
+      --border:#e5e7eb;
+      --shadow:0 2px 10px rgba(0,0,0,.06);
+      --container:1180px;
     }
-
-    *{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth}
+    *{box-sizing:border-box}
+    html,body{height:100%}
     body{
-      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-      line-height:1.6;color:var(--text);
-      background:
-        radial-gradient(circle at 12% 0%, var(--warmSoft), transparent 48%),
-        radial-gradient(circle at 88% 12%, var(--freshSoft), transparent 52%),
-        var(--bg);
-      min-height:100vh;
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,Arial,sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.5;
     }
-
     a{color:inherit;text-decoration:none}
+    p{margin:0 0 12px}
+    h1,h2,h3{margin:0 0 10px;line-height:1.15}
+    h1{font-size:clamp(24px,2.6vw,34px)}
+    h2{font-size:clamp(18px,2vw,24px)}
     .muted{color:var(--muted)}
+    .container{max-width:var(--container);margin:0 auto;padding:0 16px}
 
-    header{
-      position:sticky;top:0;z-index:10;
-      background:rgba(2,6,23,.96);
-      backdrop-filter:blur(8px);
-      border-bottom:1px solid rgba(148,163,184,.35);
-    }
-    .nav{
-      max-width:1100px;margin:0 auto;padding:.8rem 1.5rem;
-      display:flex;align-items:center;justify-content:space-between;gap:1rem;
-    }
-    .logo{font-weight:900;letter-spacing:.18em;text-transform:uppercase;font-size:.95rem;white-space:nowrap}
-    nav ul{list-style:none;display:flex;flex-wrap:wrap;gap:1rem;align-items:center;font-size:.9rem}
-    nav a{opacity:.85;transition:opacity .15s,transform .15s}
-    nav a:hover{opacity:1;transform:translateY(-1px)}
-    .btn-lang{
-      border:1px solid rgba(148,163,184,.6);
-      background:rgba(15,23,42,.7);
-      color:var(--text);
-      padding:.45rem .75rem;border-radius:999px;
-      font-weight:900;cursor:pointer;
-      transition:transform .12s,background .12s;
-    }
-    .btn-lang:hover{transform:translateY(-1px);background:rgba(15,23,42,.95)}
+    .skip{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+    .skip:focus{left:16px;top:16px;width:auto;height:auto;padding:10px 12px;background:#fff;border:1px solid var(--border);border-radius:12px;z-index:9999;box-shadow:var(--shadow)}
 
-    .container{max-width:1100px;margin:0 auto;padding:1.5rem 1.5rem 2.5rem}
-    section{
-      margin:1.8rem 0;padding:2rem;
-      background:var(--card);
+    /* TOPBAR */
+    .topbar{background:#fff;border-bottom:1px solid var(--border);font-size:13px;color:var(--muted)}
+    .topbar-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0;flex-wrap:wrap}
+    .topbar-links{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+    .sep{color:#9ca3af}
+    .pill{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border:1px solid var(--border);border-radius:999px;background:#fff;color:var(--text);font-weight:900}
+    .dot{width:8px;height:8px;border-radius:999px;background:var(--brand-red);display:inline-block}
+    .btn-lang{border:1px solid var(--border);background:var(--surface);padding:8px 10px;border-radius:999px;font-weight:900;cursor:pointer}
+    .btn-lang:hover{box-shadow:var(--shadow)}
+
+    /* HEADER */
+    header{background:var(--surface);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:50}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0;flex-wrap:wrap}
+    .logo-link{display:flex;align-items:center;gap:12px;min-width:220px}
+    .logo-mark{width:38px;height:38px;border-radius:12px;box-shadow:inset 0 0 0 2px rgba(255,255,255,.25)}
+    .logo-text{display:flex;flex-direction:column;line-height:1.1}
+    .logo-title{font-weight:900;letter-spacing:.2px}
+    .logo-sub{font-size:12px;color:var(--muted)}
+
+    nav ul{margin:0;padding:0;list-style:none;display:flex;align-items:center;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+    nav a{display:inline-flex;padding:8px 10px;border-radius:12px;color:var(--muted);font-weight:900;font-size:14px}
+    nav a:hover{background:#f7f7f8;color:var(--text)}
+
+    /* Page */
+    main{padding:18px 0 40px}
+    .breadcrumb{padding:12px 0 0;color:var(--muted);font-size:13px}
+    .breadcrumb a{color:var(--muted)}
+    .breadcrumb a:hover{color:var(--text);text-decoration:underline}
+
+    .panel{
+      margin-top:14px;
+      background:var(--surface);
       border:1px solid var(--border);
-      border-radius:1.5rem;
-      box-shadow:0 18px 45px rgba(15,23,42,.6);
-    }
-    h1{font-size:2.0rem;margin-bottom:.6rem}
-    h2{font-size:1.25rem;margin-top:1.2rem;margin-bottom:.6rem}
-    p{margin:.45rem 0}
-
-    .cta{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1rem}
-    .btn{
-      display:inline-block;
-      padding:.75rem 1.2rem;border-radius:999px;
-      font-weight:900;font-size:.92rem;
-      border:1px solid rgba(148,163,184,.55);
-      background:transparent;color:var(--text);
-      cursor:pointer;
-      transition:transform .12s,background .12s,border-color .12s;
-    }
-    .btn:hover{transform:translateY(-1px);background:rgba(15,23,42,.7)}
-    .btn-primary{
-      border-color:transparent;
-      background:var(--accent);
-      color:#111827;
-      box-shadow:0 10px 24px rgba(249,115,22,.18);
-    }
-    .btn-primary:hover{background:var(--accentHover)}
-
-    .note{
-      border:1px solid rgba(20,184,166,.25);
-      background:rgba(20,184,166,.08);
-      border-radius:1.1rem;
-      padding:1rem;
-      margin-top:1rem;
-      color:var(--muted);
-      font-size:.95rem;
+      border-radius:18px;
+      box-shadow:var(--shadow);
+      padding:16px;
     }
 
-    .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin-top:1rem}
-    .cardbox{
-      border:1px solid rgba(55,65,81,.9);
-      border-radius:1.1rem;
-      padding:1.1rem;
-      background:#08101d;
-      transition:transform .12s,box-shadow .12s,border-color .12s;
+    /* Tabs */
+    .tabs{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+    .tab{
+      padding:8px 12px;border-radius:999px;border:1px solid var(--border);
+      background:#fff;color:var(--muted);font-weight:900;font-size:14px;cursor:pointer;
     }
-    .cardbox:hover{transform:translateY(-2px);border-color:rgba(20,184,166,.85);box-shadow:0 10px 26px rgba(15,23,42,.8)}
+    .tab[aria-selected="true"]{border-color:rgba(223,38,29,.25);background:rgba(223,38,29,.06);color:var(--text)}
+
+    /* Layout */
+    .grid{display:grid;grid-template-columns:320px 1fr;gap:14px;align-items:start;margin-top:10px}
+    .side{
+      position:sticky;top:110px;
+      background:#fff;border:1px solid var(--border);border-radius:18px;box-shadow:var(--shadow);
+      padding:14px;
+      height:fit-content;
+    }
+    .side h3{font-size:14px;text-transform:uppercase;letter-spacing:.06em;margin:0 0 10px}
+    .mini{width:100%;padding:11px 12px;border-radius:14px;border:1px solid var(--border);outline:none}
+    .mini:focus{border-color:rgba(223,38,29,.35);box-shadow:0 0 0 4px rgba(223,38,29,.10)}
+    .check{display:flex;align-items:center;gap:10px;color:var(--muted);padding:8px 0}
+    .check input{width:16px;height:16px}
+
+    /* Cards */
+    .cards{display:flex;flex-direction:column;gap:12px}
+    .card{
+      background:#fff;border:1px solid var(--border);border-radius:18px;box-shadow:var(--shadow);
+      padding:14px;
+      display:grid;grid-template-columns:1fr 220px;gap:12px;
+    }
     .badge{
-      display:inline-flex;align-items:center;gap:.45rem;
-      font-size:.78rem;font-weight:900;
-      border:1px solid rgba(148,163,184,.35);
-      background:rgba(2,6,23,.8);
-      padding:.18rem .65rem;border-radius:999px;
-      margin-bottom:.55rem;
-      opacity:.95;
+      display:inline-flex;align-items:center;gap:8px;
+      padding:7px 10px;border-radius:999px;
+      background:rgba(223,38,29,.06);border:1px solid rgba(223,38,29,.18);
+      font-weight:900;font-size:12px;margin-bottom:10px;
     }
-    .dot{width:8px;height:8px;border-radius:999px;background:var(--fresh)}
-    .list{margin-top:.45rem;padding-left:1.1rem}
-    .list li{margin:.25rem 0;color:var(--muted)}
-
-    table{
+    .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+    .chip{font-size:12px;font-weight:900;color:var(--muted);border:1px solid var(--border);border-radius:999px;padding:6px 10px;background:#fff}
+    .card-side{border-left:1px solid var(--border);padding-left:12px;display:flex;flex-direction:column;justify-content:space-between;gap:10px}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:11px 14px;border-radius:14px;border:1px solid var(--border);
+      background:#fff;font-weight:900;cursor:pointer;
+      transition:box-shadow .12s ease, transform .12s ease, filter .12s ease;
       width:100%;
-      border-collapse:separate;
-      border-spacing:0;
-      overflow:hidden;
-      border-radius:1rem;
-      border:1px solid rgba(55,65,81,.9);
-      margin-top:1rem;
-      background:#050b16;
     }
-    th,td{
-      text-align:left;
-      padding:.85rem .9rem;
-      border-bottom:1px solid rgba(55,65,81,.6);
-      vertical-align:top;
-      font-size:.95rem;
-    }
-    th{color:var(--text);font-weight:900;background:rgba(15,23,42,.55)}
-    td{color:var(--muted)}
-    tr:last-child td{border-bottom:none}
+    .btn:hover{box-shadow:var(--shadow);transform:translateY(-1px)}
+    .btn:active{transform:translateY(0)}
+    .btn-primary{border-color:transparent;background:var(--brand-orange);color:#111827}
 
-    /* FORM */
-    form{display:grid;gap:1rem;margin-top:1rem}
-    label{font-size:.88rem;font-weight:900;margin-bottom:.2rem;display:inline-block}
-    input,textarea,select{
-      width:100%;
-      padding:.6rem .85rem;
-      border-radius:.75rem;
-      border:1px solid #4b5563;
-      background:#050b16;
-      color:var(--text);
-      font:inherit;
-    }
-    textarea{min-height:130px;resize:vertical}
-    input:focus,textarea:focus,select:focus{
-      outline:none;border-color:rgba(20,184,166,.9);
-      box-shadow:0 0 0 1px rgba(20,184,166,.45);
-    }
-    .two{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-    .checks{display:grid;gap:.5rem;margin-top:.2rem}
-    .check{
-      display:flex;gap:.55rem;align-items:flex-start;
-      padding:.6rem .75rem;border-radius:1rem;
-      border:1px solid rgba(55,65,81,.7);
-      background:rgba(15,23,42,.45);
-    }
-    .check input{width:18px;height:18px;margin-top:.15rem}
-    .check span{color:var(--muted);font-size:.95rem}
+    /* Footer */
+    footer{background:#fff;border-top:1px solid var(--border);color:var(--muted);padding:18px 0;font-size:13px}
+    .footer-inner{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:flex-start}
 
-    .footer{
-      max-width:1100px;margin:0 auto;padding:1.8rem 1.5rem;
-      color:var(--muted);font-size:.85rem;
-      border-top:1px solid rgba(148,163,184,.35);
-    }
-    .footer a{text-decoration:underline;text-underline-offset:3px}
-    .copy{text-align:center;margin-top:.9rem}
-
-    @media (max-width:1024px){
-      .container{padding:1.5rem 1rem 2.5rem}
-      .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-      section{padding:1.6rem}
-      .two{grid-template-columns:1fr}
-    }
-    @media (max-width:640px){
-      .nav{flex-direction:column;align-items:flex-start;gap:.5rem}
-      nav ul{justify-content:flex-start}
+    @media (max-width:980px){
       .grid{grid-template-columns:1fr}
-      section{padding:1.4rem}
-      h1{font-size:1.6rem}
-      .copy{text-align:left}
+      .side{position:static}
+      .card{grid-template-columns:1fr}
+      .card-side{border-left:0;border-top:1px solid var(--border);padding-left:0;padding-top:12px}
     }
   </style>
 </head>
 
 <body>
+  <a class="skip" href="#main">Aller au contenu</a>
+
+  <div class="topbar">
+    <div class="container">
+      <div class="topbar-row">
+        <div class="topbar-links">
+          <a class="pill" href="/"><span class="dot" aria-hidden="true"></span><span>ORION FISH</span></a>
+          <a class="pill" href="/rfq.html" data-i18n="nav_rfq">RFQ / Devis</a>
+          <a class="pill" href="/compliance.html" data-i18n="nav_docs">Documents</a>
+          <a class="pill" href="/team.html" data-i18n="nav_team">Team</a>
+        </div>
+        <div class="topbar-links">
+          <a href="/#contact" data-i18n="nav_contact">Contact</a>
+          <span class="sep">•</span>
+          <button class="btn-lang" id="langBtn" type="button">EN</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <header>
-    <div class="nav">
-      <div class="logo">ORION FISH</div>
-      <nav aria-label="Navigation">
-        <ul>
-          <li><a href="index.html" data-i18n="nav_home">Accueil</a></li>
-          <li><a href="rfq.html" data-i18n="nav_rfq">RFQ / Devis</a></li>
-          <li><a href="compliance.html" data-i18n="nav_docs">Documents</a></li>
-          <li><a href="team.html" data-i18n="nav_team">Team</a></li>
-          <li><a href="index.html#contact" data-i18n="nav_contact">Contact</a></li>
-          <li><button class="btn-lang" id="langBtn" type="button">EN</button></li>
-        </ul>
-      </nav>
+    <div class="container">
+      <div class="nav">
+        <a class="logo-link" href="/" aria-label="ORION FISH Home">
+          <img class="logo-mark" src="/logo-orion-fish.svg" alt="Logo ORION FISH">
+          <span class="logo-text">
+            <span class="logo-title">ORION FISH</span>
+            <span class="logo-sub">Seafood & Juices</span>
+          </span>
+        </a>
+
+        <nav aria-label="Navigation">
+          <ul>
+            <li><a href="/" data-i18n="nav_home">Accueil</a></li>
+            <li><a href="/rfq.html" data-i18n="nav_rfq">RFQ / Devis</a></li>
+            <li><a href="/compliance.html" data-i18n="nav_docs">Documents</a></li>
+            <li><a href="/team.html" data-i18n="nav_team">Team</a></li>
+            <li><a href="/#contact" data-i18n="nav_contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="breadcrumb" aria-label="Fil d’Ariane">
+        <a href="/" data-i18n="nav_home">Accueil</a> <span>›</span> <span data-i18n="nav_docs">Documents</span>
+      </div>
     </div>
   </header>
 
-  <main class="container">
-    <section>
-      <h1 data-i18n="title">Documents & Compliance</h1>
-      <p class="muted" data-i18n="sub">
-        Notre approche qualité, traçabilité et documents d’export. Les documents sont fournis selon la destination et les exigences du client.
-      </p>
+  <main id="main">
+    <div class="container">
+      <section class="panel">
+        <h1 data-i18n="docs_title">Documents / Conformité</h1>
+        <p class="muted" data-i18n="docs_sub">
+          Demandez rapidement les certificats, spécifications et documents export selon votre marché.
+        </p>
 
-      <div class="cta">
-        <a class="btn btn-primary" href="rfq.html" data-i18n="cta_rfq">Demander un devis (RFQ)</a>
-        <a class="btn" href="#request" data-i18n="cta_form">Demander des documents</a>
-      </div>
-
-      <div class="note" data-i18n="note">
-        Important : nous évitons d’afficher des certificats publics sur le site. Sur demande, nous transmettons les documents adaptés à votre pays, votre produit et votre incoterm.
-      </div>
-    </section>
-
-    <section>
-      <h2 data-i18n="h2_ready">Export-ready (B2B)</h2>
-
-      <div class="grid">
-        <div class="cardbox">
-          <div class="badge"><span class="dot"></span><span data-i18n="b1">Traçabilité</span></div>
-          <p class="muted" data-i18n="b1p">Suivi lots, fournisseurs, production, expédition.</p>
-          <ul class="list">
-            <li data-i18n="b1l1">Référence lot / date</li>
-            <li data-i18n="b1l2">Contrôles internes</li>
-            <li data-i18n="b1l3">Gestion réclamations</li>
-          </ul>
+        <div class="tabs" role="tablist" aria-label="Catégories">
+          <button class="tab" role="tab" aria-selected="true" data-tab="all" data-i18n="tab_all">Tout</button>
+          <button class="tab" role="tab" aria-selected="false" data-tab="cert" data-i18n="tab_cert">Certificats</button>
+          <button class="tab" role="tab" aria-selected="false" data-tab="spec" data-i18n="tab_spec">Spécifications</button>
+          <button class="tab" role="tab" aria-selected="false" data-tab="export" data-i18n="tab_export">Export</button>
         </div>
 
-        <div class="cardbox">
-          <div class="badge"><span class="dot"></span><span data-i18n="b2">Food Safety</span></div>
-          <p class="muted" data-i18n="b2p">Bonnes pratiques, hygiène, procédures de contrôle.</p>
-          <ul class="list">
-            <li data-i18n="b2l1">Plan HACCP / mesures</li>
-            <li data-i18n="b2l2">Nettoyage & sanitation</li>
-            <li data-i18n="b2l3">Contrôles qualité</li>
-          </ul>
+        <div class="grid">
+          <aside class="side" aria-label="Filtres">
+            <h3 data-i18n="filters">Filtres</h3>
+            <input class="mini" id="docSearch" type="search" placeholder="Rechercher un document…" />
+
+            <label class="check"><input type="checkbox" id="fSea"> <span data-i18n="f_sea">Produits de la mer</span></label>
+            <label class="check"><input type="checkbox" id="fJuice"> <span data-i18n="f_juice">Fruits & jus</span></label>
+            <label class="check"><input type="checkbox" id="fExport"> <span data-i18n="f_export">Besoin export</span></label>
+
+            <p class="muted" style="margin-top:10px">
+              <span data-i18n="tip_mail">Astuce :</span>
+              <br />
+              <span data-i18n="tip_mail2">Clique sur “Demander” pour générer un email.</span>
+            </p>
+          </aside>
+
+          <section class="cards" aria-label="Liste de documents">
+            <!-- ✅ Remplace ces cartes par tes vrais docs -->
+            <article class="card" data-kind="cert" data-tags="sea export">
+              <div>
+                <div class="badge">✔ Document (exemple)</div>
+                <h3 style="margin:0 0 6px;">Certificat sanitaire</h3>
+                <p class="muted">Pour expédition selon destination / exigence client.</p>
+                <div class="chips">
+                  <span class="chip">Mer</span>
+                  <span class="chip">Export</span>
+                  <span class="chip">Certificat</span>
+                </div>
+              </div>
+              <div class="card-side">
+                <div class="muted" style="font-size:13px">
+                  Format : PDF<br>
+                  Délai : sur demande
+                </div>
+                <a class="btn btn-primary" href="mailto:contact@orionsfish.com?subject=Demande%20document%20-%20Certificat%20sanitaire&body=Bonjour%2C%0A%0AMerci%20de%20nous%20envoyer%20le%20certificat%20sanitaire.%0A%0AMarch%C3%A9%20%2F%20destination%20%3A%20%0AProduit%20%3A%20%0AQuantit%C3%A9%20%3A%20%0A%0ACordialement%2C">
+                  Demander
+                </a>
+              </div>
+            </article>
+
+            <article class="card" data-kind="spec" data-tags="juice">
+              <div>
+                <div class="badge">✔ Document (exemple)</div>
+                <h3 style="margin:0 0 6px;">Fiche technique produit</h3>
+                <p class="muted">Spécifications (Brix, format, ingrédients, etc.).</p>
+                <div class="chips">
+                  <span class="chip">Jus</span>
+                  <span class="chip">Spécifications</span>
+                </div>
+              </div>
+              <div class="card-side">
+                <div class="muted" style="font-size:13px">
+                  Format : PDF<br>
+                  Version : sur demande
+                </div>
+                <a class="btn btn-primary" href="mailto:contact@orionsfish.com?subject=Demande%20document%20-%20Fiche%20technique&body=Bonjour%2C%0A%0AMerci%20de%20nous%20envoyer%20la%20fiche%20technique%20pour%20%3A%20%0A%0AMarch%C3%A9%20%2F%20destination%20%3A%20%0A%0ACordialement%2C">
+                  Demander
+                </a>
+              </div>
+            </article>
+
+            <article class="card" data-kind="export" data-tags="sea juice export">
+              <div>
+                <div class="badge">✔ Document (exemple)</div>
+                <h3 style="margin:0 0 6px;">Liste documents export</h3>
+                <p class="muted">Checklist documents selon pays / incoterm.</p>
+                <div class="chips">
+                  <span class="chip">Export</span>
+                  <span class="chip">Mer</span>
+                  <span class="chip">Jus</span>
+                </div>
+              </div>
+              <div class="card-side">
+                <div class="muted" style="font-size:13px">
+                  Format : PDF<br>
+                  Personnalisation : oui
+                </div>
+                <a class="btn btn-primary" href="mailto:contact@orionsfish.com?subject=Demande%20document%20-%20Checklist%20export&body=Bonjour%2C%0A%0AMerci%20de%20nous%20envoyer%20la%20checklist%20export.%0A%0ADestination%20%3A%20%0AIncoterm%20%3A%20%0AProduit%20%3A%20%0A%0ACordialement%2C">
+                  Demander
+                </a>
+              </div>
+            </article>
+          </section>
         </div>
-
-        <div class="cardbox">
-          <div class="badge"><span class="dot"></span><span data-i18n="b3">Chaîne du froid</span></div>
-          <p class="muted" data-i18n="b3p">Maîtrise température selon produit et logistique.</p>
-          <ul class="list">
-            <li data-i18n="b3l1">Stockage & manutention</li>
-            <li data-i18n="b3l2">Préparation expédition</li>
-            <li data-i18n="b3l3">Suivi transport (selon projet)</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <h2 data-i18n="h2_docs">Documents export (selon destination)</h2>
-      <p class="muted" data-i18n="docs_p">
-        Voici les documents généralement demandés. La liste finale dépend de la destination, des règles d’importation et du produit.
-      </p>
-
-      <table>
-        <thead>
-          <tr>
-            <th data-i18n="t1">Document</th>
-            <th data-i18n="t2">Utilité</th>
-            <th data-i18n="t3">Statut</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td data-i18n="d1">Proforma Invoice / Quotation</td>
-            <td data-i18n="d1u">Offre commerciale, prix, incoterm, délais.</td>
-            <td data-i18n="d1s">Sur RFQ</td>
-          </tr>
-          <tr>
-            <td data-i18n="d2">Commercial Invoice</td>
-            <td data-i18n="d2u">Facture finale pour douane/import.</td>
-            <td data-i18n="d2s">Selon expédition</td>
-          </tr>
-          <tr>
-            <td data-i18n="d3">Packing List</td>
-            <td data-i18n="d3u">Détails colis, poids, volumes, lots.</td>
-            <td data-i18n="d3s">Selon expédition</td>
-          </tr>
-          <tr>
-            <td data-i18n="d4">Certificate of Origin</td>
-            <td data-i18n="d4u">Origine marchandise (si requis).</td>
-            <td data-i18n="d4s">Selon destination</td>
-          </tr>
-          <tr>
-            <td data-i18n="d5">Health / Sanitary Certificate</td>
-            <td data-i18n="d5u">Certificat sanitaire requis pour certains marchés.</td>
-            <td data-i18n="d5s">Selon réglementation</td>
-          </tr>
-          <tr>
-            <td data-i18n="d6">Lab Tests / COA</td>
-            <td data-i18n="d6u">Analyses selon cahier des charges (si requis).</td>
-            <td data-i18n="d6s">Sur demande</td>
-          </tr>
-          <tr>
-            <td data-i18n="d7">Label / Packaging info</td>
-            <td data-i18n="d7u">Étiquetage, langue, mentions obligatoires.</td>
-            <td data-i18n="d7s">Selon marché</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <div class="note">
-        <span data-i18n="docs_note">
-          Si vous avez une exigence (UE, Norvège, etc.), indiquez-la dans la RFQ : nous préparons la liste documentaire exacte.
-        </span>
-      </div>
-    </section>
-
-    <section id="request">
-      <h2 data-i18n="req_h2">Demande de documents (formulaire sécurisé)</h2>
-      <p class="muted" data-i18n="req_p">
-        Ce formulaire est envoyé via HTTPS. Indiquez votre pays/destination et les documents souhaités.
-      </p>
-
-      <form action="https://formsubmit.co/contact@orionsfish.com" method="POST">
-        <input type="text" name="_honey" style="display:none">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_subject" value="Documents & Compliance – Request (Website)">
-        <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_next" value="https://orionsfish.com/merci.html">
-
-        <div class="two">
-          <div>
-            <label for="company" data-i18n="f_company">Entreprise</label>
-            <input id="company" name="Company" type="text" required placeholder="Company name" />
-          </div>
-          <div>
-            <label for="name" data-i18n="f_name">Nom</label>
-            <input id="name" name="Name" type="text" required placeholder="Your name" />
-          </div>
-        </div>
-
-        <div class="two">
-          <div>
-            <label for="email" data-i18n="f_email">E-mail</label>
-            <input id="email" name="email" type="email" required placeholder="name@company.com" />
-          </div>
-          <div>
-            <label for="phone" data-i18n="f_phone">Téléphone</label>
-            <input id="phone" name="Phone" type="tel" placeholder="+221 ..." />
-          </div>
-        </div>
-
-        <div class="two">
-          <div>
-            <label for="dest" data-i18n="f_dest">Pays / Destination</label>
-            <input id="dest" name="Destination" type="text" required placeholder="Ex: Netherlands / Rotterdam" />
-          </div>
-          <div>
-            <label for="category" data-i18n="f_cat">Catégorie</label>
-            <select id="category" name="Category" required>
-              <option value="" selected disabled>—</option>
-              <option value="Seafood">Seafood</option>
-              <option value="Fruits & Juices">Fruits & Juices</option>
-              <option value="Both">Both</option>
-            </select>
-          </div>
-        </div>
-
-        <div>
-          <label data-i18n="f_docs">Documents souhaités</label>
-          <div class="checks">
-            <label class="check"><input type="checkbox" name="Requested documents" value="Proforma / Quotation"><span>Proforma / Quotation</span></label>
-            <label class="check"><input type="checkbox" name="Requested documents" value="Commercial Invoice"><span>Commercial Invoice</span></label>
-            <label class="check"><input type="checkbox" name="Requested documents" value="Packing List"><span>Packing List</span></label>
-            <label class="check"><input type="checkbox" name="Requested documents" value="Certificate of Origin"><span>Certificate of Origin</span></label>
-            <label class="check"><input type="checkbox" name="Requested documents" value="Health / Sanitary Certificate"><span>Health / Sanitary Certificate</span></label>
-            <label class="check"><input type="checkbox" name="Requested documents" value="Lab Tests / COA"><span>Lab Tests / COA</span></label>
-            <label class="check"><input type="checkbox" name="Requested documents" value="Label / Packaging Info"><span>Label / Packaging Info</span></label>
-          </div>
-        </div>
-
-        <div>
-          <label for="msg" data-i18n="f_msg">Message (exigences)</label>
-          <textarea id="msg" name="Message" placeholder="Normes, exigences import, incoterm, produit, etc."></textarea>
-        </div>
-
-        <button class="btn btn-primary" type="submit" data-i18n="f_send">Envoyer la demande</button>
-      </form>
-
-      <div class="note" data-i18n="req_note">
-        Astuce : pour une réponse rapide, indiquez votre incoterm (EXW/FOB/CIF/DAP) et le port/ville de destination.
-      </div>
-    </section>
+      </section>
+    </div>
   </main>
 
-  <footer class="footer">
-    <div>
-      <strong>ORION FISH</strong><br>
-      Quartier Léona, Cité Filaos, Rufisque, 17000, Sénégal<br>
-      Registre de commerce : <strong>010112051 SN.DKR.2023.B.9159</strong><br>
-      Responsable de publication : <strong>Diallo Mamadou</strong><br>
-      Hébergeur : <strong>Hostinger</strong><br>
-      Tel/WhatsApp : <a href="tel:+221339138392">+221339138392</a><br>
-      Email : <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a>
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <strong>ORION FISH</strong><br>
+          Quartier Léona, Cité Filaos, Rufisque, 17000, Sénégal<br>
+          Tel/WhatsApp : <a href="tel:+221339138392">+221339138392</a> —
+          <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a>
+        </div>
+        <div>© <span id="y"></span> ORION FISH</div>
+      </div>
     </div>
-    <div class="copy">© <span id="y"></span> ORION FISH</div>
   </footer>
 
   <script>
+    // year
     document.getElementById("y").textContent = new Date().getFullYear();
 
+    // tabs
+    const tabs = document.querySelectorAll(".tab");
+    tabs.forEach(btn=>{
+      btn.addEventListener("click", ()=>{
+        tabs.forEach(b=>b.setAttribute("aria-selected","false"));
+        btn.setAttribute("aria-selected","true");
+        applyFilters();
+      });
+    });
+
+    // filters
+    const docSearch = document.getElementById("docSearch");
+    const fSea = document.getElementById("fSea");
+    const fJuice = document.getElementById("fJuice");
+    const fExport = document.getElementById("fExport");
+    const cards = Array.from(document.querySelectorAll(".card"));
+
+    function activeTab(){
+      const t = document.querySelector('.tab[aria-selected="true"]');
+      return t?.dataset?.tab || "all";
+    }
+
+    function applyFilters(){
+      const q = (docSearch.value || "").trim().toLowerCase();
+      const tab = activeTab();
+
+      cards.forEach(card=>{
+        const kind = (card.dataset.kind || "all");
+        const tags = (card.dataset.tags || "").toLowerCase();
+
+        let ok = true;
+
+        // tab filter
+        if (tab !== "all" && kind !== tab) ok = false;
+
+        // checkboxes
+        if (ok && fSea.checked && !tags.includes("sea")) ok = false;
+        if (ok && fJuice.checked && !tags.includes("juice")) ok = false;
+        if (ok && fExport.checked && !tags.includes("export")) ok = false;
+
+        // text search
+        if (ok && q){
+          const text = card.textContent.toLowerCase();
+          if (!text.includes(q)) ok = false;
+        }
+
+        card.style.display = ok ? "" : "none";
+      });
+    }
+
+    [docSearch,fSea,fJuice,fExport].forEach(el=>{
+      el.addEventListener("input", applyFilters);
+      el.addEventListener("change", applyFilters);
+    });
+
+    // i18n minimal (tu peux enrichir)
     const dict = {
       fr:{
         nav_home:"Accueil", nav_rfq:"RFQ / Devis", nav_docs:"Documents", nav_team:"Team", nav_contact:"Contact",
-        title:"Documents & Compliance",
-        sub:"Notre approche qualité, traçabilité et documents d’export. Les documents sont fournis selon la destination et les exigences du client.",
-        cta_rfq:"Demander un devis (RFQ)", cta_form:"Demander des documents",
-        note:"Important : nous évitons d’afficher des certificats publics sur le site. Sur demande, nous transmettons les documents adaptés à votre pays, votre produit et votre incoterm.",
-        h2_ready:"Export-ready (B2B)",
-        b1:"Traçabilité", b1p:"Suivi lots, fournisseurs, production, expédition.", b1l1:"Référence lot / date", b1l2:"Contrôles internes", b1l3:"Gestion réclamations",
-        b2:"Food Safety", b2p:"Bonnes pratiques, hygiène, procédures de contrôle.", b2l1:"Plan HACCP / mesures", b2l2:"Nettoyage & sanitation", b2l3:"Contrôles qualité",
-        b3:"Chaîne du froid", b3p:"Maîtrise température selon produit et logistique.", b3l1:"Stockage & manutention", b3l2:"Préparation expédition", b3l3:"Suivi transport (selon projet)",
-        h2_docs:"Documents export (selon destination)",
-        docs_p:"Voici les documents généralement demandés. La liste finale dépend de la destination, des règles d’importation et du produit.",
-        t1:"Document", t2:"Utilité", t3:"Statut",
-        d1:"Proforma Invoice / Quotation", d1u:"Offre commerciale, prix, incoterm, délais.", d1s:"Sur RFQ",
-        d2:"Commercial Invoice", d2u:"Facture finale pour douane/import.", d2s:"Selon expédition",
-        d3:"Packing List", d3u:"Détails colis, poids, volumes, lots.", d3s:"Selon expédition",
-        d4:"Certificate of Origin", d4u:"Origine marchandise (si requis).", d4s:"Selon destination",
-        d5:"Health / Sanitary Certificate", d5u:"Certificat sanitaire requis pour certains marchés.", d5s:"Selon réglementation",
-        d6:"Lab Tests / COA", d6u:"Analyses selon cahier des charges (si requis).", d6s:"Sur demande",
-        d7:"Label / Packaging info", d7u:"Étiquetage, langue, mentions obligatoires.", d7s:"Selon marché",
-        docs_note:"Si vous avez une exigence (UE, Norvège, etc.), indiquez-la dans la RFQ : nous préparons la liste documentaire exacte.",
-        req_h2:"Demande de documents (formulaire sécurisé)",
-        req_p:"Ce formulaire est envoyé via HTTPS. Indiquez votre pays/destination et les documents souhaités.",
-        f_company:"Entreprise", f_name:"Nom", f_email:"E-mail", f_phone:"Téléphone", f_dest:"Pays / Destination", f_cat:"Catégorie",
-        f_docs:"Documents souhaités", f_msg:"Message (exigences)", f_send:"Envoyer la demande",
-        req_note:"Astuce : pour une réponse rapide, indiquez votre incoterm (EXW/FOB/CIF/DAP) et le port/ville de destination."
+        docs_title:"Documents / Conformité",
+        docs_sub:"Demandez rapidement les certificats, spécifications et documents export selon votre marché.",
+        tab_all:"Tout", tab_cert:"Certificats", tab_spec:"Spécifications", tab_export:"Export",
+        filters:"Filtres",
+        f_sea:"Produits de la mer", f_juice:"Fruits & jus", f_export:"Besoin export",
+        tip_mail:"Astuce :", tip_mail2:"Clique sur “Demander” pour générer un email."
       },
       en:{
         nav_home:"Home", nav_rfq:"RFQ / Quotation", nav_docs:"Documents", nav_team:"Team", nav_contact:"Contact",
-        title:"Documents & Compliance",
-        sub:"Our quality, traceability and export documentation approach. Documents are provided depending on destination and customer requirements.",
-        cta_rfq:"Request a quotation (RFQ)", cta_form:"Request documents",
-        note:"Important: we avoid posting certificates publicly on the website. Upon request, we share documents adapted to your country, product and incoterm.",
-        h2_ready:"Export-ready (B2B)",
-        b1:"Traceability", b1p:"Batch, suppliers, production and shipment tracking.", b1l1:"Batch reference / date", b1l2:"Internal checks", b1l3:"Claims handling",
-        b2:"Food Safety", b2p:"Good practices, hygiene and control procedures.", b2l1:"HACCP plan / controls", b2l2:"Cleaning & sanitation", b2l3:"Quality checks",
-        b3:"Cold chain", b3p:"Temperature control depending on product and logistics.", b3l1:"Storage & handling", b3l2:"Shipment preparation", b3l3:"Transport monitoring (project-based)",
-        h2_docs:"Export documents (depending on destination)",
-        docs_p:"Below are common documents. Final list depends on destination, import rules and product requirements.",
-        t1:"Document", t2:"Purpose", t3:"Status",
-        d1:"Proforma Invoice / Quotation", d1u:"Commercial offer, price, incoterm, lead time.", d1s:"With RFQ",
-        d2:"Commercial Invoice", d2u:"Final invoice for customs/import.", d2s:"Per shipment",
-        d3:"Packing List", d3u:"Cartons, weights, volumes, batches.", d3s:"Per shipment",
-        d4:"Certificate of Origin", d4u:"Goods origin (if required).", d4s:"Depending on destination",
-        d5:"Health / Sanitary Certificate", d5u:"Sanitary certificate required for some markets.", d5s:"Depending on regulation",
-        d6:"Lab Tests / COA", d6u:"Testing per specification (if required).", d6s:"Upon request",
-        d7:"Label / Packaging info", d7u:"Label language and mandatory mentions.", d7s:"Market-specific",
-        docs_note:"If you have a specific requirement (EU, Norway, etc.), mention it in the RFQ so we prepare the exact document list.",
-        req_h2:"Document request (secure form)",
-        req_p:"This form is sent over HTTPS. Please specify destination country and requested documents.",
-        f_company:"Company", f_name:"Name", f_email:"Email", f_phone:"Phone", f_dest:"Country / Destination", f_cat:"Category",
-        f_docs:"Requested documents", f_msg:"Message (requirements)", f_send:"Send request",
-        req_note:"Tip: for a fast reply, specify your incoterm (EXW/FOB/CIF/DAP) and destination port/city."
+        docs_title:"Documents / Compliance",
+        docs_sub:"Request certificates, specs, and export documents based on your market.",
+        tab_all:"All", tab_cert:"Certificates", tab_spec:"Specifications", tab_export:"Export",
+        filters:"Filters",
+        f_sea:"Seafood", f_juice:"Fruits & juices", f_export:"Export needs",
+        tip_mail:"Tip:", tip_mail2:"Click “Request” to generate an email."
       }
     };
 
