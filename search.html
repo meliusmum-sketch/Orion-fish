@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recherche – ORION FISH</title>
+  <meta name="description" content="Recherche produits ORION FISH (produits de la mer, fruits & jus)." />
+  <meta name="robots" content="index,follow" />
+
+  <link rel="icon" href="/logo-orion-fish.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css" />
+  <script src="/site.js" defer></script>
+</head>
+
+<body class="page-search">
+  <a class="skip" href="#main">Aller au contenu</a>
+
+  <div class="topbar">
+    <div class="container">
+      <div class="topbar-row">
+        <div class="topbar-links">
+          <a class="pill" href="/"><span class="dot" aria-hidden="true"></span><span>ORION FISH</span></a>
+          <a class="pill" href="/rfq.html" data-i18n="nav_rfq">RFQ / Devis</a>
+          <a class="pill" href="/compliance.html" data-i18n="nav_docs">Documents</a>
+          <a class="pill" href="/privacy.html" data-i18n="nav_privacy">Privacy & Terms</a>
+        </div>
+        <div class="topbar-links">
+          <a href="/#contact" data-i18n="nav_contact">Contact</a>
+          <span class="sep">•</span>
+          <button class="btn-lang" id="langBtn" type="button">EN</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <header>
+    <div class="container">
+      <div class="nav">
+        <a class="logo-link" href="/" aria-label="ORION FISH Home">
+          <img class="logo-mark" src="/logo-orion-fish.svg" alt="Logo ORION FISH">
+          <span class="logo-text">
+            <span class="logo-title">ORION FISH</span>
+            <span class="logo-sub">Seafood & Juices</span>
+          </span>
+        </a>
+
+        <nav aria-label="Navigation">
+          <ul>
+            <li><a href="/" data-i18n="nav_home">Accueil</a></li>
+            <li><a href="/rfq.html" data-i18n="nav_rfq">RFQ / Devis</a></li>
+            <li><a href="/compliance.html" data-i18n="nav_docs">Documents</a></li>
+            <li><a href="/privacy.html" data-i18n="nav_privacy">Privacy & Terms</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <section class="panel">
+      <h1>Recherche produits</h1>
+      <p class="muted" id="resultsMeta">Chargement…</p>
+
+      <form class="search-row" id="searchForm2" action="/search.html" method="GET" style="margin-top:12px">
+        <input type="hidden" name="cat" id="cat2" value="all">
+        <label class="field">
+          <span aria-hidden="true">🔎</span>
+          <input id="q2" name="q" type="search" placeholder="Ex: thon, crevette, mangue, jus..." />
+        </label>
+        <label class="field">
+          <span aria-hidden="true">🏷️</span>
+          <select id="catSelect" name="cat">
+            <option value="all">Tout</option>
+            <option value="seafood">Produits de la mer</option>
+            <option value="juice">Fruits & jus</option>
+          </select>
+        </label>
+        <button class="search-btn" type="submit">Rechercher</button>
+      </form>
+
+      <div id="results" style="margin-top:14px; display:grid; gap:12px;"></div>
+
+      <p class="muted" style="margin-top:14px">
+        Astuce : clique sur “RFQ” dans un résultat pour pré-remplir le formulaire.
+      </p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="foot-links">
+      <a href="/compliance.html" data-i18n="nav_docs">Documents</a>
+      <span>•</span>
+      <a href="/privacy.html" data-i18n="nav_privacy">Privacy & Terms</a>
+    </div>
+    <div class="foot-copy">© <span id="year"></span> ORION FISH</div>
+  </footer>
+</body>
+</html>
