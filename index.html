@@ -10,7 +10,6 @@
 
   <link rel="icon" href="/logo-orion-fish.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/logo-orion-fish.svg">
-
   <link rel="stylesheet" href="/styles.css" />
 
   <script>
@@ -24,7 +23,7 @@
     "@context":"https://schema.org",
     "@type":"Organization",
     "name":"ORION FISH",
-    "url":"https://orionsfish.com",
+    "url":"https://orionfish.com",
     "telephone":"+221339138392",
     "email":"contact@orionsfish.com",
     "address":{
@@ -90,7 +89,7 @@
   </header>
 
   <main id="main">
-    <!-- SEARCH BAR (fonctionnelle -> search.html) -->
+    <!-- SEARCH (fonctionnelle) -->
     <section class="hero-search" aria-label="Recherche">
       <div class="container">
         <div class="search-card">
@@ -122,7 +121,7 @@
           </form>
 
           <div class="hint">
-            <span>Exemples : thon, crevette, mangue, ananas, jus…</span>
+            <span>Exemples : thon, crevette, mangue, ananas, bissap, jus…</span>
             <span class="sep">•</span>
             <span>Résultats + bouton “RFQ” par produit</span>
           </div>
@@ -134,33 +133,34 @@
       </div>
     </section>
 
+    <!-- Contenu -->
     <div class="container">
       <section id="accueil" class="hero">
         <div class="hero-grid">
           <div>
-            <h1 data-i18n="home_h1">ORION FISH – Produits de la mer & jus de fruits</h1>
-            <p class="muted" data-i18n="home_sub">
+            <h1>ORION FISH – Produits de la mer & jus de fruits</h1>
+            <p class="muted">
               Produits de la mer, transformation de fruits en jus, vente et distribution au service des marchés locaux et internationaux.
             </p>
-            <p data-i18n="home_p">
+            <p>
               Nous accompagnons distributeurs, industriels et professionnels avec des solutions fiables, tracées et conformes aux exigences.
             </p>
 
             <div class="cta">
-              <a class="btn btn-primary" href="/rfq.html" data-i18n="home_cta_rfq">Demander un devis (RFQ)</a>
-              <a class="btn btn-green" href="/compliance.html" data-i18n="home_cta_docs">Documents (sur demande)</a>
+              <a class="btn btn-primary" href="/rfq.html">Demander un devis (RFQ)</a>
+              <a class="btn btn-green" href="/compliance.html">Documents (sur demande)</a>
             </div>
           </div>
 
           <div class="info-card">
-            <div class="info-title" data-i18n="common_quick_title">Informations rapides</div>
-            <div class="info-line"><strong data-i18n="common_loc">Localisation :</strong> Rufisque (17000), Sénégal</div>
-            <div class="info-line"><strong data-i18n="common_phone">Tel/WhatsApp :</strong> <a href="tel:+221339138392">+221339138392</a></div>
-            <div class="info-line"><strong data-i18n="common_email">Email :</strong> <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a></div>
+            <div class="info-title">Informations rapides</div>
+            <div class="info-line"><strong>Localisation :</strong> Rufisque (17000), Sénégal</div>
+            <div class="info-line"><strong>Tel/WhatsApp :</strong> <a href="tel:+221339138392">+221339138392</a></div>
+            <div class="info-line"><strong>Email :</strong> <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a></div>
 
             <div class="cta" style="margin-top:.9rem">
-              <a class="btn btn-primary" href="/compliance.html" data-i18n="home_open_docs">Ouvrir Documents</a>
-              <a class="btn btn-outline" href="/#contact" data-i18n="home_talk">Parler à l’équipe</a>
+              <a class="btn btn-primary" href="/compliance.html">Ouvrir Documents</a>
+              <a class="btn btn-outline" href="/#contact">Parler à l’équipe</a>
             </div>
           </div>
         </div>
@@ -172,19 +172,15 @@
     <div class="dark-zone">
       <div class="container">
 
-        <section id="apropos">
-          <h2 data-i18n="about_h2">À propos d’ORION FISH</h2>
-          <p data-i18n="about_p1">
-            ORION FISH est une entreprise agroalimentaire spécialisée dans la valorisation des produits de la mer et la transformation de fruits en jus.
-          </p>
-          <p class="muted" data-i18n="about_p2">
-            Notre ambition : développer des filières durables et compétitives, adaptées aux besoins B2B.
-          </p>
+        <section id="apropos" class="panel">
+          <h2>À propos d’ORION FISH</h2>
+          <p>Entreprise agroalimentaire spécialisée dans la valorisation des produits de la mer et la transformation de fruits en jus.</p>
+          <p class="muted">Ambition : développer des filières durables et compétitives, adaptées aux besoins B2B.</p>
         </section>
 
-        <section id="mer">
-          <h2 data-i18n="sea_h2">Produits de la mer</h2>
-          <p class="muted" data-i18n="sea_p">Collecte, transformation, conditionnement et distribution.</p>
+        <section id="mer" class="panel">
+          <h2>Produits de la mer</h2>
+          <p class="muted">Collecte, transformation, conditionnement et distribution.</p>
 
           <div class="grid">
             <div class="card">
@@ -217,9 +213,9 @@
           </div>
         </section>
 
-        <section id="jus">
-          <h2 data-i18n="juice_h2">Fruits & jus</h2>
-          <p class="muted" data-i18n="juice_p">Sélection, transformation et conditionnement selon marché.</p>
+        <section id="jus" class="panel">
+          <h2>Fruits & jus</h2>
+          <p class="muted">Sélection, transformation et conditionnement selon marché.</p>
 
           <div class="grid">
             <div class="card">
@@ -252,10 +248,10 @@
           </div>
         </section>
 
-        <section id="contact">
-          <h2 data-i18n="contact_h2">Contact</h2>
-          <p data-i18n="contact_p1">Pour toute demande d’information ou partenariat, contactez-nous.</p>
-          <p class="muted" data-i18n="contact_p2">Pour un devis rapide, utilisez la page RFQ.</p>
+        <section id="contact" class="panel">
+          <h2>Contact</h2>
+          <p>Pour toute demande d’information ou partenariat, contactez-nous.</p>
+          <p class="muted">Pour un devis rapide, utilisez la page RFQ.</p>
 
           <p class="muted" style="margin-bottom:1rem">
             Email : <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a> •
@@ -300,8 +296,8 @@
           </form>
         </section>
 
-        <section id="mentions">
-          <h2 data-i18n="nav_legal">Mentions</h2>
+        <section id="mentions" class="panel">
+          <h2>Mentions</h2>
           <p class="muted" style="margin-top:.6rem">
             <strong>ORION FISH</strong><br>
             Quartier Léona, Cité Filaos, Rufisque, 17000, Sénégal<br>
@@ -319,13 +315,13 @@
       <div class="dark-footer">
         <div class="footer">
           <div class="foot-links">
-            <a href="/#mentions" data-i18n="nav_legal">Mentions</a>
+            <a href="/#mentions">Mentions</a>
             <span>•</span>
-            <a href="/rfq.html" data-i18n="nav_rfq">RFQ / Devis</a>
+            <a href="/rfq.html">RFQ / Devis</a>
             <span>•</span>
-            <a href="/compliance.html" data-i18n="nav_docs">Documents</a>
+            <a href="/compliance.html">Documents</a>
             <span>•</span>
-            <a href="/privacy.html" data-i18n="nav_privacy">Privacy & Terms</a>
+            <a href="/privacy.html">Privacy & Terms</a>
           </div>
           <div class="foot-copy">© <span id="year"></span> ORION FISH. Tous droits réservés.</div>
         </div>
