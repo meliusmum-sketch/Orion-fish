@@ -4,16 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Documents / Conformité – ORION FISH</title>
-  <meta name="description" content="Documents et conformité ORION FISH – certificats, spécifications, traçabilité, documents export. Demande de documents." />
+  <meta name="description" content="Documents ORION FISH – certificats, spécifications, documents export. Disponibles sur demande selon produit et destination." />
   <meta name="robots" content="index,follow" />
 
-  <link rel="stylesheet" href="/styles.css">
-
-  <script>
-    if (location.protocol === "http:" && location.hostname !== "localhost") {
-      location.replace("https://" + location.host + location.pathname + location.search + location.hash);
-    }
-  </script>
+  <link rel="icon" href="/logo-orion-fish.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css" />
+  <script src="/site.js" defer></script>
 </head>
 
 <body class="page-docs">
@@ -26,7 +22,7 @@
           <a class="pill" href="/"><span class="dot" aria-hidden="true"></span><span>ORION FISH</span></a>
           <a class="pill" href="/rfq.html" data-i18n="nav_rfq">RFQ / Devis</a>
           <a class="pill" href="/compliance.html" data-i18n="nav_docs">Documents</a>
-          <a class="pill" href="/team.html" data-i18n="nav_team">Team</a>
+          <a class="pill" href="/privacy.html" data-i18n="nav_privacy">Privacy & Terms</a>
         </div>
         <div class="topbar-links">
           <a href="/#contact" data-i18n="nav_contact">Contact</a>
@@ -48,222 +44,103 @@
           </span>
         </a>
 
-        <nav>
+        <nav aria-label="Navigation">
           <ul>
             <li><a href="/" data-i18n="nav_home">Accueil</a></li>
             <li><a href="/rfq.html" data-i18n="nav_rfq">RFQ / Devis</a></li>
             <li><a href="/compliance.html" data-i18n="nav_docs">Documents</a></li>
-            <li><a href="/team.html" data-i18n="nav_team">Team</a></li>
-            <li><a href="/#contact" data-i18n="nav_contact">Contact</a></li>
+            <li><a href="/privacy.html" data-i18n="nav_privacy">Privacy & Terms</a></li>
           </ul>
         </nav>
-      </div>
-
-      <div class="breadcrumb">
-        <a href="/" data-i18n="nav_home">Accueil</a> <span>›</span> <span data-i18n="nav_docs">Documents</span>
       </div>
     </div>
   </header>
 
-  <main id="main">
-    <div class="container">
-      <section class="panel">
-        <h1 data-i18n="docs_title">Documents / Conformité</h1>
-        <p class="muted" data-i18n="docs_sub">
-          Demandez rapidement les certificats, spécifications et documents export selon votre marché.
-        </p>
-
-        <div class="tabs" role="tablist">
-          <button class="tab" role="tab" aria-selected="true" data-tab="all" data-i18n="tab_all">Tout</button>
-          <button class="tab" role="tab" aria-selected="false" data-tab="cert" data-i18n="tab_cert">Certificats</button>
-          <button class="tab" role="tab" aria-selected="false" data-tab="spec" data-i18n="tab_spec">Spécifications</button>
-          <button class="tab" role="tab" aria-selected="false" data-tab="export" data-i18n="tab_export">Export</button>
-        </div>
-
-        <div class="grid">
-          <aside class="side">
-            <h3 data-i18n="filters">Filtres</h3>
-            <input class="mini" id="docSearch" type="search" placeholder="Rechercher un document…" />
-
-            <label class="check"><input type="checkbox" id="fSea"> <span data-i18n="f_sea">Produits de la mer</span></label>
-            <label class="check"><input type="checkbox" id="fJuice"> <span data-i18n="f_juice">Fruits & jus</span></label>
-            <label class="check"><input type="checkbox" id="fExport"> <span data-i18n="f_export">Besoin export</span></label>
-
-            <p class="muted" style="margin-top:10px">
-              <span data-i18n="tip_mail">Astuce :</span><br>
-              <span data-i18n="tip_mail2">Clique sur “Demander” pour générer un email.</span>
-            </p>
-          </aside>
-
-          <section class="cards">
-            <!-- Exemples à remplacer -->
-            <article class="card" data-kind="cert" data-tags="sea export">
-              <div>
-                <div class="badge">✔ Document (exemple)</div>
-                <h3 style="margin:0 0 6px;">Certificat sanitaire</h3>
-                <p class="muted">Pour expédition selon destination / exigence client.</p>
-                <div class="chips">
-                  <span class="chip">Mer</span>
-                  <span class="chip">Export</span>
-                  <span class="chip">Certificat</span>
-                </div>
-              </div>
-              <div class="card-side">
-                <div class="muted" style="font-size:13px">Format : PDF<br>Délai : sur demande</div>
-                <a class="btn btn-primary" href="mailto:contact@orionsfish.com?subject=Demande%20document%20-%20Certificat%20sanitaire&body=Bonjour%2C%0A%0AMerci%20de%20nous%20envoyer%20le%20certificat%20sanitaire.%0A%0ADestination%20%3A%20%0AProduit%20%3A%20%0A%0ACordialement%2C">
-                  Demander
-                </a>
-              </div>
-            </article>
-
-            <article class="card" data-kind="spec" data-tags="juice">
-              <div>
-                <div class="badge">✔ Document (exemple)</div>
-                <h3 style="margin:0 0 6px;">Fiche technique produit</h3>
-                <p class="muted">Spécifications (Brix, format, ingrédients, etc.).</p>
-                <div class="chips">
-                  <span class="chip">Jus</span>
-                  <span class="chip">Spécifications</span>
-                </div>
-              </div>
-              <div class="card-side">
-                <div class="muted" style="font-size:13px">Format : PDF<br>Version : sur demande</div>
-                <a class="btn btn-primary" href="mailto:contact@orionsfish.com?subject=Demande%20document%20-%20Fiche%20technique&body=Bonjour%2C%0A%0AMerci%20de%20nous%20envoyer%20la%20fiche%20technique%20pour%20%3A%20%0A%0ACordialement%2C">
-                  Demander
-                </a>
-              </div>
-            </article>
-
-            <article class="card" data-kind="export" data-tags="sea juice export">
-              <div>
-                <div class="badge">✔ Document (exemple)</div>
-                <h3 style="margin:0 0 6px;">Checklist documents export</h3>
-                <p class="muted">Checklist documents selon pays / incoterm.</p>
-                <div class="chips">
-                  <span class="chip">Export</span>
-                  <span class="chip">Mer</span>
-                  <span class="chip">Jus</span>
-                </div>
-              </div>
-              <div class="card-side">
-                <div class="muted" style="font-size:13px">Format : PDF<br>Personnalisation : oui</div>
-                <a class="btn btn-primary" href="mailto:contact@orionsfish.com?subject=Demande%20document%20-%20Checklist%20export&body=Bonjour%2C%0A%0AMerci%20de%20nous%20envoyer%20la%20checklist%20export.%0A%0ADestination%20%3A%20%0AIncoterm%20%3A%20%0A%0ACordialement%2C">
-                  Demander
-                </a>
-              </div>
-            </article>
-          </section>
-        </div>
-      </section>
+  <main id="main" class="container">
+    <div class="breadcrumb">
+      <a href="/" data-i18n="nav_home">Accueil</a> <span>›</span> <span data-i18n="nav_docs">Documents</span>
     </div>
+
+    <section class="panel">
+      <h1>Documents / Conformité</h1>
+      <p class="muted">
+        Tous les documents sont <strong>disponibles sur demande</strong> (selon produit, destination et exigences client).
+        Pour accélérer : indique ton <strong>produit</strong>, <strong>quantité</strong>, <strong>pays/port</strong> et <strong>incoterm</strong>.
+      </p>
+
+      <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;">
+        <a class="btn btn-primary" href="/rfq.html">Faire un RFQ</a>
+        <a class="btn btn-outline" href="mailto:contact@orionsfish.com?subject=Demande%20documents%20-%20ORION%20FISH&body=Bonjour%2C%0A%0AJe%20souhaite%20recevoir%20les%20documents%20suivants%20%3A%0A-%20%0A%0AProduit%20%3A%20%0AQuantit%C3%A9%20%3A%20%0ADestination%20(pays%2Fport)%20%3A%20%0AIncoterm%20%3A%20%0A%0AMerci.%0A">
+          Demander par email
+        </a>
+      </div>
+
+      <div class="cards" style="margin-top:14px">
+        <div class="card">
+          <div>
+            <div class="badge">Export • Mer / Jus</div>
+            <h2 style="margin:0 0 6px">Certificat sanitaire / documents officiels</h2>
+            <p class="muted" style="margin:0">
+              Fournis selon destination et exigences client (et selon disponibilité règlementaire).
+            </p>
+            <div class="chips">
+              <span class="chip">PDF</span><span class="chip">Sur demande</span><span class="chip">Selon pays</span>
+            </div>
+          </div>
+          <div class="card-side">
+            <a class="btn btn-primary" href="mailto:contact@orionsfish.com?subject=Demande%20-%20Certificat%20sanitaire&body=Bonjour%2C%0A%0AJe%20souhaite%20le%20certificat%20sanitaire%20pour%20%3A%0AProduit%20%3A%20%0AQuantit%C3%A9%20%3A%20%0ADestination%20(pays%2Fport)%20%3A%20%0AIncoterm%20%3A%20%0A%0AMerci.%0A">Demander</a>
+            <a class="btn btn-outline" href="/rfq.html?category=Seafood">RFQ</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div>
+            <div class="badge">Spécifications</div>
+            <h2 style="margin:0 0 6px">Fiche technique / Spec sheet</h2>
+            <p class="muted" style="margin:0">
+              Spécifications produit (espèce, grade, brix, ingrédients, formats, packaging…).
+            </p>
+            <div class="chips">
+              <span class="chip">PDF</span><span class="chip">Sur demande</span><span class="chip">Par produit</span>
+            </div>
+          </div>
+          <div class="card-side">
+            <a class="btn btn-primary" href="mailto:contact@orionsfish.com?subject=Demande%20-%20Fiche%20technique%20(Spec%20sheet)&body=Bonjour%2C%0A%0AJe%20souhaite%20la%20fiche%20technique%20pour%20%3A%0AProduit%20%3A%20%0AFormat%20%3A%20%0APays%20%3A%20%0A%0AMerci.%0A">Demander</a>
+            <a class="btn btn-outline" href="/rfq.html">RFQ</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div>
+            <div class="badge">Export</div>
+            <h2 style="margin:0 0 6px">Checklist documents export</h2>
+            <p class="muted" style="margin:0">
+              Liste indicative selon pays + incoterm (packing list, invoice, COO, etc.).
+            </p>
+            <div class="chips">
+              <span class="chip">PDF</span><span class="chip">Personnalisable</span><span class="chip">Sur demande</span>
+            </div>
+          </div>
+          <div class="card-side">
+            <a class="btn btn-primary" href="mailto:contact@orionsfish.com?subject=Demande%20-%20Checklist%20export&body=Bonjour%2C%0A%0AJe%20souhaite%20la%20checklist%20export%20pour%20%3A%0ADestination%20(pays%2Fport)%20%3A%20%0AIncoterm%20%3A%20%0AProduit%20%3A%20%0A%0AMerci.%0A">Demander</a>
+            <a class="btn btn-outline" href="/rfq.html">RFQ</a>
+          </div>
+        </div>
+      </div>
+
+      <p class="muted" style="margin-top:14px">
+        ORION FISH • Rufisque, Sénégal • <a href="tel:+221339138392">+221339138392</a> • <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a>
+      </p>
+    </section>
   </main>
 
-  <footer>
-    <div class="container">
-      <div class="footer-inner">
-        <div>
-          <strong>ORION FISH</strong><br>
-          Quartier Léona, Cité Filaos, Rufisque, 17000, Sénégal<br>
-          Tel/WhatsApp : <a href="tel:+221339138392">+221339138392</a> —
-          <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a>
-        </div>
-        <div>© <span id="y"></span> ORION FISH</div>
-      </div>
+  <footer class="footer">
+    <div class="foot-links">
+      <a href="/rfq.html" data-i18n="nav_rfq">RFQ / Devis</a>
+      <span>•</span>
+      <a href="/privacy.html" data-i18n="nav_privacy">Privacy & Terms</a>
     </div>
+    <div class="foot-copy">© <span id="year"></span> ORION FISH</div>
   </footer>
-
-  <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
-
-    // Tabs + filtres
-    const tabs = document.querySelectorAll(".tab");
-    tabs.forEach(btn=>{
-      btn.addEventListener("click", ()=>{
-        tabs.forEach(b=>b.setAttribute("aria-selected","false"));
-        btn.setAttribute("aria-selected","true");
-        applyFilters();
-      });
-    });
-
-    const docSearch = document.getElementById("docSearch");
-    const fSea = document.getElementById("fSea");
-    const fJuice = document.getElementById("fJuice");
-    const fExport = document.getElementById("fExport");
-    const cards = Array.from(document.querySelectorAll(".card"));
-
-    function activeTab(){
-      const t = document.querySelector('.tab[aria-selected="true"]');
-      return t?.dataset?.tab || "all";
-    }
-
-    function applyFilters(){
-      const q = (docSearch.value || "").trim().toLowerCase();
-      const tab = activeTab();
-
-      cards.forEach(card=>{
-        const kind = (card.dataset.kind || "all");
-        const tags = (card.dataset.tags || "").toLowerCase();
-        let ok = true;
-
-        if (tab !== "all" && kind !== tab) ok = false;
-        if (ok && fSea.checked && !tags.includes("sea")) ok = false;
-        if (ok && fJuice.checked && !tags.includes("juice")) ok = false;
-        if (ok && fExport.checked && !tags.includes("export")) ok = false;
-
-        if (ok && q){
-          const text = card.textContent.toLowerCase();
-          if (!text.includes(q)) ok = false;
-        }
-
-        card.style.display = ok ? "" : "none";
-      });
-    }
-
-    [docSearch,fSea,fJuice,fExport].forEach(el=>{
-      el.addEventListener("input", applyFilters);
-      el.addEventListener("change", applyFilters);
-    });
-
-    // i18n mini
-    const dict = {
-      fr:{
-        nav_home:"Accueil", nav_rfq:"RFQ / Devis", nav_docs:"Documents", nav_team:"Team", nav_contact:"Contact",
-        docs_title:"Documents / Conformité",
-        docs_sub:"Demandez rapidement les certificats, spécifications et documents export selon votre marché.",
-        tab_all:"Tout", tab_cert:"Certificats", tab_spec:"Spécifications", tab_export:"Export",
-        filters:"Filtres",
-        f_sea:"Produits de la mer", f_juice:"Fruits & jus", f_export:"Besoin export",
-        tip_mail:"Astuce :", tip_mail2:"Clique sur “Demander” pour générer un email."
-      },
-      en:{
-        nav_home:"Home", nav_rfq:"RFQ / Quotation", nav_docs:"Documents", nav_team:"Team", nav_contact:"Contact",
-        docs_title:"Documents / Compliance",
-        docs_sub:"Request certificates, specs, and export documents based on your market.",
-        tab_all:"All", tab_cert:"Certificates", tab_spec:"Specifications", tab_export:"Export",
-        filters:"Filters",
-        f_sea:"Seafood", f_juice:"Fruits & juices", f_export:"Export needs",
-        tip_mail:"Tip:", tip_mail2:"Click “Request” to generate an email."
-      }
-    };
-
-    function setLang(lang){
-      const d = dict[lang] || dict.fr;
-      document.documentElement.lang = lang;
-      document.querySelectorAll("[data-i18n]").forEach(el=>{
-        const k = el.getAttribute("data-i18n");
-        if(d[k]) el.textContent = d[k];
-      });
-      document.getElementById("langBtn").textContent = (lang==="fr") ? "EN" : "FR";
-      localStorage.setItem("lang", lang);
-    }
-
-    const stored = localStorage.getItem("lang");
-    const initial = stored || ((navigator.language||"").toLowerCase().startsWith("fr") ? "fr" : "en");
-    setLang(initial);
-
-    document.getElementById("langBtn").addEventListener("click", ()=>{
-      setLang(document.documentElement.lang === "fr" ? "en" : "fr");
-    });
-  </script>
 </body>
 </html>
