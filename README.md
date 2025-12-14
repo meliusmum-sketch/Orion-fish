@@ -38,7 +38,7 @@ Site vitrine ORION FISH : produits de la mer, transformation de fruits en jus, v
 - Registre de commerce: 010112051 SN.DKR.2023.B.9159
 
 ## ℹ️ Legal
-Responsable de publication : Diallo Mamadou  
+Responsable de publication : Issa Ndiaye  
 Hébergeur : Hostinger (selon configuration) / Déploiement Web : Vercel
 
 ---
