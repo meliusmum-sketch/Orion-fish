@@ -11,7 +11,7 @@
   <link rel="icon" href="/logo-orion-fish.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/logo-orion-fish.svg">
 
-  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/styles.css" />
 
   <script>
     if (location.protocol === "http:" && location.hostname !== "localhost") {
@@ -43,6 +43,7 @@
 <body class="page-home">
   <a class="skip" href="#main">Aller au contenu</a>
 
+  <!-- TOPBAR -->
   <div class="topbar">
     <div class="container">
       <div class="topbar-row">
@@ -50,7 +51,7 @@
           <a class="pill" href="/"><span class="dot" aria-hidden="true"></span><span>ORION FISH</span></a>
           <a class="pill" href="/rfq.html" data-i18n="nav_rfq">RFQ / Devis</a>
           <a class="pill" href="/compliance.html" data-i18n="nav_docs">Documents</a>
-          <a class="pill" href="/team.html" data-i18n="nav_team">Team</a>
+          <a class="pill" href="/privacy.html" data-i18n="nav_privacy">Privacy & Terms</a>
         </div>
 
         <div class="topbar-links">
@@ -62,6 +63,7 @@
     </div>
   </div>
 
+  <!-- HEADER -->
   <header>
     <div class="container">
       <div class="nav">
@@ -78,9 +80,9 @@
             <li><a href="/" data-i18n="nav_home">Accueil</a></li>
             <li><a href="/rfq.html" data-i18n="nav_rfq">RFQ / Devis</a></li>
             <li><a href="/compliance.html" data-i18n="nav_docs">Documents</a></li>
-            <li><a href="/team.html" data-i18n="nav_team">Team</a></li>
             <li><a href="/#contact" data-i18n="nav_contact">Contact</a></li>
             <li><a href="/#mentions" data-i18n="nav_legal">Mentions</a></li>
+            <li><a href="/privacy.html" data-i18n="nav_privacy">Privacy & Terms</a></li>
           </ul>
         </nav>
       </div>
@@ -88,38 +90,41 @@
   </header>
 
   <main id="main">
+    <!-- SEARCH BAR (fonctionnelle -> search.html) -->
     <section class="hero-search" aria-label="Recherche">
       <div class="container">
         <div class="search-card">
           <div class="tabs" role="tablist" aria-label="Type de recherche">
-            <button class="tab" role="tab" aria-selected="true" data-tab="sea">Produits de la mer</button>
-            <button class="tab" role="tab" aria-selected="false" data-tab="juice">Fruits & jus</button>
-            <button class="tab" role="tab" aria-selected="false" data-tab="rfq">RFQ</button>
+            <button class="tab" role="tab" aria-selected="true" data-cat="seafood">Produits de la mer</button>
+            <button class="tab" role="tab" aria-selected="false" data-cat="juice">Fruits & jus</button>
+            <button class="tab" role="tab" aria-selected="false" data-cat="all">Tout</button>
           </div>
 
-          <div class="search-row">
+          <form class="search-row" id="searchForm" action="/search.html" method="GET">
+            <input type="hidden" name="cat" id="cat" value="seafood">
+
             <label class="field" aria-label="Recherche principale">
               <span aria-hidden="true">🔎</span>
-              <input id="q" type="search" placeholder="Rechercher un produit, espèce, format…" />
+              <input id="q" name="q" type="search" placeholder="Rechercher un produit, espèce, format…" />
             </label>
 
             <label class="field" aria-label="Zone">
               <span aria-hidden="true">📍</span>
-              <select id="zone">
-                <option>Zone / Pays</option>
-                <option>Sénégal</option>
-                <option>Afrique de l’Ouest</option>
-                <option>Europe</option>
+              <select name="zone">
+                <option value="">Zone / Pays</option>
+                <option value="Sénégal">Sénégal</option>
+                <option value="Afrique de l’Ouest">Afrique de l’Ouest</option>
+                <option value="Europe">Europe</option>
               </select>
             </label>
 
-            <button class="search-btn" id="searchBtn" type="button">Rechercher</button>
-          </div>
+            <button class="search-btn" type="submit">Rechercher</button>
+          </form>
 
           <div class="hint">
             <span>Exemples : thon, crevette, mangue, ananas, jus…</span>
             <span class="sep">•</span>
-            <span>Pour un devis rapide : RFQ</span>
+            <span>Résultats + bouton “RFQ” par produit</span>
           </div>
         </div>
 
@@ -143,7 +148,7 @@
 
             <div class="cta">
               <a class="btn btn-primary" href="/rfq.html" data-i18n="home_cta_rfq">Demander un devis (RFQ)</a>
-              <a class="btn btn-green" href="/compliance.html" data-i18n="home_cta_docs">Demander des documents</a>
+              <a class="btn btn-green" href="/compliance.html" data-i18n="home_cta_docs">Documents (sur demande)</a>
             </div>
           </div>
 
@@ -304,7 +309,8 @@
             Responsable de publication : <strong>Diallo Mamadou</strong><br>
             Hébergeur : <strong>Hostinger</strong><br>
             Tél/WhatsApp : <a href="tel:+221339138392">+221339138392</a><br>
-            Email : <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a>
+            Email : <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a><br>
+            Privacy & Terms : <a href="/privacy.html">privacy.html</a>
           </p>
         </section>
 
@@ -319,60 +325,12 @@
             <span>•</span>
             <a href="/compliance.html" data-i18n="nav_docs">Documents</a>
             <span>•</span>
-            <a href="/team.html" data-i18n="nav_team">Team</a>
+            <a href="/privacy.html" data-i18n="nav_privacy">Privacy & Terms</a>
           </div>
           <div class="foot-copy">© <span id="year"></span> ORION FISH. Tous droits réservés.</div>
         </div>
       </div>
     </div>
   </main>
-
-  <script>
-    // Année
-    const y = document.getElementById("year");
-    if (y && !y.textContent.trim()) y.textContent = new Date().getFullYear();
-
-    // Tabs visuels
-    const tabs = document.querySelectorAll(".tab");
-    tabs.forEach(btn => {
-      btn.addEventListener("click", () => {
-        tabs.forEach(b => b.setAttribute("aria-selected", "false"));
-        btn.setAttribute("aria-selected", "true");
-      });
-    });
-
-    // Recherche -> /rfq.html?q=...&zone=...&type=...
-    const qInput = document.getElementById("q");
-    const zoneSelect = document.getElementById("zone");
-    const searchBtn = document.getElementById("searchBtn");
-
-    function getActiveTab(){
-      const active = document.querySelector('.tab[aria-selected="true"]');
-      return active?.dataset?.tab || "sea";
-    }
-
-    function goToRFQ(){
-      const q = (qInput?.value || "").trim();
-      const zone = (zoneSelect?.value || "").trim();
-      const type = getActiveTab();
-
-      const url = new URL("/rfq.html", location.origin);
-      if (q) url.searchParams.set("q", q);
-      if (zone && zone !== "Zone / Pays") url.searchParams.set("zone", zone);
-      url.searchParams.set("type", type);
-
-      location.href = url.toString();
-    }
-
-    if (searchBtn) searchBtn.addEventListener("click", goToRFQ);
-    if (qInput) {
-      qInput.addEventListener("keydown", (e) => {
-        if (e.key === "Enter") {
-          e.preventDefault();
-          goToRFQ();
-        }
-      });
-    }
-  </script>
 </body>
 </html>
