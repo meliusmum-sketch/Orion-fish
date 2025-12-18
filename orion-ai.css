@@ -4,9 +4,9 @@
   position: fixed;
   right: 18px;
   bottom: 18px;
-  z-index: 9999;
-  width: 54px;
-  height: 54px;
+  z-index: 999999;
+  width: 56px;
+  height: 56px;
   border-radius: 999px;
   border: none;
   cursor: pointer;
@@ -19,20 +19,20 @@
 #orion-ai-panel{
   position: fixed;
   right: 18px;
-  bottom: 84px;
-  z-index: 9999;
-  width: min(380px, calc(100vw - 36px));
-  height: 520px;
+  bottom: 86px;
+  z-index: 999999;
+  width: min(390px, calc(100vw - 36px));
+  height: 540px;
   background: #fff;
   border-radius: 16px;
-  border: 2px solid rgba(193, 18, 31, .25);
+  border: 2px solid rgba(255,215,0,.55);
   box-shadow: 0 20px 60px rgba(0,0,0,.22);
   display: flex;
   flex-direction: column;
   overflow: hidden;
 }
 
-#orion-ai-panel.hidden{ display: none; }
+#orion-ai-panel.hidden{ display:none; }
 
 .orion-ai-header{
   display:flex;
@@ -40,24 +40,24 @@
   justify-content:space-between;
   padding: 12px 14px;
   background: linear-gradient(135deg, #0f7a3a, #146c43);
-  color: #ffffff;
+  color:#fff;
   border-bottom: 1px solid rgba(255,255,255,.18);
 }
 
 .orion-ai-title{
   font-weight: 900;
   font-size: 14px;
-  color: #ffffff;
+  letter-spacing: .2px;
 }
 
 .orion-ai-close{
-  border: none;
-  background: transparent;
-  cursor: pointer;
-  font-size: 22px;
-  line-height: 1;
-  color: #ffffff;
-  opacity: .95;
+  border:none;
+  background:transparent;
+  cursor:pointer;
+  font-size:22px;
+  line-height:1;
+  color:#fff;
+  opacity:.95;
 }
 
 .orion-ai-body{
@@ -65,10 +65,10 @@
   overflow: auto;
   flex: 1;
   background:
-    radial-gradient(circle at 20% 30%, rgba(255,255,255,.80) 1px, transparent 2px),
-    radial-gradient(circle at 70% 20%, rgba(255,255,255,.70) 1px, transparent 2px),
-    radial-gradient(circle at 40% 80%, rgba(255,255,255,.60) 1px, transparent 2px),
-    radial-gradient(circle at 85% 75%, rgba(255,255,255,.60) 1px, transparent 2px),
+    radial-gradient(circle at 20% 30%, rgba(255,255,255,.85) 1px, transparent 2px),
+    radial-gradient(circle at 70% 20%, rgba(255,255,255,.75) 1px, transparent 2px),
+    radial-gradient(circle at 40% 80%, rgba(255,255,255,.65) 1px, transparent 2px),
+    radial-gradient(circle at 85% 75%, rgba(255,255,255,.65) 1px, transparent 2px),
     rgba(0,0,0,.02);
   background-size: 140px 140px, 180px 180px, 160px 160px, 200px 200px, auto;
   animation: orionSnow 12s linear infinite;
@@ -80,7 +80,7 @@
 }
 
 @media (prefers-reduced-motion: reduce){
-  .orion-ai-body{ animation: none; }
+  .orion-ai-body{ animation:none; }
 }
 
 .orion-ai-footer{
@@ -92,28 +92,27 @@
 }
 
 .orion-ai-input{
-  flex: 1;
+  flex:1;
   padding: 10px 12px;
   border-radius: 12px;
   border: 1px solid rgba(0,0,0,.15);
-  outline: none;
+  outline:none;
 }
 
 .orion-ai-send{
   padding: 10px 12px;
   border-radius: 12px;
-  border: none;
-  cursor: pointer;
+  border:none;
+  cursor:pointer;
   font-weight: 900;
-  background: #c1121f;
-  color: #ffffff;
+  background:#c1121f;
+  color:#fff;
 }
-
-.orion-ai-send:hover{ filter: brightness(1.05); }
+.orion-ai-send:hover{ filter:brightness(1.05); }
 
 .orion-ai-msg{ display:flex; margin: 8px 0; }
-.orion-ai-msg.user{ justify-content: flex-end; }
-.orion-ai-msg.assistant{ justify-content: flex-start; }
+.orion-ai-msg.user{ justify-content:flex-end; }
+.orion-ai-msg.assistant{ justify-content:flex-start; }
 
 .orion-ai-bubble{
   max-width: 85%;
@@ -122,7 +121,7 @@
   white-space: pre-wrap;
   word-break: break-word;
   border: 1px solid rgba(0,0,0,.08);
-  background: #fff;
+  background:#fff;
 }
 
 .orion-ai-msg.user .orion-ai-bubble{
