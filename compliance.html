@@ -3,13 +3,45 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Documents / Conformité – ORION FISH</title>
-  <meta name="description" content="Documents ORION FISH – disponibles sur demande selon produit et destination." />
+  <title>ORION FISH – Documents & conformité</title>
+
+  <meta name="description" content="ORION FISH – Documents & conformité : traçabilité, spécifications, documents export. Partage sur demande." />
   <meta name="robots" content="index,follow" />
 
   <link rel="icon" href="/logo-orion-fish.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="/styles.css" />
+  <link rel="apple-touch-icon" href="/logo-orion-fish.svg">
+
+  <link rel="stylesheet" href="/styles.css">
+
+  <!-- ✅ Assistant Orion fish -->
+  <link rel="stylesheet" href="/orion-ai.css">
+
+  <script>
+    if (location.protocol === "http:" && location.hostname !== "localhost") {
+      location.replace("https://" + location.host + location.pathname + location.search + location.hash);
+    }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Organization",
+    "name":"ORION FISH",
+    "url":"https://www.orionsfish.com",
+    "telephone":"+221339138392",
+    "email":"contact@orionsfish.com",
+    "address":{
+      "@type":"PostalAddress",
+      "streetAddress":"Quartier Léona, Cité Filaos",
+      "addressLocality":"Rufisque",
+      "postalCode":"17000",
+      "addressCountry":"SN"
+    }
+  }
+  </script>
+
   <script src="/site.js" defer></script>
+  <script src="/orion-ai.js" defer></script>
 </head>
 
 <body class="page-docs">
@@ -19,13 +51,14 @@
     <div class="container">
       <div class="topbar-row">
         <div class="topbar-links">
-          <a class="pill" href="/"><span class="dot" aria-hidden="true"></span><span>ORION FISH</span></a>
-          <a class="pill" href="/rfq.html">RFQ / Devis</a>
-          <a class="pill" href="/compliance.html">Documents</a>
-          <a class="pill" href="/privacy.html">Privacy & Terms</a>
+          <a class="pill" href="/"><span class="dot" aria-hidden="true"></span><span>ORION FISH RFQ</span></a>
+          <a class="pill" href="/rfq.html" data-i18n="nav_rfq">RFQ / Devis</a>
+          <a class="pill" href="/compliance.html" data-i18n="nav_docs" aria-current="page">Documents</a>
+          <a class="pill" href="/fromage.html">Fromage (bientôt)</a>
         </div>
+
         <div class="topbar-links">
-          <a href="/#contact">Contact</a>
+          <a href="/#contact" data-i18n="nav_contact">Contact</a>
           <span class="sep">•</span>
           <button class="btn-lang" id="langBtn" type="button">EN</button>
         </div>
@@ -39,6 +72,7 @@
         <a class="logo-link" href="/" aria-label="ORION FISH Home">
           <img class="logo-mark" src="/logo-orion-fish.svg" alt="Logo ORION FISH">
           <span class="logo-text">
+            <span class="logo-top">ORION FISH RFQ</span>
             <span class="logo-title">ORION FISH</span>
             <span class="logo-sub">Seafood & Juices</span>
           </span>
@@ -46,9 +80,11 @@
 
         <nav aria-label="Navigation">
           <ul>
-            <li><a href="/">Accueil</a></li>
-            <li><a href="/rfq.html">RFQ / Devis</a></li>
-            <li><a href="/compliance.html">Documents</a></li>
+            <li><a href="/" data-i18n="nav_home">Accueil</a></li>
+            <li><a href="/rfq.html" data-i18n="nav_rfq">RFQ / Devis</a></li>
+            <li><a href="/compliance.html" data-i18n="nav_docs" aria-current="page">Documents</a></li>
+            <li><a href="/fromage.html">Fromage (bientôt)</a></li>
+            <li><a href="/#contact" data-i18n="nav_contact">Contact</a></li>
             <li><a href="/privacy.html">Privacy & Terms</a></li>
           </ul>
         </nav>
@@ -56,67 +92,125 @@
     </div>
   </header>
 
-  <main id="main" class="container">
-    <section class="panel">
-      <h1>Documents / Conformité</h1>
-      <p class="muted">
-        Les documents sont <strong>disponibles sur demande</strong> selon le produit, la destination et les exigences client.
-        Pour accélérer, indique : <strong>produit</strong>, <strong>quantité</strong>, <strong>pays/port</strong>, <strong>incoterm</strong>.
-      </p>
-
-      <div class="cta" style="margin-top:12px">
-        <a class="btn btn-primary" href="/rfq.html">Faire un RFQ</a>
-        <a class="btn btn-outline"
-           href="mailto:contact@orionsfish.com?subject=Demande%20documents%20-%20ORION%20FISH&body=Bonjour%2C%0A%0AJe%20souhaite%20recevoir%20des%20documents%20pour%20:%0AProduit%20:%20%0AQuantit%C3%A9%20:%20%0ADestination%20(pays%2Fport)%20:%20%0AIncoterm%20:%20%0A%0AMerci.">
-          Demander par email
-        </a>
+  <main id="main">
+    <div class="container">
+      <div class="breadcrumb" aria-label="Fil d’Ariane">
+        <a href="/">Accueil</a> <span>›</span> <span>Documents & conformité</span>
       </div>
 
-      <div style="display:grid; gap:12px; margin-top:14px">
-        <div class="card">
-          <span class="label">Export</span>
-          <strong>Documents export (selon destination)</strong>
-          <ul class="list">
-            <li>Facture commerciale / Packing list (si applicable)</li>
-            <li>Certificat d’origine (si requis)</li>
-            <li>Certificat sanitaire / documents officiels (si requis)</li>
-          </ul>
+      <section class="panel">
+        <h1>Documents & conformité</h1>
+        <p class="muted">
+          Nous partageons les documents nécessaires aux partenaires et acheteurs (B2B) <strong>sur demande</strong>,
+          selon la destination, le produit et le cadre de collaboration.
+        </p>
+
+        <div class="cta" style="margin-top:12px">
+          <a class="btn btn-primary" href="/rfq.html">Faire une RFQ</a>
+          <a class="btn btn-outline" href="#request">Demander des documents</a>
+          <a class="btn btn-outline" href="#" data-orion-ai-open="1">Parler à Orion fish Assistant</a>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Types de documents (exemples)</h2>
+        <div class="grid" style="grid-template-columns:repeat(3,minmax(0,1fr))">
+          <div class="card">
+            <span class="label">Entreprise</span>
+            <strong>Informations légales</strong>
+            <ul class="list">
+              <li>Registre de commerce</li>
+              <li>Coordonnées & fiche société</li>
+              <li>Références & contacts</li>
+            </ul>
+          </div>
+          <div class="card">
+            <span class="label">Qualité</span>
+            <strong>Conformité & traçabilité</strong>
+            <ul class="list">
+              <li>Traçabilité par lots</li>
+              <li>Spécifications produits</li>
+              <li>Procédures / bonnes pratiques</li>
+            </ul>
+          </div>
+          <div class="card">
+            <span class="label">Export</span>
+            <strong>Documents selon destination</strong>
+            <ul class="list">
+              <li>Docs export (selon pays)</li>
+              <li>Emballage / étiquetage</li>
+              <li>Incoterms & logistique</li>
+            </ul>
+          </div>
         </div>
 
-        <div class="card">
-          <span class="label">Specs</span>
-          <strong>Fiche technique / Spécifications produit</strong>
-          <ul class="list">
-            <li>Espèce / grade / format</li>
-            <li>Ingrédients / brix (jus)</li>
-            <li>Packaging & étiquetage</li>
-          </ul>
-        </div>
+        <p class="muted" style="margin-top:12px">
+          Les documents fournis dépendent du produit (mer/jus), du format, de la destination et du niveau d’avancement de la collaboration.
+        </p>
+      </section>
 
-        <div class="card">
-          <span class="label">Qualité</span>
-          <strong>Qualité & traçabilité</strong>
-          <ul class="list">
-            <li>Traçabilité par lots</li>
-            <li>Contrôles qualité</li>
-            <li>Chaîne du froid (produits mer)</li>
-          </ul>
-        </div>
-      </div>
+      <section id="request" class="panel">
+        <h2>Demande de documents</h2>
+        <p class="muted">
+          Indique ton entreprise, le produit concerné et la destination. Nous reviendrons vers toi avec les documents pertinents.
+        </p>
 
-      <p class="muted" style="margin-top:14px">
-        Contact : <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a> • <a href="tel:+221339138392">+221339138392</a>
-      </p>
-    </section>
-  </main>
+        <form action="https://formsubmit.co/contact@orionsfish.com" method="POST">
+          <input type="text" name="_honey" style="display:none">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_subject" value="Demande de documents – ORION FISH (site web)">
+          <input type="hidden" name="_next" value="https://www.orionsfish.com/merci.html">
 
-  <footer class="footer">
-    <div class="foot-links">
-      <a href="/rfq.html">RFQ / Devis</a>
-      <span>•</span>
-      <a href="/privacy.html">Privacy & Terms</a>
+          <div class="two">
+            <div>
+              <label for="company">Nom / Entreprise</label>
+              <input id="company" name="Nom / Entreprise" type="text" required placeholder="Nom / Company" />
+            </div>
+            <div>
+              <label for="email">E-mail</label>
+              <input id="email" name="email" type="email" required placeholder="name@company.com" />
+            </div>
+          </div>
+
+          <div class="two">
+            <div>
+              <label for="phone">Téléphone / WhatsApp</label>
+              <input id="phone" name="Téléphone" type="tel" placeholder="+221 ..." />
+            </div>
+            <div>
+              <label for="destination">Destination (pays)</label>
+              <input id="destination" name="Destination" type="text" placeholder="Ex: France, Pays-Bas, Sénégal..." />
+            </div>
+          </div>
+
+          <div class="two">
+            <div>
+              <label for="product">Produit concerné</label>
+              <input id="product" name="Produit" type="text" placeholder="Ex: thon, crevette, jus d’ananas..." />
+            </div>
+            <div>
+              <label for="docs">Documents souhaités</label>
+              <input id="docs" name="Documents souhaités" type="text" placeholder="Ex: specs, traçabilité, fiche société..." />
+            </div>
+          </div>
+
+          <div>
+            <label for="message">Message</label>
+            <textarea id="message" name="Message" required placeholder="Précise ton besoin et ton contexte (B2B, appel d’offres, etc.)"></textarea>
+          </div>
+
+          <button class="btn btn-primary" type="submit">Envoyer</button>
+        </form>
+
+        <p class="muted" style="margin-top:12px">
+          Email : <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a> •
+          Tel/WhatsApp : <a href="tel:+221339138392">+221339138392</a>
+        </p>
+      </section>
+
+      <div class="full-sep" aria-hidden="true"></div>
     </div>
-    <div class="foot-copy">© <span id="year"></span> ORION FISH</div>
-  </footer>
+  </main>
 </body>
 </html>
