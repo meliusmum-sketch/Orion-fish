@@ -1,334 +1,662 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ORION FISH — Produits de la mer & jus de fruits (B2B)</title>
-  <meta name="description" content="ORION FISH : produits de la mer, transformation de fruits en jus, vente & distribution B2B pour marchés locaux et internationaux." />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ORION FISH – Produits de la mer & Jus de fruits</title>
 
-  <link rel="icon" href="logo-orion-fish.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="styles.css" />
+  <meta name="description" content="ORION FISH – Produits de la mer et transformation de fruits en jus. Vente, distribution et export (RFQ/Devis)." />
+  <meta name="robots" content="index,follow" />
 
-  <!-- JS du site (inclut le widget Orion fish Assistant si tu l’as collé dedans) -->
-  <script defer src="site.js"></script>
+  <script>
+    if (location.protocol === "http:" && location.hostname !== "localhost") {
+      location.replace("https://" + location.host + location.pathname + location.search + location.hash);
+    }
+  </script>
 
-  <!-- Petit style de base si jamais (optionnel). Tu peux supprimer si ton styles.css gère tout. -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Organization",
+    "name":"ORION FISH",
+    "url":"https://orionsfish.com",
+    "telephone":"+221339138392",
+    "email":"contact@orionsfish.com",
+    "address":{
+      "@type":"PostalAddress",
+      "streetAddress":"Quartier Léona, Cité Filaos",
+      "addressLocality":"Rufisque",
+      "postalCode":"17000",
+      "addressCountry":"SN"
+    }
+  }
+  </script>
+
   <style>
-    :root { --max: 1120px; }
-    body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
-    a { color: inherit; }
-    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 16px; }
-    .skip { position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden; }
-    .skip:focus { left: 16px; top: 16px; width:auto; height:auto; padding: 10px 12px; background:#fff; border:1px solid #ddd; border-radius: 10px; z-index:99999; }
-    .topbar { font-size: 14px; padding: 10px 0; border-bottom: 1px solid rgba(0,0,0,.08); }
-    .topbar .row { display:flex; align-items:center; justify-content:space-between; gap: 10px; }
-    .topbar .links { display:flex; flex-wrap:wrap; gap: 14px; opacity: .9; }
-    header { padding: 18px 0; }
-    .brand { display:flex; align-items:center; gap: 12px; }
-    .brand img { width: 44px; height: 44px; }
-    .brand b { font-size: 18px; }
-    nav { display:flex; align-items:center; justify-content:space-between; gap: 12px; flex-wrap: wrap; }
-    .navlinks { display:flex; flex-wrap:wrap; gap: 14px; font-weight: 600; }
-    .pill { display:inline-flex; align-items:center; justify-content:center; padding: 10px 12px; border-radius: 999px; border: 1px solid rgba(0,0,0,.12); text-decoration:none; }
-    .pill.primary { border: none; color: #fff; background: #111; }
-    main { padding: 10px 0 32px; }
-    .hero { padding: 22px 0; }
-    .hero-grid { display:grid; grid-template-columns: 1.25fr .75fr; gap: 18px; align-items: start; }
-    .hero h1 { margin: 0 0 10px; font-size: 34px; line-height: 1.1; }
-    .hero p { margin: 0 0 16px; opacity: .9; }
-    .cta { display:flex; gap: 10px; flex-wrap:wrap; }
-    .card { border: 1px solid rgba(0,0,0,.12); border-radius: 16px; padding: 14px; background: #fff; }
-    .card h3 { margin: 0 0 10px; font-size: 16px; }
-    .meta { display:grid; gap: 8px; font-size: 14px; opacity: .95; }
-    .meta .k { opacity: .7; }
-    .btnrow { display:flex; gap: 10px; flex-wrap:wrap; margin-top: 12px; }
-    .searchbar { margin-top: 14px; border: 1px solid rgba(0,0,0,.12); border-radius: 16px; padding: 12px; }
-    .searchbar .row { display:grid; grid-template-columns: 1.2fr .8fr auto; gap: 10px; }
-    .searchbar input, .searchbar select { padding: 12px; border-radius: 12px; border: 1px solid rgba(0,0,0,.15); width: 100%; }
-    .searchbar button { padding: 12px 14px; border-radius: 12px; border: none; cursor: pointer; background: #111; color: #fff; font-weight: 700; }
-    .chips { display:flex; gap: 8px; flex-wrap:wrap; margin-top: 10px; }
-    .chip { padding: 8px 10px; border-radius: 999px; border: 1px solid rgba(0,0,0,.12); font-size: 13px; cursor: pointer; background: #fff; }
-    .grid2 { display:grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 18px; }
-    .list { display:grid; gap: 10px; margin: 0; padding-left: 18px; }
-    .section { margin-top: 18px; }
-    footer { border-top: 1px solid rgba(0,0,0,.08); padding: 18px 0; font-size: 14px; opacity: .9; }
-    .footlinks { display:flex; flex-wrap:wrap; gap: 12px; margin-top: 8px; }
-    @media (max-width: 920px) {
-      .hero-grid { grid-template-columns: 1fr; }
-      .searchbar .row { grid-template-columns: 1fr; }
-      .grid2 { grid-template-columns: 1fr; }
+    :root{
+      /* BLANC */
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --border: #e2e8f0;
+
+      /* BLEU (océan) */
+      --blue: #1d4ed8;
+      --blue-2: #0ea5e9;
+
+      /* VERT (agriculture / fruits) */
+      --green: #16a34a;
+      --green-2: #22c55e;
+
+      /* JAUNE (plage/soleil) */
+      --sun: #facc15;
+
+      /* TEXTE (pas noir, bleu profond) */
+      --text: #0b2a4a;
+      --muted: #475569;
+
+      --shadow: 0 18px 40px rgba(2, 8, 23, 0.08);
+      --radius: 18px;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 8% 0%, rgba(29,78,216,.18), transparent 52%),
+        radial-gradient(circle at 92% 4%, rgba(34,197,94,.18), transparent 52%),
+        radial-gradient(circle at 50% 0%, rgba(250,204,21,.22), transparent 55%),
+        var(--bg);
+      min-height: 100vh;
+    }
+
+    a{color:inherit;text-decoration:none}
+    .muted{color:var(--muted)}
+
+    /* HEADER */
+    header{
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(255,255,255,.86);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(226,232,240,.9);
+    }
+    .nav{
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: .85rem 1.5rem;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 1rem;
+    }
+    .logo{
+      font-weight: 900;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      font-size: .95rem;
+      white-space: nowrap;
+      color: var(--text);
+    }
+    nav ul{
+      list-style:none;
+      display:flex;
+      flex-wrap:wrap;
+      gap: 1rem;
+      align-items:center;
+      justify-content:flex-end;
+      font-size: .92rem;
+    }
+    nav a{
+      opacity: .92;
+      transition: opacity .15s, transform .15s;
+    }
+    nav a:hover{
+      opacity: 1;
+      transform: translateY(-1px);
+    }
+
+    .btn-lang{
+      border: 1px solid rgba(226,232,240,.9);
+      background: #ffffff;
+      color: var(--text);
+      padding: .45rem .75rem;
+      border-radius: 999px;
+      font-weight: 900;
+      cursor: pointer;
+      transition: transform .12s, box-shadow .12s;
+      box-shadow: 0 8px 18px rgba(2, 8, 23, 0.06);
+    }
+    .btn-lang:hover{
+      transform: translateY(-1px);
+      box-shadow: 0 12px 24px rgba(2, 8, 23, 0.08);
+    }
+
+    /* LAYOUT */
+    .container{
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1.6rem 1.5rem 2.6rem;
+    }
+
+    section{
+      margin: 2rem 0;
+      padding: 2rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    h1{font-size: 2.1rem; line-height:1.15; margin-bottom:.65rem}
+    h2{font-size: 1.35rem; margin-bottom:.7rem}
+    p{margin-bottom:.7rem;font-size:1rem}
+
+    /* HERO */
+    .hero{
+      padding: 2.2rem;
+      background:
+        radial-gradient(circle at 10% 0%, rgba(14,165,233,.20), transparent 52%),
+        radial-gradient(circle at 90% 0%, rgba(34,197,94,.18), transparent 52%),
+        linear-gradient(180deg, #ffffff, rgba(255,255,255,.92));
+      border: 1px solid rgba(226,232,240,.95);
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: 1.2rem;
+      align-items: start;
+    }
+
+    .pill-row{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:.8rem}
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:.45rem;
+      padding:.28rem .75rem;
+      border-radius:999px;
+      font-weight: 800;
+      font-size: .8rem;
+      border: 1px solid rgba(226,232,240,.95);
+      background: #fff;
+    }
+    .dot{
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+    }
+    .dot.blue{background: var(--blue-2)}
+    .dot.green{background: var(--green)}
+    .dot.sun{background: var(--sun)}
+
+    .cta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:.8rem;
+      margin-top: 1rem;
+    }
+    .btn{
+      display:inline-block;
+      padding:.78rem 1.15rem;
+      border-radius:999px;
+      font-weight: 900;
+      font-size: .95rem;
+      border: 1px solid rgba(226,232,240,.95);
+      background: #fff;
+      cursor:pointer;
+      transition: transform .12s, box-shadow .12s, background .12s;
+      box-shadow: 0 10px 22px rgba(2,8,23,.06);
+    }
+    .btn:hover{transform: translateY(-1px); box-shadow: 0 14px 28px rgba(2,8,23,.08)}
+    .btn-primary{
+      border-color: transparent;
+      background: linear-gradient(90deg, var(--blue), var(--blue-2));
+      color: #fff;
+    }
+    .btn-green{
+      border-color: transparent;
+      background: linear-gradient(90deg, var(--green), var(--green-2));
+      color: #fff;
+    }
+
+    .info-card{
+      border-radius: 16px;
+      padding: 1.1rem;
+      border: 1px solid rgba(226,232,240,.95);
+      background: #fff;
+      box-shadow: 0 16px 34px rgba(2,8,23,.06);
+    }
+    .info-title{
+      font-weight: 950;
+      margin-bottom: .5rem;
+    }
+    .info-line{
+      color: var(--muted);
+      font-size: .96rem;
+      margin: .15rem 0;
+    }
+
+    /* GRIDS */
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .card{
+      padding: 1.1rem;
+      border-radius: 16px;
+      border: 1px solid rgba(226,232,240,.95);
+      background: #fff;
+      box-shadow: 0 14px 30px rgba(2,8,23,.05);
+      transition: transform .12s, box-shadow .12s;
+    }
+    .card:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 18px 40px rgba(2,8,23,.08);
+    }
+    .label{
+      display:inline-block;
+      font-size:.78rem;
+      font-weight: 950;
+      padding:.18rem .55rem;
+      border-radius: 999px;
+      border: 1px solid rgba(226,232,240,.95);
+      margin-bottom: .6rem;
+    }
+    .label.blue{background: rgba(14,165,233,.14); color: #075985}
+    .label.green{background: rgba(34,197,94,.14); color: #166534}
+    .label.sun{background: rgba(250,204,21,.25); color: #854d0e}
+
+    .list{margin-top:.45rem;padding-left:1.1rem}
+    .list li{margin:.25rem 0;color:var(--muted)}
+
+    /* FORM */
+    form{display:grid;gap:1rem;margin-top:1rem}
+    label{font-size:.9rem;font-weight:950;margin-bottom:.2rem;display:inline-block}
+    input,textarea{
+      width:100%;
+      padding:.65rem .9rem;
+      border-radius: 14px;
+      border: 1px solid rgba(203,213,225,.95);
+      background: #fff;
+      color: var(--text);
+      font: inherit;
+    }
+    textarea{min-height:120px;resize:vertical}
+    input:focus,textarea:focus{
+      outline:none;
+      border-color: rgba(14,165,233,.85);
+      box-shadow: 0 0 0 3px rgba(14,165,233,.18);
+    }
+    .two{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+
+    /* FOOTER */
+    .footer{
+      max-width:1100px;
+      margin:0 auto;
+      padding: 1.8rem 1.5rem;
+      color: var(--muted);
+      font-size: .88rem;
+      border-top: 1px solid rgba(226,232,240,.95);
+    }
+    .footer a{text-decoration:underline;text-underline-offset:3px}
+    .foot-links{
+      display:flex;flex-wrap:wrap;gap:.45rem;align-items:center;justify-content:center;
+      margin-top:.8rem;
+    }
+    .foot-copy{text-align:center;margin-top:.9rem}
+
+    @media (max-width: 1024px){
+      .container{padding:1.5rem 1rem 2.5rem}
+      .hero-grid{grid-template-columns: 1fr}
+      .grid{grid-template-columns: repeat(2, minmax(0,1fr))}
+      .two{grid-template-columns: 1fr}
+      section{padding:1.6rem}
+      .hero{padding:1.6rem}
+    }
+    @media (max-width: 640px){
+      .nav{flex-direction:column;align-items:flex-start;gap:.55rem}
+      nav ul{justify-content:flex-start}
+      h1{font-size:1.65rem}
+      h2{font-size:1.2rem}
+      .grid{grid-template-columns: 1fr}
+      section{padding:1.35rem}
+      .foot-links{justify-content:flex-start}
+      .foot-copy{text-align:left}
     }
   </style>
 </head>
 
 <body>
-  <a class="skip" href="#contenu">Aller au contenu</a>
-
-  <!-- Top bar -->
-  <div class="topbar">
-    <div class="wrap">
-      <div class="row">
-        <div class="links" aria-label="Navigation rapide">
-          <a href="rfq.html">RFQ / Devis</a>
-          <a href="compliance.html">Documents</a>
-          <a href="privacy.html">Privacy &amp; Terms</a>
-        </div>
-        <div class="links">
-          <a href="#contact">Contact</a>
-          <span aria-hidden="true">•</span>
-          <a href="#" title="English version">EN</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Header + Nav -->
   <header>
-    <div class="wrap">
-      <nav aria-label="Navigation principale">
-        <div class="brand">
-          <img src="logo-orion-fish.svg" alt="Logo ORION FISH" />
-          <div>
-            <b>ORION FISH</b><br />
-            <span style="opacity:.8; font-size:14px;">Seafood &amp; Juices</span>
-          </div>
-        </div>
-
-        <div class="navlinks">
-          <a href="index.html" aria-current="page">Accueil</a>
-          <a href="rfq.html">RFQ / Devis</a>
-          <a href="compliance.html">Documents</a>
-          <a href="#contact">Contact</a>
-          <a href="#mentions">Mentions</a>
-          <a href="privacy.html">Privacy &amp; Terms</a>
-        </div>
+    <div class="nav">
+      <div class="logo">ORION FISH</div>
+      <nav aria-label="Navigation">
+        <ul>
+          <li><a href="#accueil" data-i18n="nav_home">Accueil</a></li>
+          <li><a href="#apropos" data-i18n="nav_about">À propos</a></li>
+          <li><a href="#mer" data-i18n="nav_sea">Produits de la mer</a></li>
+          <li><a href="#jus" data-i18n="nav_juice">Fruits & jus</a></li>
+          <li><a href="rfq.html" data-i18n="nav_rfq">RFQ / Devis</a></li>
+          <li><a href="compliance.html" data-i18n="nav_docs">Documents</a></li>
+          <li><a href="team.html" data-i18n="nav_team">Team</a></li>
+          <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
+          <li><a href="#mentions" data-i18n="nav_legal">Mentions</a></li>
+          <li><button class="btn-lang" id="langBtn" type="button">EN</button></li>
+        </ul>
       </nav>
     </div>
   </header>
 
-  <main id="contenu">
-    <div class="wrap">
-      <!-- Filtres + recherche -->
-      <div class="chips" role="group" aria-label="Catégories">
-        <button class="chip" type="button">Produits de la mer</button>
-        <button class="chip" type="button">Fruits &amp; jus</button>
-        <button class="chip" type="button">Tout</button>
+  <main class="container">
+    <section id="accueil" class="hero">
+      <div class="hero-grid">
+        <div>
+          <div class="pill-row">
+            <span class="pill"><span class="dot blue"></span><span data-i18n="pill_ocean">Océan</span></span>
+            <span class="pill"><span class="dot green"></span><span data-i18n="pill_agri">Agriculture</span></span>
+            <span class="pill"><span class="dot sun"></span><span data-i18n="pill_sun">Plage & Soleil</span></span>
+          </div>
+
+          <h1 data-i18n="h1">ORION FISH – Produits de la mer & jus de fruits</h1>
+          <p class="muted" data-i18n="hero_sub">
+            Produits de la mer, transformation de fruits en jus, vente et distribution au service des marchés locaux et internationaux.
+          </p>
+          <p data-i18n="hero_p">
+            Nous accompagnons distributeurs, industriels et professionnels avec des solutions fiables, tracées et conformes aux exigences.
+          </p>
+
+          <div class="cta">
+            <a class="btn btn-primary" href="rfq.html" data-i18n="cta_rfq">Demander un devis (RFQ)</a>
+            <a class="btn btn-green" href="compliance.html#request" data-i18n="cta_docs">Demander des documents</a>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-title" data-i18n="quick_title">Informations rapides</div>
+          <div class="info-line"><strong data-i18n="quick_loc">Localisation :</strong> Rufisque (17000), Sénégal</div>
+          <div class="info-line"><strong data-i18n="quick_phone">Tel/WhatsApp :</strong> <a href="tel:+221339138392">+221339138392</a></div>
+          <div class="info-line"><strong data-i18n="quick_mail">Email :</strong> <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a></div>
+          <div class="info-line"><strong data-i18n="quick_exp">Export :</strong> <span data-i18n="quick_exp_text">Documents selon destination (B2B)</span></div>
+
+          <div class="cta" style="margin-top: .9rem;">
+            <a class="btn btn-primary" href="compliance.html" data-i18n="open_docs">Ouvrir Documents</a>
+            <a class="btn" href="#contact" data-i18n="talk_team">Parler à l’équipe</a>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <form class="searchbar" action="search.html" method="get" aria-label="Recherche produits">
-        <div class="row">
-          <div>
-            <label for="q" style="display:block; font-size:13px; opacity:.75; margin:0 0 6px;">🔎 Rechercher</label>
-            <input id="q" name="q" type="search" placeholder="Rechercher un produit, espèce, format…" />
-          </div>
-          <div>
-            <label for="zone" style="display:block; font-size:13px; opacity:.75; margin:0 0 6px;">📍 Zone / Pays</label>
-            <input id="zone" name="zone" type="text" placeholder="Zone / Pays" />
-          </div>
-          <div style="display:flex; align-items:end;">
-            <button type="submit">Rechercher</button>
-          </div>
-        </div>
-        <div style="margin-top:10px; font-size:13px; opacity:.75;">
-          Exemples : thon, crevette, mangue, ananas, bissap, jus… • Résultats + bouton “RFQ” par produit
-        </div>
-      </form>
+    <section id="apropos">
+      <h2 data-i18n="about_h2">À propos d’ORION FISH</h2>
+      <p data-i18n="about_p1">
+        ORION FISH est une entreprise agroalimentaire spécialisée dans la valorisation des produits de la mer
+        et la transformation de fruits en jus.
+      </p>
+      <p class="muted" data-i18n="about_p2">
+        Notre ambition : développer des filières durables et compétitives, adaptées aux besoins B2B.
+      </p>
+    </section>
 
-      <!-- Hero -->
-      <section class="hero" aria-label="Présentation ORION FISH">
-        <div style="opacity:.75; font-size:13px; margin-bottom:10px;">Accueil › ORION FISH</div>
+    <section id="mer">
+      <h2 data-i18n="sea_h2">Produits de la mer</h2>
+      <p class="muted" data-i18n="sea_p">Collecte, transformation, conditionnement et distribution.</p>
 
-        <div class="hero-grid">
-          <div>
-            <h1>ORION FISH – Produits de la mer &amp; jus de fruits</h1>
-            <p>
-              Produits de la mer, transformation de fruits en jus, vente et distribution
-              au service des marchés locaux et internationaux.
-            </p>
-            <p>
-              Nous accompagnons distributeurs, industriels et professionnels avec des solutions fiables,
-              tracées et conformes aux exigences.
-            </p>
-
-            <div class="cta">
-              <a class="pill primary" href="rfq.html">Demander un devis (RFQ)</a>
-              <a class="pill" href="compliance.html">Documents (sur demande)</a>
-            </div>
-
-            <div class="section">
-              <div class="card">
-                <h3>Informations rapides</h3>
-                <div class="meta">
-                  <div><span class="k">Localisation :</span> Rufisque (17000), Sénégal</div>
-                  <div><span class="k">Tel/WhatsApp :</span> +221339138392</div>
-                  <div><span class="k">Email :</span> contact@orionsfish.com</div>
-                </div>
-                <div class="btnrow">
-                  <a class="pill" href="compliance.html">Ouvrir Documents</a>
-
-                  <!-- ✅ OUVRE LE CHAT -->
-                  <a class="pill primary" href="#" data-orion-ai-open="1">Parler à l’équipe</a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="card" aria-label="À propos">
-            <h3>À propos d’ORION FISH</h3>
-            <p style="margin:0 0 10px; opacity:.9;">
-              Entreprise agroalimentaire spécialisée dans la valorisation des produits de la mer
-              et la transformation de fruits en jus.
-            </p>
-            <p style="margin:0; opacity:.9;">
-              Ambition : développer des filières durables et compétitives, adaptées aux besoins B2B.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <!-- Offres -->
-      <section class="grid2" aria-label="Activités">
+      <div class="grid">
         <div class="card">
-          <h3>Produits de la mer</h3>
-          <p style="margin-top:0; opacity:.9;">Collecte, transformation, conditionnement et distribution.</p>
+          <span class="label blue" data-i18n="sea_l1">Océan</span>
+          <strong data-i18n="sea_t1">Frais & surgelé</strong>
           <ul class="list">
-            <li><b>B2B</b> — Frais &amp; surgelé</li>
-            <li>Formats professionnels</li>
-            <li>Traçabilité par lots</li>
-            <li>Chaîne du froid</li>
+            <li data-i18n="sea_b1">Formats B2B</li>
+            <li data-i18n="sea_b2">Traçabilité par lots</li>
+            <li data-i18n="sea_b3">Chaîne du froid</li>
           </ul>
-          <div class="section">
-            <div style="font-weight:800; margin-bottom:8px;">Qualité</div>
-            <ul class="list">
-              <li>Préparation &amp; conditionnement</li>
-              <li>Bonnes pratiques</li>
-              <li>Étiquetage</li>
-              <li>Spécifications sur demande</li>
-            </ul>
-          </div>
-          <div class="section">
-            <div style="font-weight:800; margin-bottom:8px;">Export</div>
-            <ul class="list">
-              <li>Expédition</li>
-              <li>Suivi &amp; délais</li>
-              <li>Docs selon destination</li>
-              <li>Incoterms</li>
-            </ul>
-          </div>
         </div>
 
         <div class="card">
-          <h3>Fruits &amp; jus</h3>
-          <p style="margin-top:0; opacity:.9;">Sélection, transformation et conditionnement selon marché.</p>
-          <div class="section">
-            <div style="font-weight:800; margin-bottom:8px;">Fruits</div>
-            <ul class="list">
-              <li>Sélection — Qualité &amp; maturité</li>
-              <li>Approvisionnement</li>
-              <li>Traçabilité</li>
-            </ul>
-          </div>
-          <div class="section">
-            <div style="font-weight:800; margin-bottom:8px;">Process</div>
-            <ul class="list">
-              <li>Transformation — tri / lavage / pressage</li>
-              <li>Recettes sur demande</li>
-              <li>Contrôles qualité</li>
-            </ul>
-          </div>
-          <div class="section">
-            <div style="font-weight:800; margin-bottom:8px;">Marché</div>
-            <ul class="list">
-              <li>B2B / B2C</li>
-              <li>Formats adaptés</li>
-              <li>Étiquetage</li>
-              <li>Support export</li>
-            </ul>
-          </div>
+          <span class="label sun" data-i18n="sea_l2">Plage</span>
+          <strong data-i18n="sea_t2">Préparation & conditionnement</strong>
+          <ul class="list">
+            <li data-i18n="sea_b4">Hygiène & contrôles</li>
+            <li data-i18n="sea_b5">Étiquetage</li>
+            <li data-i18n="sea_b6">Cahier des charges</li>
+          </ul>
         </div>
-      </section>
 
-      <!-- Contact -->
-      <section id="contact" class="section" aria-label="Contact">
         <div class="card">
-          <h3>Contact</h3>
-          <p style="margin-top:0; opacity:.9;">
-            Pour toute demande d’information ou partenariat, contactez-nous.
-            Pour un devis rapide, utilisez la page <a href="rfq.html"><b>RFQ</b></a>.
-          </p>
-
-          <p style="margin:0 0 14px; opacity:.9;">
-            Email : <b>contact@orionsfish.com</b> • Tel/WhatsApp : <b>+221339138392</b>
-          </p>
-
-          <form action="merci.html" method="get">
-            <div class="grid2" style="margin-top: 0;">
-              <div>
-                <label for="name" style="display:block; font-size:13px; opacity:.75; margin:0 0 6px;">Nom / Entreprise</label>
-                <input id="name" name="name" type="text" placeholder="Nom / Company" required
-                       style="padding:12px;border-radius:12px;border:1px solid rgba(0,0,0,.15);width:100%;" />
-              </div>
-              <div>
-                <label for="email" style="display:block; font-size:13px; opacity:.75; margin:0 0 6px;">E-mail</label>
-                <input id="email" name="email" type="email" placeholder="name@company.com" required
-                       style="padding:12px;border-radius:12px;border:1px solid rgba(0,0,0,.15);width:100%;" />
-              </div>
-              <div>
-                <label for="phone" style="display:block; font-size:13px; opacity:.75; margin:0 0 6px;">Téléphone</label>
-                <input id="phone" name="phone" type="tel" placeholder="+221 ..."
-                       style="padding:12px;border-radius:12px;border:1px solid rgba(0,0,0,.15);width:100%;" />
-              </div>
-              <div>
-                <label for="subject" style="display:block; font-size:13px; opacity:.75; margin:0 0 6px;">Objet</label>
-                <input id="subject" name="subject" type="text" placeholder="Info / Partnership / RFQ..."
-                       style="padding:12px;border-radius:12px;border:1px solid rgba(0,0,0,.15);width:100%;" />
-              </div>
-            </div>
-
-            <div style="margin-top:12px;">
-              <label for="message" style="display:block; font-size:13px; opacity:.75; margin:0 0 6px;">Message</label>
-              <textarea id="message" name="message" rows="5" placeholder="Votre message..." required
-                        style="padding:12px;border-radius:12px;border:1px solid rgba(0,0,0,.15);width:100%;resize:vertical;"></textarea>
-            </div>
-
-            <div class="btnrow">
-              <button class="pill primary" type="submit" style="cursor:pointer;">Envoyer</button>
-
-              <!-- ✅ OUVRE LE CHAT (alternative) -->
-              <a class="pill" href="#" data-orion-ai-open="1">Ouvrir Orion fish Assistant 🎄</a>
-            </div>
-          </form>
+          <span class="label blue" data-i18n="sea_l3">Export</span>
+          <strong data-i18n="sea_t3">Expédition</strong>
+          <ul class="list">
+            <li data-i18n="sea_b7">Délais & suivi</li>
+            <li data-i18n="sea_b8">Documents sur demande</li>
+            <li data-i18n="sea_b9">Incoterms</li>
+          </ul>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- Mentions -->
-      <section id="mentions" class="section" aria-label="Mentions">
+    <section id="jus">
+      <h2 data-i18n="juice_h2">Fruits & jus</h2>
+      <p class="muted" data-i18n="juice_p">Sélection, transformation et conditionnement selon marché.</p>
+
+      <div class="grid">
         <div class="card">
-          <h3>Mentions</h3>
-          <div style="opacity:.95; line-height:1.6;">
-            <b>ORION FISH</b><br />
-            Quartier Léona, Cité Filaos, Rufisque, 17000, Sénégal<br />
-            Registre de commerce : 010112051 SN.DKR.2023.B.9159<br />
-            Responsable de publication : Diallo Mamadou<br />
-            Hébergeur : Hostinger<br />
-            Tél/WhatsApp : +221339138392<br />
-            Email : contact@orionsfish.com<br />
-            Privacy &amp; Terms : <a href="privacy.html">privacy.html</a>
+          <span class="label green" data-i18n="j_l1">Agriculture</span>
+          <strong data-i18n="j_t1">Fruits choisis</strong>
+          <ul class="list">
+            <li data-i18n="j_b1">Qualité & maturité</li>
+            <li data-i18n="j_b2">Approvisionnement</li>
+            <li data-i18n="j_b3">Traçabilité</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <span class="label green" data-i18n="j_l2">Transformation</span>
+          <strong data-i18n="j_t2">Tri, lavage, pressage</strong>
+          <ul class="list">
+            <li data-i18n="j_b4">Recettes sur demande</li>
+            <li data-i18n="j_b5">Contrôles qualité</li>
+            <li data-i18n="j_b6">Conformité</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <span class="label sun" data-i18n="j_l3">Marché</span>
+          <strong data-i18n="j_t3">B2B / B2C</strong>
+          <ul class="list">
+            <li data-i18n="j_b7">Formats adaptés</li>
+            <li data-i18n="j_b8">Étiquetage</li>
+            <li data-i18n="j_b9">Support export</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2 data-i18n="contact_h2">Contact</h2>
+      <p data-i18n="contact_p1">Pour toute demande d’information ou partenariat, contactez-nous.</p>
+      <p class="muted" data-i18n="contact_p2">Pour un devis rapide, utilisez la page RFQ.</p>
+
+      <p class="muted" style="margin-bottom:1rem">
+        Email : <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a> •
+        Tel/WhatsApp : <a href="tel:+221339138392">+221339138392</a>
+      </p>
+
+      <form action="https://formsubmit.co/contact@orionsfish.com" method="POST">
+        <input type="text" name="_honey" style="display:none">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_subject" value="Message – ORION FISH (site web)">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_next" value="https://orionsfish.com/merci.html">
+
+        <div class="two">
+          <div>
+            <label for="nom" data-i18n="f_name">Nom / Entreprise</label>
+            <input id="nom" name="Nom" type="text" required placeholder="Nom / Company" />
+          </div>
+          <div>
+            <label for="email" data-i18n="f_email">E-mail</label>
+            <input id="email" name="email" type="email" required placeholder="name@company.com" />
           </div>
         </div>
-      </section>
 
-      <div style="text-align:center; margin-top: 16px; opacity:.9;">🎄</div>
-    </div>
+        <div class="two">
+          <div>
+            <label for="tel" data-i18n="f_phone">Téléphone</label>
+            <input id="tel" name="Téléphone" type="tel" placeholder="+221 ..." />
+          </div>
+          <div>
+            <label for="objet" data-i18n="f_subject">Objet</label>
+            <input id="objet" name="Objet" type="text" placeholder="Info / Partnership / RFQ..." />
+          </div>
+        </div>
+
+        <div>
+          <label for="message" data-i18n="f_msg">Message</label>
+          <textarea id="message" name="Message" required placeholder="Votre message..."></textarea>
+        </div>
+
+        <button class="btn btn-primary" type="submit" data-i18n="f_send">Envoyer</button>
+      </form>
+    </section>
+
+    <section id="mentions">
+      <h2>Mentions légales</h2>
+      <p>
+        <strong>ORION FISH</strong><br>
+        Quartier Léona, Cité Filaos, Rufisque, 17000, Sénégal<br>
+        Registre de commerce : <strong>010112051 SN.DKR.2023.B.9159</strong><br>
+        Responsable de publication : <strong>Diallo Mamadou</strong><br>
+        Hébergeur : <strong>Hostinger</strong><br>
+        Tél/WhatsApp : <a href="tel:+221339138392">+221339138392</a><br>
+        Email : <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a>
+      </p>
+    </section>
   </main>
 
-  <footer>
-    <div class="wrap">
-      <div><b>Mentions</b> • <a href="rfq.html">RFQ / Devis</a> • <a href="compliance.html">Documents</a> • <a href="privacy.html">Privacy &amp; Terms</a></div>
-      <div class="footlinks">
-        <span>© ORION FISH. Tous droits réservés.</span>
-      </div>
+  <footer class="footer">
+    <div class="foot-links">
+      <a href="#mentions">Mentions légales</a>
+      <span>•</span>
+      <a href="rfq.html">RFQ / Devis</a>
+      <span>•</span>
+      <a href="compliance.html">Documents</a>
+      <span>•</span>
+      <a href="team.html">Team</a>
     </div>
+    <div class="foot-copy">© <span id="y"></span> ORION FISH. Tous droits réservés.</div>
   </footer>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+
+    const dict = {
+      fr:{
+        nav_home:"Accueil", nav_about:"À propos", nav_sea:"Produits de la mer", nav_juice:"Fruits & jus",
+        nav_rfq:"RFQ / Devis", nav_docs:"Documents", nav_team:"Team", nav_contact:"Contact", nav_legal:"Mentions",
+
+        pill_ocean:"Océan", pill_agri:"Agriculture", pill_sun:"Plage & Soleil",
+
+        h1:"ORION FISH – Produits de la mer & jus de fruits",
+        hero_sub:"Produits de la mer, transformation de fruits en jus, vente et distribution au service des marchés locaux et internationaux.",
+        hero_p:"Nous accompagnons distributeurs, industriels et professionnels avec des solutions fiables, tracées et conformes aux exigences.",
+
+        cta_rfq:"Demander un devis (RFQ)",
+        cta_docs:"Demander des documents",
+        open_docs:"Ouvrir Documents",
+        talk_team:"Parler à l’équipe",
+
+        quick_title:"Informations rapides",
+        quick_loc:"Localisation :",
+        quick_phone:"Tel/WhatsApp :",
+        quick_mail:"Email :",
+        quick_exp:"Export :",
+        quick_exp_text:"Documents selon destination (B2B)",
+
+        about_h2:"À propos d’ORION FISH",
+        about_p1:"ORION FISH est une entreprise agroalimentaire spécialisée dans la valorisation des produits de la mer et la transformation de fruits en jus.",
+        about_p2:"Notre ambition : développer des filières durables et compétitives, adaptées aux besoins B2B.",
+
+        sea_h2:"Produits de la mer", sea_p:"Collecte, transformation, conditionnement et distribution.",
+        sea_l1:"Océan", sea_t1:"Frais & surgelé", sea_b1:"Formats B2B", sea_b2:"Traçabilité par lots", sea_b3:"Chaîne du froid",
+        sea_l2:"Plage", sea_t2:"Préparation & conditionnement", sea_b4:"Hygiène & contrôles", sea_b5:"Étiquetage", sea_b6:"Cahier des charges",
+        sea_l3:"Export", sea_t3:"Expédition", sea_b7:"Délais & suivi", sea_b8:"Documents sur demande", sea_b9:"Incoterms",
+
+        juice_h2:"Fruits & jus", juice_p:"Sélection, transformation et conditionnement selon marché.",
+        j_l1:"Agriculture", j_t1:"Fruits choisis", j_b1:"Qualité & maturité", j_b2:"Approvisionnement", j_b3:"Traçabilité",
+        j_l2:"Transformation", j_t2:"Tri, lavage, pressage", j_b4:"Recettes sur demande", j_b5:"Contrôles qualité", j_b6:"Conformité",
+        j_l3:"Marché", j_t3:"B2B / B2C", j_b7:"Formats adaptés", j_b8:"Étiquetage", j_b9:"Support export",
+
+        contact_h2:"Contact", contact_p1:"Pour toute demande d’information ou partenariat, contactez-nous.",
+        contact_p2:"Pour un devis rapide, utilisez la page RFQ.",
+
+        f_name:"Nom / Entreprise", f_email:"E-mail", f_phone:"Téléphone", f_subject:"Objet", f_msg:"Message", f_send:"Envoyer"
+      },
+      en:{
+        nav_home:"Home", nav_about:"About", nav_sea:"Seafood", nav_juice:"Fruits & Juices",
+        nav_rfq:"RFQ / Quotation", nav_docs:"Documents", nav_team:"Team", nav_contact:"Contact", nav_legal:"Legal",
+
+        pill_ocean:"Ocean", pill_agri:"Agriculture", pill_sun:"Beach & Sun",
+
+        h1:"ORION FISH – Seafood & fruit juices",
+        hero_sub:"Seafood products and fruit juice processing for local and international markets.",
+        hero_p:"We support distributors and industrial buyers with reliable, traceable and compliant solutions.",
+
+        cta_rfq:"Request a quotation (RFQ)",
+        cta_docs:"Request documents",
+        open_docs:"Open Documents",
+        talk_team:"Talk to the team",
+
+        quick_title:"Quick info",
+        quick_loc:"Location:",
+        quick_phone:"Tel/WhatsApp:",
+        quick_mail:"Email:",
+        quick_exp:"Export:",
+        quick_exp_text:"Documents depending on destination (B2B)",
+
+        about_h2:"About ORION FISH",
+        about_p1:"ORION FISH is a food company specialized in seafood value creation and fruit juice processing.",
+        about_p2:"Our goal: sustainable and competitive supply chains designed for B2B needs.",
+
+        sea_h2:"Seafood", sea_p:"Sourcing, processing, packaging and distribution.",
+        sea_l1:"Ocean", sea_t1:"Fresh & Frozen", sea_b1:"B2B formats", sea_b2:"Batch traceability", sea_b3:"Cold chain",
+        sea_l2:"Beach", sea_t2:"Preparation & packaging", sea_b4:"Hygiene & controls", sea_b5:"Labeling", sea_b6:"Specifications",
+        sea_l3:"Export", sea_t3:"Shipment", sea_b7:"Lead time & tracking", sea_b8:"Docs on request", sea_b9:"Incoterms",
+
+        juice_h2:"Fruits & juices", juice_p:"Selection, processing and packaging depending on the market.",
+        j_l1:"Agriculture", j_t1:"Selected fruits", j_b1:"Quality & maturity", j_b2:"Supply", j_b3:"Traceability",
+        j_l2:"Processing", j_t2:"Sorting, washing, pressing", j_b4:"Recipes on request", j_b5:"Quality checks", j_b6:"Compliance",
+        j_l3:"Market", j_t3:"B2B / B2C", j_b7:"Adapted formats", j_b8:"Labeling", j_b9:"Export support",
+
+        contact_h2:"Contact", contact_p1:"For information or partnerships, contact us.",
+        contact_p2:"For a fast quotation, use the RFQ page.",
+
+        f_name:"Name / Company", f_email:"Email", f_phone:"Phone", f_subject:"Subject", f_msg:"Message", f_send:"Send"
+      }
+    };
+
+    function setLang(lang){
+      const d = dict[lang] || dict.fr;
+      document.documentElement.lang = lang;
+      document.querySelectorAll("[data-i18n]").forEach(el=>{
+        const k = el.getAttribute("data-i18n");
+        if(d[k]) el.textContent = d[k];
+      });
+      document.getElementById("langBtn").textContent = (lang==="fr") ? "EN" : "FR";
+      localStorage.setItem("lang", lang);
+    }
+
+    const stored = localStorage.getItem("lang");
+    const initial = stored || ((navigator.language||"").toLowerCase().startsWith("fr") ? "fr" : "en");
+    setLang(initial);
+
+    document.getElementById("langBtn").addEventListener("click", ()=>{
+      setLang(document.documentElement.lang === "fr" ? "en" : "fr");
+    });
+  </script>
 </body>
 </html>
