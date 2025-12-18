@@ -1,140 +1,168 @@
-// api/orion-ai.js
-export default async function handler(req, res) {
-  if (req.method !== "POST") {
-    res.setHeader("Allow", "POST");
-    return res.status(405).json({ error: "Method not allowed" });
+// orion-ai.js — Orion fish Assistant (Christmas)
+(function () {
+  const STORAGE_KEY = "orion_ai_chat_v1";
+
+  function detectLang() {
+    const htmlLang = (document.documentElement.getAttribute("lang") || "").toLowerCase();
+    const navLang = (navigator.language || "en").toLowerCase();
+    const lang = (htmlLang || navLang);
+    return lang.startsWith("fr") ? "fr" : "en";
   }
 
-  try {
-    const body =
-      typeof req.body === "string" ? JSON.parse(req.body) : (req.body || {});
-    const { messages } = body;
-
-    if (!Array.isArray(messages) || messages.length === 0) {
-      return res.status(400).json({ error: "Missing messages[]" });
-    }
-
-    const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
-    if (!OPENAI_API_KEY) {
-      return res.status(500).json({ error: "Server misconfigured: OPENAI_API_KEY missing" });
-    }
-
-    const systemInstructions = `
-You are "Orion fish Assistant", a B2B sales & support assistant for ORION FISH (seafood & fruit juice processing), based in Rufisque, Senegal.
-
-Goals:
-1) Answer customer questions clearly (FR/EN).
-2) If the user asks for a price/quotation, switch to RFQ qualification and collect:
-   - product, specs, packaging, quantity, target delivery date, destination/port, incoterm, requirements/certifications, buyer contact details.
-3) If the user asks about compliance documents, explain they are available upon request depending on product/destination requirements, then ask what you need.
-
-Hard rules:
-- Never invent prices, stock, certifications or documents.
-- If data is missing, ask short questions.
-- Keep a professional, concise tone.
-- Provide ORION FISH contacts when needed:
-  Email: contact@orionsfish.com
-  WhatsApp: +221339138392
-  Address: Quartier Léona, Cité Filaos, Rufisque 17000, Senegal
-  Website: https://www.orionsfish.com
-`.trim();
-
-    const schema = {
-      type: "object",
-      additionalProperties: false,
-      properties: {
-        reply: { type: "string" },
-        intent: { type: "string", enum: ["faq", "rfq", "compliance", "contact", "other"] },
-        rfq: {
-          type: "object",
-          additionalProperties: false,
-          properties: {
-            product: { type: ["string", "null"] },
-            specs: { type: ["string", "null"] },
-            packaging: { type: ["string", "null"] },
-            quantity: { type: ["string", "null"] },
-            delivery_date: { type: ["string", "null"] },
-            destination: { type: ["string", "null"] },
-            incoterm: { type: ["string", "null"] },
-            requirements: { type: ["string", "null"] },
-            buyer_contact: { type: ["string", "null"] }
-          },
-          required: [
-            "product","specs","packaging","quantity","delivery_date",
-            "destination","incoterm","requirements","buyer_contact"
-          ]
-        },
-        missing_fields: { type: "array", items: { type: "string" } }
+  function t(lang, key) {
+    const dict = {
+      fr: {
+        launcherAria: "Ouvrir le chat Orion fish Assistant",
+        title: "Orion fish Assistant",
+        placeholder: "Posez votre question (FR/EN)…",
+        send: "Envoyer",
+        hello: "Bonjour ! Je suis Orion fish Assistant 🎄 Comment puis-je vous aider ?",
+        rfqNeed: "Pour préparer votre RFQ, il me manque : ",
+        rfqDone: "Votre RFQ est complète. Vous pouvez aussi l’envoyer via : /rfq.html",
+        err: "Désolé — je n’arrive pas à me connecter à Orion fish Assistant."
       },
-      required: ["reply","intent","rfq","missing_fields"]
-    };
-
-    const inputItems = messages.slice(-12).map((m) => ({
-      role: m.role === "assistant" ? "assistant" : "user",
-      content: String(m.content ?? "")
-    }));
-
-    const payload = {
-      model: "gpt-4o-mini",
-      store: false,
-      instructions: systemInstructions,
-      input: inputItems,
-      text: {
-        format: {
-          type: "json_schema",
-          name: "orion_fish_response",
-          strict: true,
-          schema
-        }
+      en: {
+        launcherAria: "Chat with Orion fish Assistant",
+        title: "Orion fish Assistant",
+        placeholder: "Ask a question (FR/EN)…",
+        send: "Send",
+        hello: "Hello! I’m Orion fish Assistant 🎄 How can I help you today?",
+        rfqNeed: "To prepare your RFQ, I still need: ",
+        rfqDone: "Your RFQ looks complete. You can also submit it via: /rfq.html",
+        err: "Sorry — I couldn't connect to Orion fish Assistant."
       }
     };
+    return (dict[lang] && dict[lang][key]) || dict.en[key] || "";
+  }
 
-    const r = await fetch("https://api.openai.com/v1/responses", {
+  function loadHistory() {
+    try { return JSON.parse(sessionStorage.getItem(STORAGE_KEY) || "[]"); }
+    catch { return []; }
+  }
+
+  function saveHistory(items) {
+    sessionStorage.setItem(STORAGE_KEY, JSON.stringify(items.slice(-20)));
+  }
+
+  function el(tag, attrs = {}, children = []) {
+    const node = document.createElement(tag);
+    Object.entries(attrs).forEach(([k, v]) => node.setAttribute(k, v));
+    children.forEach(c => node.appendChild(typeof c === "string" ? document.createTextNode(c) : c));
+    return node;
+  }
+
+  function renderMessages(container, history) {
+    container.innerHTML = "";
+    history.forEach(m => {
+      const row = el("div", { class: `orion-ai-msg ${m.role}` }, [
+        el("div", { class: "orion-ai-bubble" }, [m.content])
+      ]);
+      container.appendChild(row);
+    });
+    container.scrollTop = container.scrollHeight;
+  }
+
+  async function callAI(history) {
+    const r = await fetch("/api/orion-ai", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${OPENAI_API_KEY}`
-      },
-      body: JSON.stringify(payload)
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ messages: history })
     });
 
     const data = await r.json().catch(() => ({}));
-    if (!r.ok) return res.status(r.status).json({ error: "OpenAI error", details: data });
+    if (!r.ok) {
+      const msg = data?.details?.error?.message || data?.error || `HTTP ${r.status}`;
+      throw new Error(msg);
+    }
+    return data;
+  }
 
-    const extractOutputText = (resp) => {
-      if (typeof resp?.output_text === "string" && resp.output_text.trim()) return resp.output_text.trim();
-      const out = Array.isArray(resp?.output) ? resp.output : [];
-      const parts = [];
-      for (const item of out) {
-        if (item?.type === "message" && Array.isArray(item.content)) {
-          for (const c of item.content) {
-            if (c?.type === "output_text" && typeof c.text === "string") parts.push(c.text);
-          }
+  function init() {
+    const lang = detectLang();
+
+    const launcher = el("button", {
+      id: "orion-ai-launcher",
+      type: "button",
+      "aria-label": t(lang, "launcherAria")
+    }, ["🎄"]);
+
+    const panel = el("div", { id: "orion-ai-panel", class: "hidden" }, []);
+    const header = el("div", { class: "orion-ai-header" }, [
+      el("div", { class: "orion-ai-title" }, [t(lang, "title")]),
+      el("button", { class: "orion-ai-close", type: "button", "aria-label": "Close" }, ["×"])
+    ]);
+
+    const body = el("div", { class: "orion-ai-body" }, []);
+    const footer = el("div", { class: "orion-ai-footer" }, []);
+    const input = el("input", { class: "orion-ai-input", type: "text", placeholder: t(lang, "placeholder") });
+    const send = el("button", { class: "orion-ai-send", type: "button" }, [t(lang, "send")]);
+
+    footer.appendChild(input);
+    footer.appendChild(send);
+    panel.appendChild(header);
+    panel.appendChild(body);
+    panel.appendChild(footer);
+
+    document.body.appendChild(launcher);
+    document.body.appendChild(panel);
+
+    let history = loadHistory();
+    if (history.length === 0) {
+      history = [{ role: "assistant", content: t(lang, "hello") }];
+      saveHistory(history);
+    }
+    renderMessages(body, history);
+
+    function openChat() { panel.classList.remove("hidden"); input.focus(); }
+    function closeChat() { panel.classList.add("hidden"); }
+
+    launcher.addEventListener("click", openChat);
+    header.querySelector(".orion-ai-close").addEventListener("click", closeChat);
+
+    // Ouvre via data-orion-ai-open="1"
+    document.addEventListener("click", (e) => {
+      const target = e.target.closest && e.target.closest('[data-orion-ai-open="1"]');
+      if (target) { e.preventDefault(); openChat(); }
+    });
+
+    async function onSend() {
+      const text = input.value.trim();
+      if (!text) return;
+      input.value = "";
+
+      history.push({ role: "user", content: text });
+      saveHistory(history);
+      renderMessages(body, history);
+
+      history.push({ role: "assistant", content: "…" });
+      renderMessages(body, history);
+
+      try {
+        const data = await callAI(history.filter(m => m.content !== "…"));
+        history.pop();
+
+        history.push({ role: "assistant", content: data.reply || "OK." });
+
+        if (data.intent === "rfq") {
+          const missing = Array.isArray(data.missing_fields) ? data.missing_fields : [];
+          if (missing.length) history.push({ role: "assistant", content: t(lang, "rfqNeed") + missing.join(", ") + "." });
+          else history.push({ role: "assistant", content: t(lang, "rfqDone") });
         }
+
+        saveHistory(history);
+        renderMessages(body, history);
+      } catch (e) {
+        history.pop();
+        history.push({ role: "assistant", content: `${t(lang, "err")} (${e.message || e})` });
+        saveHistory(history);
+        renderMessages(body, history);
       }
-      return parts.join("\n").trim();
-    };
-
-    const raw = extractOutputText(data);
-
-    let parsed;
-    try {
-      parsed = JSON.parse(raw);
-    } catch {
-      parsed = {
-        reply: raw || "Sorry, I couldn't format the answer.",
-        intent: "other",
-        rfq: {
-          product: null, specs: null, packaging: null, quantity: null,
-          delivery_date: null, destination: null, incoterm: null,
-          requirements: null, buyer_contact: null
-        },
-        missing_fields: []
-      };
     }
 
-    return res.status(200).json(parsed);
-  } catch (e) {
-    return res.status(500).json({ error: "Server error", details: String(e?.message || e) });
+    send.addEventListener("click", onSend);
+    input.addEventListener("keydown", (e) => { if (e.key === "Enter") onSend(); });
   }
-}
+
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
+  else init();
+})();
