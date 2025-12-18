@@ -2,7 +2,7 @@
   --brand-red:#DF261D;
   --brand-orange:#FF8B00;
 
-  /* Fond principal */
+  /* Fond bleu roi (comme ton fichier) */
   --bg:#2563eb;
 
   --surface:#ffffff;
@@ -15,10 +15,9 @@
 
   --container:1180px;
 
-  /* Noir pro + or */
-  --card-black:#0b0f14;
+  /* Noir pro + OR (pour cartes si besoin) */
   --gold:#d4af37;
-  --gold-bright:#FFD700;
+  --card-black:#0b0f14;
 }
 
 *{box-sizing:border-box}
@@ -73,16 +72,19 @@ header{background:var(--surface);border-bottom:1px solid var(--border);position:
 .logo-link{display:flex;align-items:center;gap:12px;min-width:220px}
 .logo-mark{width:38px;height:38px;border-radius:12px;box-shadow:inset 0 0 0 2px rgba(255,255,255,.25)}
 .logo-text{display:flex;flex-direction:column;line-height:1.1}
+
+/* ✅ Nouveau : petite ligne au-dessus du logo (ORION FISH RFQ) */
+.logo-top{
+  font-weight:900;
+  font-size:12px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+
 .logo-title{font-weight:900;letter-spacing:.2px}
 .logo-sub{font-size:12px;color:var(--muted)}
-.logo-top{
-  font-size:11px;
-  font-weight:900;
-  letter-spacing:.10em;
-  text-transform:uppercase;
-  color:rgba(15,23,42,.70);
-  margin-bottom:2px;
-}
+
 nav ul{
   margin:0;padding:0;list-style:none;
   display:flex;align-items:center;gap:6px;flex-wrap:wrap;justify-content:flex-end;
@@ -92,6 +94,14 @@ nav a{
   color:var(--muted);font-weight:900;font-size:14px;
 }
 nav a:hover{background:#f7f7f8;color:var(--text)}
+
+/* ✅ lien actif */
+nav a[aria-current="page"],
+.topbar a[aria-current="page"]{
+  background:rgba(223,38,29,.06);
+  border:1px solid rgba(223,38,29,.18);
+  color:var(--text);
+}
 
 /* Buttons */
 .btn{
@@ -238,6 +248,63 @@ footer{background:#fff;border-top:1px solid var(--border);color:var(--muted);pad
 .page-home .list{margin:0;padding-left:18px;list-style:disc;color:var(--muted)}
 .page-home .list li{margin:6px 0}
 
+/* =========================
+   RFQ (rfq.html)
+   ========================= */
+.page-rfq main{padding:18px 0 40px}
+.page-rfq .prefill{
+  display:none;
+  margin-top:12px;
+  padding:10px 12px;
+  border-radius:14px;
+  background:rgba(223,38,29,.06);
+  border:1px solid rgba(223,38,29,.18);
+  font-weight:900;
+  color:var(--text);
+}
+
+/* =========================
+   DOCS / PAGES (compliance.html, fromage.html, etc.)
+   ========================= */
+.page-docs main{padding:18px 0 40px}
+.page-docs .tabs{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+.page-docs .tab{
+  padding:8px 12px;border-radius:999px;border:1px solid var(--border);
+  background:#fff;color:var(--muted);font-weight:900;font-size:14px;cursor:pointer;
+}
+.page-docs .tab[aria-selected="true"]{border-color:rgba(223,38,29,.25);background:rgba(223,38,29,.06);color:var(--text)}
+
+.page-docs .grid{display:grid;grid-template-columns:320px 1fr;gap:14px;align-items:start;margin-top:10px}
+.page-docs .side{
+  position:sticky;top:110px;
+  background:#fff;border:1px solid var(--border);border-radius:18px;box-shadow:var(--shadow);
+  padding:14px;height:fit-content;
+}
+.page-docs .side h3{font-size:14px;text-transform:uppercase;letter-spacing:.06em;margin:0 0 10px}
+.page-docs .mini{width:100%;padding:11px 12px;border-radius:14px;border:1px solid var(--border);outline:none}
+.page-docs .mini:focus{border-color:rgba(223,38,29,.35);box-shadow:0 0 0 4px rgba(223,38,29,.10)}
+.page-docs .check{display:flex;align-items:center;gap:10px;color:var(--muted);padding:8px 0}
+.page-docs .check input{width:16px;height:16px}
+
+.page-docs .cards{display:flex;flex-direction:column;gap:12px}
+.page-docs .card{
+  background:#fff;border:1px solid var(--border);border-radius:18px;box-shadow:var(--shadow);
+  padding:14px;display:grid;grid-template-columns:1fr 220px;gap:12px;
+}
+.page-docs .badge{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:7px 10px;border-radius:999px;
+  background:rgba(223,38,29,.06);border:1px solid rgba(223,38,29,.18);
+  font-weight:900;font-size:12px;margin-bottom:10px;
+}
+.page-docs .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.page-docs .chip{
+  font-size:12px;font-weight:900;color:var(--muted);
+  border:1px solid var(--border);border-radius:999px;padding:6px 10px;background:#fff;
+}
+.page-docs .card-side{border-left:1px solid var(--border);padding-left:12px;display:flex;flex-direction:column;justify-content:space-between;gap:10px}
+.page-docs .card-side .btn{width:100%}
+
 /* Responsive */
 @media (max-width: 980px){
   .topbar-row{flex-direction:column;align-items:flex-start}
@@ -247,197 +314,10 @@ footer{background:#fff;border-top:1px solid var(--border);color:var(--muted);pad
   .page-home .hero-grid{grid-template-columns:1fr}
   .page-home .grid{grid-template-columns:1fr}
 
+  .page-docs .grid{grid-template-columns:1fr}
+  .page-docs .side{position:static}
+  .page-docs .card{grid-template-columns:1fr}
+  .page-docs .card-side{border-left:0;border-top:1px solid var(--border);padding-left:0;padding-top:12px}
+
   .logo-link{min-width:auto}
-}
-
-/* =========================================================
-   Bas (.dark-zone) : carrés noirs + bordures OR
-   ========================================================= */
-.dark-zone .card{
-  background:var(--card-black);
-  border:1px solid var(--gold);
-  box-shadow:0 18px 45px rgba(0,0,0,.35);
-}
-
-.dark-zone .card strong{ color:#f3f4f6; }
-.dark-zone .list{ color:#cbd5e1; }
-
-.dark-zone .label{
-  background:rgba(212,175,55,.14);
-  border:1px solid rgba(212,175,55,.55);
-  color:#fde68a;
-}
-
-/* =====================================================
-   Haut + Bas : bleu ciel nuageux intense (ton style)
-   ===================================================== */
-:root{
-  --sky-1:#e6f6ff;
-  --sky-2:#95d5ff;
-  --sky-3:#3b82f6;
-}
-
-.dark-zone{
-  background:
-    radial-gradient(circle at 18% 22%, rgba(255,255,255,.96), rgba(255,255,255,0) 46%),
-    radial-gradient(circle at 78% 18%, rgba(255,255,255,.88), rgba(255,255,255,0) 52%),
-    radial-gradient(circle at 55% 62%, rgba(255,255,255,.78), rgba(255,255,255,0) 58%),
-    linear-gradient(180deg, var(--sky-1) 0%, var(--sky-2) 55%, var(--sky-3) 100%) !important;
-}
-
-.topbar,
-header,
-.page-home .hero-search{
-  background:
-    radial-gradient(circle at 18% 22%, rgba(255,255,255,.96), rgba(255,255,255,0) 46%),
-    radial-gradient(circle at 78% 18%, rgba(255,255,255,.88), rgba(255,255,255,0) 52%),
-    radial-gradient(circle at 55% 62%, rgba(255,255,255,.78), rgba(255,255,255,0) 58%),
-    linear-gradient(180deg, var(--sky-1) 0%, var(--sky-2) 55%, var(--sky-3) 100%) !important;
-
-  border-bottom:1px solid rgba(15,23,42,.12) !important;
-}
-
-/* Textes du haut */
-.topbar,
-header,
-.page-home .hero-search,
-.topbar a,
-header a,
-header nav a,
-.breadcrumb,
-.breadcrumb a{
-  color: rgba(15,23,42,.88) !important;
-}
-
-.logo-sub{ color: rgba(15,23,42,.65) !important; }
-
-nav a{ color: rgba(15,23,42,.70) !important; }
-nav a:hover{
-  background: rgba(255,255,255,.55) !important;
-  color: rgba(15,23,42,.92) !important;
-}
-
-.pill{
-  background: rgba(255,255,255,.72) !important;
-  border-color: rgba(15,23,42,.10) !important;
-  color: rgba(15,23,42,.90) !important;
-}
-.btn-lang{
-  background: rgba(255,255,255,.72) !important;
-  border-color: rgba(15,23,42,.12) !important;
-  color: rgba(15,23,42,.92) !important;
-}
-
-/* =========================================================
-   ✅ TA DEMANDE : 2 CADRES SUPÉRIEURS EN NOIR PRO + OR BRILLANT
-   1) search-card (tabs + recherche)
-   2) hero-grid (ORION FISH – Produits…)
-   ✅ UNIQUEMENT ces 2 cadres
-   ========================================================= */
-
-/* Cadres */
-.page-home .search-card,
-.page-home .hero-grid{
-  background: var(--card-black) !important;
-  border: 2px solid var(--gold-bright) !important;
-  box-shadow:
-    0 22px 55px rgba(0,0,0,.45),
-    0 0 0 1px rgba(255,215,0,.18) !important;
-  color:#ffffff;
-}
-
-/* Texte dans hero-grid */
-.page-home .hero-grid h1,
-.page-home .hero-grid h2,
-.page-home .hero-grid p,
-.page-home .hero-grid .muted{
-  color: rgba(255,255,255,.92) !important;
-}
-
-/* Search card (intérieur) en noir lisible */
-.page-home .search-card .hint{
-  color: rgba(255,255,255,.78) !important;
-}
-.page-home .search-card .tab{
-  background: transparent !important;
-  border: 1px solid rgba(255,215,0,.55) !important;
-  color: rgba(255,255,255,.86) !important;
-}
-.page-home .search-card .tab[aria-selected="true"]{
-  background: rgba(255,215,0,.14) !important;
-  border-color: var(--gold-bright) !important;
-  color: #ffffff !important;
-}
-.page-home .search-card .field{
-  background: rgba(255,255,255,.04) !important;
-  border: 1px solid rgba(255,215,0,.55) !important;
-}
-.page-home .search-card .field input,
-.page-home .search-card .field select{
-  color:#ffffff !important;
-}
-.page-home .search-card .field input::placeholder{
-  color: rgba(255,255,255,.65) !important;
-}
-/* Options dropdown */
-.page-home .search-card select option{ color:#111827; }
-
-/* ⚠️ On force l'info-card à rester comme avant (blanc) */
-.page-home .info-card{
-  background:#fff !important;
-  border:1px solid var(--border) !important;
-  color:var(--text) !important;
-  box-shadow:var(--shadow) !important;
-}
-.page-home .info-card .info-line{ color:var(--muted) !important; }
-.page-home .info-card .info-line strong{ color:var(--text) !important; }
-
-/* =========================================================
-   ✅ TA DEMANDE : Boutons RFQ / Documents (topbar) en noir + texte blanc
-   ========================================================= */
-.topbar .pill{
-  background: var(--card-black) !important;
-  border: 1px solid var(--gold-bright) !important;
-  color:#ffffff !important;
-}
-.topbar .pill:hover{
-  filter: brightness(1.06);
-  box-shadow: 0 10px 25px rgba(0,0,0,.18), 0 0 0 1px rgba(255,215,0,.18) !important;
-}
-.topbar .dot{
-  box-shadow: 0 0 0 2px rgba(255,255,255,.22);
-}
-
-/* =========================================================
-   ✅ TA DEMANDE : neige animée qui tombe depuis le logo
-   ========================================================= */
-.logo-link{ position:relative; }
-
-/* Neige (zone à gauche, au niveau du logo) */
-.logo-link::after{
-  content:"";
-  position:absolute;
-  left:-6px;
-  top:-10px;
-  width:52px;
-  height:96px;
-  pointer-events:none;
-  background:
-    radial-gradient(circle, rgba(255,255,255,.95) 1.6px, transparent 2.3px),
-    radial-gradient(circle, rgba(255,255,255,.80) 1.0px, transparent 2.0px),
-    radial-gradient(circle, rgba(255,255,255,.90) 1.2px, transparent 2.2px);
-  background-size: 16px 16px, 22px 22px, 28px 28px;
-  background-repeat: repeat;
-  animation: orionLogoSnow 1.9s linear infinite;
-  opacity:.95;
-  filter: drop-shadow(0 2px 2px rgba(0,0,0,.25));
-}
-
-@keyframes orionLogoSnow{
-  from{ background-position: 0 -40px, 0 -70px, 0 -100px; }
-  to  { background-position: 0 110px, 0 140px, 0 170px; }
-}
-
-@media (prefers-reduced-motion: reduce){
-  .logo-link::after{ animation:none; }
 }
