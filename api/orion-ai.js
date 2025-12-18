@@ -23,9 +23,9 @@ export default async function handler(req, res) {
         .json({ error: "Server misconfigured: OPENAI_API_KEY missing" });
     }
 
-    // ---- ORION FISH System Instructions ----
+    // ---- Orion fish Assistant: system instructions ----
     const systemInstructions = `
-You are "ORION FISH Assistant", a B2B sales & support assistant for ORION FISH (seafood & fruit juice processing), based in Rufisque, Senegal.
+You are "Orion fish Assistant", a B2B sales & support assistant for ORION FISH (seafood & fruit juice processing), based in Rufisque, Senegal.
 
 Goals:
 1) Answer customer questions clearly (FR/EN).
@@ -96,11 +96,10 @@ Hard rules:
       store: false,
       instructions: systemInstructions,
       input: inputItems,
-
       text: {
         format: {
           type: "json_schema",
-          name: "orion_fish_response", // ✅ REQUIRED
+          name: "orion_fish_response", // ✅ required
           strict: true,
           schema,
         },
@@ -167,6 +166,8 @@ Hard rules:
 
     return res.status(200).json(parsed);
   } catch (e) {
-    return res.status(500).json({ error: "Server error", details: String(e?.message || e) });
+    return res
+      .status(500)
+      .json({ error: "Server error", details: String(e?.message || e) });
   }
 }
