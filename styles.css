@@ -1,137 +1,618 @@
-/* --- Orion fish Assistant Widget (Christmas Theme) --- */
-#orion-ai-launcher{
-  position: fixed;
-  right: 18px;
-  bottom: 18px;
-  z-index: 9999;
-  width: 54px;
-  height: 54px;
-  border-radius: 999px;
-  border: none;
-  cursor: pointer;
-  font-weight: 800;
-  box-shadow: 0 10px 30px rgba(0,0,0,.18);
-  background: linear-gradient(135deg, #0f7a3a, #c1121f);
-  color: #ffffff;
+:root{
+  --brand-red:#DF261D;
+  --brand-orange:#FF8B00;
+
+  /* ✅ Fond bleu roi */
+  --bg:#2563eb;
+
+  --surface:#ffffff;
+
+  --text:#1f2937;
+  --muted:#6b7280;
+
+  --border:#e5e7eb;
+  --shadow:0 2px 10px rgba(0,0,0,.06);
+
+  --container:1180px;
+
+  /* ✅ OR + Noir pro (pour les carrés dans la partie bleue) */
+  --gold:#d4af37;
+  --card-black:#0b0f14;
 }
 
-#orion-ai-panel{
-  position: fixed;
-  right: 18px;
-  bottom: 84px;
-  z-index: 9999;
-  width: min(380px, calc(100vw - 36px));
-  height: 520px;
-  background: #fff;
-  border-radius: 16px;
-  border: 2px solid rgba(193, 18, 31, .25);
-  box-shadow: 0 20px 60px rgba(0,0,0,.22);
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,Arial,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.5;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+p{margin:0 0 12px}
+h1,h2,h3{margin:0 0 10px;line-height:1.15}
+h1{font-size:clamp(24px,2.6vw,34px)}
+h2{font-size:clamp(18px,2vw,24px)}
+.muted{color:var(--muted)}
+.container{max-width:var(--container);margin:0 auto;padding:0 16px}
+
+/* Accessibilité */
+.skip{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+.skip:focus{
+  left:16px;top:16px;width:auto;height:auto;padding:10px 12px;
+  background:#fff;border:1px solid var(--border);border-radius:12px;z-index:9999;
+  box-shadow:var(--shadow);
 }
 
-#orion-ai-panel.hidden{ display: none; }
+/* TOPBAR */
+.topbar{background:#fff;border-bottom:1px solid var(--border);font-size:13px;color:var(--muted)}
+.topbar-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0;flex-wrap:wrap}
+.topbar-links{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.sep{color:#9ca3af}
+.pill{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:6px 10px;border:1px solid var(--border);
+  border-radius:999px;background:#fff;color:var(--text);
+  font-weight:900;
+}
+.dot{width:8px;height:8px;border-radius:999px;background:var(--brand-red);display:inline-block}
+.btn-lang{
+  border:1px solid var(--border);
+  background:var(--surface);
+  padding:8px 10px;border-radius:999px;
+  font-weight:900;cursor:pointer;
+}
+.btn-lang:hover{box-shadow:var(--shadow)}
 
-.orion-ai-header{
+/* HEADER */
+header{background:var(--surface);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:50}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0;flex-wrap:wrap}
+.logo-link{display:flex;align-items:center;gap:12px;min-width:220px}
+.logo-mark{width:38px;height:38px;border-radius:12px;box-shadow:inset 0 0 0 2px rgba(255,255,255,.25)}
+.logo-text{display:flex;flex-direction:column;line-height:1.1}
+.logo-title{font-weight:900;letter-spacing:.2px}
+.logo-sub{font-size:12px;color:var(--muted)}
+nav ul{
+  margin:0;padding:0;list-style:none;
+  display:flex;align-items:center;gap:6px;flex-wrap:wrap;justify-content:flex-end;
+}
+nav a{
+  display:inline-flex;padding:8px 10px;border-radius:12px;
+  color:var(--muted);font-weight:900;font-size:14px;
+}
+nav a:hover{background:#f7f7f8;color:var(--text)}
+
+/* Buttons */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  padding:11px 14px;border-radius:14px;border:1px solid var(--border);
+  background:#fff;font-weight:900;cursor:pointer;
+  transition:filter .12s ease, box-shadow .12s ease, transform .12s ease;
+}
+.btn:hover{box-shadow:var(--shadow);transform:translateY(-1px)}
+.btn:active{transform:translateY(0)}
+.btn-primary{border-color:transparent;background:var(--brand-orange);color:#111827}
+.btn-primary:hover{filter:brightness(.97)}
+.btn-outline{background:transparent;border-color:var(--border);color:var(--text)}
+.btn-green{border-color:rgba(223,38,29,.25);background:rgba(223,38,29,.06);color:var(--text)}
+
+/* Breadcrumb */
+.breadcrumb{padding:12px 0 0;color:var(--muted);font-size:13px}
+.breadcrumb a{color:var(--muted)}
+.breadcrumb a:hover{color:var(--text);text-decoration:underline}
+
+/* Panels / Cards */
+.panel{
+  margin-top:14px;
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:18px;
+  box-shadow:var(--shadow);
+  padding:16px;
+}
+.full-sep{height:1px;background:var(--border);margin:18px 0}
+
+/* Zone bleue */
+.dark-zone{background:var(--bg)}
+section{scroll-margin-top:110px}
+
+/* Forms */
+form{display:grid;gap:12px;margin-top:14px}
+label{display:block;font-weight:900;font-size:13px;margin:10px 0 6px}
+input, textarea, select{
+  width:100%;
+  padding:11px 12px;
+  border-radius:14px;
+  border:1px solid var(--border);
+  outline:none;
+  background:#fff;
+  font-size:14px;
+  color:var(--text);
+}
+textarea{min-height:140px;resize:vertical}
+input:focus, textarea:focus, select:focus{
+  border-color:rgba(223,38,29,.35);
+  box-shadow:0 0 0 4px rgba(223,38,29,.10);
+}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+
+/* Footer (générique) */
+footer{background:#fff;border-top:1px solid var(--border);color:var(--muted);padding:18px 0;font-size:13px}
+.footer-inner{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:flex-start}
+
+/* Footer index */
+.dark-footer{background:var(--surface);border-top:1px solid var(--border);margin-top:26px}
+.footer{
+  max-width:var(--container);
+  margin:0 auto;
+  padding:18px 16px;
   display:flex;
-  align-items:center;
   justify-content:space-between;
-  padding: 12px 14px;
-  background: linear-gradient(135deg, #0f7a3a, #146c43);
-  color: #ffffff;
-  border-bottom: 1px solid rgba(255,255,255,.18);
+  align-items:center;
+  gap:16px;
+  flex-wrap:wrap;
+  color:var(--muted);
+  font-size:13px;
+}
+.foot-links{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.foot-links a{
+  color:var(--muted);
+  font-weight:900;
+  padding:6px 8px;
+  border-radius:12px;
+}
+.foot-links a:hover{background:#f7f7f8;color:var(--text)}
+.foot-copy{color:var(--muted)}
+
+/* =========================
+   HOME (index.html)
+   ========================= */
+.page-home main{padding:0 0 40px}
+.page-home .hero-search{
+  background:#fff;border-bottom:1px solid var(--border);
+  padding:18px 0 14px;
+}
+.page-home .search-card{
+  background:#fff;border:1px solid var(--border);
+  border-radius:18px;box-shadow:var(--shadow);padding:14px;
+}
+.page-home .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.page-home .tab{
+  padding:8px 12px;border-radius:999px;border:1px solid var(--border);
+  background:#fff;color:var(--muted);font-weight:900;font-size:14px;cursor:pointer;
+}
+.page-home .tab[aria-selected="true"]{
+  border-color:rgba(223,38,29,.25);
+  background:rgba(223,38,29,.06);
+  color:var(--text);
+}
+.page-home .search-row{display:grid;grid-template-columns:1fr 190px 160px;gap:10px}
+.page-home .field{
+  display:flex;align-items:center;gap:10px;
+  border:1px solid var(--border);border-radius:14px;background:#fff;
+  padding:10px 12px;
+}
+.page-home .field input, .page-home .field select{width:100%;border:0;outline:0;background:transparent}
+.page-home .search-btn{border:0;border-radius:14px;background:var(--brand-orange);font-weight:900;cursor:pointer}
+.page-home .search-btn:hover{filter:brightness(.97)}
+.page-home .hint{margin-top:10px;color:var(--muted);font-size:13px;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+
+.page-home .hero{padding:18px 0}
+.page-home .hero-grid{
+  display:grid;grid-template-columns:1.2fr .8fr;gap:16px;align-items:start;
+  background:#fff;border:1px solid var(--border);border-radius:18px;box-shadow:var(--shadow);
+  padding:16px;
+}
+.page-home .cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.page-home .info-card{
+  background:#fff;border:1px solid var(--border);border-radius:18px;box-shadow:var(--shadow);
+  padding:14px;
+}
+.page-home .info-title{font-weight:900;font-size:13px;text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px}
+.page-home .info-line{color:var(--muted);font-size:14px;padding:8px 0;border-top:1px solid var(--border)}
+.page-home .info-line:first-of-type{border-top:0}
+.page-home .info-line strong{color:var(--text)}
+
+.page-home .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:12px}
+.page-home .card{
+  background:#fff;border:1px solid var(--border);border-radius:18px;box-shadow:var(--shadow);
+  padding:14px;
+}
+.page-home .label{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:7px 10px;border-radius:999px;font-size:12px;font-weight:900;
+  background:rgba(223,38,29,.06);border:1px solid rgba(223,38,29,.18);
+  margin-bottom:10px;
+}
+.page-home .list{margin:0;padding-left:18px;list-style:disc;color:var(--muted)}
+.page-home .list li{margin:6px 0}
+
+/* =========================
+   RFQ (rfq.html)
+   ========================= */
+.page-rfq main{padding:18px 0 40px}
+.page-rfq .prefill{
+  display:none;
+  margin-top:12px;
+  padding:10px 12px;
+  border-radius:14px;
+  background:rgba(223,38,29,.06);
+  border:1px solid rgba(223,38,29,.18);
+  font-weight:900;
+  color:var(--text);
 }
 
-.orion-ai-title{
-  font-weight: 800;
-  font-size: 14px;
-  color: #ffffff;
+/* =========================
+   DOCS (compliance.html)
+   ========================= */
+.page-docs main{padding:18px 0 40px}
+.page-docs .tabs{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+.page-docs .tab{
+  padding:8px 12px;border-radius:999px;border:1px solid var(--border);
+  background:#fff;color:var(--muted);font-weight:900;font-size:14px;cursor:pointer;
+}
+.page-docs .tab[aria-selected="true"]{border-color:rgba(223,38,29,.25);background:rgba(223,38,29,.06);color:var(--text)}
+
+.page-docs .grid{display:grid;grid-template-columns:320px 1fr;gap:14px;align-items:start;margin-top:10px}
+.page-docs .side{
+  position:sticky;top:110px;
+  background:#fff;border:1px solid var(--border);border-radius:18px;box-shadow:var(--shadow);
+  padding:14px;height:fit-content;
+}
+.page-docs .side h3{font-size:14px;text-transform:uppercase;letter-spacing:.06em;margin:0 0 10px}
+.page-docs .mini{width:100%;padding:11px 12px;border-radius:14px;border:1px solid var(--border);outline:none}
+.page-docs .mini:focus{border-color:rgba(223,38,29,.35);box-shadow:0 0 0 4px rgba(223,38,29,.10)}
+.page-docs .check{display:flex;align-items:center;gap:10px;color:var(--muted);padding:8px 0}
+.page-docs .check input{width:16px;height:16px}
+
+.page-docs .cards{display:flex;flex-direction:column;gap:12px}
+.page-docs .card{
+  background:#fff;border:1px solid var(--border);border-radius:18px;box-shadow:var(--shadow);
+  padding:14px;display:grid;grid-template-columns:1fr 220px;gap:12px;
+}
+.page-docs .badge{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:7px 10px;border-radius:999px;
+  background:rgba(223,38,29,.06);border:1px solid rgba(223,38,29,.18);
+  font-weight:900;font-size:12px;margin-bottom:10px;
+}
+.page-docs .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.page-docs .chip{
+  font-size:12px;font-weight:900;color:var(--muted);
+  border:1px solid var(--border);border-radius:999px;padding:6px 10px;background:#fff;
+}
+.page-docs .card-side{border-left:1px solid var(--border);padding-left:12px;display:flex;flex-direction:column;justify-content:space-between;gap:10px}
+.page-docs .card-side .btn{width:100%}
+
+/* =========================
+   TEAM (team.html)
+   ========================= */
+.page-team main{padding:18px 0 40px}
+.page-team .layout{display:grid;grid-template-columns:1fr 340px;gap:14px;align-items:start;margin-top:10px}
+.page-team .side{
+  position:sticky;top:110px;
+  background:#fff;border:1px solid var(--border);border-radius:18px;box-shadow:var(--shadow);
+  padding:14px;height:fit-content;
+}
+.page-team .badge{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:7px 10px;border-radius:999px;
+  background:rgba(223,38,29,.06);border:1px solid rgba(223,38,29,.18);
+  font-weight:900;font-size:12px;margin-bottom:10px;
+}
+.page-team .team-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:10px}
+.page-team .member{
+  background:#fff;border:1px solid var(--border);border-radius:18px;box-shadow:var(--shadow);
+  padding:14px;display:flex;gap:12px;align-items:flex-start;
+}
+.page-team .avatar{
+  width:44px;height:44px;border-radius:14px;
+  background:rgba(249,115,22,.18);
+  border:1px solid rgba(249,115,22,.22);
+  display:flex;align-items:center;justify-content:center;
+  font-weight:900;
+}
+.page-team .role{color:var(--muted);font-weight:800;font-size:13px;margin-top:2px}
+.page-team .links{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+.page-team .chip{
+  font-size:12px;font-weight:900;color:var(--muted);
+  border:1px solid var(--border);border-radius:999px;padding:6px 10px;background:#fff;
 }
 
-.orion-ai-close{
-  border: none;
-  background: transparent;
-  cursor: pointer;
-  font-size: 22px;
-  line-height: 1;
-  color: #ffffff;
-  opacity: .9;
+/* Responsive */
+@media (max-width: 980px){
+  .topbar-row{flex-direction:column;align-items:flex-start}
+  .two{grid-template-columns:1fr}
+
+  .page-home .search-row{grid-template-columns:1fr}
+  .page-home .hero-grid{grid-template-columns:1fr}
+  .page-home .grid{grid-template-columns:1fr}
+
+  .page-docs .grid{grid-template-columns:1fr}
+  .page-docs .side{position:static}
+  .page-docs .card{grid-template-columns:1fr}
+  .page-docs .card-side{border-left:0;border-top:1px solid var(--border);padding-left:0;padding-top:12px}
+
+  .page-team .layout{grid-template-columns:1fr}
+  .page-team .side{position:static}
+  .page-team .team-grid{grid-template-columns:1fr}
+  .logo-link{min-width:auto}
 }
 
-.orion-ai-body{
-  padding: 12px;
-  overflow: auto;
-  flex: 1;
-  /* Snow effect */
+/* =========================================================
+   ✅ MODIF DEMANDÉE : carrés dans la partie bleue = noir + OR
+   (uniquement les .card à l'intérieur de .dark-zone)
+   ========================================================= */
+.dark-zone .card{
+  background:var(--card-black);
+  border:1px solid var(--gold);
+  box-shadow:0 18px 45px rgba(0,0,0,.35);
+}
+
+.dark-zone .card strong{
+  color:#f3f4f6;
+}
+
+.dark-zone .list{
+  color:#cbd5e1;
+}
+
+.dark-zone .label{
+  background:rgba(212,175,55,.14);
+  border:1px solid rgba(212,175,55,.55);
+  color:#fde68a;
+}
+
+/* ================================
+   HAUT : bleu ciel nuageux prononcé
+   (topbar + header + hero-search)
+   ================================ */
+
+:root{
+  --sky-1:#dff2ff;  /* haut très clair */
+  --sky-2:#bfe4ff;  /* bleu ciel */
+  --sky-3:#9fd3ff;  /* bleu ciel plus prononcé */
+}
+
+.topbar,
+header,
+.page-home .hero-search{
   background:
-    radial-gradient(circle at 20% 30%, rgba(255,255,255,.80) 1px, transparent 2px),
-    radial-gradient(circle at 70% 20%, rgba(255,255,255,.70) 1px, transparent 2px),
-    radial-gradient(circle at 40% 80%, rgba(255,255,255,.60) 1px, transparent 2px),
-    radial-gradient(circle at 85% 75%, rgba(255,255,255,.60) 1px, transparent 2px),
-    rgba(0,0,0,.02);
-  background-size: 140px 140px, 180px 180px, 160px 160px, 200px 200px, auto;
-  animation: orionSnow 12s linear infinite;
+    radial-gradient(circle at 18% 25%, rgba(255,255,255,.92), rgba(255,255,255,0) 52%),
+    radial-gradient(circle at 72% 18%, rgba(255,255,255,.85), rgba(255,255,255,0) 55%),
+    radial-gradient(circle at 55% 60%, rgba(255,255,255,.70), rgba(255,255,255,0) 58%),
+    linear-gradient(180deg, var(--sky-1) 0%, var(--sky-2) 45%, var(--sky-3) 100%);
 }
 
-@keyframes orionSnow{
-  from { background-position: 0 0, 0 0, 0 0, 0 0, 0 0; }
-  to   { background-position: 0 220px, 0 260px, 0 240px, 0 280px, 0 0; }
+/* petites bordures propres */
+.topbar{ border-bottom:1px solid rgba(15,23,42,.10); }
+header{ border-bottom:1px solid rgba(15,23,42,.12); }
+.page-home .hero-search{ border-bottom:1px solid rgba(15,23,42,.10); }
+
+/* pour que les “pills” restent lisibles sur le ciel */
+.pill{
+  background:rgba(255,255,255,.70);
+  border-color:rgba(15,23,42,.10);
+}
+nav a:hover{
+  background:rgba(255,255,255,.55);
 }
 
-.orion-ai-footer{
-  display:flex;
-  gap: 8px;
-  padding: 10px;
-  border-top: 1px solid rgba(0,0,0,.08);
-  background: #fff;
+/* ================================
+   HAUT en #c649b4
+   (topbar + header + hero-search)
+   ================================ */
+
+:root{ --top:#c649b4; }
+
+.topbar,
+header,
+.page-home .hero-search{
+  background:var(--top) !important;
+  border-bottom:1px solid rgba(255,255,255,.25) !important;
 }
 
-.orion-ai-input{
-  flex: 1;
-  padding: 10px 12px;
-  border-radius: 12px;
-  border: 1px solid rgba(0,0,0,.15);
-  outline: none;
+/* Textes en blanc pour contraste */
+.topbar,
+header,
+.page-home .hero-search,
+.topbar a,
+header a,
+header nav a{
+  color:#ffffff !important;
 }
 
-.orion-ai-send{
-  padding: 10px 12px;
-  border-radius: 12px;
-  border: none;
-  cursor: pointer;
-  font-weight: 800;
-  background: #c1121f;
-  color: #ffffff;
+/* Sous-titre logo */
+.logo-sub{ color:rgba(255,255,255,.80) !important; }
+
+/* Liens menu */
+nav a{
+  color:rgba(255,255,255,.92) !important;
+}
+nav a:hover{
+  background:rgba(255,255,255,.18) !important;
+  color:#ffffff !important;
 }
 
-.orion-ai-send:hover{
-  filter: brightness(1.05);
+/* Pills */
+.pill{
+  background:rgba(255,255,255,.14) !important;
+  border-color:rgba(255,255,255,.28) !important;
+  color:#ffffff !important;
 }
 
-.orion-ai-msg{
-  display:flex;
-  margin: 8px 0;
+/* Bouton langue */
+.btn-lang{
+  background:rgba(255,255,255,.14) !important;
+  border-color:rgba(255,255,255,.30) !important;
+  color:#ffffff !important;
+}
+.btn-lang:hover{
+  box-shadow:none !important;
+  background:rgba(255,255,255,.20) !important;
 }
 
-.orion-ai-msg.user{ justify-content: flex-end; }
-.orion-ai-msg.assistant{ justify-content: flex-start; }
+/* Breadcrumb si visible sur cette zone */
+.breadcrumb,
+.breadcrumb a{
+  color:rgba(255,255,255,.85) !important;
+}
+.breadcrumb a:hover{
+  color:#ffffff !important;
+  text-decoration:underline;
+}
+/* ==========================================
+   CADRES DU HAUT : noir pro + bordures sable
+   ========================================== */
 
-.orion-ai-bubble{
-  max-width: 85%;
-  padding: 10px 12px;
-  border-radius: 14px;
-  white-space: pre-wrap;
-  word-break: break-word;
-  border: 1px solid rgba(0,0,0,.08);
-  background: #fff;
+/* Si tu as déjà --card-black, garde-le. Sinon, ça le définit aussi. */
+:root{
+  --card-black: #0b0f14; /* noir pro */
+  --sand: #d8caa5;       /* sable */
+  --sandRGB: 216,202,165;
 }
 
-.orion-ai-msg.user .orion-ai-bubble{
-  border-color: rgba(193, 18, 31, .25);
-  background: rgba(193, 18, 31, .06);
+/* Cadres principaux en haut (page accueil) */
+.page-home .search-card,
+.page-home .hero-grid,
+.page-home .info-card{
+  background: var(--card-black) !important;
+  border: 1px solid var(--sand) !important;
+  color: #f3f4f6;
+  box-shadow: 0 18px 45px rgba(0,0,0,.35) !important;
 }
 
-.orion-ai-msg.assistant .orion-ai-bubble{
-  border-color: rgba(15, 122, 58, .25);
+/* Textes dans ces cadres */
+.page-home .search-card .muted,
+.page-home .hero-grid .muted,
+.page-home .info-card .info-line{
+  color: #cbd5e1 !important;
+}
+
+.page-home .hero-grid h1,
+.page-home .hero-grid h2,
+.page-home .search-card,
+.page-home .info-card .info-title{
+  color:#f8fafc !important;
+}
+
+/* Lignes de l'info-card */
+.page-home .info-card .info-line{
+  border-top: 1px solid rgba(var(--sandRGB), .35) !important;
+}
+.page-home .info-card .info-line strong{
+  color:#ffffff !important;
+}
+
+/* Onglets (tabs) de la recherche */
+.page-home .tab{
+  background: var(--card-black) !important;
+  border: 1px solid var(--sand) !important;
+  color: rgba(255,255,255,.85) !important;
+}
+.page-home .tab[aria-selected="true"]{
+  background: rgba(var(--sandRGB), .14) !important;
+  border-color: var(--sand) !important;
+  color: #ffffff !important;
+}
+
+/* Champs de recherche (cadres input/select) */
+.page-home .field{
+  background: var(--card-black) !important;
+  border: 1px solid rgba(var(--sandRGB), .85) !important;
+}
+.page-home .field input,
+.page-home .field select{
+  color:#f3f4f6 !important;
+}
+.page-home .field input::placeholder{
+  color: rgba(203,213,225,.75) !important;
+}
+
+/* Texte "hint" dans la search-card */
+.page-home .hint{
+  color: rgba(226,232,240,.80) !important;
+}
+
+/* Optionnel (mais joli) : pills + bouton langue en noir + sable */
+.topbar .pill,
+.topbar .btn-lang{
+  background: var(--card-black) !important;
+  border-color: var(--sand) !important;
+  color: #ffffff !important;
+}
+/* ==========================================
+   PARTIE INFÉRIEURE (.dark-zone)
+   -> bleu ciel nuageux intense
+   ========================================== */
+:root{
+  --sky-1:#e6f6ff;  /* ciel clair */
+  --sky-2:#95d5ff;  /* ciel intense */
+  --sky-3:#3b82f6;  /* profondeur (bleu plus fort) */
+}
+
+.dark-zone{
+  background:
+    radial-gradient(circle at 18% 22%, rgba(255,255,255,.96), rgba(255,255,255,0) 46%),
+    radial-gradient(circle at 78% 18%, rgba(255,255,255,.88), rgba(255,255,255,0) 52%),
+    radial-gradient(circle at 55% 62%, rgba(255,255,255,.78), rgba(255,255,255,0) 58%),
+    linear-gradient(180deg, var(--sky-1) 0%, var(--sky-2) 55%, var(--sky-3) 100%) !important;
+}
+/* =====================================================
+   PARTIE SUPÉRIEURE : bleu ciel nuageux intense (comme bas)
+   -> topbar + header + hero-search (accueil)
+   ===================================================== */
+
+:root{
+  --sky-1:#e6f6ff;  /* ciel clair */
+  --sky-2:#95d5ff;  /* ciel intense */
+  --sky-3:#3b82f6;  /* profondeur */
+}
+
+.topbar,
+header,
+.page-home .hero-search{
+  background:
+    radial-gradient(circle at 18% 22%, rgba(255,255,255,.96), rgba(255,255,255,0) 46%),
+    radial-gradient(circle at 78% 18%, rgba(255,255,255,.88), rgba(255,255,255,0) 52%),
+    radial-gradient(circle at 55% 62%, rgba(255,255,255,.78), rgba(255,255,255,0) 58%),
+    linear-gradient(180deg, var(--sky-1) 0%, var(--sky-2) 55%, var(--sky-3) 100%) !important;
+
+  border-bottom:1px solid rgba(15,23,42,.12) !important;
+}
+
+/* Remettre les textes du haut en “dark” (si ton ancien violet mettait tout en blanc) */
+.topbar,
+header,
+.page-home .hero-search,
+.topbar a,
+header a,
+header nav a,
+.breadcrumb,
+.breadcrumb a{
+  color: rgba(15,23,42,.88) !important;
+}
+
+.logo-sub{ color: rgba(15,23,42,.65) !important; }
+
+nav a{
+  color: rgba(15,23,42,.70) !important;
+}
+nav a:hover{
+  background: rgba(255,255,255,.55) !important;
+  color: rgba(15,23,42,.92) !important;
+}
+
+/* Pills + bouton langue lisibles sur le ciel */
+.pill{
+  background: rgba(255,255,255,.72) !important;
+  border-color: rgba(15,23,42,.10) !important;
+  color: rgba(15,23,42,.90) !important;
+}
+.btn-lang{
+  background: rgba(255,255,255,.72) !important;
+  border-color: rgba(15,23,42,.12) !important;
+  color: rgba(15,23,42,.92) !important;
 }
