@@ -2,7 +2,7 @@
   --brand-red:#DF261D;
   --brand-orange:#FF8B00;
 
-  /* Fond bleu roi (comme ton fichier) */
+  /* ✅ Fond bleu roi */
   --bg:#2563eb;
 
   --surface:#ffffff;
@@ -15,7 +15,7 @@
 
   --container:1180px;
 
-  /* Noir pro + OR (pour cartes si besoin) */
+  /* ✅ OR + Noir pro (variables, sans forcer le style) */
   --gold:#d4af37;
   --card-black:#0b0f14;
 }
@@ -72,19 +72,8 @@ header{background:var(--surface);border-bottom:1px solid var(--border);position:
 .logo-link{display:flex;align-items:center;gap:12px;min-width:220px}
 .logo-mark{width:38px;height:38px;border-radius:12px;box-shadow:inset 0 0 0 2px rgba(255,255,255,.25)}
 .logo-text{display:flex;flex-direction:column;line-height:1.1}
-
-/* ✅ Nouveau : petite ligne au-dessus du logo (ORION FISH RFQ) */
-.logo-top{
-  font-weight:900;
-  font-size:12px;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-  color:var(--muted);
-}
-
 .logo-title{font-weight:900;letter-spacing:.2px}
 .logo-sub{font-size:12px;color:var(--muted)}
-
 nav ul{
   margin:0;padding:0;list-style:none;
   display:flex;align-items:center;gap:6px;flex-wrap:wrap;justify-content:flex-end;
@@ -94,14 +83,6 @@ nav a{
   color:var(--muted);font-weight:900;font-size:14px;
 }
 nav a:hover{background:#f7f7f8;color:var(--text)}
-
-/* ✅ lien actif */
-nav a[aria-current="page"],
-.topbar a[aria-current="page"]{
-  background:rgba(223,38,29,.06);
-  border:1px solid rgba(223,38,29,.18);
-  color:var(--text);
-}
 
 /* Buttons */
 .btn{
@@ -264,7 +245,7 @@ footer{background:#fff;border-top:1px solid var(--border);color:var(--muted);pad
 }
 
 /* =========================
-   DOCS / PAGES (compliance.html, fromage.html, etc.)
+   DOCS (compliance.html)
    ========================= */
 .page-docs main{padding:18px 0 40px}
 .page-docs .tabs{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
@@ -305,6 +286,41 @@ footer{background:#fff;border-top:1px solid var(--border);color:var(--muted);pad
 .page-docs .card-side{border-left:1px solid var(--border);padding-left:12px;display:flex;flex-direction:column;justify-content:space-between;gap:10px}
 .page-docs .card-side .btn{width:100%}
 
+/* =========================
+   TEAM (team.html)
+   ========================= */
+.page-team main{padding:18px 0 40px}
+.page-team .layout{display:grid;grid-template-columns:1fr 340px;gap:14px;align-items:start;margin-top:10px}
+.page-team .side{
+  position:sticky;top:110px;
+  background:#fff;border:1px solid var(--border);border-radius:18px;box-shadow:var(--shadow);
+  padding:14px;height:fit-content;
+}
+.page-team .badge{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:7px 10px;border-radius:999px;
+  background:rgba(223,38,29,.06);border:1px solid rgba(223,38,29,.18);
+  font-weight:900;font-size:12px;margin-bottom:10px;
+}
+.page-team .team-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:10px}
+.page-team .member{
+  background:#fff;border:1px solid var(--border);border-radius:18px;box-shadow:var(--shadow);
+  padding:14px;display:flex;gap:12px;align-items:flex-start;
+}
+.page-team .avatar{
+  width:44px;height:44px;border-radius:14px;
+  background:rgba(249,115,22,.18);
+  border:1px solid rgba(249,115,22,.22);
+  display:flex;align-items:center;justify-content:center;
+  font-weight:900;
+}
+.page-team .role{color:var(--muted);font-weight:800;font-size:13px;margin-top:2px}
+.page-team .links{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+.page-team .chip{
+  font-size:12px;font-weight:900;color:var(--muted);
+  border:1px solid var(--border);border-radius:999px;padding:6px 10px;background:#fff;
+}
+
 /* Responsive */
 @media (max-width: 980px){
   .topbar-row{flex-direction:column;align-items:flex-start}
@@ -319,5 +335,8 @@ footer{background:#fff;border-top:1px solid var(--border);color:var(--muted);pad
   .page-docs .card{grid-template-columns:1fr}
   .page-docs .card-side{border-left:0;border-top:1px solid var(--border);padding-left:0;padding-top:12px}
 
+  .page-team .layout{grid-template-columns:1fr}
+  .page-team .side{position:static}
+  .page-team .team-grid{grid-template-columns:1fr}
   .logo-link{min-width:auto}
 }
