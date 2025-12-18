@@ -1,11 +1,15 @@
-// --- ORION AI Widget (simple) ---
+// --- ORION AI Widget (Christmas / Orion fish Assistant) ---
 (function () {
   const STORAGE_KEY = "orion_ai_chat_v1";
 
   function loadHistory() {
-    try { return JSON.parse(sessionStorage.getItem(STORAGE_KEY) || "[]"); }
-    catch { return []; }
+    try {
+      return JSON.parse(sessionStorage.getItem(STORAGE_KEY) || "[]");
+    } catch {
+      return [];
+    }
   }
+
   function saveHistory(items) {
     sessionStorage.setItem(STORAGE_KEY, JSON.stringify(items.slice(-20)));
   }
@@ -17,16 +21,20 @@
       else if (k === "html") node.innerHTML = v;
       else node.setAttribute(k, v);
     });
-    children.forEach(c => node.appendChild(typeof c === "string" ? document.createTextNode(c) : c));
+    children.forEach((c) =>
+      node.appendChild(typeof c === "string" ? document.createTextNode(c) : c)
+    );
     return node;
   }
 
   function renderMessages(container, history) {
     container.innerHTML = "";
-    history.forEach(m => {
-      container.appendChild(el("div", { class: `orion-ai-msg ${m.role}` }, [
-        el("div", { class: "orion-ai-bubble" }, [m.content])
-      ]));
+    history.forEach((m) => {
+      container.appendChild(
+        el("div", { class: `orion-ai-msg ${m.role}` }, [
+          el("div", { class: "orion-ai-bubble" }, [m.content]),
+        ])
+      );
     });
     container.scrollTop = container.scrollHeight;
   }
@@ -35,37 +43,49 @@
     const r = await fetch("/api/orion-ai", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ messages: history })
+      body: JSON.stringify({ messages: history }),
     });
 
     const data = await r.json().catch(() => ({}));
     if (!r.ok) {
       const msg =
-        data?.details?.error?.message ||
-        data?.error ||
-        `HTTP ${r.status}`;
+        data?.details?.error?.message || data?.error || `HTTP ${r.status}`;
       throw new Error(msg);
     }
     return data;
   }
 
   function init() {
-    const launcher = el("button", {
-      id: "orion-ai-launcher",
-      type: "button",
-      "aria-label": "Chat with ORION FISH"
-    }, ["AI"]);
+    const launcher = el(
+      "button",
+      {
+        id: "orion-ai-launcher",
+        type: "button",
+        "aria-label": "Chat with Orion fish Assistant",
+      },
+      ["🎄"]
+    );
 
     const panel = el("div", { id: "orion-ai-panel", class: "hidden" }, []);
     const header = el("div", { class: "orion-ai-header" }, [
-      el("div", { class: "orion-ai-title" }, ["ORION FISH — Assistant"]),
-      el("button", { class: "orion-ai-close", type: "button", "aria-label": "Close" }, ["×"])
+      el("div", { class: "orion-ai-title" }, ["Orion fish Assistant"]),
+      el(
+        "button",
+        { class: "orion-ai-close", type: "button", "aria-label": "Close" },
+        ["×"]
+      ),
     ]);
 
     const body = el("div", { class: "orion-ai-body" }, []);
     const footer = el("div", { class: "orion-ai-footer" }, []);
-    const input = el("input", { class: "orion-ai-input", type: "text", placeholder: "Ask a question (FR/EN)..." });
-    const send = el("button", { class: "orion-ai-send", type: "button" }, ["Send"]);
+    const input = el("input", {
+      class: "orion-ai-input",
+      type: "text",
+      placeholder: "Ask a question (FR/EN)…",
+    });
+    const send = el("button", { class: "orion-ai-send", type: "button" }, [
+      "Send",
+    ]);
 
     footer.appendChild(input);
     footer.appendChild(send);
@@ -78,10 +98,13 @@
 
     let history = loadHistory();
     if (history.length === 0) {
-      history = [{
-        role: "assistant",
-        content: "Hello! How can ORION FISH help you today? (Seafood / Fruit juice / RFQ / Compliance)"
-      }];
+      history = [
+        {
+          role: "assistant",
+          content:
+            "Hello! I’m Orion fish Assistant 🎄 How can I help you today? (Seafood / Fruit juice / RFQ / Compliance)",
+        },
+      ];
       saveHistory(history);
     }
     renderMessages(body, history);
@@ -91,7 +114,9 @@
     }
 
     launcher.addEventListener("click", () => toggle(true));
-    header.querySelector(".orion-ai-close").addEventListener("click", () => toggle(false));
+    header
+      .querySelector(".orion-ai-close")
+      .addEventListener("click", () => toggle(false));
 
     async function onSend() {
       const text = input.value.trim();
@@ -107,22 +132,26 @@
       renderMessages(body, history);
 
       try {
-        const data = await callAI(history.filter(m => m.content !== "…"));
+        const data = await callAI(history.filter((m) => m.content !== "…"));
 
         history.pop(); // remove typing
         history.push({ role: "assistant", content: data.reply || "OK." });
 
         if (data.intent === "rfq") {
-          const missing = Array.isArray(data.missing_fields) ? data.missing_fields : [];
+          const missing = Array.isArray(data.missing_fields)
+            ? data.missing_fields
+            : [];
           if (missing.length) {
             history.push({
               role: "assistant",
-              content: `To prepare your RFQ, I still need: ${missing.join(", ")}.`
+              content: `To prepare your RFQ, I still need: ${missing.join(
+                ", "
+              )}.`,
             });
           } else {
             history.push({
               role: "assistant",
-              content: "Your RFQ looks complete. You can also submit it via: /rfq.html"
+              content: "Your RFQ looks complete. You can also submit it via: /rfq.html",
             });
           }
         }
@@ -133,7 +162,7 @@
         history.pop(); // remove typing
         history.push({
           role: "assistant",
-          content: `Sorry — I couldn't connect to the assistant. (${e.message || e}) Please try again or email contact@orionsfish.com.`
+          content: `Sorry — I couldn't connect to Orion fish Assistant. (${e.message || e}) Please try again or email contact@orionsfish.com.`,
         });
         saveHistory(history);
         renderMessages(body, history);
@@ -146,6 +175,7 @@
     });
   }
 
-  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
+  if (document.readyState === "loading")
+    document.addEventListener("DOMContentLoaded", init);
   else init();
 })();
