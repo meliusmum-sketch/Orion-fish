@@ -13,6 +13,9 @@
 
   <link rel="stylesheet" href="/styles.css">
 
+  <!-- ✅ Assistant Orion fish (OBLIGATOIRE pour voir le bouton/Widget) -->
+  <link rel="stylesheet" href="/orion-ai.css">
+
   <script>
     if (location.protocol === "http:" && location.hostname !== "localhost") {
       location.replace("https://" + location.host + location.pathname + location.search + location.hash);
@@ -24,7 +27,7 @@
     "@context":"https://schema.org",
     "@type":"Organization",
     "name":"ORION FISH",
-    "url":"https://orionsfish.com",
+    "url":"https://www.orionsfish.com",
     "telephone":"+221339138392",
     "email":"contact@orionsfish.com",
     "address":{
@@ -38,6 +41,9 @@
   </script>
 
   <script src="/site.js" defer></script>
+
+  <!-- ✅ Assistant Orion fish (OBLIGATOIRE) -->
+  <script src="/orion-ai.js" defer></script>
 </head>
 
 <body class="page-home">
@@ -67,6 +73,7 @@
         <a class="logo-link" href="/" aria-label="ORION FISH Home">
           <img class="logo-mark" src="/logo-orion-fish.svg" alt="Logo ORION FISH">
           <span class="logo-text">
+            <!-- ✅ Texte demandé au-dessus du logo -->
             <span class="logo-top">ORION FISH RFQ</span>
             <span class="logo-title">ORION FISH</span>
             <span class="logo-sub">Seafood & Juices</span>
@@ -116,9 +123,9 @@
           </div>
 
           <div class="hint">
-            <span>Exemples : thon, crevette, mangue, ananas, jus…</span>
+            <span>Exemples : thon, crevette, mangue, ananas, bissap, jus…</span>
             <span class="sep">•</span>
-            <span>Pour un devis rapide : RFQ</span>
+            <span>Résultats + bouton “RFQ” par produit</span>
           </div>
         </div>
 
@@ -142,7 +149,7 @@
 
             <div class="cta">
               <a class="btn btn-primary" href="/rfq.html" data-i18n="home_cta_rfq">Demander un devis (RFQ)</a>
-              <a class="btn btn-green" href="/compliance.html" data-i18n="home_cta_docs">Demander des documents</a>
+              <a class="btn btn-green" href="/compliance.html" data-i18n="home_cta_docs">Documents (sur demande)</a>
             </div>
           </div>
 
@@ -154,7 +161,11 @@
 
             <div class="cta" style="margin-top:.9rem">
               <a class="btn btn-primary" href="/compliance.html" data-i18n="home_open_docs">Ouvrir Documents</a>
-              <a class="btn btn-outline" href="/#contact" data-i18n="home_talk">Parler à l’équipe</a>
+
+              <!-- ✅ Ouvre l’assistant -->
+              <a class="btn btn-outline" href="/#contact" data-i18n="home_talk" data-orion-ai-open="1">
+                Parler à l’équipe
+              </a>
             </div>
           </div>
         </div>
@@ -169,10 +180,10 @@
         <section id="apropos">
           <h2 data-i18n="about_h2">À propos d’ORION FISH</h2>
           <p data-i18n="about_p1">
-            ORION FISH est une entreprise agroalimentaire spécialisée dans la valorisation des produits de la mer et la transformation de fruits en jus.
+            Entreprise agroalimentaire spécialisée dans la valorisation des produits de la mer et la transformation de fruits en jus.
           </p>
           <p class="muted" data-i18n="about_p2">
-            Notre ambition : développer des filières durables et compétitives, adaptées aux besoins B2B.
+            Ambition : développer des filières durables et compétitives, adaptées aux besoins B2B.
           </p>
         </section>
 
@@ -261,7 +272,7 @@
             <input type="hidden" name="_captcha" value="false">
             <input type="hidden" name="_subject" value="Message – ORION FISH (site web)">
             <input type="hidden" name="_template" value="table">
-            <input type="hidden" name="_next" value="https://orionsfish.com/merci.html">
+            <input type="hidden" name="_next" value="https://www.orionsfish.com/merci.html">
 
             <div class="two">
               <div>
@@ -303,7 +314,8 @@
             Responsable de publication : <strong>Diallo Mamadou</strong><br>
             Hébergeur : <strong>Hostinger</strong><br>
             Tél/WhatsApp : <a href="tel:+221339138392">+221339138392</a><br>
-            Email : <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a>
+            Email : <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a><br>
+            Privacy & Terms : <a href="/privacy.html">privacy.html</a>
           </p>
         </section>
 
@@ -317,6 +329,8 @@
             <a href="/rfq.html" data-i18n="nav_rfq">RFQ / Devis</a>
             <span>•</span>
             <a href="/compliance.html" data-i18n="nav_docs">Documents</a>
+            <span>•</span>
+            <a href="/privacy.html">Privacy & Terms</a>
           </div>
           <div class="foot-copy">© <span id="year"></span> ORION FISH. Tous droits réservés.</div>
         </div>
@@ -325,9 +339,11 @@
   </main>
 
   <script>
+    // Année
     const y = document.getElementById("year");
     if (y && !y.textContent.trim()) y.textContent = new Date().getFullYear();
 
+    // Tabs visuels
     const tabs = document.querySelectorAll(".tab");
     tabs.forEach(btn => {
       btn.addEventListener("click", () => {
@@ -336,6 +352,7 @@
       });
     });
 
+    // Recherche -> /rfq.html?q=...&zone=...&type=...
     const qInput = document.getElementById("q");
     const zoneSelect = document.getElementById("zone");
     const searchBtn = document.getElementById("searchBtn");
