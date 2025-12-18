@@ -16,9 +16,7 @@ export default async function handler(req, res) {
 
     const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
     if (!OPENAI_API_KEY) {
-      return res
-        .status(500)
-        .json({ error: "Server misconfigured: OPENAI_API_KEY missing" });
+      return res.status(500).json({ error: "Server misconfigured: OPENAI_API_KEY missing" });
     }
 
     const systemInstructions = `
@@ -46,10 +44,7 @@ Hard rules:
       additionalProperties: false,
       properties: {
         reply: { type: "string" },
-        intent: {
-          type: "string",
-          enum: ["faq", "rfq", "compliance", "contact", "other"],
-        },
+        intent: { type: "string", enum: ["faq", "rfq", "compliance", "contact", "other"] },
         rfq: {
           type: "object",
           additionalProperties: false,
@@ -62,28 +57,21 @@ Hard rules:
             destination: { type: ["string", "null"] },
             incoterm: { type: ["string", "null"] },
             requirements: { type: ["string", "null"] },
-            buyer_contact: { type: ["string", "null"] },
+            buyer_contact: { type: ["string", "null"] }
           },
           required: [
-            "product",
-            "specs",
-            "packaging",
-            "quantity",
-            "delivery_date",
-            "destination",
-            "incoterm",
-            "requirements",
-            "buyer_contact",
-          ],
+            "product","specs","packaging","quantity","delivery_date",
+            "destination","incoterm","requirements","buyer_contact"
+          ]
         },
-        missing_fields: { type: "array", items: { type: "string" } },
+        missing_fields: { type: "array", items: { type: "string" } }
       },
-      required: ["reply", "intent", "rfq", "missing_fields"],
+      required: ["reply","intent","rfq","missing_fields"]
     };
 
     const inputItems = messages.slice(-12).map((m) => ({
       role: m.role === "assistant" ? "assistant" : "user",
-      content: String(m.content ?? ""),
+      content: String(m.content ?? "")
     }));
 
     const payload = {
@@ -96,37 +84,31 @@ Hard rules:
           type: "json_schema",
           name: "orion_fish_response",
           strict: true,
-          schema,
-        },
-      },
+          schema
+        }
+      }
     };
 
     const r = await fetch("https://api.openai.com/v1/responses", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${OPENAI_API_KEY}`,
+        Authorization: `Bearer ${OPENAI_API_KEY}`
       },
-      body: JSON.stringify(payload),
+      body: JSON.stringify(payload)
     });
 
     const data = await r.json().catch(() => ({}));
-    if (!r.ok) {
-      return res.status(r.status).json({ error: "OpenAI error", details: data });
-    }
+    if (!r.ok) return res.status(r.status).json({ error: "OpenAI error", details: data });
 
     const extractOutputText = (resp) => {
-      if (typeof resp?.output_text === "string" && resp.output_text.trim()) {
-        return resp.output_text.trim();
-      }
+      if (typeof resp?.output_text === "string" && resp.output_text.trim()) return resp.output_text.trim();
       const out = Array.isArray(resp?.output) ? resp.output : [];
       const parts = [];
       for (const item of out) {
         if (item?.type === "message" && Array.isArray(item.content)) {
           for (const c of item.content) {
-            if (c?.type === "output_text" && typeof c.text === "string") {
-              parts.push(c.text);
-            }
+            if (c?.type === "output_text" && typeof c.text === "string") parts.push(c.text);
           }
         }
       }
@@ -143,24 +125,16 @@ Hard rules:
         reply: raw || "Sorry, I couldn't format the answer.",
         intent: "other",
         rfq: {
-          product: null,
-          specs: null,
-          packaging: null,
-          quantity: null,
-          delivery_date: null,
-          destination: null,
-          incoterm: null,
-          requirements: null,
-          buyer_contact: null,
+          product: null, specs: null, packaging: null, quantity: null,
+          delivery_date: null, destination: null, incoterm: null,
+          requirements: null, buyer_contact: null
         },
-        missing_fields: [],
+        missing_fields: []
       };
     }
 
     return res.status(200).json(parsed);
   } catch (e) {
-    return res
-      .status(500)
-      .json({ error: "Server error", details: String(e?.message || e) });
+    return res.status(500).json({ error: "Server error", details: String(e?.message || e) });
   }
 }
