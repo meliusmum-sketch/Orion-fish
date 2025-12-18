@@ -1,13 +1,11 @@
 // api/orion-ai.js
 export default async function handler(req, res) {
-  // Only POST
   if (req.method !== "POST") {
     res.setHeader("Allow", "POST");
     return res.status(405).json({ error: "Method not allowed" });
   }
 
   try {
-    // Body parsing (Vercel can send object or string)
     const body =
       typeof req.body === "string" ? JSON.parse(req.body) : (req.body || {});
     const { messages } = body;
@@ -23,7 +21,6 @@ export default async function handler(req, res) {
         .json({ error: "Server misconfigured: OPENAI_API_KEY missing" });
     }
 
-    // ---- Orion fish Assistant: system instructions ----
     const systemInstructions = `
 You are "Orion fish Assistant", a B2B sales & support assistant for ORION FISH (seafood & fruit juice processing), based in Rufisque, Senegal.
 
@@ -39,12 +36,11 @@ Hard rules:
 - Keep a professional, concise tone.
 - Provide ORION FISH contacts when needed:
   Email: contact@orionsfish.com
-  WhatsApp: +221 78 270 24 57, +221 33 913 83 92
+  WhatsApp: +221339138392
   Address: Quartier Léona, Cité Filaos, Rufisque 17000, Senegal
   Website: https://www.orionsfish.com
 `.trim();
 
-    // ---- JSON Schema (Structured Outputs) ----
     const schema = {
       type: "object",
       additionalProperties: false,
@@ -85,7 +81,6 @@ Hard rules:
       required: ["reply", "intent", "rfq", "missing_fields"],
     };
 
-    // Keep last N messages to limit tokens
     const inputItems = messages.slice(-12).map((m) => ({
       role: m.role === "assistant" ? "assistant" : "user",
       content: String(m.content ?? ""),
@@ -99,7 +94,7 @@ Hard rules:
       text: {
         format: {
           type: "json_schema",
-          name: "orion_fish_response", // ✅ required
+          name: "orion_fish_response",
           strict: true,
           schema,
         },
@@ -120,7 +115,6 @@ Hard rules:
       return res.status(r.status).json({ error: "OpenAI error", details: data });
     }
 
-    // Extract text from Responses API
     const extractOutputText = (resp) => {
       if (typeof resp?.output_text === "string" && resp.output_text.trim()) {
         return resp.output_text.trim();
@@ -145,7 +139,6 @@ Hard rules:
     try {
       parsed = JSON.parse(raw);
     } catch {
-      // Fallback if something unexpected happens
       parsed = {
         reply: raw || "Sorry, I couldn't format the answer.",
         intent: "other",
