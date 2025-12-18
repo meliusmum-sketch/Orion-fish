@@ -12,8 +12,6 @@
   <link rel="apple-touch-icon" href="/logo-orion-fish.svg">
 
   <link rel="stylesheet" href="/styles.css">
-  <!-- ✅ IA (widget séparé, n’impacte pas ton style global) -->
-  <link rel="stylesheet" href="/orion-ai.css">
 
   <script>
     if (location.protocol === "http:" && location.hostname !== "localhost") {
@@ -40,7 +38,6 @@
   </script>
 
   <script src="/site.js" defer></script>
-  <script src="/orion-ai.js" defer></script>
 </head>
 
 <body class="page-home">
@@ -50,7 +47,7 @@
     <div class="container">
       <div class="topbar-row">
         <div class="topbar-links">
-          <a class="pill" href="/"><span class="dot" aria-hidden="true"></span><span>ORION FISH</span></a>
+          <a class="pill" href="/"><span class="dot" aria-hidden="true"></span><span>ORION FISH RFQ</span></a>
           <a class="pill" href="/rfq.html" data-i18n="nav_rfq">RFQ / Devis</a>
           <a class="pill" href="/compliance.html" data-i18n="nav_docs">Documents</a>
         </div>
@@ -70,6 +67,7 @@
         <a class="logo-link" href="/" aria-label="ORION FISH Home">
           <img class="logo-mark" src="/logo-orion-fish.svg" alt="Logo ORION FISH">
           <span class="logo-text">
+            <span class="logo-top">ORION FISH RFQ</span>
             <span class="logo-title">ORION FISH</span>
             <span class="logo-sub">Seafood & Juices</span>
           </span>
@@ -156,8 +154,7 @@
 
             <div class="cta" style="margin-top:.9rem">
               <a class="btn btn-primary" href="/compliance.html" data-i18n="home_open_docs">Ouvrir Documents</a>
-              <!-- ✅ Ouvre le chat IA -->
-              <a class="btn btn-outline" href="/#contact" data-i18n="home_talk" data-orion-ai-open="1">Parler à l’équipe</a>
+              <a class="btn btn-outline" href="/#contact" data-i18n="home_talk">Parler à l’équipe</a>
             </div>
           </div>
         </div>
@@ -328,11 +325,9 @@
   </main>
 
   <script>
-    // Année
     const y = document.getElementById("year");
     if (y && !y.textContent.trim()) y.textContent = new Date().getFullYear();
 
-    // Tabs visuels
     const tabs = document.querySelectorAll(".tab");
     tabs.forEach(btn => {
       btn.addEventListener("click", () => {
@@ -341,7 +336,6 @@
       });
     });
 
-    // Recherche -> /rfq.html?q=...&zone=...&type=...
     const qInput = document.getElementById("q");
     const zoneSelect = document.getElementById("zone");
     const searchBtn = document.getElementById("searchBtn");
