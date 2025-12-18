@@ -12,6 +12,8 @@
   <link rel="apple-touch-icon" href="/logo-orion-fish.svg">
 
   <link rel="stylesheet" href="/styles.css">
+  <!-- ✅ IA (ne touche pas au style du site) -->
+  <link rel="stylesheet" href="/orion-ai.css">
 
   <script>
     if (location.protocol === "http:" && location.hostname !== "localhost") {
@@ -38,6 +40,8 @@
   </script>
 
   <script src="/site.js" defer></script>
+  <!-- ✅ IA -->
+  <script src="/orion-ai.js" defer></script>
 </head>
 
 <body class="page-home">
@@ -155,7 +159,9 @@
 
             <div class="cta" style="margin-top:.9rem">
               <a class="btn btn-primary" href="/compliance.html" data-i18n="home_open_docs">Ouvrir Documents</a>
-              <a class="btn btn-outline" href="/#contact" data-i18n="home_talk">Parler à l’équipe</a>
+
+              <!-- ✅ Ouvre le chat IA (et garde le lien #contact en fallback si JS off) -->
+              <a class="btn btn-outline" href="/#contact" data-i18n="home_talk" data-orion-ai-open="1">Parler à l’équipe</a>
             </div>
           </div>
         </div>
