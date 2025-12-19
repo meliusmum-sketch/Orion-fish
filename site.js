@@ -1,70 +1,36 @@
-/* =========================================================
-   ORION FISH — site.js (FR/EN)
-   - Language switch (FR/EN) with localStorage
-   - Translates elements with data-i18n
-   - Translates placeholders with data-i18n-placeholder
-   - Updates button label (EN/FR)
-   - Sets footer year if #year exists
-   - Emits event: "orion-lang-change" for the AI widget
-   ========================================================= */
-
-(function () {
-  const LANG_KEY = "orion_lang";
+// site.js — ORION FISH i18n (FR/EN) + language toggle (robust)
+(() => {
+  const STORAGE_KEY = "orion_lang_v1";
 
   const I18N = {
     fr: {
-      // Nav
+      // NAV
       nav_home: "Accueil",
       nav_rfq: "RFQ / Devis",
       nav_docs: "Documents",
+      nav_cheese: "Fromage (bientôt)",
       nav_contact: "Contact",
       nav_legal: "Mentions",
       nav_privacy: "Privacy & Terms",
-      nav_cheese: "Fromage (bientôt)",
 
-      // Home
-      home_h1: "ORION FISH – Produits de la mer & jus de fruits",
-      home_sub:
-        "Produits de la mer, transformation de fruits en jus, vente et distribution au service des marchés locaux et internationaux.",
-      home_p:
-        "Nous accompagnons distributeurs, industriels et professionnels avec des solutions fiables, tracées et conformes aux exigences.",
-      home_cta_rfq: "Demander un devis (RFQ)",
-      home_cta_docs: "Documents (sur demande)",
-      home_open_docs: "Ouvrir Documents",
-      home_talk: "Parler à l’équipe",
-      common_quick_title: "Informations rapides",
-      common_loc: "Localisation :",
-      common_phone: "Tel/WhatsApp :",
-      common_email: "Email :",
+      // HOME (si présent)
+      tab_sea: "Produits de la mer",
+      tab_juice: "Fruits & jus",
+      tab_rfq: "RFQ",
+      search_placeholder: "Rechercher un produit, espèce, format…",
+      zone_placeholder: "Zone / Pays",
+      zone_sn: "Sénégal",
+      zone_wa: "Afrique de l’Ouest",
+      zone_eu: "Europe",
+      search_btn: "Rechercher",
+      hint_examples: "Exemples : thon, crevette, mangue, ananas, bissap, jus…",
+      hint_results: "Résultats + bouton “RFQ” par produit",
 
-      // Docs page
-      docs_h1: "Documents & conformité",
-      docs_intro:
-        "Nous partageons les documents nécessaires aux partenaires et acheteurs (B2B) sur demande, selon la destination, le produit et le cadre de collaboration.",
-      docs_cta_rfq: "Faire une RFQ",
-      docs_cta_request: "Demander des documents",
-      docs_cta_ai: "Parler à Orion fish Assistant",
-      docs_types_h2: "Types de documents (exemples)",
-      docs_note:
-        "Les documents fournis dépendent du produit (mer/jus), du format, de la destination et du niveau d’avancement de la collaboration.",
-      docs_req_h2: "Demande de documents",
-      docs_req_p:
-        "Indique ton entreprise, le produit concerné et la destination. Nous reviendrons vers toi avec les documents pertinents.",
-      docs_btn_send: "Envoyer",
-
-      // RFQ page
-      rfq_h1: "Demande de devis (RFQ)",
-      rfq_sub:
-        "Indiquez le produit, le format, la quantité et la destination. Nous vous répondrons rapidement.",
-      rfq_prefill: "Pré-rempli depuis la recherche : ",
-      rfq_btn_send: "Envoyer la RFQ",
-      rfq_open_ai: "Parler à Orion fish Assistant",
-
-      // Cheese page
-      cheese_h1: "Transformation du lait en fromage",
-      cheese_sub:
-        "Nouveau projet ORION FISH — en cours de prospection. Mise en production prévue prochainement.",
+      // FROMAGE
       cheese_badge: "Bientôt",
+      cheese_h1: "Transformation du lait en fromage",
+      cheese_sub: "Nouveau projet ORION FISH — en cours de prospection. Mise en production prévue prochainement.",
+      rfq_open_ai: "Parler à Orion fish Assistant",
       cheese_status_h2: "Statut du projet",
       cheese_status_p:
         "Cette activité est actuellement en cours de prospection (équipements, chaîne de production, partenaires). La mise en place opérationnelle est prévue prochainement.",
@@ -80,123 +46,178 @@
       cheese_contact_p:
         "Vous souhaitez échanger sur ce projet (équipements, matières premières, distribution) ? Contactez-nous ou ouvrez le chat.",
 
-      // Placeholders
+      // COMPLIANCE / DOCUMENTS
+      docs_breadcrumb: "Documents & conformité",
+      docs_h1: "Documents & conformité",
+      docs_intro:
+        "Nous partageons les documents nécessaires aux partenaires et acheteurs (B2B) sur demande, selon la destination, le produit et le cadre de collaboration.",
+      docs_cta_rfq: "Faire une RFQ",
+      docs_cta_request: "Demander des documents",
+      docs_cta_chat: "Parler à Orion fish Assistant",
+      docs_types_h2: "Types de documents (exemples)",
+
+      docs_card_company_label: "Entreprise",
+      docs_card_company_title: "Informations légales",
+      docs_card_company_li1: "Registre de commerce",
+      docs_card_company_li2: "Coordonnées & fiche société",
+      docs_card_company_li3: "Références & contacts",
+
+      docs_card_quality_label: "Qualité",
+      docs_card_quality_title: "Conformité & traçabilité",
+      docs_card_quality_li1: "Traçabilité par lots",
+      docs_card_quality_li2: "Spécifications produits",
+      docs_card_quality_li3: "Procédures / bonnes pratiques",
+
+      docs_card_export_label: "Export",
+      docs_card_export_title: "Documents selon destination",
+      docs_card_export_li1: "Docs export (selon pays)",
+      docs_card_export_li2: "Emballage / étiquetage",
+      docs_card_export_li3: "Incoterms & logistique",
+
+      docs_note:
+        "Les documents fournis dépendent du produit (mer/jus), du format, de la destination et du niveau d’avancement de la collaboration.",
+
+      docs_request_h2: "Demande de documents",
+      docs_request_intro:
+        "Indique ton entreprise, le produit concerné et la destination. Nous reviendrons vers toi avec les documents pertinents.",
+
+      form_company: "Nom / Entreprise",
+      form_email: "E-mail",
+      form_phone_wa: "Téléphone / WhatsApp",
+      form_destination: "Destination (pays)",
+      form_product: "Produit concerné",
+      form_docs_wanted: "Documents souhaités",
+      form_message: "Message",
+      form_send: "Envoyer",
+
       ph_company: "Nom / Company",
       ph_email: "name@company.com",
       ph_phone: "+221 ...",
       ph_destination: "Ex: France, Pays-Bas, Sénégal...",
       ph_product: "Ex: thon, crevette, jus d’ananas...",
-      ph_docs: "Ex: specs, traçabilité, fiche société...",
-      ph_message_docs: "Précise ton besoin et ton contexte (B2B, appel d’offres, etc.)",
-      ph_rfq_product: "Produit / Product (ex: lait, fromage, thon, jus...)",
-      ph_rfq_format: "Format (ex: vrac, cartons, bouteilles, kg...)",
-      ph_rfq_qty: "Quantité estimée (ex: 1T, 5T, 10 000 unités...)",
-      ph_rfq_incoterm: "Incoterm (EXW, FOB, CIF...)",
-      ph_rfq_deadline: "Date souhaitée (optionnel)",
-      ph_rfq_message: "Détails : spécifications, emballage, destination, contraintes..."
+      ph_docs_wanted: "Ex: specs, traçabilité, fiche société...",
+      ph_message: "Précise ton besoin et ton contexte (B2B, appel d’offres, etc.)"
     },
 
     en: {
-      // Nav
+      // NAV
       nav_home: "Home",
       nav_rfq: "RFQ / Quote",
-      nav_docs: "Compliance",
+      nav_docs: "Documents",
+      nav_cheese: "Cheese (coming soon)",
       nav_contact: "Contact",
       nav_legal: "Legal",
       nav_privacy: "Privacy & Terms",
-      nav_cheese: "Cheese (coming soon)",
 
-      // Home
-      home_h1: "ORION FISH – Seafood & Fruit Juices",
-      home_sub:
-        "Seafood, fruit-to-juice processing, sales and distribution for local and international markets.",
-      home_p:
-        "We support distributors, industrial partners and professionals with reliable, traceable and compliant solutions.",
-      home_cta_rfq: "Request a quote (RFQ)",
-      home_cta_docs: "Compliance documents (on request)",
-      home_open_docs: "Open Compliance",
-      home_talk: "Talk to the team",
-      common_quick_title: "Quick info",
-      common_loc: "Location:",
-      common_phone: "Phone/WhatsApp:",
-      common_email: "Email:",
+      // HOME
+      tab_sea: "Seafood",
+      tab_juice: "Fruits & Juices",
+      tab_rfq: "RFQ",
+      search_placeholder: "Search a product, species, format…",
+      zone_placeholder: "Area / Country",
+      zone_sn: "Senegal",
+      zone_wa: "West Africa",
+      zone_eu: "Europe",
+      search_btn: "Search",
+      hint_examples: "Examples: tuna, shrimp, mango, pineapple, hibiscus, juice…",
+      hint_results: "Results + an “RFQ” button per product",
 
-      // Docs page
-      docs_h1: "Compliance documents",
-      docs_intro:
-        "We share the required B2B documents on request, depending on destination, product and collaboration stage.",
-      docs_cta_rfq: "Start an RFQ",
-      docs_cta_request: "Request documents",
-      docs_cta_ai: "Chat with Orion fish Assistant",
-      docs_types_h2: "Document types (examples)",
-      docs_note:
-        "Provided documents depend on the product (seafood/juice), format, destination and collaboration stage.",
-      docs_req_h2: "Request documents",
-      docs_req_p:
-        "Share your company, the product and destination. We will get back to you with the relevant documents.",
-      docs_btn_send: "Send",
-
-      // RFQ page
-      rfq_h1: "Request for Quotation (RFQ)",
-      rfq_sub:
-        "Provide product, format, quantity and destination. We will reply quickly.",
-      rfq_prefill: "Prefilled from search: ",
-      rfq_btn_send: "Send RFQ",
-      rfq_open_ai: "Chat with Orion fish Assistant",
-
-      // Cheese page
-      cheese_h1: "Milk-to-cheese processing",
-      cheese_sub:
-        "New ORION FISH project — currently under prospecting. Production will start soon.",
+      // FROMAGE
       cheese_badge: "Coming soon",
+      cheese_h1: "Milk-to-cheese processing",
+      cheese_sub: "New ORION FISH project — currently under sourcing. Production launch planned soon.",
+      rfq_open_ai: "Talk to Orion fish Assistant",
       cheese_status_h2: "Project status",
       cheese_status_p:
-        "This activity is currently under prospecting (equipment, production line, partners). Operational setup will start soon.",
+        "This activity is currently under sourcing (equipment, production line, partners). Operational setup is planned soon.",
       cheese_scope_h2: "What we are preparing",
       cheese_scope_li1: "Technical study & line sizing",
       cheese_scope_li2: "Equipment selection & training plan",
       cheese_scope_li3: "Quality, hygiene & traceability setup",
-      cheese_scope_li4: "B2B formats and packaging definition",
+      cheese_scope_li4: "Definition of B2B formats & packaging",
       cheese_timeline_h2: "Indicative timeline",
       cheese_timeline_p:
-        "Goal: progressive rollout and capacity ramp-up. Project target: end of December 2026 (subject to technical validation and equipment delivery).",
+        "Goal: progressive deployment and capacity ramp-up. Target: end of December 2026 (subject to technical validation and equipment delivery).",
       cheese_contact_h2: "Interest / partnership",
       cheese_contact_p:
-        "Want to discuss this project (equipment, raw materials, distribution)? Contact us or open the chat.",
+        "Would you like to discuss this project (equipment, raw materials, distribution)? Contact us or open the chat.",
 
-      // Placeholders
+      // COMPLIANCE / DOCUMENTS
+      docs_breadcrumb: "Documents & compliance",
+      docs_h1: "Documents & compliance",
+      docs_intro:
+        "We share the required documents with partners and buyers (B2B) upon request, depending on destination, product, and collaboration stage.",
+      docs_cta_rfq: "Start an RFQ",
+      docs_cta_request: "Request documents",
+      docs_cta_chat: "Talk to Orion fish Assistant",
+      docs_types_h2: "Document types (examples)",
+
+      docs_card_company_label: "Company",
+      docs_card_company_title: "Legal information",
+      docs_card_company_li1: "Business registration",
+      docs_card_company_li2: "Company profile & contacts",
+      docs_card_company_li3: "References & contacts",
+
+      docs_card_quality_label: "Quality",
+      docs_card_quality_title: "Compliance & traceability",
+      docs_card_quality_li1: "Batch traceability",
+      docs_card_quality_li2: "Product specifications",
+      docs_card_quality_li3: "Procedures / good practices",
+
+      docs_card_export_label: "Export",
+      docs_card_export_title: "Destination documents",
+      docs_card_export_li1: "Export docs (depending on country)",
+      docs_card_export_li2: "Packaging / labeling",
+      docs_card_export_li3: "Incoterms & logistics",
+
+      docs_note:
+        "Provided documents depend on product (seafood/juice), format, destination and the progress of the collaboration.",
+
+      docs_request_h2: "Document request",
+      docs_request_intro:
+        "Please indicate your company, product and destination. We will come back to you with the relevant documents.",
+
+      form_company: "Name / Company",
+      form_email: "Email",
+      form_phone_wa: "Phone / WhatsApp",
+      form_destination: "Destination (country)",
+      form_product: "Product",
+      form_docs_wanted: "Requested documents",
+      form_message: "Message",
+      form_send: "Send",
+
       ph_company: "Name / Company",
       ph_email: "name@company.com",
       ph_phone: "+221 ...",
       ph_destination: "e.g., France, Netherlands, Senegal...",
       ph_product: "e.g., tuna, shrimp, pineapple juice...",
-      ph_docs: "e.g., specs, traceability, company profile...",
-      ph_message_docs: "Please describe your request and context (B2B, tender, etc.)",
-      ph_rfq_product: "Product (e.g., milk, cheese, tuna, juice...)",
-      ph_rfq_format: "Format (bulk, cartons, bottles, kg...)",
-      ph_rfq_qty: "Estimated quantity (e.g., 1T, 5T, 10,000 units...)",
-      ph_rfq_incoterm: "Incoterm (EXW, FOB, CIF...)",
-      ph_rfq_deadline: "Desired date (optional)",
-      ph_rfq_message: "Details: specs, packaging, destination, constraints..."
+      ph_docs_wanted: "e.g., specs, traceability, company profile...",
+      ph_message: "Please describe your request and context (B2B, tender, etc.)"
     }
   };
 
-  function detectLang() {
-    const stored = (localStorage.getItem(LANG_KEY) || "").toLowerCase();
+  function detectInitialLang() {
+    const stored = (localStorage.getItem(STORAGE_KEY) || "").toLowerCase();
     if (stored === "fr" || stored === "en") return stored;
 
     const htmlLang = (document.documentElement.getAttribute("lang") || "").toLowerCase();
+    if (htmlLang.startsWith("fr")) return "fr";
+    if (htmlLang.startsWith("en")) return "en";
+
     const navLang = (navigator.language || "en").toLowerCase();
-    const lang = (htmlLang || navLang);
-    return lang.startsWith("fr") ? "fr" : "en";
+    return navLang.startsWith("fr") ? "fr" : "en";
   }
 
   function tr(lang, key) {
-    return (I18N[lang] && I18N[lang][key]) || (I18N.en[key] || "");
+    return (I18N[lang] && I18N[lang][key]) || (I18N.en && I18N.en[key]) || (I18N.fr && I18N.fr[key]) || "";
   }
 
   function applyLang(lang) {
+    localStorage.setItem(STORAGE_KEY, lang);
     document.documentElement.setAttribute("lang", lang);
+
+    const btn = document.getElementById("langBtn");
+    if (btn) btn.textContent = lang === "fr" ? "EN" : "FR";
 
     document.querySelectorAll("[data-i18n]").forEach((node) => {
       const key = node.getAttribute("data-i18n");
@@ -210,28 +231,26 @@
       if (val) node.setAttribute("placeholder", val);
     });
 
-    const btn = document.getElementById("langBtn");
-    if (btn) btn.textContent = (lang === "fr") ? "EN" : "FR";
+    document.querySelectorAll("option[data-i18n]").forEach((opt) => {
+      const key = opt.getAttribute("data-i18n");
+      const val = tr(lang, key);
+      if (val) opt.textContent = val;
+    });
 
-    localStorage.setItem(LANG_KEY, lang);
+    // Update year if present
+    const y = document.getElementById("year");
+    if (y && !y.textContent.trim()) y.textContent = new Date().getFullYear();
 
-    window.dispatchEvent(new CustomEvent("orion-lang-change", { detail: { lang } }));
+    document.dispatchEvent(new CustomEvent("orion:lang", { detail: { lang } }));
   }
 
   function toggleLang() {
-    const current = detectLang();
+    const current = detectInitialLang();
     applyLang(current === "fr" ? "en" : "fr");
   }
 
-  function setYear() {
-    const y = document.getElementById("year");
-    if (y && !String(y.textContent || "").trim()) y.textContent = new Date().getFullYear();
-  }
-
   function init() {
-    setYear();
-    applyLang(detectLang());
-
+    applyLang(detectInitialLang());
     const btn = document.getElementById("langBtn");
     if (btn) btn.addEventListener("click", toggleLang);
   }
