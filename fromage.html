@@ -3,17 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ORION FISH – Transformation du lait en fromage (Bientôt)</title>
+  <title>ORION FISH – Projet Fromage (bientôt)</title>
 
-  <meta name="description" content="ORION FISH – Transformation du lait en fromage : activité en cours de prospection, bientôt disponible. Qualité, traçabilité, conditionnement B2B." />
+  <meta name="description" content="ORION FISH – Projet transformation du lait en fromage (en cours de prospection). Mise en production bientôt." />
   <meta name="robots" content="index,follow" />
 
   <link rel="icon" href="/logo-orion-fish.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/logo-orion-fish.svg">
 
   <link rel="stylesheet" href="/styles.css">
-
-  <!-- ✅ Assistant Orion fish -->
   <link rel="stylesheet" href="/orion-ai.css">
 
   <script>
@@ -22,29 +20,11 @@
     }
   </script>
 
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Organization",
-    "name":"ORION FISH",
-    "url":"https://www.orionsfish.com",
-    "telephone":"+221339138392",
-    "email":"contact@orionsfish.com",
-    "address":{
-      "@type":"PostalAddress",
-      "streetAddress":"Quartier Léona, Cité Filaos",
-      "addressLocality":"Rufisque",
-      "postalCode":"17000",
-      "addressCountry":"SN"
-    }
-  }
-  </script>
-
   <script src="/site.js" defer></script>
   <script src="/orion-ai.js" defer></script>
 </head>
 
-<body class="page-docs">
+<body class="page-cheese">
   <a class="skip" href="#main">Aller au contenu</a>
 
   <div class="topbar">
@@ -54,7 +34,7 @@
           <a class="pill" href="/"><span class="dot" aria-hidden="true"></span><span>ORION FISH RFQ</span></a>
           <a class="pill" href="/rfq.html" data-i18n="nav_rfq">RFQ / Devis</a>
           <a class="pill" href="/compliance.html" data-i18n="nav_docs">Documents</a>
-          <a class="pill" href="/fromage.html" aria-current="page">Fromage (bientôt)</a>
+          <a class="pill" href="/fromage.html" data-i18n="nav_cheese" aria-current="page">Fromage (bientôt)</a>
         </div>
 
         <div class="topbar-links">
@@ -83,9 +63,9 @@
             <li><a href="/" data-i18n="nav_home">Accueil</a></li>
             <li><a href="/rfq.html" data-i18n="nav_rfq">RFQ / Devis</a></li>
             <li><a href="/compliance.html" data-i18n="nav_docs">Documents</a></li>
-            <li><a href="/fromage.html" aria-current="page">Fromage (bientôt)</a></li>
-            <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
-            <li><a href="#mentions" data-i18n="nav_legal">Mentions</a></li>
+            <li><a href="/fromage.html" data-i18n="nav_cheese" aria-current="page">Fromage (bientôt)</a></li>
+            <li><a href="/#contact" data-i18n="nav_contact">Contact</a></li>
+            <li><a href="/#mentions" data-i18n="nav_legal">Mentions</a></li>
           </ul>
         </nav>
       </div>
@@ -95,154 +75,65 @@
   <main id="main">
     <div class="container">
       <div class="breadcrumb" aria-label="Fil d’Ariane">
-        <a href="/">Accueil</a> <span>›</span> <span>Transformation du lait en fromage</span>
+        <a href="/" data-i18n="nav_home">Accueil</a> <span>›</span> <span data-i18n="nav_cheese">Fromage (bientôt)</span>
       </div>
 
       <section class="panel">
-        <h1>Transformation du lait en fromage</h1>
-        <p class="muted">
-          <strong>Statut :</strong> activité <strong>en cours de prospection</strong> — <strong>bientôt disponible</strong>.
-          Nous préparons les partenariats, l’organisation et les équipements pour lancer cette filière dans les meilleures conditions.
-        </p>
-
-        <div class="full-sep" aria-hidden="true"></div>
-
-        <p>
-          ORION FISH développe progressivement de nouvelles filières agroalimentaires orientées B2B.
-          Le projet “Fromage” vise une offre fiable et structurée : qualité, traçabilité, hygiène, et conditionnement adapté aux marchés professionnels.
+        <span class="label" data-i18n="cheese_badge">Bientôt</span>
+        <h1 data-i18n="cheese_h1">Transformation du lait en fromage</h1>
+        <p class="muted" data-i18n="cheese_sub">
+          Nouveau projet ORION FISH — en cours de prospection. Mise en production prévue prochainement.
         </p>
 
         <div class="cta" style="margin-top:12px">
-          <a class="btn btn-primary" href="#contact">Exprimer mon intérêt</a>
-          <a class="btn btn-outline" href="/rfq.html">Demande RFQ</a>
-          <a class="btn btn-green" href="/compliance.html">Documents (sur demande)</a>
-          <a class="btn btn-outline" href="#" data-orion-ai-open="1">Parler à Orion fish Assistant</a>
+          <a class="btn btn-primary" href="/rfq.html" data-i18n="nav_rfq">RFQ / Devis</a>
+          <a class="btn btn-outline" href="#" data-orion-ai-open="1" data-i18n="rfq_open_ai">Parler à Orion fish Assistant</a>
+          <a class="btn btn-outline" href="/compliance.html" data-i18n="nav_docs">Documents</a>
         </div>
       </section>
 
       <section class="panel">
-        <h2>Ce que nous préparons (prospection)</h2>
-        <ul style="margin:0;padding-left:18px;color:var(--muted)">
-          <li>Sourcing matière première et partenaires de collecte</li>
-          <li>Étude des équipements de transformation (process, hygiène, contrôle qualité)</li>
-          <li>Définition des formats, emballages et étiquetage (B2B / distribution)</li>
-          <li>Mise en place d’une organisation logistique (chaîne du froid)</li>
+        <h2 data-i18n="cheese_status_h2">Statut du projet</h2>
+        <p class="muted" data-i18n="cheese_status_p">
+          Cette activité est actuellement en cours de prospection (équipements, chaîne de production, partenaires). La mise en place opérationnelle est prévue prochainement.
+        </p>
+      </section>
+
+      <section class="panel">
+        <h2 data-i18n="cheese_scope_h2">Ce que nous préparons</h2>
+        <ul class="list">
+          <li data-i18n="cheese_scope_li1">Étude technique & dimensionnement de la ligne</li>
+          <li data-i18n="cheese_scope_li2">Sélection des équipements & plan de formation</li>
+          <li data-i18n="cheese_scope_li3">Organisation de la qualité, hygiène & traçabilité</li>
+          <li data-i18n="cheese_scope_li4">Définition des formats B2B et conditionnement</li>
         </ul>
       </section>
 
       <section class="panel">
-        <h2>Produits & formats envisagés</h2>
-        <p class="muted">
-          Les gammes exactes seront confirmées au lancement. À ce stade, nous évaluons plusieurs pistes selon la demande et la faisabilité.
-        </p>
-
-        <div class="grid" style="grid-template-columns:repeat(3,minmax(0,1fr))">
-          <div class="card">
-            <span class="label">Frais</span>
-            <strong>Fromage frais</strong>
-            <ul class="list">
-              <li>Formats B2B</li>
-              <li>Conditionnement adapté</li>
-              <li>Chaîne du froid</li>
-            </ul>
-          </div>
-          <div class="card">
-            <span class="label">Pressé</span>
-            <strong>Pâtes pressées</strong>
-            <ul class="list">
-              <li>Portions / blocs</li>
-              <li>Étiquetage & traçabilité</li>
-              <li>Emballage export</li>
-            </ul>
-          </div>
-          <div class="card">
-            <span class="label">Sur demande</span>
-            <strong>Spécifications client</strong>
-            <ul class="list">
-              <li>Formats professionnels</li>
-              <li>Recettes/standards à définir</li>
-              <li>Marque blanche possible</li>
-            </ul>
-          </div>
-        </div>
-
-        <p class="muted" style="margin-top:12px">
-          <strong>NB :</strong> cette page présente un projet <strong>en cours de prospection</strong> et non une offre commerciale active à ce jour.
+        <h2 data-i18n="cheese_timeline_h2">Calendrier indicatif</h2>
+        <p class="muted" data-i18n="cheese_timeline_p">
+          Objectif : déploiement progressif et montée en capacité. Cible projet : fin décembre 2026 (selon validation technique et livraison des équipements).
         </p>
       </section>
 
-      <section class="panel">
-        <h2>Nous recherchons</h2>
-        <div class="grid" style="grid-template-columns:repeat(2,minmax(0,1fr))">
-          <div class="card">
-            <span class="label">Partenaires</span>
-            <strong>Équipements & emballage</strong>
-            <ul class="list">
-              <li>Équipements de transformation</li>
-              <li>Solutions d’emballage & étiquetage</li>
-              <li>Chaîne du froid / logistique</li>
-            </ul>
-          </div>
-          <div class="card">
-            <span class="label">Marché</span>
-            <strong>Acheteurs B2B</strong>
-            <ul class="list">
-              <li>Distributeurs / grossistes</li>
-              <li>HORECA / collectivités</li>
-              <li>Industries / transformateurs</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section id="contact" class="panel">
-        <h2>Contact – Projet Fromage</h2>
-        <p class="muted">
-          Laissez votre besoin (type, format, volumes, destination). Nous vous recontactons dès que la filière est prête.
+      <section class="panel" id="contact">
+        <h2 data-i18n="cheese_contact_h2">Intérêt / partenariat</h2>
+        <p class="muted" data-i18n="cheese_contact_p">
+          Vous souhaitez échanger sur ce projet (équipements, matières premières, distribution) ? Contactez-nous ou ouvrez le chat.
         </p>
 
-        <p class="muted" style="margin-bottom:1rem">
+        <p class="muted" style="margin-top:10px">
           Email : <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a> •
           Tel/WhatsApp : <a href="tel:+221339138392">+221339138392</a>
         </p>
 
-        <form action="https://formsubmit.co/contact@orionsfish.com" method="POST">
-          <input type="text" name="_honey" style="display:none">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_subject" value="Prospection Fromage – ORION FISH (site web)">
-          <input type="hidden" name="_template" value="table">
-          <input type="hidden" name="_next" value="https://www.orionsfish.com/merci.html">
-
-          <div class="two">
-            <div>
-              <label for="nom">Nom / Entreprise</label>
-              <input id="nom" name="Nom" type="text" required placeholder="Nom / Company" />
-            </div>
-            <div>
-              <label for="email">E-mail</label>
-              <input id="email" name="email" type="email" required placeholder="name@company.com" />
-            </div>
-          </div>
-
-          <div class="two">
-            <div>
-              <label for="tel">Téléphone</label>
-              <input id="tel" name="Téléphone" type="tel" placeholder="+221 ..." />
-            </div>
-            <div>
-              <label for="objet">Objet</label>
-              <input id="objet" name="Objet" type="text" value="Prospection – Fromage (bientôt)" />
-            </div>
-          </div>
-
-          <div>
-            <label for="message">Message</label>
-            <textarea id="message" name="Message" required placeholder="Type de fromage, formats souhaités, volumes, destination, exigences..."></textarea>
-          </div>
-
-          <button class="btn btn-primary" type="submit">Envoyer</button>
-        </form>
+        <div class="cta" style="margin-top:12px">
+          <a class="btn btn-primary" href="/rfq.html" data-i18n="nav_rfq">RFQ / Devis</a>
+          <a class="btn btn-outline" href="#" data-orion-ai-open="1" data-i18n="rfq_open_ai">Parler à Orion fish Assistant</a>
+        </div>
       </section>
+
+      <div class="full-sep" aria-hidden="true"></div>
 
       <section id="mentions" class="panel">
         <h2 data-i18n="nav_legal">Mentions</h2>
@@ -257,30 +148,25 @@
           Privacy & Terms : <a href="/privacy.html">privacy.html</a>
         </p>
       </section>
-    </div>
 
-    <footer>
-      <div class="container">
-        <div class="footer-inner">
-          <div>
-            <strong>ORION FISH</strong><br>
-            Quartier Léona, Cité Filaos, Rufisque 17000, Sénégal
+      <div class="dark-footer">
+        <div class="footer">
+          <div class="foot-links">
+            <a href="/#mentions" data-i18n="nav_legal">Mentions</a>
+            <span>•</span>
+            <a href="/rfq.html" data-i18n="nav_rfq">RFQ / Devis</a>
+            <span>•</span>
+            <a href="/compliance.html" data-i18n="nav_docs">Documents</a>
+            <span>•</span>
+            <a href="/fromage.html" data-i18n="nav_cheese">Fromage (bientôt)</a>
+            <span>•</span>
+            <a href="/privacy.html" data-i18n="nav_privacy">Privacy & Terms</a>
           </div>
-          <div>
-            Tel/WhatsApp : <a href="tel:+221339138392">+221339138392</a><br>
-            Email : <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a>
-          </div>
-          <div>
-            © <span id="year"></span> ORION FISH. Tous droits réservés.
-          </div>
+          <div class="foot-copy">© <span id="year"></span> ORION FISH. Tous droits réservés.</div>
         </div>
       </div>
-    </footer>
-  </main>
 
-  <script>
-    const y = document.getElementById("year");
-    if (y && !y.textContent.trim()) y.textContent = new Date().getFullYear();
-  </script>
+    </div>
+  </main>
 </body>
 </html>
