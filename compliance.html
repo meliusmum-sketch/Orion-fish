@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <script src="/site.js" defer></script>
-<script src="/cookies.js" defer></script>
-<script src="/orion-ai.js" defer></script>
-
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ORION FISH – Documents & conformité</title>
@@ -17,6 +13,7 @@
 
   <link rel="stylesheet" href="/styles.css">
   <link rel="stylesheet" href="/orion-ai.css">
+  <link rel="stylesheet" href="/cookies.css">
 
   <script>
     if (location.protocol === "http:" && location.hostname !== "localhost") {
@@ -26,6 +23,7 @@
 
   <script src="/site.js" defer></script>
   <script src="/orion-ai.js" defer></script>
+  <script src="/cookies.js" defer></script>
 </head>
 
 <body class="page-docs">
@@ -92,6 +90,7 @@
           <a class="btn btn-primary" href="/rfq.html" data-i18n="docs_cta_rfq">Faire une RFQ</a>
           <a class="btn btn-outline" href="#request" data-i18n="docs_cta_request">Demander des documents</a>
           <a class="btn btn-outline" href="#" data-orion-ai-open="1" data-i18n="docs_cta_chat">Parler à Orion fish Assistant</a>
+          <a class="btn btn-outline" href="#" onclick="window.ofCookies && window.ofCookies.open(); return false;">Gérer les cookies</a>
         </div>
       </section>
 
@@ -196,50 +195,7 @@
       </section>
 
       <div class="full-sep" aria-hidden="true"></div>
-
-      <section id="mentions" class="panel">
-        <h2 data-i18n="nav_legal">Mentions</h2>
-        <p class="muted" style="margin-top:.6rem">
-          <strong>ORION FISH</strong><br>
-          Quartier Léona, Cité Filaos, Rufisque, 17000, Sénégal<br>
-          Registre de commerce : <strong>010112051 SN.DKR.2023.B.9159</strong><br>
-          Responsable de publication : <strong>Diallo Mamadou</strong><br>
-          Hébergeur : <strong>Hostinger</strong><br>
-          Tél/WhatsApp : <a href="tel:+221339138392">+221339138392</a><br>
-          Email : <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a><br>
-          Privacy & Terms : <a href="/privacy.html">privacy.html</a>
-        </p>
-
-        <p class="muted cookie-mention">
-          <strong>Cookies :</strong> ORION FISH n’utilise pas de traceurs publicitaires ni de mesure d’audience.
-          Des cookies techniques strictement nécessaires (fonctionnement, sécurité) peuvent être déposés par le site ou l’hébergeur.
-          Pour en savoir plus, consultez notre <a href="/privacy.html#cookies">Politique de confidentialité</a>.
-        </p>
-      </section>
-
     </div>
-
-    <div class="dark-footer">
-      <div class="footer">
-        <div class="foot-links">
-          <a href="/#mentions" data-i18n="nav_legal">Mentions</a>
-          <span>•</span>
-          <a href="/rfq.html" data-i18n="nav_rfq">RFQ / Devis</a>
-          <span>•</span>
-          <a href="/compliance.html" data-i18n="nav_docs">Documents</a>
-          <span>•</span>
-          <a href="/fromage.html" data-i18n="nav_cheese">Fromage (bientôt)</a>
-          <span>•</span>
-          <a href="/privacy.html" data-i18n="nav_privacy">Privacy & Terms</a>
-        </div>
-        <div class="foot-copy">© <span id="year"></span> ORION FISH. Tous droits réservés.</div>
-      </div>
-    </div>
-
-    <script>
-      const y = document.getElementById("year");
-      if (y && !y.textContent.trim()) y.textContent = new Date().getFullYear();
-    </script>
   </main>
 </body>
 </html>
