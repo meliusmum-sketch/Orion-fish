@@ -8,29 +8,30 @@
   <meta name="description" content="ORION FISH – Produits de la mer et transformation de fruits en jus. Vente, distribution et export (RFQ/Devis)." />
   <meta name="robots" content="index,follow" />
 
-  <link rel="icon" href="/logo-orion-fish.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="/logo-orion-fish.svg">
-
-  <link rel="stylesheet" href="/styles.css">
-
-  <!-- ✅ Assistant Orion fish (OBLIGATOIRE pour voir le bouton/Widget) -->
-  <link rel="stylesheet" href="/orion-ai.css">
-
-  <!-- ✅ ConsentManager CMP (AUTOBLOCKING) — à mettre le plus haut possible dans <head> -->
+  <!-- ✅ ConsentManager CMP (AUTOBLOCKING) — le plus haut possible dans <head> -->
   <script type="text/javascript" data-cmp-ab="1"
     src="https://cdn.consentmanager.net/delivery/autoblocking/c6e50b797231e.js"
     data-cmp-host="b.delivery.consentmanager.net"
     data-cmp-cdn="cdn.consentmanager.net"
     data-cmp-codesrc="16"></script>
 
-  <!-- ✅ Google Analytics (GA4) — placé APRÈS consentmanager + avec data-cmp-ab="1" -->
-  <script async data-cmp-ab="1" src="https://www.googletagmanager.com/gtag/js?id=G-W367YRDYKY"></script>
-  <script data-cmp-ab="1">
+  <!-- ✅ Google Analytics (GA4) — BLOQUÉ jusqu’au consentement -->
+  <!-- Vendor s26 = Google Analytics dans les exemples consentmanager -->
+  <script async type="text/plain" class="cmplazyload" data-cmp-vendor="s26"
+    data-cmp-src="https://www.googletagmanager.com/gtag/js?id=G-W367YRDYKY"></script>
+  <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-W367YRDYKY');
   </script>
+
+  <link rel="icon" href="/logo-orion-fish.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/logo-orion-fish.svg">
+
+  <link rel="stylesheet" href="/styles.css">
+  <!-- ✅ Assistant Orion fish (OBLIGATOIRE pour voir le bouton/Widget) -->
+  <link rel="stylesheet" href="/orion-ai.css">
 
   <script>
     if (location.protocol === "http:" && location.hostname !== "localhost") {
@@ -57,7 +58,6 @@
   </script>
 
   <script src="/site.js" defer></script>
-
   <!-- ✅ Assistant Orion fish (OBLIGATOIRE) -->
   <script src="/orion-ai.js" defer></script>
 </head>
@@ -72,7 +72,6 @@
           <a class="pill" href="/"><span class="dot" aria-hidden="true"></span><span>ORION FISH RFQ</span></a>
           <a class="pill" href="/rfq.html" data-i18n="nav_rfq">RFQ / Devis</a>
           <a class="pill" href="/compliance.html" data-i18n="nav_docs">Documents</a>
-          <!-- ✅ NOUVEAU -->
           <a class="pill" href="/fromage.html">Fromage (bientôt)</a>
         </div>
 
@@ -354,7 +353,6 @@
             <span>•</span>
             <a href="/privacy.html">Privacy & Terms</a>
             <span>•</span>
-            <!-- ✅ Lien officiel consentmanager : réafficher / gérer les cookies -->
             <a href="?cmpscreen" class="cmpfooterlink cmpfooterlinkcmp">Paramètres cookies</a>
           </div>
           <div class="foot-copy">© <span id="year"></span> ORION FISH. Tous droits réservés.</div>
