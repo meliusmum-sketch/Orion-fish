@@ -10,8 +10,10 @@
 
   <link rel="icon" href="/logo-orion-fish.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/logo-orion-fish.svg">
+
   <link rel="stylesheet" href="/styles.css">
   <link rel="stylesheet" href="/orion-ai.css">
+  <link rel="stylesheet" href="/cookies.css">
 
   <script>
     if (location.protocol === "http:" && location.hostname !== "localhost") {
@@ -20,8 +22,8 @@
   </script>
 
   <script src="/site.js" defer></script>
-  <script src="/cookies.js" defer></script>
   <script src="/orion-ai.js" defer></script>
+  <script src="/cookies.js" defer></script>
 </head>
 
 <body class="page-rfq">
@@ -32,13 +34,13 @@
       <div class="topbar-row">
         <div class="topbar-links">
           <a class="pill" href="/"><span class="dot" aria-hidden="true"></span><span>ORION FISH RFQ</span></a>
-          <a class="pill" href="/rfq.html" data-i18n="nav_rfq" aria-current="page">RFQ / Devis</a>
-          <a class="pill" href="/compliance.html" data-i18n="nav_docs">Documents</a>
+          <a class="pill" href="/rfq.html" aria-current="page">RFQ / Devis</a>
+          <a class="pill" href="/compliance.html">Documents</a>
           <a class="pill" href="/fromage.html">Fromage (bientôt)</a>
         </div>
 
         <div class="topbar-links">
-          <a href="/#contact" data-i18n="nav_contact">Contact</a>
+          <a href="/#contact">Contact</a>
           <span class="sep">•</span>
           <button class="btn-lang" id="langBtn" type="button">EN</button>
         </div>
@@ -60,13 +62,12 @@
 
         <nav aria-label="Navigation">
           <ul>
-            <li><a href="/" data-i18n="nav_home">Accueil</a></li>
-            <li><a href="/rfq.html" data-i18n="nav_rfq" aria-current="page">RFQ / Devis</a></li>
-            <li><a href="/compliance.html" data-i18n="nav_docs">Documents</a></li>
+            <li><a href="/">Accueil</a></li>
+            <li><a href="/rfq.html" aria-current="page">RFQ / Devis</a></li>
+            <li><a href="/compliance.html">Documents</a></li>
             <li><a href="/fromage.html">Fromage (bientôt)</a></li>
-            <li><a href="/#contact" data-i18n="nav_contact">Contact</a></li>
-            <li><a href="/#mentions" data-i18n="nav_legal">Mentions</a></li>
-            <li><a href="/privacy.html" data-i18n="nav_privacy">Privacy & Terms</a></li>
+            <li><a href="/#contact">Contact</a></li>
+            <li><a href="/privacy.html">Privacy & Terms</a></li>
           </ul>
         </nav>
       </div>
@@ -76,7 +77,7 @@
   <main id="main">
     <div class="container">
       <div class="breadcrumb" aria-label="Fil d’Ariane">
-        <a href="/" data-i18n="nav_home">Accueil</a> <span>›</span> <span>RFQ / Devis</span>
+        <a href="/">Accueil</a> <span>›</span> <span>RFQ / Devis</span>
       </div>
 
       <section class="panel">
@@ -87,7 +88,7 @@
 
         <div class="cta" style="margin-top:12px">
           <a class="btn btn-outline" href="#" data-orion-ai-open="1">Parler à Orion fish Assistant</a>
-          <a class="btn btn-outline" href="/compliance.html">Documents</a>
+          <a class="btn btn-outline" href="#" onclick="window.ofCookies && ofCookies.open(); return false;">Gérer les cookies</a>
         </div>
       </section>
 
@@ -130,14 +131,14 @@
             </div>
             <div>
               <label for="qty">Quantité / Format</label>
-              <input id="qty" name="Quantité / Format" type="text" placeholder="Ex: 1 conteneur, cartons 10kg, 500L..." />
+              <input id="qty" name="Quantité / Format" type="text" placeholder="Ex: cartons 10kg, 500L..." />
             </div>
           </div>
 
           <div class="two">
             <div>
               <label for="incoterm">Incoterm / Livraison</label>
-              <input id="incoterm" name="Incoterm / Livraison" type="text" placeholder="Ex: EXW, FOB, CIF..." />
+              <input id="incoterm" name="Incoterm / Livraison" type="text" placeholder="EXW, FOB, CIF..." />
             </div>
             <div>
               <label for="deadline">Délai souhaité</label>
@@ -147,7 +148,7 @@
 
           <div>
             <label for="message">Détails</label>
-            <textarea id="message" name="Message" required placeholder="Spécifications, certificats demandés, destination, etc."></textarea>
+            <textarea id="message" name="Message" required placeholder="Spécifications, destination, certificats, etc."></textarea>
           </div>
 
           <button class="btn btn-primary" type="submit">Envoyer la RFQ</button>
