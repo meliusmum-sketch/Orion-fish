@@ -3,43 +3,90 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Merci – ORION FISH</title>
-  <meta name="robots" content="noindex,follow" />
-  <style>
-    :root{--bg:#020617;--text:#e5e7eb;--muted:#9ca3af;--card:#020617;--border:#1f2937;--accent:#f97316}
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.6;color:var(--text);
-      background:radial-gradient(circle at top left,#1d4ed8,var(--bg) 65%);min-height:100vh}
-    a{color:inherit;text-decoration:none}
-    .wrap{max-width:900px;margin:0 auto;padding:2rem 1.2rem}
-    .card{margin-top:2rem;padding:2rem;border-radius:1.5rem;background:var(--card);border:1px solid var(--border);
-      box-shadow:0 18px 45px rgba(15,23,42,.6)}
-    h1{font-size:2rem;margin-bottom:.6rem}
-    p{color:var(--muted);margin:.35rem 0}
-    .btns{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.2rem}
-    .btn{display:inline-block;padding:.75rem 1.2rem;border-radius:999px;font-weight:900;border:1px solid rgba(148,163,184,.55)}
-    .primary{background:var(--accent);border-color:transparent;color:#111827}
-    .ghost{background:transparent;color:var(--text)}
-  </style>
-</head>
-<body>
-  <div class="wrap">
-    <div class="card">
-      <h1>Merci !</h1>
-      <p>Votre message a bien été envoyé à l’équipe ORION FISH.</p>
-      <p>Nous vous répondrons dès que possible.</p>
+  <title>ORION FISH – Merci</title>
 
-      <div class="btns">
-        <a class="btn primary" href="index.html">Retour à l’accueil</a>
-        <a class="btn ghost" href="rfq.html">Faire une autre demande RFQ</a>
-        <a class="btn ghost" href="team.html">Voir la Team</a>
+  <meta name="description" content="Merci – ORION FISH. Votre message a bien été envoyé." />
+  <meta name="robots" content="noindex,follow" />
+
+  <link rel="icon" href="/logo-orion-fish.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/logo-orion-fish.svg">
+
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/orion-ai.css">
+  <link rel="stylesheet" href="/cookies.css">
+
+  <script>
+    if (location.protocol === "http:" && location.hostname !== "localhost") {
+      location.replace("https://" + location.host + location.pathname + location.search + location.hash);
+    }
+  </script>
+
+  <script>
+    window.OF_GA_MEASUREMENT_ID = "G-W367YRDYKY";
+    // window.OF_META_PIXEL_ID = "1234567890";
+  </script>
+
+  <script src="/orion-ai.js" defer></script>
+  <script src="/cookies.js" defer></script>
+</head>
+
+<body class="page-merci">
+  <a class="skip" href="#main">Aller au contenu</a>
+
+  <header>
+    <div class="container">
+      <div class="nav">
+        <a class="logo-link" href="/" aria-label="ORION FISH Home">
+          <img class="logo-mark" src="/logo-orion-fish.svg" alt="Logo ORION FISH">
+          <span class="logo-text">
+            <span class="logo-title">ORION FISH</span>
+            <span class="logo-sub">Seafood & Juices</span>
+          </span>
+        </a>
+
+        <nav aria-label="Navigation">
+          <ul>
+            <li><a href="/">Accueil</a></li>
+            <li><a href="/rfq.html">RFQ / Devis</a></li>
+            <li><a href="/compliance.html">Documents</a></li>
+            <li><a href="/privacy.html">Privacy & Terms</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <section class="panel" style="margin-top:18px">
+      <h1>Merci ✅</h1>
+      <p class="muted">Votre message a bien été envoyé. Nous vous répondrons rapidement.</p>
+
+      <div class="cta" style="margin-top:12px">
+        <a class="btn btn-primary" href="/rfq.html">Faire une RFQ</a>
+        <a class="btn btn-outline" href="/" >Retour à l’accueil</a>
+        <a class="btn btn-outline" href="#" data-orion-ai-open="1">Parler à l’assistant</a>
       </div>
 
-      <p style="margin-top:1.2rem">
-        Contact direct : <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a> •
-        <a href="tel:+221339138392">+221339138392</a>
+      <p class="muted" style="margin-top:12px">
+        Email : <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a> •
+        Tel/WhatsApp : <a href="tel:+221339138392">+221339138392</a>
       </p>
-    </div>
-  </div>
+    </section>
+
+    <footer class="footer" style="margin-top:18px">
+      <div class="foot-links">
+        <a href="/">Accueil</a>
+        <span>•</span>
+        <a href="/privacy.html">Privacy & Terms</a>
+        <span>•</span>
+        <a href="#" data-of-cookie-open="1">Cookies</a>
+      </div>
+      <div class="foot-copy">© <span id="year"></span> ORION FISH</div>
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </main>
 </body>
 </html>
