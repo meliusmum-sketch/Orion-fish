@@ -88,7 +88,7 @@
 
         <div class="cta" style="margin-top:12px">
           <a class="btn btn-outline" href="#" data-orion-ai-open="1">Parler à Orion fish Assistant</a>
-          <a class="btn btn-outline" href="#" onclick="window.ofCookies && ofCookies.open(); return false;">Gérer les cookies</a>
+          <a class="btn btn-outline" href="#" onclick="window.ofCookies && window.ofCookies.open(); return false;">Gérer les cookies</a>
         </div>
       </section>
 
@@ -161,5 +161,27 @@
       </section>
     </div>
   </main>
+
+  <script>
+    // Pré-remplissage depuis index.html (q, zone, type)
+    const params = new URLSearchParams(location.search);
+    const q = (params.get("q") || "").trim();
+    const zone = (params.get("zone") || "").trim();
+    const type = (params.get("type") || "").trim();
+
+    const product = document.getElementById("product");
+    const message = document.getElementById("message");
+
+    const bits = [];
+    if (type) bits.push("Type: " + type);
+    if (zone) bits.push("Zone: " + zone);
+    if (q) bits.push("Recherche: " + q);
+
+    if (product && q) product.value = q;
+    if (message && bits.length) {
+      const prefix = bits.join(" • ");
+      message.value = prefix + "\n\n" + message.value;
+    }
+  </script>
 </body>
 </html>
