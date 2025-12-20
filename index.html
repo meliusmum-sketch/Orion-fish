@@ -13,6 +13,7 @@
 
   <link rel="stylesheet" href="/styles.css">
   <link rel="stylesheet" href="/orion-ai.css">
+  <link rel="stylesheet" href="/cookies.css">
 
   <script>
     if (location.protocol === "http:" && location.hostname !== "localhost") {
@@ -39,8 +40,8 @@
   </script>
 
   <script src="/site.js" defer></script>
-  <script src="/cookies.js" defer></script>
   <script src="/orion-ai.js" defer></script>
+  <script src="/cookies.js" defer></script>
 </head>
 
 <body class="page-home">
@@ -160,7 +161,9 @@
 
             <div class="cta" style="margin-top:.9rem">
               <a class="btn btn-primary" href="/compliance.html" data-i18n="home_open_docs">Ouvrir Documents</a>
-              <a class="btn btn-outline" href="/#contact" data-i18n="home_talk" data-orion-ai-open="1">Parler à l’équipe</a>
+              <a class="btn btn-outline" href="/#contact" data-i18n="home_talk" data-orion-ai-open="1">
+                Parler à l’équipe
+              </a>
             </div>
           </div>
         </div>
@@ -316,7 +319,7 @@
             Tél/WhatsApp : <a href="tel:+221339138392">+221339138392</a><br>
             Email : <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a><br>
             Privacy & Terms : <a href="/privacy.html">privacy.html</a><br>
-            Cookies : ORION FISH n’utilise pas de traceurs publicitaires ni de mesure d’audience. Des cookies techniques strictement nécessaires (fonctionnement, sécurité) peuvent être déposés par le site ou l’hébergeur. Pour en savoir plus, consultez notre <a href="/privacy.html#cookies">Politique de confidentialité</a>.
+            <a href="#" onclick="window.ofCookies && ofCookies.open(); return false;">Gérer les cookies</a>
           </p>
         </section>
 
@@ -334,6 +337,8 @@
             <a href="/fromage.html">Fromage (bientôt)</a>
             <span>•</span>
             <a href="/privacy.html">Privacy & Terms</a>
+            <span>•</span>
+            <a href="#" onclick="window.ofCookies && ofCookies.open(); return false;">Cookies</a>
           </div>
           <div class="foot-copy">© <span id="year"></span> ORION FISH. Tous droits réservés.</div>
         </div>
