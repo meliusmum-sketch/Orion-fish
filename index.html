@@ -21,6 +21,12 @@
     }
   </script>
 
+  <!-- ✅ IDs Analytics/Pixel (charge uniquement après "Accepter") -->
+  <script>
+    window.OF_GA_MEASUREMENT_ID = "G-W367YRDYKY";
+    // window.OF_META_PIXEL_ID = "1234567890"; // optionnel
+  </script>
+
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -318,8 +324,7 @@
             Hébergeur : <strong>Hostinger</strong><br>
             Tél/WhatsApp : <a href="tel:+221339138392">+221339138392</a><br>
             Email : <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a><br>
-            Privacy & Terms : <a href="/privacy.html">privacy.html</a><br>
-            <a href="#" onclick="window.ofCookies && window.ofCookies.open(); return false;">Gérer les cookies</a>
+            Privacy & Terms : <a href="/privacy.html">privacy.html</a>
           </p>
         </section>
 
@@ -338,7 +343,7 @@
             <span>•</span>
             <a href="/privacy.html">Privacy & Terms</a>
             <span>•</span>
-            <a href="#" onclick="window.ofCookies && window.ofCookies.open(); return false;">Cookies</a>
+            <a href="#" data-of-cookie-open="1">Cookies</a>
           </div>
           <div class="foot-copy">© <span id="year"></span> ORION FISH. Tous droits réservés.</div>
         </div>
