@@ -258,3 +258,78 @@
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
   else init();
 })();
+/* ========== Cookie notice (ORION FISH) ========== */
+(function () {
+  const KEY = "of_cookie_notice_v1";
+
+  function safeGet(key) {
+    try {
+      return window.localStorage.getItem(key);
+    } catch (e) {
+      // fallback cookie
+      const m = document.cookie.match(new RegExp("(^| )" + key + "=([^;]+)"));
+      return m ? decodeURIComponent(m[2]) : null;
+    }
+  }
+
+  function safeSet(key, value, maxAgeSeconds) {
+    try {
+      window.localStorage.setItem(key, value);
+    } catch (e) {
+      const maxAge = typeof maxAgeSeconds === "number" ? "; Max-Age=" + maxAgeSeconds : "";
+      document.cookie =
+        key + "=" + encodeURIComponent(value) + maxAge + "; Path=/; SameSite=Lax" + (location.protocol === "https:" ? "; Secure" : "");
+    }
+  }
+
+  function safeRemove(key) {
+    try {
+      window.localStorage.removeItem(key);
+    } catch (e) {
+      document.cookie = key + "=; Max-Age=0; Path=/; SameSite=Lax" + (location.protocol === "https:" ? "; Secure" : "");
+    }
+  }
+
+  function mountBanner() {
+    if (safeGet(KEY) === "dismissed") return;
+
+    const html = `
+      <div class="cookie-banner" role="dialog" aria-live="polite" aria-label="Information cookies">
+        <div class="cookie-banner__inner">
+          <p>
+            Nous n’utilisons pas de cookies publicitaires ni de mesure d’audience.
+            Des cookies techniques peuvent être utilisés par l’hébergeur pour le fonctionnement et la sécurité.
+            <a href="/privacy.html#cookies">En savoir plus</a>
+          </p>
+          <button class="cookie-banner__btn" type="button">OK</button>
+        </div>
+      </div>
+    `;
+
+    document.body.insertAdjacentHTML("beforeend", html);
+
+    const banner = document.querySelector(".cookie-banner");
+    const btn = banner && banner.querySelector(".cookie-banner__btn");
+    if (!btn) return;
+
+    btn.addEventListener("click", function () {
+      // 6 mois ≈ 15552000 secondes
+      safeSet(KEY, "dismissed", 15552000);
+      banner.remove();
+    });
+  }
+
+  function bindResetButton() {
+    const resetBtn = document.getElementById("reset-cookies");
+    if (!resetBtn) return;
+    resetBtn.addEventListener("click", function () {
+      safeRemove(KEY);
+      location.reload();
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    mountBanner();
+    bindResetButton();
+  });
+})();
