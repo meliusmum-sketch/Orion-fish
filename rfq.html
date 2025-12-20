@@ -3,14 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ORION FISH – Projet Fromage (bientôt)</title>
+  <title>ORION FISH – RFQ / Devis</title>
 
-  <meta name="description" content="ORION FISH – Projet transformation du lait en fromage (en cours de prospection). Mise en production bientôt." />
+  <meta name="description" content="Demande de devis (RFQ) – ORION FISH. Produits de la mer et jus de fruits (B2B)." />
   <meta name="robots" content="index,follow" />
 
   <link rel="icon" href="/logo-orion-fish.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/logo-orion-fish.svg">
-
   <link rel="stylesheet" href="/styles.css">
   <link rel="stylesheet" href="/orion-ai.css">
 
@@ -21,10 +20,11 @@
   </script>
 
   <script src="/site.js" defer></script>
+  <script src="/cookies.js" defer></script>
   <script src="/orion-ai.js" defer></script>
 </head>
 
-<body class="page-cheese">
+<body class="page-rfq">
   <a class="skip" href="#main">Aller au contenu</a>
 
   <div class="topbar">
@@ -32,9 +32,9 @@
       <div class="topbar-row">
         <div class="topbar-links">
           <a class="pill" href="/"><span class="dot" aria-hidden="true"></span><span>ORION FISH RFQ</span></a>
-          <a class="pill" href="/rfq.html" data-i18n="nav_rfq">RFQ / Devis</a>
+          <a class="pill" href="/rfq.html" data-i18n="nav_rfq" aria-current="page">RFQ / Devis</a>
           <a class="pill" href="/compliance.html" data-i18n="nav_docs">Documents</a>
-          <a class="pill" href="/fromage.html" data-i18n="nav_cheese" aria-current="page">Fromage (bientôt)</a>
+          <a class="pill" href="/fromage.html">Fromage (bientôt)</a>
         </div>
 
         <div class="topbar-links">
@@ -61,11 +61,12 @@
         <nav aria-label="Navigation">
           <ul>
             <li><a href="/" data-i18n="nav_home">Accueil</a></li>
-            <li><a href="/rfq.html" data-i18n="nav_rfq">RFQ / Devis</a></li>
+            <li><a href="/rfq.html" data-i18n="nav_rfq" aria-current="page">RFQ / Devis</a></li>
             <li><a href="/compliance.html" data-i18n="nav_docs">Documents</a></li>
-            <li><a href="/fromage.html" data-i18n="nav_cheese" aria-current="page">Fromage (bientôt)</a></li>
+            <li><a href="/fromage.html">Fromage (bientôt)</a></li>
             <li><a href="/#contact" data-i18n="nav_contact">Contact</a></li>
             <li><a href="/#mentions" data-i18n="nav_legal">Mentions</a></li>
+            <li><a href="/privacy.html" data-i18n="nav_privacy">Privacy & Terms</a></li>
           </ul>
         </nav>
       </div>
@@ -75,97 +76,88 @@
   <main id="main">
     <div class="container">
       <div class="breadcrumb" aria-label="Fil d’Ariane">
-        <a href="/" data-i18n="nav_home">Accueil</a> <span>›</span> <span data-i18n="nav_cheese">Fromage (bientôt)</span>
+        <a href="/" data-i18n="nav_home">Accueil</a> <span>›</span> <span>RFQ / Devis</span>
       </div>
 
       <section class="panel">
-        <span class="label" data-i18n="cheese_badge">Bientôt</span>
-        <h1 data-i18n="cheese_h1">Transformation du lait en fromage</h1>
-        <p class="muted" data-i18n="cheese_sub">
-          Nouveau projet ORION FISH — en cours de prospection. Mise en production prévue prochainement.
+        <h1>Demande de devis (RFQ)</h1>
+        <p class="muted">
+          Décris ton besoin (produit, quantité, destination, Incoterms, délais). Nous te répondons par email / WhatsApp.
         </p>
 
         <div class="cta" style="margin-top:12px">
-          <a class="btn btn-primary" href="/rfq.html" data-i18n="nav_rfq">RFQ / Devis</a>
-          <a class="btn btn-outline" href="#" data-orion-ai-open="1" data-i18n="rfq_open_ai">Parler à Orion fish Assistant</a>
-          <a class="btn btn-outline" href="/compliance.html" data-i18n="nav_docs">Documents</a>
+          <a class="btn btn-outline" href="#" data-orion-ai-open="1">Parler à Orion fish Assistant</a>
+          <a class="btn btn-outline" href="/compliance.html">Documents</a>
         </div>
       </section>
 
       <section class="panel">
-        <h2 data-i18n="cheese_status_h2">Statut du projet</h2>
-        <p class="muted" data-i18n="cheese_status_p">
-          Cette activité est actuellement en cours de prospection (équipements, chaîne de production, partenaires). La mise en place opérationnelle est prévue prochainement.
-        </p>
-      </section>
+        <h2>Formulaire RFQ</h2>
 
-      <section class="panel">
-        <h2 data-i18n="cheese_scope_h2">Ce que nous préparons</h2>
-        <ul class="list">
-          <li data-i18n="cheese_scope_li1">Étude technique & dimensionnement de la ligne</li>
-          <li data-i18n="cheese_scope_li2">Sélection des équipements & plan de formation</li>
-          <li data-i18n="cheese_scope_li3">Organisation de la qualité, hygiène & traçabilité</li>
-          <li data-i18n="cheese_scope_li4">Définition des formats B2B et conditionnement</li>
-        </ul>
-      </section>
+        <form action="https://formsubmit.co/contact@orionsfish.com" method="POST">
+          <input type="text" name="_honey" style="display:none">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_subject" value="RFQ / Devis – ORION FISH (site web)">
+          <input type="hidden" name="_next" value="https://www.orionsfish.com/merci.html">
 
-      <section class="panel">
-        <h2 data-i18n="cheese_timeline_h2">Calendrier indicatif</h2>
-        <p class="muted" data-i18n="cheese_timeline_p">
-          Objectif : déploiement progressif et montée en capacité. Cible projet : fin décembre 2026 (selon validation technique et livraison des équipements).
-        </p>
-      </section>
+          <div class="two">
+            <div>
+              <label for="company">Nom / Entreprise</label>
+              <input id="company" name="Nom / Entreprise" type="text" required placeholder="Nom / Company" />
+            </div>
+            <div>
+              <label for="email">E-mail</label>
+              <input id="email" name="email" type="email" required placeholder="name@company.com" />
+            </div>
+          </div>
 
-      <section class="panel" id="contact">
-        <h2 data-i18n="cheese_contact_h2">Intérêt / partenariat</h2>
-        <p class="muted" data-i18n="cheese_contact_p">
-          Vous souhaitez échanger sur ce projet (équipements, matières premières, distribution) ? Contactez-nous ou ouvrez le chat.
-        </p>
+          <div class="two">
+            <div>
+              <label for="phone">Téléphone / WhatsApp</label>
+              <input id="phone" name="Téléphone" type="tel" placeholder="+221 ..." />
+            </div>
+            <div>
+              <label for="destination">Destination (pays)</label>
+              <input id="destination" name="Destination" type="text" placeholder="Ex: France, Pays-Bas, Sénégal..." />
+            </div>
+          </div>
 
-        <p class="muted" style="margin-top:10px">
+          <div class="two">
+            <div>
+              <label for="product">Produit</label>
+              <input id="product" name="Produit" type="text" placeholder="Ex: thon, crevette, jus d’ananas..." />
+            </div>
+            <div>
+              <label for="qty">Quantité / Format</label>
+              <input id="qty" name="Quantité / Format" type="text" placeholder="Ex: 1 conteneur, cartons 10kg, 500L..." />
+            </div>
+          </div>
+
+          <div class="two">
+            <div>
+              <label for="incoterm">Incoterm / Livraison</label>
+              <input id="incoterm" name="Incoterm / Livraison" type="text" placeholder="Ex: EXW, FOB, CIF..." />
+            </div>
+            <div>
+              <label for="deadline">Délai souhaité</label>
+              <input id="deadline" name="Délai" type="text" placeholder="Ex: 2 semaines, Janvier..." />
+            </div>
+          </div>
+
+          <div>
+            <label for="message">Détails</label>
+            <textarea id="message" name="Message" required placeholder="Spécifications, certificats demandés, destination, etc."></textarea>
+          </div>
+
+          <button class="btn btn-primary" type="submit">Envoyer la RFQ</button>
+        </form>
+
+        <p class="muted" style="margin-top:12px">
           Email : <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a> •
           Tel/WhatsApp : <a href="tel:+221339138392">+221339138392</a>
         </p>
-
-        <div class="cta" style="margin-top:12px">
-          <a class="btn btn-primary" href="/rfq.html" data-i18n="nav_rfq">RFQ / Devis</a>
-          <a class="btn btn-outline" href="#" data-orion-ai-open="1" data-i18n="rfq_open_ai">Parler à Orion fish Assistant</a>
-        </div>
       </section>
-
-      <div class="full-sep" aria-hidden="true"></div>
-
-      <section id="mentions" class="panel">
-        <h2 data-i18n="nav_legal">Mentions</h2>
-        <p class="muted" style="margin-top:.6rem">
-          <strong>ORION FISH</strong><br>
-          Quartier Léona, Cité Filaos, Rufisque, 17000, Sénégal<br>
-          Registre de commerce : <strong>010112051 SN.DKR.2023.B.9159</strong><br>
-          Responsable de publication : <strong>Diallo Mamadou</strong><br>
-          Hébergeur : <strong>Hostinger</strong><br>
-          Tél/WhatsApp : <a href="tel:+221339138392">+221339138392</a><br>
-          Email : <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a><br>
-          Privacy & Terms : <a href="/privacy.html">privacy.html</a>
-        </p>
-      </section>
-
-      <div class="dark-footer">
-        <div class="footer">
-          <div class="foot-links">
-            <a href="/#mentions" data-i18n="nav_legal">Mentions</a>
-            <span>•</span>
-            <a href="/rfq.html" data-i18n="nav_rfq">RFQ / Devis</a>
-            <span>•</span>
-            <a href="/compliance.html" data-i18n="nav_docs">Documents</a>
-            <span>•</span>
-            <a href="/fromage.html" data-i18n="nav_cheese">Fromage (bientôt)</a>
-            <span>•</span>
-            <a href="/privacy.html" data-i18n="nav_privacy">Privacy & Terms</a>
-          </div>
-          <div class="foot-copy">© <span id="year"></span> ORION FISH. Tous droits réservés.</div>
-        </div>
-      </div>
-
     </div>
   </main>
 </body>
