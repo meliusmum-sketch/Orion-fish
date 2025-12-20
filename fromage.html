@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <script src="/site.js" defer></script>
-<script src="/cookies.js" defer></script>
-<script src="/orion-ai.js" defer></script>
-
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ORION FISH – Projet Fromage (bientôt)</title>
@@ -17,6 +13,7 @@
 
   <link rel="stylesheet" href="/styles.css">
   <link rel="stylesheet" href="/orion-ai.css">
+  <link rel="stylesheet" href="/cookies.css">
 
   <script>
     if (location.protocol === "http:" && location.hostname !== "localhost") {
@@ -26,6 +23,7 @@
 
   <script src="/site.js" defer></script>
   <script src="/orion-ai.js" defer></script>
+  <script src="/cookies.js" defer></script>
 </head>
 
 <body class="page-cheese">
@@ -93,6 +91,7 @@
           <a class="btn btn-primary" href="/rfq.html" data-i18n="nav_rfq">RFQ / Devis</a>
           <a class="btn btn-outline" href="#" data-orion-ai-open="1" data-i18n="rfq_open_ai">Parler à Orion fish Assistant</a>
           <a class="btn btn-outline" href="/compliance.html" data-i18n="nav_docs">Documents</a>
+          <a class="btn btn-outline" href="#" onclick="window.ofCookies && window.ofCookies.open(); return false;">Gérer les cookies</a>
         </div>
       </section>
 
@@ -130,11 +129,6 @@
           Email : <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a> •
           Tel/WhatsApp : <a href="tel:+221339138392">+221339138392</a>
         </p>
-
-        <div class="cta" style="margin-top:12px">
-          <a class="btn btn-primary" href="/rfq.html" data-i18n="nav_rfq">RFQ / Devis</a>
-          <a class="btn btn-outline" href="#" data-orion-ai-open="1" data-i18n="rfq_open_ai">Parler à Orion fish Assistant</a>
-        </div>
       </section>
 
       <div class="full-sep" aria-hidden="true"></div>
@@ -149,33 +143,10 @@
           Hébergeur : <strong>Hostinger</strong><br>
           Tél/WhatsApp : <a href="tel:+221339138392">+221339138392</a><br>
           Email : <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a><br>
-          Privacy & Terms : <a href="/privacy.html">privacy.html</a>
-        </p>
-
-        <p class="muted cookie-mention">
-          <strong>Cookies :</strong> ORION FISH n’utilise pas de traceurs publicitaires ni de mesure d’audience.
-          Des cookies techniques strictement nécessaires (fonctionnement, sécurité) peuvent être déposés par le site ou l’hébergeur.
-          Pour en savoir plus, consultez notre <a href="/privacy.html#cookies">Politique de confidentialité</a>.
+          Privacy & Terms : <a href="/privacy.html">privacy.html</a><br>
+          <a href="#" onclick="window.ofCookies && window.ofCookies.open(); return false;">Gérer les cookies</a>
         </p>
       </section>
-
-      <div class="dark-footer">
-        <div class="footer">
-          <div class="foot-links">
-            <a href="/#mentions" data-i18n="nav_legal">Mentions</a>
-            <span>•</span>
-            <a href="/rfq.html" data-i18n="nav_rfq">RFQ / Devis</a>
-            <span>•</span>
-            <a href="/compliance.html" data-i18n="nav_docs">Documents</a>
-            <span>•</span>
-            <a href="/fromage.html" data-i18n="nav_cheese">Fromage (bientôt)</a>
-            <span>•</span>
-            <a href="/privacy.html" data-i18n="nav_privacy">Privacy & Terms</a>
-          </div>
-          <div class="foot-copy">© <span id="year"></span> ORION FISH. Tous droits réservés.</div>
-        </div>
-      </div>
-
     </div>
   </main>
 </body>
