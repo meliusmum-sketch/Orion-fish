@@ -14,16 +14,18 @@
   <link rel="stylesheet" href="/styles.css">
   <link rel="stylesheet" href="/orion-ai.css">
 
-  <!-- ✅ ConsentManager CMP (AUTOBLOCKING) -->
+  <!-- ✅ ConsentManager CMP (AUTOBLOCKING) — à mettre le plus haut possible dans <head> -->
   <script type="text/javascript" data-cmp-ab="1"
     src="https://cdn.consentmanager.net/delivery/autoblocking/c6e50b797231e.js"
     data-cmp-host="b.delivery.consentmanager.net"
     data-cmp-cdn="cdn.consentmanager.net"
     data-cmp-codesrc="16"></script>
 
-  <!-- ✅ Google Analytics (GA4) -->
-  <script async data-cmp-ab="1" src="https://www.googletagmanager.com/gtag/js?id=G-W367YRDYKY"></script>
-  <script data-cmp-ab="1">
+  <!-- ✅ Google Analytics (GA4) — BLOQUÉ jusqu’au consentement (vendor s26) -->
+  <!-- Remarque: consentmanager donne s26 pour Google Analytics dans son exemple -->
+  <script async type="text/plain" class="cmplazyload" data-cmp-vendor="s26"
+    data-cmp-src="https://www.googletagmanager.com/gtag/js?id=G-W367YRDYKY"></script>
+  <script type="text/plain" class="cmplazyload" data-cmp-vendor="s26">
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
@@ -179,6 +181,7 @@
         <span>•</span>
         <a href="/privacy.html">Privacy & Terms</a>
         <span>•</span>
+        <!-- ✅ Ouvre/force l’affichage du bandeau et des préférences -->
         <a href="?cmpscreen" class="cmpfooterlink cmpfooterlinkcmp">Paramètres cookies</a>
       </div>
       <div class="foot-copy">© <span id="year"></span> ORION FISH</div>
