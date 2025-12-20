@@ -21,6 +21,11 @@
     }
   </script>
 
+  <script>
+    window.OF_GA_MEASUREMENT_ID = "G-W367YRDYKY";
+    // window.OF_META_PIXEL_ID = "1234567890";
+  </script>
+
   <script src="/site.js" defer></script>
   <script src="/orion-ai.js" defer></script>
   <script src="/cookies.js" defer></script>
@@ -90,7 +95,6 @@
           <a class="btn btn-primary" href="/rfq.html" data-i18n="docs_cta_rfq">Faire une RFQ</a>
           <a class="btn btn-outline" href="#request" data-i18n="docs_cta_request">Demander des documents</a>
           <a class="btn btn-outline" href="#" data-orion-ai-open="1" data-i18n="docs_cta_chat">Parler à Orion fish Assistant</a>
-          <a class="btn btn-outline" href="#" onclick="window.ofCookies && window.ofCookies.open(); return false;">Gérer les cookies</a>
         </div>
       </section>
 
@@ -193,6 +197,23 @@
           Tel/WhatsApp : <a href="tel:+221339138392">+221339138392</a>
         </p>
       </section>
+
+      <footer class="footer" style="margin-top:18px">
+        <div class="foot-links">
+          <a href="/">Accueil</a>
+          <span>•</span>
+          <a href="/rfq.html">RFQ</a>
+          <span>•</span>
+          <a href="/privacy.html">Privacy & Terms</a>
+          <span>•</span>
+          <a href="#" data-of-cookie-open="1">Cookies</a>
+        </div>
+        <div class="foot-copy">© <span id="year"></span> ORION FISH</div>
+      </footer>
+
+      <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+      </script>
 
       <div class="full-sep" aria-hidden="true"></div>
     </div>
