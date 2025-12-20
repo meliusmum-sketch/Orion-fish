@@ -10,9 +10,9 @@
   <link rel="icon" href="/logo-orion-fish.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/logo-orion-fish.svg">
 
-  <link rel="stylesheet" href="/styles.css">
-  <link rel="stylesheet" href="/orion-ai.css">
-  <link rel="stylesheet" href="/cookies.css">
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="stylesheet" href="/orion-ai.css" />
+  <link rel="stylesheet" href="/cookies.css" />
 
   <script>
     if (location.protocol === "http:" && location.hostname !== "localhost") {
@@ -20,7 +20,11 @@
     }
   </script>
 
-  <script src="/site.js" defer></script>
+  <script>
+    window.OF_GA_MEASUREMENT_ID = "G-W367YRDYKY";
+    // window.OF_META_PIXEL_ID = "1234567890";
+  </script>
+
   <script src="/orion-ai.js" defer></script>
   <script src="/cookies.js" defer></script>
 </head>
@@ -35,7 +39,6 @@
           <a class="pill" href="/"><span class="dot" aria-hidden="true"></span><span>ORION FISH</span></a>
           <a class="pill" href="/rfq.html">RFQ / Devis</a>
           <a class="pill" href="/compliance.html">Documents</a>
-          <a class="pill" href="/fromage.html">Fromage (bientôt)</a>
           <a class="pill" href="/privacy.html" aria-current="page">Privacy & Terms</a>
         </div>
 
@@ -64,8 +67,8 @@
             <li><a href="/">Accueil</a></li>
             <li><a href="/rfq.html">RFQ / Devis</a></li>
             <li><a href="/compliance.html">Documents</a></li>
-            <li><a href="/fromage.html">Fromage (bientôt)</a></li>
             <li><a href="/#contact">Contact</a></li>
+            <li><a href="/#mentions">Mentions</a></li>
             <li><a href="/privacy.html" aria-current="page">Privacy & Terms</a></li>
           </ul>
         </nav>
@@ -75,65 +78,165 @@
 
   <main id="main" class="container">
     <section class="panel">
-      <h1>Politique de confidentialité & Conditions</h1>
-      <p class="muted">
-        Dernière mise à jour : <time datetime="2025-11-14">14/11/2025</time>
-      </p>
+      <!-- FR -->
+      <div data-lang="fr">
+        <h1>Politique de confidentialité & Conditions</h1>
+        <p class="muted">
+          Dernière mise à jour :
+          <time datetime="2025-11-14">14/11/2025</time>
+        </p>
 
-      <h2>1) Données collectées</h2>
-      <p>
-        Nous collectons uniquement les informations que vous fournissez via les formulaires du site
-        (nom, entreprise, e-mail, téléphone, message, informations RFQ).
-      </p>
+        <h2>1) Données collectées</h2>
+        <p>
+          Nous collectons uniquement les informations que vous fournissez via les formulaires du site
+          (nom, entreprise, e-mail, téléphone, message, informations RFQ).
+        </p>
 
-      <h2>2) Utilisation</h2>
-      <p>
-        Ces données sont utilisées pour répondre à vos demandes (devis, documents, partenariats),
-        assurer le suivi, et améliorer la qualité de service.
-      </p>
+        <h2>2) Utilisation</h2>
+        <p>
+          Ces données sont utilisées pour répondre à vos demandes (devis, documents, partenariats),
+          assurer le suivi, et améliorer la qualité de service.
+        </p>
 
-      <h2>3) Traitement via un service tiers</h2>
-      <p>
-        Les formulaires peuvent être traités via un service tiers (ex : FormSubmit) afin de transmettre
-        votre message par e-mail à ORION FISH.
-      </p>
+        <h2>3) Traitement via un service tiers</h2>
+        <p>
+          Les formulaires peuvent être traités via un service tiers (ex : FormSubmit) afin de transmettre
+          votre message par e-mail à ORION FISH.
+        </p>
 
-      <h2>4) Conservation</h2>
-      <p>
-        Les informations sont conservées le temps nécessaire au traitement de votre demande et au respect
-        des obligations légales/administratives.
-      </p>
+        <h2>4) Conservation</h2>
+        <p>
+          Les informations sont conservées le temps nécessaire au traitement de votre demande et au respect
+          des obligations légales/administratives.
+        </p>
 
-      <h2>5) Vos droits</h2>
-      <p>
-        Vous pouvez demander l’accès, la rectification ou la suppression de vos données en écrivant à
-        <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a>.
-      </p>
+        <h2>5) Vos droits</h2>
+        <p>
+          Vous pouvez demander l’accès, la rectification ou la suppression de vos données en écrivant à
+          <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a>.
+        </p>
 
-      <h2>6) Conditions d’utilisation</h2>
-      <p>
-        Le contenu du site est fourni à titre informatif. ORION FISH peut mettre à jour ses pages à tout moment.
-        L’utilisation du site implique l’acceptation de ces conditions.
-      </p>
+        <h2>6) Conditions d’utilisation</h2>
+        <p>
+          Le contenu du site est fourni à titre informatif. ORION FISH peut mettre à jour ses pages à tout moment.
+          L’utilisation du site implique l’acceptation de ces conditions.
+        </p>
 
-      <h2>7) Contact</h2>
-      <p>
-        <strong>ORION FISH</strong> – Rufisque, Sénégal<br>
-        Email : <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a><br>
-        Tel/WhatsApp : <a href="tel:+221339138392">+221339138392</a>
-      </p>
+        <h2 id="cookies">7) Cookies & traceurs</h2>
+        <p>
+          ORION FISH utilise des cookies <strong>techniques</strong> nécessaires au bon fonctionnement.
+          Avec votre accord, nous pouvons activer des cookies de <strong>mesure d’audience</strong> (Google Analytics)
+          et/ou de <strong>marketing</strong> (Meta Pixel).
+        </p>
+        <button class="btn btn-outline" type="button" id="of-cookie-reset">Réafficher / Modifier le choix cookies</button>
 
-      <div id="cookies"></div>
-      <h2>8) Cookies & traceurs</h2>
-      <p>
-        ORION FISH utilise des cookies techniques strictement nécessaires au fonctionnement et à la sécurité.
-        Avec votre accord, nous pouvons activer des outils de mesure d’audience et/ou pixels marketing.
-      </p>
+        <h2>8) Contact</h2>
+        <p>
+          <strong>ORION FISH</strong> – Rufisque, Sénégal<br>
+          Email : <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a><br>
+          Tel/WhatsApp : <a href="tel:+221339138392">+221339138392</a>
+        </p>
+      </div>
 
-      <div class="cta" style="margin-top:12px">
-        <a class="btn btn-outline" href="#" onclick="window.ofCookies && window.ofCookies.open(); return false;">Gérer les cookies</a>
+      <!-- EN -->
+      <div data-lang="en" hidden>
+        <h1>Privacy Policy & Terms</h1>
+        <p class="muted">
+          Last updated:
+          <time datetime="2025-11-14">14/11/2025</time>
+        </p>
+
+        <h2>1) Data we collect</h2>
+        <p>
+          We only collect information you provide through website forms
+          (name, company, email, phone, message, RFQ details).
+        </p>
+
+        <h2>2) How we use it</h2>
+        <p>
+          We use this information to respond to your requests (quotations, documents, partnerships),
+          follow up, and improve service quality.
+        </p>
+
+        <h2>3) Third-party form processing</h2>
+        <p>
+          Forms may be processed via a third-party service (e.g., FormSubmit) to deliver your message
+          to ORION FISH by email.
+        </p>
+
+        <h2>4) Retention</h2>
+        <p>
+          Data is retained as long as necessary to handle your request and comply with legal/administrative obligations.
+        </p>
+
+        <h2>5) Your rights</h2>
+        <p>
+          You may request access, correction, or deletion by emailing
+          <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a>.
+        </p>
+
+        <h2>6) Terms of use</h2>
+        <p>
+          Website content is provided for informational purposes. ORION FISH may update pages at any time.
+          Using the website implies acceptance of these terms.
+        </p>
+
+        <h2 id="cookies-en">7) Cookies & trackers</h2>
+        <p>
+          ORION FISH uses <strong>necessary</strong> technical cookies for basic operation.
+          With your consent, we may enable <strong>analytics</strong> cookies (Google Analytics)
+          and/or <strong>marketing</strong> cookies (Meta Pixel).
+        </p>
+        <button class="btn btn-outline" type="button" id="of-cookie-reset">Show / change cookie choice</button>
+
+        <h2>8) Contact</h2>
+        <p>
+          <strong>ORION FISH</strong> – Rufisque, Senegal<br>
+          Email: <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a><br>
+          WhatsApp: <a href="tel:+221339138392">+221339138392</a>
+        </p>
       </div>
     </section>
   </main>
+
+  <footer class="footer">
+    <div class="foot-links">
+      <a href="/compliance.html">Documents</a>
+      <span>•</span>
+      <a href="/rfq.html">RFQ / Devis</a>
+      <span>•</span>
+      <a href="/privacy.html">Privacy & Terms</a>
+      <span>•</span>
+      <a href="#" data-of-cookie-open="1">Cookies</a>
+    </div>
+    <div class="foot-copy">© <span id="year"></span> ORION FISH</div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const dict = {
+      fr: { btn: "EN" },
+      en: { btn: "FR" }
+    };
+
+    function setLang(lang){
+      document.documentElement.lang = lang;
+      document.querySelectorAll("[data-lang]").forEach(el => {
+        el.hidden = (el.getAttribute("data-lang") !== lang);
+      });
+      const btn = document.getElementById("langBtn");
+      btn.textContent = (lang === "fr") ? dict.fr.btn : dict.en.btn;
+      localStorage.setItem("lang", lang);
+    }
+
+    const stored = localStorage.getItem("lang");
+    const initial = stored || ((navigator.language || "").toLowerCase().startsWith("fr") ? "fr" : "en");
+    setLang(initial);
+
+    document.getElementById("langBtn").addEventListener("click", () => {
+      setLang(document.documentElement.lang === "fr" ? "en" : "fr");
+    });
+  </script>
 </body>
 </html>
