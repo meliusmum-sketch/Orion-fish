@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ORION FISH – RFQ / Demande de devis</title>
 
-  <meta name="description" content="RFQ ORION FISH : demande de devis B2B produits de la mer & jus. Réponse rapide." />
+  <meta name="description" content="RFQ ORION FISH – Demande de devis B2B : produits de la mer & jus. Réponse rapide." />
   <meta name="robots" content="index,follow" />
 
   <link rel="icon" href="/logo-orion-fish.svg" type="image/svg+xml">
@@ -13,7 +13,22 @@
 
   <link rel="stylesheet" href="/styles.css">
   <link rel="stylesheet" href="/orion-ai.css">
-  <link rel="stylesheet" href="/cookies.css">
+
+  <!-- ✅ ConsentManager CMP (AUTOBLOCKING) -->
+  <script type="text/javascript" data-cmp-ab="1"
+    src="https://cdn.consentmanager.net/delivery/autoblocking/c6e50b797231e.js"
+    data-cmp-host="b.delivery.consentmanager.net"
+    data-cmp-cdn="cdn.consentmanager.net"
+    data-cmp-codesrc="16"></script>
+
+  <!-- ✅ Google Analytics (GA4) -->
+  <script async data-cmp-ab="1" src="https://www.googletagmanager.com/gtag/js?id=G-W367YRDYKY"></script>
+  <script data-cmp-ab="1">
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-W367YRDYKY');
+  </script>
 
   <script>
     if (location.protocol === "http:" && location.hostname !== "localhost") {
@@ -21,14 +36,8 @@
     }
   </script>
 
-  <script>
-    window.OF_GA_MEASUREMENT_ID = "G-W367YRDYKY";
-    // window.OF_META_PIXEL_ID = "1234567890";
-  </script>
-
   <script src="/site.js" defer></script>
   <script src="/orion-ai.js" defer></script>
-  <script src="/cookies.js" defer></script>
 </head>
 
 <body class="page-rfq">
@@ -39,13 +48,13 @@
       <div class="topbar-row">
         <div class="topbar-links">
           <a class="pill" href="/"><span class="dot" aria-hidden="true"></span><span>ORION FISH RFQ</span></a>
-          <a class="pill" href="/rfq.html" aria-current="page">RFQ / Devis</a>
-          <a class="pill" href="/compliance.html">Documents</a>
-          <a class="pill" href="/fromage.html">Fromage (bientôt)</a>
+          <a class="pill" href="/rfq.html" data-i18n="nav_rfq" aria-current="page">RFQ / Devis</a>
+          <a class="pill" href="/compliance.html" data-i18n="nav_docs">Documents</a>
+          <a class="pill" href="/fromage.html" data-i18n="nav_cheese">Fromage (bientôt)</a>
         </div>
 
         <div class="topbar-links">
-          <a href="/#contact">Contact</a>
+          <a href="/#contact" data-i18n="nav_contact">Contact</a>
           <span class="sep">•</span>
           <button class="btn-lang" id="langBtn" type="button">EN</button>
         </div>
@@ -67,11 +76,12 @@
 
         <nav aria-label="Navigation">
           <ul>
-            <li><a href="/">Accueil</a></li>
-            <li><a href="/rfq.html" aria-current="page">RFQ / Devis</a></li>
-            <li><a href="/compliance.html">Documents</a></li>
-            <li><a href="/fromage.html">Fromage (bientôt)</a></li>
-            <li><a href="/privacy.html">Privacy & Terms</a></li>
+            <li><a href="/" data-i18n="nav_home">Accueil</a></li>
+            <li><a href="/rfq.html" data-i18n="nav_rfq" aria-current="page">RFQ / Devis</a></li>
+            <li><a href="/compliance.html" data-i18n="nav_docs">Documents</a></li>
+            <li><a href="/fromage.html" data-i18n="nav_cheese">Fromage (bientôt)</a></li>
+            <li><a href="/#contact" data-i18n="nav_contact">Contact</a></li>
+            <li><a href="/privacy.html" data-i18n="nav_privacy">Privacy & Terms</a></li>
           </ul>
         </nav>
       </div>
@@ -79,14 +89,14 @@
   </header>
 
   <main id="main" class="container">
-    <div class="breadcrumb" aria-label="Fil d’Ariane" style="margin-top:18px">
-      <a href="/">Accueil</a> <span>›</span> <span>RFQ / Devis</span>
+    <div class="breadcrumb" aria-label="Fil d’Ariane">
+      <a href="/" data-i18n="nav_home">Accueil</a> <span>›</span> <span data-i18n="nav_rfq">RFQ / Devis</span>
     </div>
 
     <section class="panel">
-      <h1>Demande de devis (RFQ)</h1>
+      <h1>RFQ / Demande de devis</h1>
       <p class="muted">
-        Remplis ce formulaire. Si tu arrives depuis la recherche, on pré-remplit le produit / zone.
+        Remplissez ce formulaire B2B (produits de la mer / jus). Nous vous répondons dès que possible avec disponibilité, specs et conditions.
       </p>
 
       <div class="cta" style="margin-top:12px">
@@ -96,11 +106,13 @@
     </section>
 
     <section class="panel">
+      <h2>Formulaire RFQ</h2>
+
       <form action="https://formsubmit.co/contact@orionsfish.com" method="POST">
         <input type="text" name="_honey" style="display:none">
         <input type="hidden" name="_captcha" value="false">
         <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_subject" value="RFQ / Devis – ORION FISH (site web)">
+        <input type="hidden" name="_subject" value="RFQ – ORION FISH (site web)">
         <input type="hidden" name="_next" value="https://www.orionsfish.com/merci.html">
 
         <div class="two">
@@ -120,41 +132,36 @@
             <input id="phone" name="Téléphone" type="tel" placeholder="+221 ..." />
           </div>
           <div>
-            <label for="zone">Zone / Destination</label>
-            <input id="zone" name="Zone / Destination" type="text" placeholder="Ex: Sénégal, Europe, Afrique de l’Ouest..." />
+            <label for="destination">Destination (pays)</label>
+            <input id="destination" name="Destination" type="text" placeholder="Ex: France, Pays-Bas, Sénégal..." />
           </div>
         </div>
 
         <div class="two">
-          <div>
-            <label for="type">Catégorie</label>
-            <select id="type" name="Catégorie">
-              <option value="">Choisir…</option>
-              <option value="sea">Produits de la mer</option>
-              <option value="juice">Fruits & jus</option>
-              <option value="rfq">RFQ</option>
-            </select>
-          </div>
           <div>
             <label for="product">Produit</label>
             <input id="product" name="Produit" type="text" placeholder="Ex: thon, crevette, jus d’ananas..." />
           </div>
+          <div>
+            <label for="format">Format / Spécification</label>
+            <input id="format" name="Format / Specs" type="text" placeholder="Ex: frais/surgelé, calibre, packaging..." />
+          </div>
         </div>
 
         <div class="two">
           <div>
-            <label for="qty">Quantité / Format</label>
-            <input id="qty" name="Quantité / Format" type="text" placeholder="Ex: 1 container, 500 kg, cartons..." />
+            <label for="qty">Quantité estimée</label>
+            <input id="qty" name="Quantité" type="text" placeholder="Ex: 500 kg / 1 pallet / 1 container..." />
           </div>
           <div>
-            <label for="incoterm">Incoterm / Logistique</label>
-            <input id="incoterm" name="Incoterm" type="text" placeholder="EXW / FOB / CIF / DDP..." />
+            <label for="incoterm">Incoterm (optionnel)</label>
+            <input id="incoterm" name="Incoterm" type="text" placeholder="Ex: EXW, FOB, CIF..." />
           </div>
         </div>
 
         <div>
           <label for="message">Message</label>
-          <textarea id="message" name="Message" required placeholder="Précise ton besoin (espèce, calibre, packaging, destination, délais, etc.)"></textarea>
+          <textarea id="message" name="Message" required placeholder="Décrivez votre besoin : qualité, certification, délai, destination, contraintes..."></textarea>
         </div>
 
         <button class="btn btn-primary" type="submit">Envoyer la RFQ</button>
@@ -166,15 +173,13 @@
       </p>
     </section>
 
-    <footer class="footer" style="margin-top:18px">
+    <footer class="footer" style="margin-top:24px">
       <div class="foot-links">
-        <a href="/">Accueil</a>
-        <span>•</span>
         <a href="/compliance.html">Documents</a>
         <span>•</span>
         <a href="/privacy.html">Privacy & Terms</a>
         <span>•</span>
-        <a href="#" data-of-cookie-open="1">Cookies</a>
+        <a href="?cmpscreen" class="cmpfooterlink cmpfooterlinkcmp">Paramètres cookies</a>
       </div>
       <div class="foot-copy">© <span id="year"></span> ORION FISH</div>
     </footer>
@@ -182,15 +187,24 @@
     <script>
       document.getElementById("year").textContent = new Date().getFullYear();
 
-      // Prefill depuis URL: /rfq.html?q=...&zone=...&type=...
+      // Pré-remplissage depuis /rfq.html?q=...&zone=...&type=...
       const params = new URLSearchParams(location.search);
-      const q = (params.get("q") || "").trim();
-      const z = (params.get("zone") || "").trim();
-      const t = (params.get("type") || "").trim();
+      const q = params.get("q");
+      const zone = params.get("zone");
+      const type = params.get("type");
 
-      if (q) document.getElementById("product").value = q;
-      if (z) document.getElementById("zone").value = z;
-      if (t) document.getElementById("type").value = t;
+      const product = document.getElementById("product");
+      const destination = document.getElementById("destination");
+
+      if (q && product && !product.value.trim()) product.value = q;
+      if (zone && destination && !destination.value.trim()) destination.value = zone;
+
+      // Optionnel : ajouter le type dans le message si présent
+      const message = document.getElementById("message");
+      if (type && message && !message.value.trim()) {
+        const map = { sea: "Produits de la mer", juice: "Fruits & jus", rfq: "RFQ" };
+        message.value = `Type: ${map[type] || type}\n`;
+      }
     </script>
   </main>
 </body>
