@@ -10,9 +10,9 @@
   <link rel="icon" href="/logo-orion-fish.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/logo-orion-fish.svg">
   <link rel="stylesheet" href="/styles.css" />
+  <link rel="stylesheet" href="/orion-ai.css" />
 
   <script>
-    // Force HTTPS (prod)
     if (location.protocol === "http:" && location.hostname !== "localhost") {
       location.replace("https://" + location.host + location.pathname + location.search + location.hash);
     }
@@ -22,7 +22,6 @@
 <body class="page-privacy">
   <a class="skip" href="#main">Aller au contenu</a>
 
-  <!-- TOPBAR -->
   <div class="topbar">
     <div class="container">
       <div class="topbar-row">
@@ -30,6 +29,7 @@
           <a class="pill" href="/"><span class="dot" aria-hidden="true"></span><span>ORION FISH</span></a>
           <a class="pill" href="/rfq.html" data-i18n="nav_rfq">RFQ / Devis</a>
           <a class="pill" href="/compliance.html" data-i18n="nav_docs">Documents</a>
+          <a class="pill" href="/fromage.html" data-i18n="nav_cheese">Fromage (bientôt)</a>
           <a class="pill" href="/privacy.html" data-i18n="nav_privacy" aria-current="page">Privacy & Terms</a>
         </div>
 
@@ -42,7 +42,6 @@
     </div>
   </div>
 
-  <!-- HEADER -->
   <header>
     <div class="container">
       <div class="nav">
@@ -59,6 +58,7 @@
             <li><a href="/" data-i18n="nav_home">Accueil</a></li>
             <li><a href="/rfq.html" data-i18n="nav_rfq">RFQ / Devis</a></li>
             <li><a href="/compliance.html" data-i18n="nav_docs">Documents</a></li>
+            <li><a href="/fromage.html" data-i18n="nav_cheese">Fromage (bientôt)</a></li>
             <li><a href="/#contact" data-i18n="nav_contact">Contact</a></li>
             <li><a href="/#mentions" data-i18n="nav_legal">Mentions</a></li>
             <li><a href="/privacy.html" data-i18n="nav_privacy" aria-current="page">Privacy & Terms</a></li>
@@ -173,16 +173,15 @@
         </p>
       </div>
 
-      <!-- ✅ ANCRE UNIQUE : le lien /privacy.html#cookies arrive ici -->
+      <!-- ✅ ANCRE : /privacy.html#cookies -->
       <div id="cookies"></div>
 
-      <!-- ✅ COOKIES (Option 3) -->
+      <!-- Cookies (Option 3) -->
       <div data-lang="fr">
         <h2>8) Cookies & traceurs</h2>
         <p>
           <strong>Cookies :</strong> ORION FISH n’utilise pas de traceurs publicitaires ni de mesure d’audience.
           Des cookies techniques strictement nécessaires (fonctionnement, sécurité) peuvent être déposés par le site ou l’hébergeur.
-          Pour en savoir plus, consultez notre <strong>Politique de confidentialité</strong>.
         </p>
       </div>
 
@@ -191,9 +190,9 @@
         <p>
           <strong>Cookies:</strong> ORION FISH does not use advertising or analytics trackers.
           Strictly necessary technical cookies (operation, security) may be set by the website or hosting provider.
-          For more information, see our <strong>Privacy Policy</strong>.
         </p>
       </div>
+
     </section>
   </main>
 
@@ -209,10 +208,8 @@
   </footer>
 
   <script>
-    // Year
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Minimal i18n for nav on this page
     const dict = {
       fr: {
         nav_home: "Accueil",
@@ -235,19 +232,16 @@
     function setLang(lang){
       document.documentElement.lang = lang;
 
-      // Switch long content blocks
       document.querySelectorAll("[data-lang]").forEach(el => {
         el.hidden = (el.getAttribute("data-lang") !== lang);
       });
 
-      // Switch small nav labels
       const d = dict[lang] || dict.fr;
       document.querySelectorAll("[data-i18n]").forEach(el => {
         const k = el.getAttribute("data-i18n");
         if (d[k]) el.textContent = d[k];
       });
 
-      // Toggle button text
       const btn = document.getElementById("langBtn");
       btn.textContent = (lang === "fr") ? "EN" : "FR";
 
