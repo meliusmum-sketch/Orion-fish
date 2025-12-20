@@ -9,24 +9,30 @@
 
   <link rel="icon" href="/logo-orion-fish.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/logo-orion-fish.svg">
-
   <link rel="stylesheet" href="/styles.css" />
   <link rel="stylesheet" href="/orion-ai.css" />
-  <link rel="stylesheet" href="/cookies.css" />
+
+  <!-- ✅ ConsentManager CMP (AUTOBLOCKING) -->
+  <script type="text/javascript" data-cmp-ab="1"
+    src="https://cdn.consentmanager.net/delivery/autoblocking/c6e50b797231e.js"
+    data-cmp-host="b.delivery.consentmanager.net"
+    data-cmp-cdn="cdn.consentmanager.net"
+    data-cmp-codesrc="16"></script>
+
+  <!-- ✅ Google Analytics (GA4) -->
+  <script async data-cmp-ab="1" src="https://www.googletagmanager.com/gtag/js?id=G-W367YRDYKY"></script>
+  <script data-cmp-ab="1">
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-W367YRDYKY');
+  </script>
 
   <script>
     if (location.protocol === "http:" && location.hostname !== "localhost") {
       location.replace("https://" + location.host + location.pathname + location.search + location.hash);
     }
   </script>
-
-  <script>
-    window.OF_GA_MEASUREMENT_ID = "G-W367YRDYKY";
-    // window.OF_META_PIXEL_ID = "1234567890";
-  </script>
-
-  <script src="/orion-ai.js" defer></script>
-  <script src="/cookies.js" defer></script>
 </head>
 
 <body class="page-privacy">
@@ -37,13 +43,13 @@
       <div class="topbar-row">
         <div class="topbar-links">
           <a class="pill" href="/"><span class="dot" aria-hidden="true"></span><span>ORION FISH</span></a>
-          <a class="pill" href="/rfq.html">RFQ / Devis</a>
-          <a class="pill" href="/compliance.html">Documents</a>
-          <a class="pill" href="/privacy.html" aria-current="page">Privacy & Terms</a>
+          <a class="pill" href="/rfq.html" data-i18n="nav_rfq">RFQ / Devis</a>
+          <a class="pill" href="/compliance.html" data-i18n="nav_docs">Documents</a>
+          <a class="pill" href="/privacy.html" data-i18n="nav_privacy" aria-current="page">Privacy & Terms</a>
         </div>
 
         <div class="topbar-links">
-          <a href="/#contact">Contact</a>
+          <a href="/#contact" data-i18n="nav_contact">Contact</a>
           <span class="sep">•</span>
           <button class="btn-lang" id="langBtn" type="button">EN</button>
         </div>
@@ -64,12 +70,12 @@
 
         <nav aria-label="Navigation">
           <ul>
-            <li><a href="/">Accueil</a></li>
-            <li><a href="/rfq.html">RFQ / Devis</a></li>
-            <li><a href="/compliance.html">Documents</a></li>
-            <li><a href="/#contact">Contact</a></li>
-            <li><a href="/#mentions">Mentions</a></li>
-            <li><a href="/privacy.html" aria-current="page">Privacy & Terms</a></li>
+            <li><a href="/" data-i18n="nav_home">Accueil</a></li>
+            <li><a href="/rfq.html" data-i18n="nav_rfq">RFQ / Devis</a></li>
+            <li><a href="/compliance.html" data-i18n="nav_docs">Documents</a></li>
+            <li><a href="/#contact" data-i18n="nav_contact">Contact</a></li>
+            <li><a href="/#mentions" data-i18n="nav_legal">Mentions</a></li>
+            <li><a href="/privacy.html" data-i18n="nav_privacy" aria-current="page">Privacy & Terms</a></li>
           </ul>
         </nav>
       </div>
@@ -122,19 +128,23 @@
           L’utilisation du site implique l’acceptation de ces conditions.
         </p>
 
-        <h2 id="cookies">7) Cookies & traceurs</h2>
-        <p>
-          ORION FISH utilise des cookies <strong>techniques</strong> nécessaires au bon fonctionnement.
-          Avec votre accord, nous pouvons activer des cookies de <strong>mesure d’audience</strong> (Google Analytics)
-          et/ou de <strong>marketing</strong> (Meta Pixel).
-        </p>
-        <button class="btn btn-outline" type="button" id="of-cookie-reset">Réafficher / Modifier le choix cookies</button>
-
-        <h2>8) Contact</h2>
+        <h2>7) Contact</h2>
         <p>
           <strong>ORION FISH</strong> – Rufisque, Sénégal<br>
           Email : <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a><br>
           Tel/WhatsApp : <a href="tel:+221339138392">+221339138392</a>
+        </p>
+
+        <h2 id="cookies">8) Cookies & traceurs</h2>
+        <p>
+          <strong>Phrase 2 (pro) :</strong> Nous utilisons des cookies et technologies similaires pour assurer le bon fonctionnement du site,
+          mesurer l’audience et améliorer votre expérience. Vous pouvez accepter, refuser ou personnaliser vos choix à tout moment.
+        </p>
+        <p class="muted">
+          Certains cookies sont strictement nécessaires au fonctionnement du site et ne peuvent pas être désactivés.
+        </p>
+        <p>
+          <a class="btn btn-outline cmpfooterlink cmpfooterlinkcmp" href="?cmpscreen">Paramètres cookies</a>
         </p>
       </div>
 
@@ -181,19 +191,23 @@
           Using the website implies acceptance of these terms.
         </p>
 
-        <h2 id="cookies-en">7) Cookies & trackers</h2>
-        <p>
-          ORION FISH uses <strong>necessary</strong> technical cookies for basic operation.
-          With your consent, we may enable <strong>analytics</strong> cookies (Google Analytics)
-          and/or <strong>marketing</strong> cookies (Meta Pixel).
-        </p>
-        <button class="btn btn-outline" type="button" id="of-cookie-reset">Show / change cookie choice</button>
-
-        <h2>8) Contact</h2>
+        <h2>7) Contact</h2>
         <p>
           <strong>ORION FISH</strong> – Rufisque, Senegal<br>
           Email: <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a><br>
           WhatsApp: <a href="tel:+221339138392">+221339138392</a>
+        </p>
+
+        <h2 id="cookies-en">8) Cookies & trackers</h2>
+        <p>
+          <strong>Phrase 2 (pro):</strong> We use cookies and similar technologies to ensure the website works properly,
+          measure traffic, and improve your experience. You can accept, refuse, or customize your choices at any time.
+        </p>
+        <p class="muted">
+          Some cookies are strictly necessary for the website to function and cannot be disabled.
+        </p>
+        <p>
+          <a class="btn btn-outline cmpfooterlink cmpfooterlinkcmp" href="?cmpscreen">Cookie settings</a>
         </p>
       </div>
     </section>
@@ -201,13 +215,13 @@
 
   <footer class="footer">
     <div class="foot-links">
-      <a href="/compliance.html">Documents</a>
+      <a href="/compliance.html" data-i18n="nav_docs">Documents</a>
       <span>•</span>
-      <a href="/rfq.html">RFQ / Devis</a>
+      <a href="/rfq.html" data-i18n="nav_rfq">RFQ / Devis</a>
       <span>•</span>
-      <a href="/privacy.html">Privacy & Terms</a>
+      <a href="/privacy.html" data-i18n="nav_privacy">Privacy & Terms</a>
       <span>•</span>
-      <a href="#" data-of-cookie-open="1">Cookies</a>
+      <a href="?cmpscreen" class="cmpfooterlink cmpfooterlinkcmp">Paramètres cookies</a>
     </div>
     <div class="foot-copy">© <span id="year"></span> ORION FISH</div>
   </footer>
@@ -216,17 +230,40 @@
     document.getElementById("year").textContent = new Date().getFullYear();
 
     const dict = {
-      fr: { btn: "EN" },
-      en: { btn: "FR" }
+      fr: {
+        nav_home: "Accueil",
+        nav_rfq: "RFQ / Devis",
+        nav_docs: "Documents",
+        nav_contact: "Contact",
+        nav_legal: "Mentions",
+        nav_privacy: "Privacy & Terms"
+      },
+      en: {
+        nav_home: "Home",
+        nav_rfq: "RFQ / Quotation",
+        nav_docs: "Documents",
+        nav_contact: "Contact",
+        nav_legal: "Legal",
+        nav_privacy: "Privacy & Terms"
+      }
     };
 
     function setLang(lang){
       document.documentElement.lang = lang;
+
       document.querySelectorAll("[data-lang]").forEach(el => {
-        el.hidden = (el.getAttribute("data-lang") !== lang);
+        el.hidden = el.getAttribute("data-lang") !== lang;
       });
+
+      const d = dict[lang] || dict.fr;
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const k = el.getAttribute("data-i18n");
+        if (d[k]) el.textContent = d[k];
+      });
+
       const btn = document.getElementById("langBtn");
-      btn.textContent = (lang === "fr") ? dict.fr.btn : dict.en.btn;
+      btn.textContent = (lang === "fr") ? "EN" : "FR";
+
       localStorage.setItem("lang", lang);
     }
 
