@@ -1,281 +1,241 @@
-/* ORION FISH — Cookie banner (Accepter / Refuser)
-   - Stockage du choix en localStorage
-   - Charge GA4 UNIQUEMENT si "Accepter"
-   - Anti-bug: si un autre script masque/supprime le bandeau => ré-injection
-*/
+/* cookies.js — ORION FISH (Option 3: Accepter / Refuser + chargement GA/Pixel après consentement) */
 (() => {
-  "use strict";
+  const STORAGE_KEY = "of_cookie_consent_v1";
+  const COOKIE_KEY = "of_cookie_consent";
+  const DAYS = 180;
 
-  // ========= CONFIG =========
-  const OF_TRACKING = {
-    GA4_ID: "G-W367YRDYKY", // ✅ TON GA4 ID
-    META_PIXEL_ID: ""      // (optionnel) ex: "123456789012345"
-  };
+  // Config (tu peux aussi les définir dans <head> via window.OF_... )
+  const GA_ID = (window.OF_GA_MEASUREMENT_ID || "").trim();     // ex: "G-W367YRDYKY"
+  const META_PIXEL_ID = (window.OF_META_PIXEL_ID || "").trim(); // ex: "1234567890" (optionnel)
 
-  const STORAGE_KEY = "of_cookie_consent_v1"; // "accept" | "reject"
-  const STORAGE_TS  = "of_cookie_consent_ts_v1";
-  const CONSENT_TTL_DAYS = 180;
+  const isGPC = !!navigator.globalPrivacyControl; // Global Privacy Control
+  const isDNT = (navigator.doNotTrack === "1" || window.doNotTrack === "1");
 
-  const I18N = {
-    fr: {
-      title: "Cookies & confidentialité",
-      text:
-        "ORION FISH utilise des cookies techniques nécessaires au fonctionnement. " +
-        "Avec votre accord, nous pouvons activer des outils de mesure d’audience et/ou pixels marketing.",
-      accept: "Accepter",
-      reject: "Refuser",
-      more: "En savoir plus (Privacy)",
-      manage: "Gérer les cookies"
-    },
-    en: {
-      title: "Cookies & privacy",
-      text:
-        "ORION FISH uses strictly necessary technical cookies for website operation. " +
-        "With your permission, we may enable analytics and/or marketing pixels.",
-      accept: "Accept",
-      reject: "Reject",
-      more: "Learn more (Privacy)",
-      manage: "Manage cookies"
-    }
-  };
-
-  // ========= Utils =========
-  function getLang() {
-    const stored = (localStorage.getItem("lang") || "").toLowerCase();
-    const docLang = (document.documentElement.lang || "").toLowerCase();
-    const lang = stored || docLang || "fr";
-    return lang.startsWith("fr") ? "fr" : "en";
+  function setCookie(name, value, days) {
+    const d = new Date();
+    d.setTime(d.getTime() + days * 24 * 60 * 60 * 1000);
+    document.cookie = `${name}=${encodeURIComponent(value)}; expires=${d.toUTCString()}; path=/; SameSite=Lax`;
   }
 
-  function now() { return Date.now(); }
-
-  function isExpired(ts) {
-    if (!ts) return true;
-    const ttlMs = CONSENT_TTL_DAYS * 24 * 60 * 60 * 1000;
-    return (now() - ts) > ttlMs;
-  }
-
-  function getConsent() {
-    const v = localStorage.getItem(STORAGE_KEY);
-    const tsRaw = localStorage.getItem(STORAGE_TS);
-    const ts = tsRaw ? Number(tsRaw) : 0;
-
-    if (!v) return null;
-    if (!ts || Number.isNaN(ts) || isExpired(ts)) {
-      localStorage.removeItem(STORAGE_KEY);
-      localStorage.removeItem(STORAGE_TS);
+  function getLocal() {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      return raw ? JSON.parse(raw) : null;
+    } catch (e) {
       return null;
     }
-    if (v === "accept" || v === "reject") return v;
-    return null;
   }
 
-  function setConsent(value) {
-    localStorage.setItem(STORAGE_KEY, value);
-    localStorage.setItem(STORAGE_TS, String(now()));
+  function setLocal(obj) {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(obj));
+    } catch (e) {}
   }
 
-  function loadScript(src) {
-    return new Promise((resolve, reject) => {
-      const s = document.createElement("script");
-      s.src = src;
-      s.async = true;
-      s.onload = () => resolve(true);
-      s.onerror = () => reject(new Error("Failed to load: " + src));
-      document.head.appendChild(s);
-    });
+  function nowISO() {
+    return new Date().toISOString();
   }
 
-  // ========= Trackers (chargés seulement si accept) =========
-  let trackersLoaded = false;
+  function consentAccepted() {
+    const c = getLocal();
+    return !!(c && c.choice === "accept");
+  }
 
-  function loadGA4(ga4Id) {
-    if (!ga4Id) return;
-    if (window.dataLayer && window.gtag) return;
+  function consentRefused() {
+    const c = getLocal();
+    return !!(c && c.choice === "refuse");
+  }
+
+  function hasChoice() {
+    const c = getLocal();
+    return !!(c && (c.choice === "accept" || c.choice === "refuse"));
+  }
+
+  function loadScript(src, id) {
+    if (id && document.getElementById(id)) return;
+    const s = document.createElement("script");
+    if (id) s.id = id;
+    s.async = true;
+    s.src = src;
+    document.head.appendChild(s);
+  }
+
+  function enableGA(measurementId) {
+    if (!measurementId) return;
+
+    // gtag loader
+    loadScript(`https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(measurementId)}`, "of-ga-gtag");
 
     window.dataLayer = window.dataLayer || [];
     function gtag(){ window.dataLayer.push(arguments); }
-    window.gtag = gtag;
+    window.gtag = window.gtag || gtag;
 
-    loadScript(`https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(ga4Id)}`)
-      .then(() => {
-        gtag("js", new Date());
-        gtag("config", ga4Id, { anonymize_ip: true });
-      })
-      .catch(() => {});
+    window.gtag("js", new Date());
+    window.gtag("config", measurementId);
   }
 
-  function loadMetaPixel(pixelId) {
+  function enableMetaPixel(pixelId) {
     if (!pixelId) return;
     if (window.fbq) return;
 
+    // Pixel base code (inject)
     !(function(f,b,e,v,n,t,s){
-      if(f.fbq)return; n=f.fbq=function(){ n.callMethod ?
-        n.callMethod.apply(n,arguments) : n.queue.push(arguments) };
-      if(!f._fbq)f._fbq=n; n.push=n; n.loaded=!0; n.version="2.0";
-      n.queue=[]; t=b.createElement(e); t.async=!0; t.src=v;
-      s=b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t,s);
-    })(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
+      if(f.fbq) return;
+      n=f.fbq=function(){ n.callMethod ? n.callMethod.apply(n,arguments) : n.queue.push(arguments) };
+      if(!f._fbq) f._fbq=n;
+      n.push=n; n.loaded=!0; n.version='2.0';
+      n.queue=[];
+      t=b.createElement(e); t.async=!0;
+      t.src=v;
+      s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s);
+    })(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
 
-    window.fbq("init", pixelId);
-    window.fbq("track", "PageView");
+    window.fbq('init', pixelId);
+    window.fbq('track', 'PageView');
   }
 
-  function loadTrackersIfAllowed() {
-    if (trackersLoaded) return;
-    if (getConsent() !== "accept") return;
+  function applyConsent() {
+    if (!consentAccepted()) return;
 
-    trackersLoaded = true;
-    loadGA4(OF_TRACKING.GA4_ID);
-    loadMetaPixel(OF_TRACKING.META_PIXEL_ID);
+    // Charge uniquement après accept
+    enableGA(GA_ID);
+    enableMetaPixel(META_PIXEL_ID);
   }
 
-  // ========= Banner DOM =========
-  const BANNER_ID = "of-cookie-banner";
+  function buildBanner() {
+    if (document.getElementById("of-cookie-banner")) return;
 
-  function escapeHtml(str) {
-    return String(str)
-      .replaceAll("&", "&amp;")
-      .replaceAll("<", "&lt;")
-      .replaceAll(">", "&gt;")
-      .replaceAll('"', "&quot;")
-      .replaceAll("'", "&#039;");
-  }
+    const wrap = document.createElement("div");
+    wrap.id = "of-cookie-banner";
+    wrap.setAttribute("role", "dialog");
+    wrap.setAttribute("aria-live", "polite");
+    wrap.setAttribute("aria-label", "Cookies");
 
-  function bannerHTML(lang) {
-    const t = I18N[lang];
-    return `
-      <div id="${BANNER_ID}" class="of-open" role="dialog" aria-live="polite" aria-label="${escapeHtml(t.title)}">
-        <div class="of-cookie-card">
-          <div class="of-cookie-row">
-            <div>
-              <div class="of-cookie-title">${escapeHtml(t.title)}</div>
-              <p class="of-cookie-text">${escapeHtml(t.text)}</p>
-              <div class="of-cookie-links">
-                <a href="/privacy.html#cookies">${escapeHtml(t.more)}</a>
-                <a href="#" data-of-cookie="manage">${escapeHtml(t.manage)}</a>
-              </div>
+    wrap.innerHTML = `
+      <div class="of-card">
+        <div class="of-inner">
+          <div>
+            <div class="of-title">Cookies</div>
+            <div class="of-text">
+              ORION FISH utilise des cookies <strong>techniques</strong> nécessaires au bon fonctionnement.
+              Avec votre accord, nous pouvons activer des cookies de <strong>mesure d’audience</strong> (Google Analytics)
+              et/ou de <strong>marketing</strong> (Meta Pixel).
             </div>
+            <div class="of-links" style="margin-top:8px">
+              <a href="/privacy.html#cookies">En savoir plus</a>
+              <span style="opacity:.65"> • </span>
+              <a href="#" data-of-cookie-open="1">Gérer</a>
+            </div>
+          </div>
 
-            <div class="of-cookie-actions">
-              <button class="of-btn" type="button" data-of-cookie="reject">${escapeHtml(t.reject)}</button>
-              <button class="of-btn of-btn-primary" type="button" data-of-cookie="accept">${escapeHtml(t.accept)}</button>
+          <div>
+            <div class="of-actions">
+              <button class="of-btn" type="button" id="of-cookie-refuse">Refuser</button>
+              <button class="of-btn of-primary" type="button" id="of-cookie-accept">Accepter</button>
+            </div>
+            <div class="of-note" style="margin-top:8px">
+              Vous pouvez modifier votre choix à tout moment via le lien “Cookies”.
             </div>
           </div>
         </div>
       </div>
     `;
+
+    document.body.appendChild(wrap);
+
+    const acceptBtn = document.getElementById("of-cookie-accept");
+    const refuseBtn = document.getElementById("of-cookie-refuse");
+
+    acceptBtn.addEventListener("click", () => {
+      const payload = { choice: "accept", at: nowISO() };
+      setLocal(payload);
+      setCookie(COOKIE_KEY, "accept", DAYS);
+      closeBanner();
+      applyConsent();
+    });
+
+    refuseBtn.addEventListener("click", () => {
+      const payload = { choice: "refuse", at: nowISO() };
+      setLocal(payload);
+      setCookie(COOKIE_KEY, "refuse", DAYS);
+      closeBanner();
+    });
+
+    // liens "Gérer" / ouverture
+    document.querySelectorAll('[data-of-cookie-open="1"]').forEach(el => {
+      el.addEventListener("click", (e) => {
+        e.preventDefault();
+        openBanner(true);
+      });
+    });
+
+    // bouton reset (si présent dans privacy.html)
+    const resetBtn = document.getElementById("of-cookie-reset");
+    if (resetBtn) {
+      resetBtn.addEventListener("click", () => {
+        try { localStorage.removeItem(STORAGE_KEY); } catch(e){}
+        setCookie(COOKIE_KEY, "", -1);
+        openBanner(true);
+      });
+    }
   }
 
-  function removeBanner() {
-    const el = document.getElementById(BANNER_ID);
-    if (el) el.remove();
+  function openBanner(force = false) {
+    const el = document.getElementById("of-cookie-banner");
+    if (!el) return;
+
+    if (!force && hasChoice()) return;
+    el.classList.add("of-open");
   }
 
-  function hideBanner() {
-    const el = document.getElementById(BANNER_ID);
+  function closeBanner() {
+    const el = document.getElementById("of-cookie-banner");
     if (!el) return;
     el.classList.remove("of-open");
-    el.style.display = "none";
   }
 
-  function forceVisible(el) {
-    el.classList.add("of-open");
-    el.style.display = "block";
-    el.style.visibility = "visible";
-    el.style.opacity = "1";
-  }
+  function hardenVisibility() {
+    // Si une autre CSS/JS le cache, on le ré-affiche tant que pas de choix
+    const el = document.getElementById("of-cookie-banner");
+    if (!el) return;
 
-  function showBanner() {
-    if (getConsent()) return;
-
-    const existing = document.getElementById(BANNER_ID);
-    if (existing) { forceVisible(existing); return; }
-
-    const lang = getLang();
-    const wrap = document.createElement("div");
-    wrap.innerHTML = bannerHTML(lang);
-    const banner = wrap.firstElementChild;
-
-    document.body.appendChild(banner);
-
-    banner.addEventListener("click", (e) => {
-      const target = e.target;
-      if (!(target instanceof Element)) return;
-
-      const action = target.getAttribute("data-of-cookie");
-      if (!action) return;
-
-      if (action === "accept") {
-        setConsent("accept");
-        hideBanner();
-        loadTrackersIfAllowed();
-      }
-
-      if (action === "reject") {
-        setConsent("reject");
-        hideBanner();
-      }
-
-      if (action === "manage") {
-        e.preventDefault();
-        localStorage.removeItem(STORAGE_KEY);
-        localStorage.removeItem(STORAGE_TS);
-        removeBanner();
-        showBanner();
-      }
-    });
-  }
-
-  function startObserver() {
     const obs = new MutationObserver(() => {
-      if (getConsent()) return;
-
-      const el = document.getElementById(BANNER_ID);
-      if (!el) { showBanner(); return; }
-
-      const cs = window.getComputedStyle(el);
-      if (cs.display === "none" || cs.visibility === "hidden" || cs.opacity === "0") {
-        forceVisible(el);
+      if (!hasChoice()) {
+        const hiddenByStyle = (el.style.display === "none");
+        const hiddenByClass = !el.classList.contains("of-open");
+        if (hiddenByStyle) el.style.display = "";
+        if (hiddenByClass) el.classList.add("of-open");
       }
     });
 
-    obs.observe(document.documentElement, {
-      childList: true,
-      subtree: true,
-      attributes: true,
-      attributeFilter: ["style", "class"]
-    });
+    obs.observe(el, { attributes: true, attributeFilter: ["style", "class"] });
   }
 
-  // API simple
-  window.ofCookies = {
-    open: () => {
-      localStorage.removeItem(STORAGE_KEY);
-      localStorage.removeItem(STORAGE_TS);
-      removeBanner();
-      showBanner();
-    },
-    reset: () => {
-      localStorage.removeItem(STORAGE_KEY);
-      localStorage.removeItem(STORAGE_TS);
-      trackersLoaded = false;
-      removeBanner();
-      showBanner();
-    },
-    status: () => getConsent()
-  };
+  function init() {
+    buildBanner();
 
-  function boot() {
-    loadTrackersIfAllowed(); // si déjà accepté sur une visite précédente
-    showBanner();
-    startObserver();
+    // Respect GPC/DNT : on refuse par défaut et on n'affiche pas
+    if (!hasChoice() && (isGPC || isDNT)) {
+      const payload = { choice: "refuse", at: nowISO(), reason: (isGPC ? "GPC" : "DNT") };
+      setLocal(payload);
+      setCookie(COOKIE_KEY, "refuse", DAYS);
+      closeBanner();
+      return;
+    }
+
+    if (!hasChoice()) {
+      openBanner(true);
+      hardenVisibility();
+    } else {
+      closeBanner();
+      applyConsent(); // si "accept", charge GA/Pixel
+    }
   }
 
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", boot, { once: true });
+    document.addEventListener("DOMContentLoaded", init);
   } else {
-    boot();
+    init();
   }
-
 })();
