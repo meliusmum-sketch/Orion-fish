@@ -1,16 +1,15 @@
 /* ORION FISH — Cookie banner (Accepter / Refuser)
    - Stockage du choix en localStorage
-   - Charge GA4 / Meta Pixel UNIQUEMENT si "Accepter" (IDs optionnels)
-   - Anti-bug: si un autre script supprime/masque le bandeau => ré-injection
+   - Charge GA4 UNIQUEMENT si "Accepter"
+   - Anti-bug: si un autre script masque/supprime le bandeau => ré-injection
 */
-
 (() => {
   "use strict";
 
-  // ========= CONFIG (optionnel) =========
+  // ========= CONFIG =========
   const OF_TRACKING = {
-    GA4_ID: "",        // ex: "G-XXXXXXXXXX"
-    META_PIXEL_ID: ""  // ex: "123456789012345"
+    GA4_ID: "G-W367YRDYKY", // ✅ TON GA4 ID
+    META_PIXEL_ID: ""      // (optionnel) ex: "123456789012345"
   };
 
   const STORAGE_KEY = "of_cookie_consent_v1"; // "accept" | "reject"
@@ -40,6 +39,7 @@
     }
   };
 
+  // ========= Utils =========
   function getLang() {
     const stored = (localStorage.getItem("lang") || "").toLowerCase();
     const docLang = (document.documentElement.lang || "").toLowerCase();
@@ -86,7 +86,7 @@
     });
   }
 
-  // ===== Trackers (chargés seulement si accept) =====
+  // ========= Trackers (chargés seulement si accept) =========
   let trackersLoaded = false;
 
   function loadGA4(ga4Id) {
@@ -97,10 +97,11 @@
     function gtag(){ window.dataLayer.push(arguments); }
     window.gtag = gtag;
 
-    gtag("js", new Date());
-    gtag("config", ga4Id, { anonymize_ip: true });
-
     loadScript(`https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(ga4Id)}`)
+      .then(() => {
+        gtag("js", new Date());
+        gtag("config", ga4Id, { anonymize_ip: true });
+      })
       .catch(() => {});
   }
 
@@ -123,12 +124,13 @@
   function loadTrackersIfAllowed() {
     if (trackersLoaded) return;
     if (getConsent() !== "accept") return;
+
     trackersLoaded = true;
     loadGA4(OF_TRACKING.GA4_ID);
     loadMetaPixel(OF_TRACKING.META_PIXEL_ID);
   }
 
-  // ===== Banner DOM =====
+  // ========= Banner DOM =========
   const BANNER_ID = "of-cookie-banner";
 
   function escapeHtml(str) {
@@ -225,7 +227,6 @@
     });
   }
 
-  // Anti-bug “apparaît puis disparaît”
   function startObserver() {
     const obs = new MutationObserver(() => {
       if (getConsent()) return;
@@ -247,7 +248,7 @@
     });
   }
 
-  // API (lien “Gérer les cookies” dans footer)
+  // API simple
   window.ofCookies = {
     open: () => {
       localStorage.removeItem(STORAGE_KEY);
@@ -266,12 +267,15 @@
   };
 
   function boot() {
-    loadTrackersIfAllowed();
+    loadTrackersIfAllowed(); // si déjà accepté sur une visite précédente
     showBanner();
     startObserver();
   }
 
-  if (document.readyState === "complete") boot();
-  else window.addEventListener("load", boot, { once: true });
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", boot, { once: true });
+  } else {
+    boot();
+  }
 
 })();
