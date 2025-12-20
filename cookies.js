@@ -1,7 +1,7 @@
 /* ORION FISH — Cookie banner (Option 3: Accepter / Refuser)
    - Stockage du choix en localStorage (pas de cookie publicitaire par défaut)
    - Charge GA4 / Meta Pixel UNIQUEMENT si "Accepter"
-   - Anti-bug: si un autre script supprime le bandeau, on le ré-injecte
+   - Anti-bug: si un autre script supprime/masque le bandeau, on le ré-injecte
 */
 
 (() => {
@@ -79,7 +79,6 @@
 
     if (!v) return null;
     if (!ts || Number.isNaN(ts) || isExpired(ts)) {
-      // expire => reset
       localStorage.removeItem(STORAGE_KEY);
       localStorage.removeItem(STORAGE_TS);
       return null;
@@ -112,7 +111,6 @@
   function loadGA4(ga4Id) {
     if (!ga4Id) return;
 
-    // gtag
     if (window.dataLayer && window.gtag) return;
 
     window.dataLayer = window.dataLayer || [];
@@ -123,14 +121,13 @@
     gtag("config", ga4Id, { anonymize_ip: true });
 
     loadScript(`https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(ga4Id)}`)
-      .catch(() => {/* silencieux */});
+      .catch(() => {});
   }
 
   function loadMetaPixel(pixelId) {
     if (!pixelId) return;
     if (window.fbq) return;
 
-    // Snippet Meta Pixel (version standard)
     !(function(f,b,e,v,n,t,s){
       if(f.fbq)return; n=f.fbq=function(){ n.callMethod ?
         n.callMethod.apply(n,arguments) : n.queue.push(arguments) };
@@ -205,14 +202,14 @@
   }
 
   function showBanner() {
-    // Si consent déjà présent => pas de bandeau
     if (getConsent()) return;
 
-    // si déjà injecté => forcer visible (anti "ça disparaît")
     const existing = document.getElementById(BANNER_ID);
     if (existing) {
       existing.classList.add("of-open");
       existing.style.display = "block";
+      existing.style.visibility = "visible";
+      existing.style.opacity = "1";
       return;
     }
 
@@ -243,8 +240,6 @@
 
       if (action === "manage") {
         e.preventDefault();
-        // Option simple: réafficher le bandeau (et permettre de re-choisir)
-        // Tu peux remplacer par un vrai panneau “préférences” plus tard.
         localStorage.removeItem(STORAGE_KEY);
         localStorage.removeItem(STORAGE_TS);
         removeBanner();
@@ -255,17 +250,13 @@
 
   // =========================
   // 7) ANTI-BUG "apparait puis disparait"
-  //    - attendre que la page soit finie
-  //    - observer si quelqu’un supprime/masque le bandeau
   // =========================
   function startObserver() {
     const obs = new MutationObserver(() => {
-      // si pas de consent => le bandeau doit exister
       if (!getConsent()) {
         const el = document.getElementById(BANNER_ID);
         if (!el) showBanner();
         else {
-          // si masqué par un CSS/script => on le force
           const cs = window.getComputedStyle(el);
           if (cs.display === "none" || cs.visibility === "hidden" || cs.opacity === "0") {
             el.classList.add("of-open");
@@ -286,7 +277,7 @@
   }
 
   // =========================
-  // 8) API (utile si tu veux un lien “Gérer les cookies” en footer)
+  // 8) API
   // =========================
   window.ofCookies = {
     open: () => {
@@ -309,12 +300,11 @@
   // 9) BOOT
   // =========================
   function boot() {
-    loadTrackersIfAllowed(); // si déjà "accept" (visites suivantes)
-    showBanner();            // sinon, afficher
-    startObserver();         // anti-disparition
+    loadTrackersIfAllowed();
+    showBanner();
+    startObserver();
   }
 
-  // window.load = plus robuste quand d’autres scripts touchent au DOM après
   if (document.readyState === "complete") boot();
   else window.addEventListener("load", boot, { once: true });
 
