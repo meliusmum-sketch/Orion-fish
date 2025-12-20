@@ -1,5 +1,5 @@
-/* ORION FISH — Cookie banner (Option 3: Accepter / Refuser)
-   IMPORTANT: ce CSS doit être chargé APRES styles.css et orion-ai.css
+/* ORION FISH — Cookie banner (Accepter / Refuser)
+   IMPORTANT: charger APRES styles.css et orion-ai.css
 */
 
 #of-cookie-banner {
@@ -7,9 +7,8 @@
   left: 12px;
   right: 12px;
   bottom: 12px;
-
-  z-index: 2147483647; /* très haut pour éviter qu'un widget le passe devant */
-  display: none; /* affiché seulement si .of-open */
+  z-index: 2147483647;
+  display: none;
 }
 
 #of-cookie-banner.of-open {
@@ -19,15 +18,12 @@
 #of-cookie-banner .of-cookie-card {
   max-width: 980px;
   margin: 0 auto;
-
   border-radius: 14px;
   border: 1px solid rgba(255,255,255,.12);
   background: rgba(16, 18, 22, .92);
   backdrop-filter: blur(10px);
-
   color: #fff;
   box-shadow: 0 16px 40px rgba(0,0,0,.45);
-
   padding: 14px 14px;
 }
 
