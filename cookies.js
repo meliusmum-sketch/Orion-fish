@@ -1,33 +1,22 @@
-/* ORION FISH — Cookie banner (Option 3: Accepter / Refuser)
-   - Stockage du choix en localStorage (pas de cookie publicitaire par défaut)
-   - Charge GA4 / Meta Pixel UNIQUEMENT si "Accepter"
-   - Anti-bug: si un autre script supprime/masque le bandeau, on le ré-injecte
+/* ORION FISH — Cookie banner (Accepter / Refuser)
+   - Stockage du choix en localStorage
+   - Charge GA4 / Meta Pixel UNIQUEMENT si "Accepter" (IDs optionnels)
+   - Anti-bug: si un autre script supprime/masque le bandeau => ré-injection
 */
 
 (() => {
   "use strict";
 
-  // =========================
-  // 1) CONFIG (optionnel)
-  // =========================
+  // ========= CONFIG (optionnel) =========
   const OF_TRACKING = {
-    // Exemple GA4: "G-XXXXXXXXXX"
-    GA4_ID: "",
-
-    // Exemple Meta Pixel: "123456789012345"
-    META_PIXEL_ID: ""
+    GA4_ID: "",        // ex: "G-XXXXXXXXXX"
+    META_PIXEL_ID: ""  // ex: "123456789012345"
   };
 
-  // =========================
-  // 2) KEYS
-  // =========================
   const STORAGE_KEY = "of_cookie_consent_v1"; // "accept" | "reject"
-  const STORAGE_TS = "of_cookie_consent_ts_v1"; // timestamp ms
-  const CONSENT_TTL_DAYS = 180; // 6 mois
+  const STORAGE_TS  = "of_cookie_consent_ts_v1";
+  const CONSENT_TTL_DAYS = 180;
 
-  // =========================
-  // 3) TEXTES (FR/EN)
-  // =========================
   const I18N = {
     fr: {
       title: "Cookies & confidentialité",
@@ -51,20 +40,14 @@
     }
   };
 
-  // =========================
-  // 4) HELPERS
-  // =========================
   function getLang() {
     const stored = (localStorage.getItem("lang") || "").toLowerCase();
     const docLang = (document.documentElement.lang || "").toLowerCase();
-
     const lang = stored || docLang || "fr";
     return lang.startsWith("fr") ? "fr" : "en";
   }
 
-  function now() {
-    return Date.now();
-  }
+  function now() { return Date.now(); }
 
   function isExpired(ts) {
     if (!ts) return true;
@@ -103,14 +86,11 @@
     });
   }
 
-  // =========================
-  // 5) TRACKERS (chargés seulement si accept)
-  // =========================
+  // ===== Trackers (chargés seulement si accept) =====
   let trackersLoaded = false;
 
   function loadGA4(ga4Id) {
     if (!ga4Id) return;
-
     if (window.dataLayer && window.gtag) return;
 
     window.dataLayer = window.dataLayer || [];
@@ -142,18 +122,23 @@
 
   function loadTrackersIfAllowed() {
     if (trackersLoaded) return;
-    const consent = getConsent();
-    if (consent !== "accept") return;
-
+    if (getConsent() !== "accept") return;
     trackersLoaded = true;
     loadGA4(OF_TRACKING.GA4_ID);
     loadMetaPixel(OF_TRACKING.META_PIXEL_ID);
   }
 
-  // =========================
-  // 6) BANNER DOM
-  // =========================
+  // ===== Banner DOM =====
   const BANNER_ID = "of-cookie-banner";
+
+  function escapeHtml(str) {
+    return String(str)
+      .replaceAll("&", "&amp;")
+      .replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;")
+      .replaceAll('"', "&quot;")
+      .replaceAll("'", "&#039;");
+  }
 
   function bannerHTML(lang) {
     const t = I18N[lang];
@@ -180,15 +165,6 @@
     `;
   }
 
-  function escapeHtml(str) {
-    return String(str)
-      .replaceAll("&", "&amp;")
-      .replaceAll("<", "&lt;")
-      .replaceAll(">", "&gt;")
-      .replaceAll('"', "&quot;")
-      .replaceAll("'", "&#039;");
-  }
-
   function removeBanner() {
     const el = document.getElementById(BANNER_ID);
     if (el) el.remove();
@@ -201,17 +177,18 @@
     el.style.display = "none";
   }
 
+  function forceVisible(el) {
+    el.classList.add("of-open");
+    el.style.display = "block";
+    el.style.visibility = "visible";
+    el.style.opacity = "1";
+  }
+
   function showBanner() {
     if (getConsent()) return;
 
     const existing = document.getElementById(BANNER_ID);
-    if (existing) {
-      existing.classList.add("of-open");
-      existing.style.display = "block";
-      existing.style.visibility = "visible";
-      existing.style.opacity = "1";
-      return;
-    }
+    if (existing) { forceVisible(existing); return; }
 
     const lang = getLang();
     const wrap = document.createElement("div");
@@ -248,23 +225,17 @@
     });
   }
 
-  // =========================
-  // 7) ANTI-BUG "apparait puis disparait"
-  // =========================
+  // Anti-bug “apparaît puis disparaît”
   function startObserver() {
     const obs = new MutationObserver(() => {
-      if (!getConsent()) {
-        const el = document.getElementById(BANNER_ID);
-        if (!el) showBanner();
-        else {
-          const cs = window.getComputedStyle(el);
-          if (cs.display === "none" || cs.visibility === "hidden" || cs.opacity === "0") {
-            el.classList.add("of-open");
-            el.style.display = "block";
-            el.style.visibility = "visible";
-            el.style.opacity = "1";
-          }
-        }
+      if (getConsent()) return;
+
+      const el = document.getElementById(BANNER_ID);
+      if (!el) { showBanner(); return; }
+
+      const cs = window.getComputedStyle(el);
+      if (cs.display === "none" || cs.visibility === "hidden" || cs.opacity === "0") {
+        forceVisible(el);
       }
     });
 
@@ -276,9 +247,7 @@
     });
   }
 
-  // =========================
-  // 8) API
-  // =========================
+  // API (lien “Gérer les cookies” dans footer)
   window.ofCookies = {
     open: () => {
       localStorage.removeItem(STORAGE_KEY);
@@ -296,9 +265,6 @@
     status: () => getConsent()
   };
 
-  // =========================
-  // 9) BOOT
-  // =========================
   function boot() {
     loadTrackersIfAllowed();
     showBanner();
