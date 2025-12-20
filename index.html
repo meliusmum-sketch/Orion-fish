@@ -12,19 +12,30 @@
   <link rel="apple-touch-icon" href="/logo-orion-fish.svg">
 
   <link rel="stylesheet" href="/styles.css">
+
+  <!-- ✅ Assistant Orion fish (OBLIGATOIRE pour voir le bouton/Widget) -->
   <link rel="stylesheet" href="/orion-ai.css">
-  <link rel="stylesheet" href="/cookies.css">
+
+  <!-- ✅ ConsentManager CMP (AUTOBLOCKING) — à mettre le plus haut possible dans <head> -->
+  <script type="text/javascript" data-cmp-ab="1"
+    src="https://cdn.consentmanager.net/delivery/autoblocking/c6e50b797231e.js"
+    data-cmp-host="b.delivery.consentmanager.net"
+    data-cmp-cdn="cdn.consentmanager.net"
+    data-cmp-codesrc="16"></script>
+
+  <!-- ✅ Google Analytics (GA4) — placé APRÈS consentmanager + avec data-cmp-ab="1" -->
+  <script async data-cmp-ab="1" src="https://www.googletagmanager.com/gtag/js?id=G-W367YRDYKY"></script>
+  <script data-cmp-ab="1">
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-W367YRDYKY');
+  </script>
 
   <script>
     if (location.protocol === "http:" && location.hostname !== "localhost") {
       location.replace("https://" + location.host + location.pathname + location.search + location.hash);
     }
-  </script>
-
-  <!-- ✅ IDs Analytics/Pixel (charge uniquement après "Accepter") -->
-  <script>
-    window.OF_GA_MEASUREMENT_ID = "G-W367YRDYKY";
-    // window.OF_META_PIXEL_ID = "1234567890"; // optionnel
   </script>
 
   <script type="application/ld+json">
@@ -46,8 +57,9 @@
   </script>
 
   <script src="/site.js" defer></script>
+
+  <!-- ✅ Assistant Orion fish (OBLIGATOIRE) -->
   <script src="/orion-ai.js" defer></script>
-  <script src="/cookies.js" defer></script>
 </head>
 
 <body class="page-home">
@@ -60,6 +72,7 @@
           <a class="pill" href="/"><span class="dot" aria-hidden="true"></span><span>ORION FISH RFQ</span></a>
           <a class="pill" href="/rfq.html" data-i18n="nav_rfq">RFQ / Devis</a>
           <a class="pill" href="/compliance.html" data-i18n="nav_docs">Documents</a>
+          <!-- ✅ NOUVEAU -->
           <a class="pill" href="/fromage.html">Fromage (bientôt)</a>
         </div>
 
@@ -167,9 +180,7 @@
 
             <div class="cta" style="margin-top:.9rem">
               <a class="btn btn-primary" href="/compliance.html" data-i18n="home_open_docs">Ouvrir Documents</a>
-              <a class="btn btn-outline" href="/#contact" data-i18n="home_talk" data-orion-ai-open="1">
-                Parler à l’équipe
-              </a>
+              <a class="btn btn-outline" href="/#contact" data-i18n="home_talk" data-orion-ai-open="1">Parler à l’équipe</a>
             </div>
           </div>
         </div>
@@ -343,7 +354,8 @@
             <span>•</span>
             <a href="/privacy.html">Privacy & Terms</a>
             <span>•</span>
-            <a href="#" data-of-cookie-open="1">Cookies</a>
+            <!-- ✅ Lien officiel consentmanager : réafficher / gérer les cookies -->
+            <a href="?cmpscreen" class="cmpfooterlink cmpfooterlinkcmp">Paramètres cookies</a>
           </div>
           <div class="foot-copy">© <span id="year"></span> ORION FISH. Tous droits réservés.</div>
         </div>
