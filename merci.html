@@ -3,90 +3,57 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ORION FISH – Merci</title>
-
-  <meta name="description" content="Merci – ORION FISH. Votre message a bien été envoyé." />
-  <meta name="robots" content="noindex,follow" />
+  <title>Merci – ORION FISH</title>
+  <meta name="robots" content="noindex,nofollow" />
 
   <link rel="icon" href="/logo-orion-fish.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/logo-orion-fish.svg">
+  <link rel="stylesheet" href="/styles.css" />
 
-  <link rel="stylesheet" href="/styles.css">
-  <link rel="stylesheet" href="/orion-ai.css">
-  <link rel="stylesheet" href="/cookies.css">
+  <!-- ✅ ConsentManager CMP (AUTOBLOCKING) -->
+  <script type="text/javascript" data-cmp-ab="1"
+    src="https://cdn.consentmanager.net/delivery/autoblocking/c6e50b797231e.js"
+    data-cmp-host="b.delivery.consentmanager.net"
+    data-cmp-cdn="cdn.consentmanager.net"
+    data-cmp-codesrc="16"></script>
+
+  <!-- ✅ Google Analytics (GA4) -->
+  <script async data-cmp-ab="1" src="https://www.googletagmanager.com/gtag/js?id=G-W367YRDYKY"></script>
+  <script data-cmp-ab="1">
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-W367YRDYKY');
+  </script>
 
   <script>
     if (location.protocol === "http:" && location.hostname !== "localhost") {
       location.replace("https://" + location.host + location.pathname + location.search + location.hash);
     }
   </script>
-
-  <script>
-    window.OF_GA_MEASUREMENT_ID = "G-W367YRDYKY";
-    // window.OF_META_PIXEL_ID = "1234567890";
-  </script>
-
-  <script src="/orion-ai.js" defer></script>
-  <script src="/cookies.js" defer></script>
 </head>
 
 <body class="page-merci">
-  <a class="skip" href="#main">Aller au contenu</a>
-
-  <header>
-    <div class="container">
-      <div class="nav">
-        <a class="logo-link" href="/" aria-label="ORION FISH Home">
-          <img class="logo-mark" src="/logo-orion-fish.svg" alt="Logo ORION FISH">
-          <span class="logo-text">
-            <span class="logo-title">ORION FISH</span>
-            <span class="logo-sub">Seafood & Juices</span>
-          </span>
-        </a>
-
-        <nav aria-label="Navigation">
-          <ul>
-            <li><a href="/">Accueil</a></li>
-            <li><a href="/rfq.html">RFQ / Devis</a></li>
-            <li><a href="/compliance.html">Documents</a></li>
-            <li><a href="/privacy.html">Privacy & Terms</a></li>
-          </ul>
-        </nav>
-      </div>
-    </div>
-  </header>
-
-  <main id="main" class="container">
-    <section class="panel" style="margin-top:18px">
-      <h1>Merci ✅</h1>
-      <p class="muted">Votre message a bien été envoyé. Nous vous répondrons rapidement.</p>
+  <main class="container" style="padding:48px 0">
+    <section class="panel">
+      <h1>Merci !</h1>
+      <p class="muted">Votre message a bien été envoyé à l’équipe ORION FISH.</p>
+      <p>Nous vous répondrons dès que possible.</p>
 
       <div class="cta" style="margin-top:12px">
-        <a class="btn btn-primary" href="/rfq.html">Faire une RFQ</a>
-        <a class="btn btn-outline" href="/" >Retour à l’accueil</a>
-        <a class="btn btn-outline" href="#" data-orion-ai-open="1">Parler à l’assistant</a>
+        <a class="btn btn-primary" href="/">Retour à l’accueil</a>
+        <a class="btn btn-outline" href="/rfq.html">Faire une autre demande RFQ</a>
       </div>
 
-      <p class="muted" style="margin-top:12px">
-        Email : <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a> •
-        Tel/WhatsApp : <a href="tel:+221339138392">+221339138392</a>
+      <p class="muted" style="margin-top:16px">
+        Contact direct : <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a> •
+        <a href="tel:+221339138392">+221339138392</a>
+      </p>
+
+      <p class="muted" style="margin-top:10px">
+        <a href="?cmpscreen" class="cmpfooterlink cmpfooterlinkcmp">Paramètres cookies</a>
       </p>
     </section>
-
-    <footer class="footer" style="margin-top:18px">
-      <div class="foot-links">
-        <a href="/">Accueil</a>
-        <span>•</span>
-        <a href="/privacy.html">Privacy & Terms</a>
-        <span>•</span>
-        <a href="#" data-of-cookie-open="1">Cookies</a>
-      </div>
-      <div class="foot-copy">© <span id="year"></span> ORION FISH</div>
-    </footer>
-
-    <script>
-      document.getElementById("year").textContent = new Date().getFullYear();
-    </script>
   </main>
 </body>
 </html>
