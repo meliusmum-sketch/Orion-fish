@@ -13,7 +13,22 @@
 
   <link rel="stylesheet" href="/styles.css">
   <link rel="stylesheet" href="/orion-ai.css">
-  <link rel="stylesheet" href="/cookies.css">
+
+  <!-- ✅ ConsentManager CMP (AUTOBLOCKING) -->
+  <script type="text/javascript" data-cmp-ab="1"
+    src="https://cdn.consentmanager.net/delivery/autoblocking/c6e50b797231e.js"
+    data-cmp-host="b.delivery.consentmanager.net"
+    data-cmp-cdn="cdn.consentmanager.net"
+    data-cmp-codesrc="16"></script>
+
+  <!-- ✅ Google Analytics (GA4) -->
+  <script async data-cmp-ab="1" src="https://www.googletagmanager.com/gtag/js?id=G-W367YRDYKY"></script>
+  <script data-cmp-ab="1">
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-W367YRDYKY');
+  </script>
 
   <script>
     if (location.protocol === "http:" && location.hostname !== "localhost") {
@@ -21,14 +36,8 @@
     }
   </script>
 
-  <script>
-    window.OF_GA_MEASUREMENT_ID = "G-W367YRDYKY";
-    // window.OF_META_PIXEL_ID = "1234567890";
-  </script>
-
   <script src="/site.js" defer></script>
   <script src="/orion-ai.js" defer></script>
-  <script src="/cookies.js" defer></script>
 </head>
 
 <body class="page-docs">
@@ -154,39 +163,39 @@
           <div class="two">
             <div>
               <label for="company" data-i18n="form_company">Nom / Entreprise</label>
-              <input id="company" name="Nom / Entreprise" type="text" required placeholder="Nom / Company" />
+              <input id="company" name="Nom / Entreprise" type="text" required data-i18n-placeholder="ph_company" placeholder="Nom / Company" />
             </div>
             <div>
               <label for="email" data-i18n="form_email">E-mail</label>
-              <input id="email" name="email" type="email" required placeholder="name@company.com" />
+              <input id="email" name="email" type="email" required data-i18n-placeholder="ph_email" placeholder="name@company.com" />
             </div>
           </div>
 
           <div class="two">
             <div>
               <label for="phone" data-i18n="form_phone_wa">Téléphone / WhatsApp</label>
-              <input id="phone" name="Téléphone" type="tel" placeholder="+221 ..." />
+              <input id="phone" name="Téléphone" type="tel" data-i18n-placeholder="ph_phone" placeholder="+221 ..." />
             </div>
             <div>
               <label for="destination" data-i18n="form_destination">Destination (pays)</label>
-              <input id="destination" name="Destination" type="text" placeholder="Ex: France, Pays-Bas, Sénégal..." />
+              <input id="destination" name="Destination" type="text" data-i18n-placeholder="ph_destination" placeholder="Ex: France, Pays-Bas, Sénégal..." />
             </div>
           </div>
 
           <div class="two">
             <div>
               <label for="product" data-i18n="form_product">Produit concerné</label>
-              <input id="product" name="Produit" type="text" placeholder="Ex: thon, crevette, jus d’ananas..." />
+              <input id="product" name="Produit" type="text" data-i18n-placeholder="ph_product" placeholder="Ex: thon, crevette, jus d’ananas..." />
             </div>
             <div>
               <label for="docs" data-i18n="form_docs_wanted">Documents souhaités</label>
-              <input id="docs" name="Documents souhaités" type="text" placeholder="Ex: specs, traçabilité, fiche société..." />
+              <input id="docs" name="Documents souhaités" type="text" data-i18n-placeholder="ph_docs_wanted" placeholder="Ex: specs, traçabilité, fiche société..." />
             </div>
           </div>
 
           <div>
             <label for="message" data-i18n="form_message">Message</label>
-            <textarea id="message" name="Message" required placeholder="Précise ton besoin et ton contexte (B2B, appel d’offres, etc.)"></textarea>
+            <textarea id="message" name="Message" required data-i18n-placeholder="ph_message" placeholder="Précise ton besoin et ton contexte (B2B, appel d’offres, etc.)"></textarea>
           </div>
 
           <button class="btn btn-primary" type="submit" data-i18n="form_send">Envoyer</button>
@@ -198,15 +207,13 @@
         </p>
       </section>
 
-      <footer class="footer" style="margin-top:18px">
+      <footer class="footer" style="margin-top:24px">
         <div class="foot-links">
-          <a href="/">Accueil</a>
-          <span>•</span>
-          <a href="/rfq.html">RFQ</a>
+          <a href="/rfq.html">RFQ / Devis</a>
           <span>•</span>
           <a href="/privacy.html">Privacy & Terms</a>
           <span>•</span>
-          <a href="#" data-of-cookie-open="1">Cookies</a>
+          <a href="?cmpscreen" class="cmpfooterlink cmpfooterlinkcmp">Paramètres cookies</a>
         </div>
         <div class="foot-copy">© <span id="year"></span> ORION FISH</div>
       </footer>
