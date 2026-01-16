@@ -3,51 +3,41 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Privacy & Terms – ORION FISH</title>
-  <meta name="description" content="Politique de confidentialité et conditions d'utilisation – ORION FISH." />
+
+  <title>ORION FISH – Privacy & Terms</title>
+  <meta name="description" content="ORION FISH – Privacy & Terms : cookies, confidentialité et informations légales." />
   <meta name="robots" content="index,follow" />
+  <meta name="theme-color" content="#000000" />
 
   <link rel="icon" href="/logo-orion-fish.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/logo-orion-fish.svg">
-  <link rel="stylesheet" href="/styles.css" />
-  <link rel="stylesheet" href="/orion-ai.css" />
 
-  <!-- ✅ ConsentManager CMP (AUTOBLOCKING) -->
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/orion-ai.css">
+
+  <!-- ConsentManager CMP (AUTOBLOCKING) -->
   <script type="text/javascript" data-cmp-ab="1"
     src="https://cdn.consentmanager.net/delivery/autoblocking/c6e50b797231e.js"
     data-cmp-host="b.delivery.consentmanager.net"
     data-cmp-cdn="cdn.consentmanager.net"
     data-cmp-codesrc="16"></script>
 
-  <!-- ✅ Google Analytics (GA4) -->
-  <script async data-cmp-ab="1" src="https://www.googletagmanager.com/gtag/js?id=G-W367YRDYKY"></script>
-  <script data-cmp-ab="1">
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-W367YRDYKY');
-  </script>
-
-  <script>
-    if (location.protocol === "http:" && location.hostname !== "localhost") {
-      location.replace("https://" + location.host + location.pathname + location.search + location.hash);
-    }
-  </script>
+  <script src="/site.js" defer></script>
+  <script src="/orion-ai.js" defer></script>
 </head>
 
-<body class="page-privacy">
+<body class="page-privacy theme-leroy">
   <a class="skip" href="#main">Aller au contenu</a>
 
   <div class="topbar">
     <div class="container">
       <div class="topbar-row">
         <div class="topbar-links">
-          <a class="pill" href="/"><span class="dot" aria-hidden="true"></span><span>ORION FISH</span></a>
+          <a class="pill" href="/"><span>ORION FISH</span></a>
           <a class="pill" href="/rfq.html" data-i18n="nav_rfq">RFQ / Devis</a>
           <a class="pill" href="/compliance.html" data-i18n="nav_docs">Documents</a>
-          <a class="pill" href="/privacy.html" data-i18n="nav_privacy" aria-current="page">Privacy & Terms</a>
+          <a class="pill" href="/fromage.html" data-i18n="nav_cheese">Fromage (bientôt)</a>
         </div>
-
         <div class="topbar-links">
           <a href="/#contact" data-i18n="nav_contact">Contact</a>
           <span class="sep">•</span>
@@ -57,223 +47,84 @@
     </div>
   </div>
 
-  <header>
-    <div class="container">
-      <div class="nav">
-        <a class="logo-link" href="/" aria-label="ORION FISH Home">
-          <img class="logo-mark" src="/logo-orion-fish.svg" alt="Logo ORION FISH">
-          <span class="logo-text">
-            <span class="logo-title">ORION FISH</span>
-            <span class="logo-sub">Seafood & Juices</span>
-          </span>
-        </a>
+  <header class="site-header">
+    <div class="container header-row">
+      <a class="brand" href="/" aria-label="ORION FISH Home">
+        <img class="logo-mark" src="/logo-orion-fish.svg" alt="Logo ORION FISH">
+        <span>
+          <span class="brand-title">ORION FISH</span>
+          <span class="brand-sub">Seafood & Juices</span>
+        </span>
+      </a>
 
-        <nav aria-label="Navigation">
-          <ul>
-            <li><a href="/" data-i18n="nav_home">Accueil</a></li>
-            <li><a href="/rfq.html" data-i18n="nav_rfq">RFQ / Devis</a></li>
-            <li><a href="/compliance.html" data-i18n="nav_docs">Documents</a></li>
-            <li><a href="/#contact" data-i18n="nav_contact">Contact</a></li>
-            <li><a href="/#mentions" data-i18n="nav_legal">Mentions</a></li>
-            <li><a href="/privacy.html" data-i18n="nav_privacy" aria-current="page">Privacy & Terms</a></li>
-          </ul>
-        </nav>
-      </div>
+      <nav class="site-nav" aria-label="Navigation">
+        <ul>
+          <li><a href="/" data-i18n="nav_home">Accueil</a></li>
+          <li><a href="/rfq.html" data-i18n="nav_rfq">RFQ / Devis</a></li>
+          <li><a href="/compliance.html" data-i18n="nav_docs">Documents</a></li>
+          <li><a href="/fromage.html" data-i18n="nav_cheese">Fromage (bientôt)</a></li>
+          <li><a href="/#contact" data-i18n="nav_contact">Contact</a></li>
+          <li><a href="/privacy.html" data-i18n="nav_privacy" aria-current="page">Privacy & Terms</a></li>
+        </ul>
+      </nav>
     </div>
   </header>
 
-  <main id="main" class="container">
-    <section class="panel">
-      <!-- FR -->
-      <div data-lang="fr">
-        <h1>Politique de confidentialité & Conditions</h1>
-        <p class="muted">
-          Dernière mise à jour :
-          <time datetime="2025-11-14">14/11/2025</time>
-        </p>
-
-        <h2>1) Données collectées</h2>
-        <p>
-          Nous collectons uniquement les informations que vous fournissez via les formulaires du site
-          (nom, entreprise, e-mail, téléphone, message, informations RFQ).
-        </p>
-
-        <h2>2) Utilisation</h2>
-        <p>
-          Ces données sont utilisées pour répondre à vos demandes (devis, documents, partenariats),
-          assurer le suivi, et améliorer la qualité de service.
-        </p>
-
-        <h2>3) Traitement via un service tiers</h2>
-        <p>
-          Les formulaires peuvent être traités via un service tiers (ex : FormSubmit) afin de transmettre
-          votre message par e-mail à ORION FISH.
-        </p>
-
-        <h2>4) Conservation</h2>
-        <p>
-          Les informations sont conservées le temps nécessaire au traitement de votre demande et au respect
-          des obligations légales/administratives.
-        </p>
-
-        <h2>5) Vos droits</h2>
-        <p>
-          Vous pouvez demander l’accès, la rectification ou la suppression de vos données en écrivant à
-          <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a>.
-        </p>
-
-        <h2>6) Conditions d’utilisation</h2>
-        <p>
-          Le contenu du site est fourni à titre informatif. ORION FISH peut mettre à jour ses pages à tout moment.
-          L’utilisation du site implique l’acceptation de ces conditions.
-        </p>
-
-        <h2>7) Contact</h2>
-        <p>
-          <strong>ORION FISH</strong> – Rufisque, Sénégal<br>
-          Email : <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a><br>
-          Tel/WhatsApp : <a href="tel:+221339138392">+221339138392</a>
-        </p>
-
-        <h2 id="cookies">8) Cookies & traceurs</h2>
-        <p>
-          <strong>Phrase 2 (pro) :</strong> Nous utilisons des cookies et technologies similaires pour assurer le bon fonctionnement du site,
-          mesurer l’audience et améliorer votre expérience. Vous pouvez accepter, refuser ou personnaliser vos choix à tout moment.
-        </p>
-        <p class="muted">
-          Certains cookies sont strictement nécessaires au fonctionnement du site et ne peuvent pas être désactivés.
-        </p>
-        <p>
-          <a class="btn btn-outline cmpfooterlink cmpfooterlinkcmp" href="?cmpscreen">Paramètres cookies</a>
-        </p>
+  <main id="main">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="/" data-i18n="nav_home">Accueil</a> <span>›</span> <span data-i18n="nav_privacy">Privacy & Terms</span>
       </div>
 
-      <!-- EN -->
-      <div data-lang="en" hidden>
-        <h1>Privacy Policy & Terms</h1>
+      <section class="panel">
+        <h1 data-i18n="privacy_h1">Privacy & Terms</h1>
         <p class="muted">
-          Last updated:
-          <time datetime="2025-11-14">14/11/2025</time>
+          Informations générales : confidentialité, cookies et conditions.
+        </p>
+      </section>
+
+      <section class="panel" id="cookies">
+        <h2 data-i18n="privacy_cookies_h2">Cookies</h2>
+        <p class="muted" data-i18n="privacy_cookies_p">
+          Nous utilisons des cookies techniques nécessaires au fonctionnement. Google Analytics (mesure d’audience) est chargé uniquement après votre consentement via le bandeau ConsentManager.
         </p>
 
-        <h2>1) Data we collect</h2>
-        <p>
-          We only collect information you provide through website forms
-          (name, company, email, phone, message, RFQ details).
-        </p>
+        <div class="cta" style="margin-top:14px">
+          <a class="btn btn-outline" href="?cmpscreen">Paramètres cookies</a>
+          <button class="btn btn-outline" id="reset-cookies" type="button" data-i18n="privacy_reset">Réinitialiser les préférences cookies</button>
+        </div>
+      </section>
 
-        <h2>2) How we use it</h2>
-        <p>
-          We use this information to respond to your requests (quotations, documents, partnerships),
-          follow up, and improve service quality.
-        </p>
-
-        <h2>3) Third-party form processing</h2>
-        <p>
-          Forms may be processed via a third-party service (e.g., FormSubmit) to deliver your message
-          to ORION FISH by email.
-        </p>
-
-        <h2>4) Retention</h2>
-        <p>
-          Data is retained as long as necessary to handle your request and comply with legal/administrative obligations.
-        </p>
-
-        <h2>5) Your rights</h2>
-        <p>
-          You may request access, correction, or deletion by emailing
-          <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a>.
-        </p>
-
-        <h2>6) Terms of use</h2>
-        <p>
-          Website content is provided for informational purposes. ORION FISH may update pages at any time.
-          Using the website implies acceptance of these terms.
-        </p>
-
-        <h2>7) Contact</h2>
-        <p>
-          <strong>ORION FISH</strong> – Rufisque, Senegal<br>
-          Email: <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a><br>
-          WhatsApp: <a href="tel:+221339138392">+221339138392</a>
-        </p>
-
-        <h2 id="cookies-en">8) Cookies & trackers</h2>
-        <p>
-          <strong>Phrase 2 (pro):</strong> We use cookies and similar technologies to ensure the website works properly,
-          measure traffic, and improve your experience. You can accept, refuse, or customize your choices at any time.
-        </p>
+      <section class="panel">
+        <h2>Mentions</h2>
         <p class="muted">
-          Some cookies are strictly necessary for the website to function and cannot be disabled.
+          <strong>ORION FISH</strong><br>
+          Quartier Léona, Cité Filaos, Rufisque, 17000, Sénégal<br>
+          Tél/WhatsApp : <a href="tel:+221339138392">+221339138392</a><br>
+          Email : <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a>
         </p>
-        <p>
-          <a class="btn btn-outline cmpfooterlink cmpfooterlinkcmp" href="?cmpscreen">Cookie settings</a>
-        </p>
+      </section>
+
+      <div class="dark-footer">
+        <div class="footer">
+          <div class="foot-links">
+            <a href="/rfq.html" data-i18n="nav_rfq">RFQ / Devis</a>
+            <span>•</span>
+            <a href="/compliance.html" data-i18n="nav_docs">Documents</a>
+            <span>•</span>
+            <a href="/privacy.html" data-i18n="nav_privacy">Privacy & Terms</a>
+            <span>•</span>
+            <a href="?cmpscreen" class="cmpfooterlink cmpfooterlinkcmp">Paramètres cookies</a>
+          </div>
+          <div class="foot-copy">© <span id="year"></span> ORION FISH</div>
+        </div>
       </div>
-    </section>
-  </main>
 
-  <footer class="footer">
-    <div class="foot-links">
-      <a href="/compliance.html" data-i18n="nav_docs">Documents</a>
-      <span>•</span>
-      <a href="/rfq.html" data-i18n="nav_rfq">RFQ / Devis</a>
-      <span>•</span>
-      <a href="/privacy.html" data-i18n="nav_privacy">Privacy & Terms</a>
-      <span>•</span>
-      <a href="?cmpscreen" class="cmpfooterlink cmpfooterlinkcmp">Paramètres cookies</a>
+      <script>
+        const y = document.getElementById("year");
+        if (y) y.textContent = new Date().getFullYear();
+      </script>
     </div>
-    <div class="foot-copy">© <span id="year"></span> ORION FISH</div>
-  </footer>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-    const dict = {
-      fr: {
-        nav_home: "Accueil",
-        nav_rfq: "RFQ / Devis",
-        nav_docs: "Documents",
-        nav_contact: "Contact",
-        nav_legal: "Mentions",
-        nav_privacy: "Privacy & Terms"
-      },
-      en: {
-        nav_home: "Home",
-        nav_rfq: "RFQ / Quotation",
-        nav_docs: "Documents",
-        nav_contact: "Contact",
-        nav_legal: "Legal",
-        nav_privacy: "Privacy & Terms"
-      }
-    };
-
-    function setLang(lang){
-      document.documentElement.lang = lang;
-
-      document.querySelectorAll("[data-lang]").forEach(el => {
-        el.hidden = el.getAttribute("data-lang") !== lang;
-      });
-
-      const d = dict[lang] || dict.fr;
-      document.querySelectorAll("[data-i18n]").forEach(el => {
-        const k = el.getAttribute("data-i18n");
-        if (d[k]) el.textContent = d[k];
-      });
-
-      const btn = document.getElementById("langBtn");
-      btn.textContent = (lang === "fr") ? "EN" : "FR";
-
-      localStorage.setItem("lang", lang);
-    }
-
-    const stored = localStorage.getItem("lang");
-    const initial = stored || ((navigator.language || "").toLowerCase().startsWith("fr") ? "fr" : "en");
-    setLang(initial);
-
-    document.getElementById("langBtn").addEventListener("click", () => {
-      setLang(document.documentElement.lang === "fr" ? "en" : "fr");
-    });
-  </script>
+  </main>
 </body>
 </html>
