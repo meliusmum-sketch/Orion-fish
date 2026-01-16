@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ORION FISH – RFQ / Demande de devis (B2B)</title>
+  <title>ORION FISH – RFQ / Demande de devis</title>
 
-  <meta name="description" content="RFQ ORION FISH – Demande de devis B2B : produits de la mer & jus. Réponse rapide avec disponibilité, specs et conditions." />
+  <meta name="description" content="RFQ ORION FISH – Demande de devis B2B : produits de la mer & jus. Réponse rapide." />
   <meta name="robots" content="index,follow" />
-  <meta name="theme-color" content="#000000" />
+  <meta name="theme-color" content="#061a2b" />
 
   <link rel="icon" href="/logo-orion-fish.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/logo-orion-fish.svg">
@@ -22,7 +22,7 @@
     data-cmp-cdn="cdn.consentmanager.net"
     data-cmp-codesrc="16"></script>
 
-  <!-- GA4 (blocked until consent - vendor s26) -->
+  <!-- GA4 blocked until consent -->
   <script async type="text/plain" class="cmplazyload" data-cmp-vendor="s26"
     data-cmp-src="https://www.googletagmanager.com/gtag/js?id=G-W367YRDYKY"></script>
   <script type="text/plain" class="cmplazyload" data-cmp-vendor="s26">
@@ -32,17 +32,11 @@
     gtag('config', 'G-W367YRDYKY');
   </script>
 
-  <script>
-    if (location.protocol === "http:" && location.hostname !== "localhost") {
-      location.replace("https://" + location.host + location.pathname + location.search + location.hash);
-    }
-  </script>
-
   <script src="/site.js" defer></script>
   <script src="/orion-ai.js" defer></script>
 </head>
 
-<body class="page-rfq theme-leroy">
+<body class="page-rfq">
   <a class="skip" href="#main">Aller au contenu</a>
 
   <div class="topbar">
@@ -57,7 +51,7 @@
         </div>
 
         <div class="topbar-links">
-          <a href="/#contact" data-i18n="nav_contact">Contact</a>
+          <a class="pill" href="/#contact" data-i18n="nav_contact">Contact</a>
           <span class="sep">•</span>
           <button class="btn-lang" id="langBtn" type="button">EN</button>
         </div>
@@ -97,112 +91,93 @@
         <a href="/" data-i18n="nav_home">Accueil</a> <span>›</span> <span data-i18n="nav_rfq">RFQ / Devis</span>
       </div>
 
-      <section class="module" style="padding-top:22px">
-        <div class="module-grid">
-          <div class="panel">
+      <section class="section">
+        <div class="section-top">
+          <div>
             <h1 data-i18n="rfq_h1">RFQ / Demande de devis</h1>
             <p class="muted" data-i18n="rfq_intro">
               Formulaire B2B : produits de la mer / fruits & jus. Nous répondons avec disponibilité, spécifications et conditions.
             </p>
-
-            <div class="cta">
-              <a class="btn btn-outline" href="#" data-orion-ai-open="1" data-i18n="home_hero_btn_help">Assistance</a>
-              <a class="btn btn-outline" href="/compliance.html" data-i18n="nav_docs">Documents</a>
-            </div>
-
-            <p class="muted" style="margin-top:12px;font-size:13px" data-i18n="rfq_tip">
-              Astuce : précise la destination, l’incoterm et le format (frais/surgelé, calibre, packaging) pour un devis plus rapide.
-            </p>
           </div>
+          <a class="btn btn-outline" href="#" data-orion-ai-open="1" data-i18n="rfq_ai">Assistance</a>
+        </div>
 
-          <aside class="module-card">
-            <h3 style="margin-bottom:10px">ORION FISH</h3>
-            <p class="muted"><strong>Localisation :</strong> Rufisque (17000), Sénégal</p>
-            <p class="muted"><strong>Tel/WhatsApp :</strong> <a href="tel:+221339138392">+221339138392</a></p>
-            <p class="muted"><strong>Email :</strong> <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a></p>
-            <p class="muted"><strong>Réponse :</strong> dès que possible</p>
+        <div class="panel">
+          <h2 data-i18n="rfq_form_h2">Formulaire RFQ</h2>
 
-            <div class="cta">
-              <a class="btn btn-outline" href="/privacy.html">Privacy</a>
-              <a class="btn btn-outline" href="/#contact" data-i18n="nav_contact">Contact</a>
+          <form action="https://formsubmit.co/contact@orionsfish.com" method="POST">
+            <input type="text" name="_honey" style="display:none">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_subject" value="RFQ – ORION FISH (site web)">
+            <input type="hidden" name="_next" value="https://www.orionsfish.com/merci.html">
+
+            <div class="two">
+              <div>
+                <label for="company" data-i18n="form_company">Nom / Entreprise</label>
+                <input id="company" name="Nom / Entreprise" type="text" required data-i18n-placeholder="ph_company" placeholder="Nom / Company" />
+              </div>
+              <div>
+                <label for="email" data-i18n="form_email">E-mail</label>
+                <input id="email" name="email" type="email" required data-i18n-placeholder="ph_email" placeholder="name@company.com" />
+              </div>
             </div>
-          </aside>
+
+            <div class="two">
+              <div>
+                <label for="phone" data-i18n="form_phone_wa">Téléphone / WhatsApp</label>
+                <input id="phone" name="Téléphone" type="tel" data-i18n-placeholder="ph_phone" placeholder="+221 ..." />
+              </div>
+              <div>
+                <label for="destination" data-i18n="form_destination">Destination (pays)</label>
+                <input id="destination" name="Destination" type="text" data-i18n-placeholder="ph_destination" placeholder="Ex: France, Pays-Bas, Sénégal..." />
+              </div>
+            </div>
+
+            <div class="two">
+              <div>
+                <label for="product" data-i18n="rfq_product">Produit</label>
+                <input id="product" name="Produit" type="text" data-i18n-placeholder="ph_product" placeholder="Ex: thon, crevette, jus d’ananas..." />
+              </div>
+              <div>
+                <label for="format" data-i18n="rfq_format">Format / Spécification</label>
+                <input id="format" name="Format / Specs" type="text" placeholder="Ex: frais/surgelé, calibre, packaging..." />
+              </div>
+            </div>
+
+            <div class="two">
+              <div>
+                <label for="qty" data-i18n="rfq_qty">Quantité estimée</label>
+                <input id="qty" name="Quantité" type="text" placeholder="Ex: 500 kg / 1 pallet / 1 container..." />
+              </div>
+              <div>
+                <label for="incoterm" data-i18n="rfq_incoterm">Incoterm (optionnel)</label>
+                <input id="incoterm" name="Incoterm" type="text" placeholder="Ex: EXW, FOB, CIF..." />
+              </div>
+            </div>
+
+            <div>
+              <label for="message" data-i18n="form_message">Message</label>
+              <textarea id="message" name="Message" required data-i18n-placeholder="ph_message"
+                placeholder="Décrivez votre besoin : qualité, certification, délai, destination, contraintes..."></textarea>
+            </div>
+
+            <div class="form-actions">
+              <button class="btn" type="submit" data-i18n="rfq_send">Envoyer la RFQ</button>
+              <span class="muted" style="font-size:13px" data-i18n="rfq_hint">Réponse par e-mail dès que possible.</span>
+            </div>
+          </form>
+
+          <div class="hr"></div>
+
+          <p class="muted">
+            Email : <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a> •
+            Tel/WhatsApp : <a href="tel:+221339138392">+221339138392</a>
+          </p>
         </div>
       </section>
 
-      <section class="panel">
-        <h2 data-i18n="rfq_form_h2">Formulaire RFQ</h2>
-
-        <form action="https://formsubmit.co/contact@orionsfish.com" method="POST">
-          <input type="text" name="_honey" style="display:none">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_template" value="table">
-          <input type="hidden" name="_subject" value="RFQ – ORION FISH (site web)">
-          <input type="hidden" name="_next" value="https://www.orionsfish.com/merci.html">
-
-          <div class="two">
-            <div>
-              <label for="company" data-i18n="form_company">Nom / Entreprise</label>
-              <input id="company" name="Nom / Entreprise" type="text" required data-i18n-placeholder="ph_company" placeholder="Nom / Company" />
-            </div>
-            <div>
-              <label for="email" data-i18n="form_email">E-mail</label>
-              <input id="email" name="email" type="email" required data-i18n-placeholder="ph_email" placeholder="name@company.com" />
-            </div>
-          </div>
-
-          <div class="two">
-            <div>
-              <label for="phone" data-i18n="form_phone_wa">Téléphone / WhatsApp</label>
-              <input id="phone" name="Téléphone" type="tel" data-i18n-placeholder="ph_phone" placeholder="+221 ..." />
-            </div>
-            <div>
-              <label for="destination" data-i18n="form_destination">Destination (pays)</label>
-              <input id="destination" name="Destination" type="text" data-i18n-placeholder="ph_destination" placeholder="Ex: France, Pays-Bas, Sénégal..." />
-            </div>
-          </div>
-
-          <div class="two">
-            <div>
-              <label for="product">Produit</label>
-              <input id="product" name="Produit" type="text" data-i18n-placeholder="ph_product" placeholder="Ex: thon, crevette, jus d’ananas..." />
-            </div>
-            <div>
-              <label for="format">Format / Spécification</label>
-              <input id="format" name="Format / Specs" type="text" placeholder="Ex: frais/surgelé, calibre, packaging..." />
-            </div>
-          </div>
-
-          <div class="two">
-            <div>
-              <label for="qty">Quantité estimée</label>
-              <input id="qty" name="Quantité" type="text" placeholder="Ex: 500 kg / 1 pallet / 1 container..." />
-            </div>
-            <div>
-              <label for="incoterm">Incoterm (optionnel)</label>
-              <input id="incoterm" name="Incoterm" type="text" placeholder="Ex: EXW, FOB, CIF..." />
-            </div>
-          </div>
-
-          <div>
-            <label for="message" data-i18n="form_message">Message</label>
-            <textarea id="message" name="Message" required data-i18n-placeholder="ph_message"
-              placeholder="Précise ton besoin et ton contexte (B2B, appel d’offres, etc.)"></textarea>
-          </div>
-
-          <div class="form-actions">
-            <button class="btn" type="submit" data-i18n="rfq_send">Envoyer la RFQ</button>
-            <span class="muted" style="font-size:13px">Réponse par e-mail / WhatsApp.</span>
-          </div>
-        </form>
-
-        <p class="muted" style="margin-top:14px">
-          Email : <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a> •
-          Tel/WhatsApp : <a href="tel:+221339138392">+221339138392</a>
-        </p>
-      </section>
-
-      <div class="dark-footer">
+      <div class="site-footer">
         <div class="footer">
           <div class="foot-links">
             <a href="/compliance.html" data-i18n="nav_docs">Documents</a>
@@ -216,26 +191,17 @@
       </div>
 
       <script>
-        const y = document.getElementById("year");
-        if (y) y.textContent = new Date().getFullYear();
+        const yearEl = document.getElementById("year");
+        if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-        // Pre-fill from /rfq.html?q=...&zone=...&type=...
+        // Prefill from /rfq.html?q=...&zone=...
         const params = new URLSearchParams(location.search);
         const q = params.get("q");
         const zone = params.get("zone");
-        const type = params.get("type");
-
         const product = document.getElementById("product");
         const destination = document.getElementById("destination");
-        const message = document.getElementById("message");
-
         if (q && product && !product.value.trim()) product.value = q;
         if (zone && destination && !destination.value.trim()) destination.value = zone;
-
-        if (type && message && !message.value.trim()) {
-          const map = { sea: "Seafood", juice: "Fruits & Juices", rfq: "RFQ" };
-          message.value = `Type: ${map[type] || type}\n`;
-        }
       </script>
     </div>
   </main>
