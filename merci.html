@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <title>ORION FISH – Merci</title>
-  <meta name="description" content="Merci – ORION FISH" />
-  <meta name="robots" content="noindex,follow" />
+
+  <meta name="description" content="ORION FISH – Merci. Nous avons bien reçu votre message. Réponse dès que possible." />
+  <meta name="robots" content="index,follow" />
   <meta name="theme-color" content="#000000" />
 
   <link rel="icon" href="/logo-orion-fish.svg" type="image/svg+xml">
@@ -15,6 +15,23 @@
   <link rel="stylesheet" href="/styles.css">
   <link rel="stylesheet" href="/orion-ai.css">
 
+  <!-- ConsentManager CMP (AUTOBLOCKING) -->
+  <script type="text/javascript" data-cmp-ab="1"
+    src="https://cdn.consentmanager.net/delivery/autoblocking/c6e50b797231e.js"
+    data-cmp-host="b.delivery.consentmanager.net"
+    data-cmp-cdn="cdn.consentmanager.net"
+    data-cmp-codesrc="16"></script>
+
+  <!-- GA4 (blocked until consent - vendor s26) -->
+  <script async type="text/plain" class="cmplazyload" data-cmp-vendor="s26"
+    data-cmp-src="https://www.googletagmanager.com/gtag/js?id=G-W367YRDYKY"></script>
+  <script type="text/plain" class="cmplazyload" data-cmp-vendor="s26">
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-W367YRDYKY');
+  </script>
+
   <script src="/site.js" defer></script>
   <script src="/orion-ai.js" defer></script>
 </head>
@@ -22,50 +39,86 @@
 <body class="page-thanks theme-leroy">
   <a class="skip" href="#main">Aller au contenu</a>
 
-  <header class="site-header">
-    <div class="container header-row">
-      <a class="brand" href="/" aria-label="ORION FISH Home">
-        <img class="logo-mark" src="/logo-orion-fish.svg" alt="Logo ORION FISH">
-        <span>
-          <span class="brand-title">ORION FISH</span>
-          <span class="brand-sub">Seafood & Juices</span>
-        </span>
-      </a>
+  <div class="topbar">
+    <div class="container">
+      <div class="topbar-row">
+        <div class="topbar-links">
+          <a class="pill" href="/">ORION FISH</a>
+          <span class="sep">•</span>
+          <a class="pill" href="/rfq.html" data-i18n="nav_rfq">RFQ / Devis</a>
+          <a class="pill" href="/compliance.html" data-i18n="nav_docs">Documents</a>
+        </div>
 
-      <nav class="site-nav" aria-label="Navigation">
-        <ul>
-          <li><a href="/" data-i18n="nav_home">Accueil</a></li>
-          <li><a href="/rfq.html" data-i18n="nav_rfq">RFQ / Devis</a></li>
-          <li><a href="/compliance.html" data-i18n="nav_docs">Documents</a></li>
-          <li><a href="/privacy.html" data-i18n="nav_privacy">Privacy & Terms</a></li>
-        </ul>
-      </nav>
+        <div class="topbar-links">
+          <a href="/#contact" data-i18n="nav_contact">Contact</a>
+          <span class="sep">•</span>
+          <button class="btn-lang" id="langBtn" type="button">EN</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <header>
+    <div class="container">
+      <div class="nav">
+        <a class="logo-link" href="/" aria-label="ORION FISH Home">
+          <img class="logo-mark" src="/logo-orion-fish.svg" alt="Logo ORION FISH">
+          <span class="logo-text">
+            <span class="logo-top">ORION FISH</span>
+            <span class="logo-title">ORION FISH</span>
+            <span class="logo-sub">Seafood & Juices</span>
+          </span>
+        </a>
+
+        <nav aria-label="Navigation">
+          <ul>
+            <li><a href="/" data-i18n="nav_home">Accueil</a></li>
+            <li><a href="/rfq.html" data-i18n="nav_rfq">RFQ / Devis</a></li>
+            <li><a href="/compliance.html" data-i18n="nav_docs">Documents</a></li>
+            <li><a href="/privacy.html" data-i18n="nav_privacy">Privacy & Terms</a></li>
+          </ul>
+        </nav>
+      </div>
     </div>
   </header>
 
   <main id="main">
     <div class="container">
-      <section class="panel">
-        <h1 data-i18n="thanks_h1">Merci</h1>
-        <p class="muted" data-i18n="thanks_p">
-          Votre message a bien été envoyé. Nous revenons vers vous dès que possible.
-        </p>
+      <section class="module" style="padding-top:28px">
+        <div class="panel">
+          <div class="fr-only">
+            <h1>Merci ✅</h1>
+            <p class="muted">
+              Nous avons bien reçu votre message. Nous vous répondrons dès que possible.
+            </p>
+          </div>
 
-        <div class="cta" style="margin-top:14px">
-          <a class="btn" href="/rfq.html">RFQ</a>
-          <a class="btn btn-outline" href="/">Accueil</a>
-          <a class="btn btn-outline" href="#" data-orion-ai-open="1">Assistance</a>
+          <div class="en-only">
+            <h1>Thank you ✅</h1>
+            <p class="muted">
+              We have received your message. We will reply as soon as possible.
+            </p>
+          </div>
+
+          <p class="muted" style="margin-top:10px">
+            Email : <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a> •
+            Tel/WhatsApp : <a href="tel:+221339138392">+221339138392</a>
+          </p>
+
+          <div class="cta">
+            <a class="btn" href="/rfq.html" data-i18n="nav_rfq">RFQ / Devis</a>
+            <a class="btn btn-outline" href="/" data-i18n="nav_home">Accueil</a>
+            <a class="btn btn-outline" href="#" data-orion-ai-open="1">Assistance</a>
+          </div>
         </div>
       </section>
 
       <div class="dark-footer">
         <div class="footer">
           <div class="foot-links">
-            <a href="/rfq.html" data-i18n="nav_rfq">RFQ / Devis</a>
-            <span>•</span>
-            <a href="/compliance.html" data-i18n="nav_docs">Documents</a>
-            <span>•</span>
             <a href="/privacy.html" data-i18n="nav_privacy">Privacy & Terms</a>
+            <span>•</span>
+            <a href="?cmpscreen" class="cmpfooterlink cmpfooterlinkcmp">Paramètres cookies</a>
           </div>
           <div class="foot-copy">© <span id="year"></span> ORION FISH</div>
         </div>
