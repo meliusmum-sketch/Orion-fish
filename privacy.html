@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ORION FISH – Privacy & Terms</title>
 
-  <meta name="description" content="ORION FISH – Politique de confidentialité, cookies et conditions. Informations B2B." />
+  <meta name="description" content="ORION FISH – Privacy & Terms : données, cookies, formulaires, contact." />
   <meta name="robots" content="index,follow" />
-  <meta name="theme-color" content="#000000" />
+  <meta name="theme-color" content="#061a2b" />
 
   <link rel="icon" href="/logo-orion-fish.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/logo-orion-fish.svg">
@@ -15,14 +15,14 @@
   <link rel="stylesheet" href="/styles.css">
   <link rel="stylesheet" href="/orion-ai.css">
 
-  <!-- ConsentManager CMP (AUTOBLOCKING) -->
+  <!-- CMP -->
   <script type="text/javascript" data-cmp-ab="1"
     src="https://cdn.consentmanager.net/delivery/autoblocking/c6e50b797231e.js"
     data-cmp-host="b.delivery.consentmanager.net"
     data-cmp-cdn="cdn.consentmanager.net"
     data-cmp-codesrc="16"></script>
 
-  <!-- GA4 (blocked until consent - vendor s26) -->
+  <!-- GA4 blocked until consent -->
   <script async type="text/plain" class="cmplazyload" data-cmp-vendor="s26"
     data-cmp-src="https://www.googletagmanager.com/gtag/js?id=G-W367YRDYKY"></script>
   <script type="text/plain" class="cmplazyload" data-cmp-vendor="s26">
@@ -36,7 +36,7 @@
   <script src="/orion-ai.js" defer></script>
 </head>
 
-<body class="page-privacy theme-leroy">
+<body class="page-privacy">
   <a class="skip" href="#main">Aller au contenu</a>
 
   <div class="topbar">
@@ -47,11 +47,10 @@
           <span class="sep">•</span>
           <a class="pill" href="/rfq.html" data-i18n="nav_rfq">RFQ / Devis</a>
           <a class="pill" href="/compliance.html" data-i18n="nav_docs">Documents</a>
-          <a class="pill" href="/fromage.html" data-i18n="nav_cheese">Fromage (bientôt)</a>
         </div>
 
         <div class="topbar-links">
-          <a href="/#contact" data-i18n="nav_contact">Contact</a>
+          <a class="pill" href="/#contact" data-i18n="nav_contact">Contact</a>
           <span class="sep">•</span>
           <button class="btn-lang" id="langBtn" type="button">EN</button>
         </div>
@@ -76,8 +75,6 @@
             <li><a href="/" data-i18n="nav_home">Accueil</a></li>
             <li><a href="/rfq.html" data-i18n="nav_rfq">RFQ / Devis</a></li>
             <li><a href="/compliance.html" data-i18n="nav_docs">Documents</a></li>
-            <li><a href="/fromage.html" data-i18n="nav_cheese">Fromage</a></li>
-            <li><a href="/#contact" data-i18n="nav_contact">Contact</a></li>
             <li><a href="/privacy.html" data-i18n="nav_privacy" aria-current="page">Privacy & Terms</a></li>
           </ul>
         </nav>
@@ -87,80 +84,50 @@
 
   <main id="main">
     <div class="container">
-      <div class="breadcrumb" aria-label="Fil d’Ariane">
-        <a href="/" data-i18n="nav_home">Accueil</a> <span>›</span> <span>Privacy & Terms</span>
+      <div class="breadcrumb">
+        <a href="/" data-i18n="nav_home">Accueil</a> <span>›</span> <span data-i18n="nav_privacy">Privacy & Terms</span>
       </div>
 
-      <section class="panel">
-        <div class="fr-only">
-          <h1>Politique de confidentialité & conditions</h1>
-          <p class="muted">
-            Cette page résume la façon dont ORION FISH traite les demandes reçues via le site (formulaires RFQ / contact) et l’usage des cookies.
+      <section class="section">
+        <div class="section-top">
+          <div>
+            <h1 data-i18n="privacy_h1">Privacy & Terms</h1>
+            <p class="muted" data-i18n="privacy_intro">
+              Cette page décrit l’utilisation des cookies, la collecte minimale de données et les formulaires de contact du site ORION FISH.
+            </p>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h2 data-i18n="privacy_data_h2">Données & formulaires</h2>
+          <p class="muted" data-i18n="privacy_data_p">
+            Lorsque vous envoyez un message (contact / RFQ / documents), les informations saisies (nom, email, téléphone, message) sont transmises à ORION FISH pour traiter votre demande.
           </p>
 
-          <h2 style="margin-top:18px">Données collectées</h2>
-          <ul class="list">
-            <li>Nom / entreprise, e-mail, téléphone, destination, informations de demande (RFQ, documents).</li>
-            <li>Ces données sont fournies volontairement via les formulaires.</li>
-          </ul>
+          <div class="hr"></div>
 
-          <h2 style="margin-top:18px">Finalités</h2>
-          <ul class="list">
-            <li>Répondre aux demandes de devis (RFQ) et de documents.</li>
-            <li>Échanges commerciaux B2B (disponibilité, spécifications, conditions, logistique).</li>
-          </ul>
+          <h2 id="cookies" data-i18n="privacy_cookies_h2">Cookies</h2>
+          <p class="muted" data-i18n="privacy_cookies_p">
+            Le site utilise un outil de gestion du consentement. Les scripts d’analyse (Google Analytics) ne se chargent qu’après consentement. Des cookies techniques peuvent être utilisés pour le fonctionnement et la sécurité.
+          </p>
 
-          <h2 id="cookies" style="margin-top:18px">Cookies</h2>
-          <ul class="list">
-            <li>Cookies techniques : fonctionnement, sécurité, préférences (langue).</li>
-            <li>Mesure d’audience (GA4) : bloquée tant que vous n’avez pas donné votre consentement via le bandeau CMP.</li>
-          </ul>
+          <div class="hr"></div>
 
-          <h2 style="margin-top:18px">Contact</h2>
+          <h2 data-i18n="privacy_contact_h2">Contact</h2>
           <p class="muted">
             Email : <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a> •
             Tel/WhatsApp : <a href="tel:+221339138392">+221339138392</a>
           </p>
-        </div>
 
-        <div class="en-only">
-          <h1>Privacy policy & terms</h1>
-          <p class="muted">
-            This page summarizes how ORION FISH handles requests received via the website (RFQ / contact forms) and how cookies are used.
+          <div class="hr"></div>
+
+          <p class="muted" style="font-size:13px" data-i18n="privacy_footer_note">
+            Mise à jour : Janvier 2026. Cette page peut évoluer selon les besoins légaux et techniques.
           </p>
-
-          <h2 style="margin-top:18px">Data we collect</h2>
-          <ul class="list">
-            <li>Name/company, email, phone, destination, and request details (RFQ, documents).</li>
-            <li>This data is voluntarily provided through the forms.</li>
-          </ul>
-
-          <h2 style="margin-top:18px">Purpose</h2>
-          <ul class="list">
-            <li>To respond to quote requests (RFQ) and document requests.</li>
-            <li>B2B commercial discussions (availability, specs, terms, logistics).</li>
-          </ul>
-
-          <h2 id="cookies" style="margin-top:18px">Cookies</h2>
-          <ul class="list">
-            <li>Technical cookies: website operation, security, preferences (language).</li>
-            <li>Analytics (GA4): blocked until you give consent via the CMP banner.</li>
-          </ul>
-
-          <h2 style="margin-top:18px">Contact</h2>
-          <p class="muted">
-            Email: <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a> •
-            Phone/WhatsApp: <a href="tel:+221339138392">+221339138392</a>
-          </p>
-        </div>
-
-        <div class="cta" style="margin-top:16px">
-          <a class="btn btn-outline" href="?cmpscreen">Paramètres cookies</a>
-          <a class="btn" href="/rfq.html" data-i18n="nav_rfq">RFQ / Devis</a>
         </div>
       </section>
 
-      <div class="dark-footer">
+      <div class="site-footer">
         <div class="footer">
           <div class="foot-links">
             <a href="/rfq.html" data-i18n="nav_rfq">RFQ / Devis</a>
@@ -174,8 +141,8 @@
       </div>
 
       <script>
-        const y = document.getElementById("year");
-        if (y) y.textContent = new Date().getFullYear();
+        const yearEl = document.getElementById("year");
+        if (yearEl) yearEl.textContent = new Date().getFullYear();
       </script>
     </div>
   </main>
