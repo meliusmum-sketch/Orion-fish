@@ -1,9 +1,7 @@
-// --- Orion fish Assistant Widget (Christmas) ---
-// - Detects lang from localStorage OR html lang
-// - Reacts to "orion-lang-change" event from site.js
+// orion-ai.js — Orion Fish Assistant Widget
 (function () {
   const STORAGE_KEY = "orion_ai_chat_v1";
-  const LANG_KEY = "orion_lang";
+  const LANG_KEY = "orion_lang"; // site.js also sets this
 
   function detectLang() {
     const stored = (localStorage.getItem(LANG_KEY) || "").toLowerCase();
@@ -22,10 +20,7 @@
         title: "Orion fish Assistant",
         placeholder: "Posez votre question (FR/EN)…",
         send: "Envoyer",
-        hello:
-          "Bonjour ! Je suis Orion fish Assistant 🎄 Comment puis-je vous aider ? (Produits mer / Jus / Devis RFQ / Documents)",
-        rfqNeed: "Pour préparer votre RFQ, il me manque : ",
-        rfqDone: "Votre RFQ est complète. Vous pouvez aussi l’envoyer via : /rfq.html",
+        hello: "Bonjour ! Comment puis-je vous aider ? (Produits mer / Jus / RFQ / Documents)",
         err: "Désolé — je n’arrive pas à me connecter à Orion fish Assistant."
       },
       en: {
@@ -33,10 +28,7 @@
         title: "Orion fish Assistant",
         placeholder: "Ask a question (FR/EN)…",
         send: "Send",
-        hello:
-          "Hello! I’m Orion fish Assistant 🎄 How can I help you today? (Seafood / Fruit juice / RFQ / Compliance)",
-        rfqNeed: "To prepare your RFQ, I still need: ",
-        rfqDone: "Your RFQ looks complete. You can also submit it via: /rfq.html",
+        hello: "Hello! How can I help? (Seafood / Juices / RFQ / Documents)",
         err: "Sorry — I couldn't connect to Orion fish Assistant."
       }
     };
@@ -55,7 +47,6 @@
     const node = document.createElement(tag);
     Object.entries(attrs).forEach(([k, v]) => {
       if (k === "class") node.className = v;
-      else if (k === "html") node.innerHTML = v;
       else node.setAttribute(k, v);
     });
     children.forEach(c => node.appendChild(typeof c === "string" ? document.createTextNode(c) : c));
@@ -78,15 +69,8 @@
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ messages: history })
     });
-
     const data = await r.json().catch(() => ({}));
-    if (!r.ok) {
-      const msg =
-        data?.details?.error?.message ||
-        data?.error ||
-        `HTTP ${r.status}`;
-      throw new Error(msg);
-    }
+    if (!r.ok) throw new Error(data?.error || `HTTP ${r.status}`);
     return data;
   }
 
@@ -97,7 +81,7 @@
       id: "orion-ai-launcher",
       type: "button",
       "aria-label": t(lang, "launcherAria")
-    }, ["🎄"]);
+    }, ["AI"]);
 
     const panel = el("div", { id: "orion-ai-panel", class: "hidden" }, []);
     const header = el("div", { class: "orion-ai-header" }, [
@@ -133,30 +117,27 @@
     function openChat() { panel.classList.remove("hidden"); input.focus(); }
     function closeChat() { panel.classList.add("hidden"); }
 
-    // Expose for other buttons
     window.OrionFishAssistant = { open: openChat, close: closeChat };
 
     launcher.addEventListener("click", openChat);
     header.querySelector(".orion-ai-close").addEventListener("click", closeChat);
 
-    // Any element with data-orion-ai-open="1" will open chat
     document.addEventListener("click", (e) => {
       const target = e.target.closest && e.target.closest('[data-orion-ai-open="1"]');
-      if (target) {
-        e.preventDefault();
-        openChat();
-      }
+      if (target) { e.preventDefault(); openChat(); }
     });
 
-    // React to language change from site.js
-    window.addEventListener("orion-lang-change", (e) => {
-      lang = (e?.detail?.lang === "fr" || e?.detail?.lang === "en") ? e.detail.lang : detectLang();
+    // i18n events (both)
+    function onLangChange(newLang){
+      lang = (newLang === "fr" || newLang === "en") ? newLang : detectLang();
       launcher.setAttribute("aria-label", t(lang, "launcherAria"));
       const titleNode = document.getElementById("orionAiTitle");
       if (titleNode) titleNode.textContent = t(lang, "title");
       input.setAttribute("placeholder", t(lang, "placeholder"));
       send.textContent = t(lang, "send");
-    });
+    }
+    document.addEventListener("orion:lang", (e) => onLangChange(e?.detail?.lang));
+    window.addEventListener("orion-lang-change", (e) => onLangChange(e?.detail?.lang));
 
     async function onSend() {
       const text = input.value.trim();
@@ -167,42 +148,25 @@
       saveHistory(history);
       renderMessages(body, history);
 
-      const typing = { role: "assistant", content: "…" };
-      history.push(typing);
+      history.push({ role: "assistant", content: "…" });
       renderMessages(body, history);
 
       try {
         const data = await callAI(history.filter(m => m.content !== "…"));
-
-        history.pop(); // remove typing
+        history.pop();
         history.push({ role: "assistant", content: data.reply || "OK." });
-
-        if (data.intent === "rfq") {
-          const missing = Array.isArray(data.missing_fields) ? data.missing_fields : [];
-          if (missing.length) {
-            history.push({ role: "assistant", content: t(lang, "rfqNeed") + missing.join(", ") + "." });
-          } else {
-            history.push({ role: "assistant", content: t(lang, "rfqDone") });
-          }
-        }
-
         saveHistory(history);
         renderMessages(body, history);
       } catch (e) {
         history.pop();
-        history.push({
-          role: "assistant",
-          content: `${t(lang, "err")} (${e.message || e})`
-        });
+        history.push({ role: "assistant", content: `${t(lang, "err")} (${e.message || e})` });
         saveHistory(history);
         renderMessages(body, history);
       }
     }
 
     send.addEventListener("click", onSend);
-    input.addEventListener("keydown", (e) => {
-      if (e.key === "Enter") onSend();
-    });
+    input.addEventListener("keydown", (e) => { if (e.key === "Enter") onSend(); });
   }
 
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
