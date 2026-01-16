@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ORION FISH – RFQ / Demande de devis</title>
 
+  <title>ORION FISH – RFQ / Demande de devis</title>
   <meta name="description" content="RFQ ORION FISH – Demande de devis B2B : produits de la mer & jus. Réponse rapide." />
   <meta name="robots" content="index,follow" />
   <meta name="theme-color" content="#000000" />
@@ -22,7 +22,7 @@
     data-cmp-cdn="cdn.consentmanager.net"
     data-cmp-codesrc="16"></script>
 
-  <!-- Google Analytics (GA4) — BLOQUÉ jusqu’au consentement (vendor s26) -->
+  <!-- GA4 (bloqué jusqu’au consentement) -->
   <script async type="text/plain" class="cmplazyload" data-cmp-vendor="s26"
     data-cmp-src="https://www.googletagmanager.com/gtag/js?id=G-W367YRDYKY"></script>
   <script type="text/plain" class="cmplazyload" data-cmp-vendor="s26">
@@ -42,21 +42,20 @@
   <script src="/orion-ai.js" defer></script>
 </head>
 
-<body class="page-rfq">
+<body class="page-rfq theme-leroy">
   <a class="skip" href="#main">Aller au contenu</a>
 
   <div class="topbar">
     <div class="container">
       <div class="topbar-row">
         <div class="topbar-links">
-          <a href="/"><span>ORION FISH</span></a>
-          <a href="/rfq.html" aria-current="page">RFQ / Devis</a>
-          <a href="/compliance.html">Documents</a>
-          <a href="/fromage.html">Fromage</a>
+          <a class="pill" href="/"><span>ORION FISH</span></a>
+          <a class="pill" href="/rfq.html" data-i18n="nav_rfq" aria-current="page">RFQ / Devis</a>
+          <a class="pill" href="/compliance.html" data-i18n="nav_docs">Documents</a>
+          <a class="pill" href="/fromage.html" data-i18n="nav_cheese">Fromage (bientôt)</a>
         </div>
-
         <div class="topbar-links">
-          <a href="/#contact">Contact</a>
+          <a href="/#contact" data-i18n="nav_contact">Contact</a>
           <span class="sep">•</span>
           <button class="btn-lang" id="langBtn" type="button">EN</button>
         </div>
@@ -76,12 +75,12 @@
 
       <nav class="site-nav" aria-label="Navigation">
         <ul>
-          <li><a href="/">Accueil</a></li>
-          <li><a href="/rfq.html" aria-current="page">RFQ / Devis</a></li>
-          <li><a href="/compliance.html">Documents</a></li>
-          <li><a href="/fromage.html">Fromage</a></li>
-          <li><a href="/#contact">Contact</a></li>
-          <li><a href="/privacy.html">Privacy</a></li>
+          <li><a href="/" data-i18n="nav_home">Accueil</a></li>
+          <li><a href="/rfq.html" data-i18n="nav_rfq" aria-current="page">RFQ / Devis</a></li>
+          <li><a href="/compliance.html" data-i18n="nav_docs">Documents</a></li>
+          <li><a href="/fromage.html" data-i18n="nav_cheese">Fromage (bientôt)</a></li>
+          <li><a href="/#contact" data-i18n="nav_contact">Contact</a></li>
+          <li><a href="/privacy.html" data-i18n="nav_privacy">Privacy & Terms</a></li>
         </ul>
       </nav>
     </div>
@@ -90,35 +89,21 @@
   <main id="main">
     <div class="container">
       <div class="breadcrumb" aria-label="Fil d’Ariane">
-        <a href="/">Accueil</a> <span>›</span> <span>RFQ / Devis</span>
+        <a href="/" data-i18n="nav_home">Accueil</a> <span>›</span> <span data-i18n="nav_rfq">RFQ / Devis</span>
       </div>
 
-      <section class="rfq-hero" aria-label="Introduction RFQ">
-        <div class="rfq-hero-grid">
-          <div class="panel">
-            <h1>RFQ / Demande de devis</h1>
-            <p class="muted">
-              Formulaire B2B : produits de la mer / fruits & jus. Nous répondons avec disponibilité, spécifications et conditions.
-            </p>
-
-            <div class="cta" style="margin-top:14px">
-              <a class="btn" href="#" data-orion-ai-open="1">Assistance (Orion AI)</a>
-              <a class="btn btn-outline" href="/compliance.html">Documents</a>
-            </div>
-
-            <p class="muted" style="margin-top:12px; font-size:13px">
-              Astuce : précise la destination, l’incoterm et le format (frais/surgelé, calibre, packaging) pour un devis plus rapide.
-            </p>
-          </div>
-
-          <aside class="info-card" aria-label="Contact rapide">
-            <div class="info-title">Informations rapides</div>
-            <div class="info-line"><strong>Localisation :</strong> Rufisque (17000), Sénégal</div>
-            <div class="info-line"><strong>Tel/WhatsApp :</strong> <a href="tel:+221339138392">+221339138392</a></div>
-            <div class="info-line"><strong>Email :</strong> <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a></div>
-            <div class="info-line"><strong>Réponse :</strong> dès que possible</div>
-          </aside>
+      <section class="panel" aria-label="Intro RFQ">
+        <h1>RFQ / Demande de devis</h1>
+        <p class="muted">
+          Formulaire B2B : produits de la mer / fruits & jus. Nous répondons avec disponibilité, spécifications et conditions.
+        </p>
+        <div class="cta" style="margin-top:14px">
+          <a class="btn btn-outline" href="#" data-orion-ai-open="1">Assistance (Orion AI)</a>
+          <a class="btn btn-outline" href="/compliance.html">Documents</a>
         </div>
+        <p class="muted" style="margin-top:10px;font-size:13px">
+          Conseil : destination + incoterm + format + quantité = devis plus rapide.
+        </p>
       </section>
 
       <section class="panel" aria-label="Formulaire RFQ">
@@ -186,28 +171,32 @@
           </div>
         </form>
 
-        <p class="muted" style="margin-top:14px">
+        <p class="muted" style="margin-top:12px">
           Email : <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a> •
           Tel/WhatsApp : <a href="tel:+221339138392">+221339138392</a>
         </p>
       </section>
 
-      <footer class="footer">
-        <div class="foot-links">
-          <a href="/compliance.html">Documents</a>
-          <span>•</span>
-          <a href="/privacy.html">Privacy</a>
-          <span>•</span>
-          <a href="?cmpscreen" class="cmpfooterlink cmpfooterlinkcmp">Cookies</a>
+      <div class="dark-footer">
+        <div class="footer">
+          <div class="foot-links">
+            <a href="/rfq.html" data-i18n="nav_rfq">RFQ / Devis</a>
+            <span>•</span>
+            <a href="/compliance.html" data-i18n="nav_docs">Documents</a>
+            <span>•</span>
+            <a href="/privacy.html" data-i18n="nav_privacy">Privacy & Terms</a>
+            <span>•</span>
+            <a href="?cmpscreen" class="cmpfooterlink cmpfooterlinkcmp">Paramètres cookies</a>
+          </div>
+          <div class="foot-copy">© <span id="year"></span> ORION FISH</div>
         </div>
-        <div class="foot-copy">© <span id="year"></span> ORION FISH</div>
-      </footer>
+      </div>
 
       <script>
         const y = document.getElementById("year");
         if (y) y.textContent = new Date().getFullYear();
 
-        // Pré-remplissage depuis /rfq.html?q=...&zone=...&type=...
+        // Pré-remplissage depuis /?q=...&zone=...&type=...
         const params = new URLSearchParams(location.search);
         const q = params.get("q");
         const zone = params.get("zone");
