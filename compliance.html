@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ORION FISH – Documents & conformité (B2B)</title>
 
-  <title>ORION FISH – Documents & conformité</title>
   <meta name="description" content="ORION FISH – Documents & conformité : traçabilité, spécifications, documents export. Partage sur demande." />
   <meta name="robots" content="index,follow" />
   <meta name="theme-color" content="#000000" />
@@ -22,7 +22,7 @@
     data-cmp-cdn="cdn.consentmanager.net"
     data-cmp-codesrc="16"></script>
 
-  <!-- GA4 (bloqué jusqu’au consentement) -->
+  <!-- GA4 (blocked until consent - vendor s26) -->
   <script async type="text/plain" class="cmplazyload" data-cmp-vendor="s26"
     data-cmp-src="https://www.googletagmanager.com/gtag/js?id=G-W367YRDYKY"></script>
   <script type="text/plain" class="cmplazyload" data-cmp-vendor="s26">
@@ -49,11 +49,13 @@
     <div class="container">
       <div class="topbar-row">
         <div class="topbar-links">
-          <a class="pill" href="/"><span>ORION FISH</span></a>
+          <a class="pill" href="/">ORION FISH</a>
+          <span class="sep">•</span>
           <a class="pill" href="/rfq.html" data-i18n="nav_rfq">RFQ / Devis</a>
           <a class="pill" href="/compliance.html" data-i18n="nav_docs" aria-current="page">Documents</a>
           <a class="pill" href="/fromage.html" data-i18n="nav_cheese">Fromage (bientôt)</a>
         </div>
+
         <div class="topbar-links">
           <a href="/#contact" data-i18n="nav_contact">Contact</a>
           <span class="sep">•</span>
@@ -63,26 +65,29 @@
     </div>
   </div>
 
-  <header class="site-header">
-    <div class="container header-row">
-      <a class="brand" href="/" aria-label="ORION FISH Home">
-        <img class="logo-mark" src="/logo-orion-fish.svg" alt="Logo ORION FISH">
-        <span>
-          <span class="brand-title">ORION FISH</span>
-          <span class="brand-sub">Seafood & Juices</span>
-        </span>
-      </a>
+  <header>
+    <div class="container">
+      <div class="nav">
+        <a class="logo-link" href="/" aria-label="ORION FISH Home">
+          <img class="logo-mark" src="/logo-orion-fish.svg" alt="Logo ORION FISH">
+          <span class="logo-text">
+            <span class="logo-top">ORION FISH</span>
+            <span class="logo-title">ORION FISH</span>
+            <span class="logo-sub">Seafood & Juices</span>
+          </span>
+        </a>
 
-      <nav class="site-nav" aria-label="Navigation">
-        <ul>
-          <li><a href="/" data-i18n="nav_home">Accueil</a></li>
-          <li><a href="/rfq.html" data-i18n="nav_rfq">RFQ / Devis</a></li>
-          <li><a href="/compliance.html" data-i18n="nav_docs" aria-current="page">Documents</a></li>
-          <li><a href="/fromage.html" data-i18n="nav_cheese">Fromage (bientôt)</a></li>
-          <li><a href="/#contact" data-i18n="nav_contact">Contact</a></li>
-          <li><a href="/privacy.html" data-i18n="nav_privacy">Privacy & Terms</a></li>
-        </ul>
-      </nav>
+        <nav aria-label="Navigation">
+          <ul>
+            <li><a href="/" data-i18n="nav_home">Accueil</a></li>
+            <li><a href="/rfq.html" data-i18n="nav_rfq">RFQ / Devis</a></li>
+            <li><a href="/compliance.html" data-i18n="nav_docs" aria-current="page">Documents</a></li>
+            <li><a href="/fromage.html" data-i18n="nav_cheese">Fromage</a></li>
+            <li><a href="/#contact" data-i18n="nav_contact">Contact</a></li>
+            <li><a href="/privacy.html" data-i18n="nav_privacy">Privacy & Terms</a></li>
+          </ul>
+        </nav>
+      </div>
     </div>
   </header>
 
@@ -92,51 +97,73 @@
         <a href="/" data-i18n="nav_home">Accueil</a> <span>›</span> <span data-i18n="docs_breadcrumb">Documents & conformité</span>
       </div>
 
-      <section class="panel">
-        <h1 data-i18n="docs_h1">Documents & conformité</h1>
-        <p class="muted" data-i18n="docs_intro">
-          Nous partageons les documents nécessaires aux partenaires et acheteurs (B2B) sur demande, selon la destination, le produit et le cadre de collaboration.
-        </p>
+      <section class="module" style="padding-top:22px">
+        <div class="module-grid">
+          <div class="panel">
+            <h1 data-i18n="docs_h1">Documents & conformité</h1>
+            <p class="muted" data-i18n="docs_intro">
+              Nous partageons les documents nécessaires aux partenaires et acheteurs (B2B) sur demande, selon la destination, le produit et le cadre de collaboration.
+            </p>
 
-        <div class="cta" style="margin-top:14px">
-          <a class="btn" href="/rfq.html" data-i18n="docs_cta_rfq">Faire une RFQ</a>
-          <a class="btn btn-outline" href="#request" data-i18n="docs_cta_request">Demander des documents</a>
-          <a class="btn btn-outline" href="#" data-orion-ai-open="1" data-i18n="docs_cta_chat">Parler à Orion fish Assistant</a>
+            <div class="cta">
+              <a class="btn" href="/rfq.html" data-i18n="docs_cta_rfq">Faire une RFQ</a>
+              <a class="btn btn-outline" href="#request" data-i18n="docs_cta_request">Demander des documents</a>
+              <a class="btn btn-outline" href="#" data-orion-ai-open="1" data-i18n="docs_cta_chat">Parler à Orion fish Assistant</a>
+            </div>
+          </div>
+
+          <aside class="module-card">
+            <h3 style="margin-bottom:10px">Accès rapide</h3>
+            <ul class="linklist">
+              <li><a href="/rfq.html"><span>RFQ / Devis</span><span>→</span></a></li>
+              <li><a href="#request"><span>Demande de documents</span><span>→</span></a></li>
+              <li><a href="/privacy.html"><span>Privacy & Terms</span><span>→</span></a></li>
+            </ul>
+            <p class="muted" style="margin-top:12px;font-size:13px">
+              Astuce : indique la destination et le produit (mer/jus) pour recevoir uniquement les documents pertinents.
+            </p>
+          </aside>
         </div>
       </section>
 
       <section class="panel">
         <h2 data-i18n="docs_types_h2">Types de documents (exemples)</h2>
 
-        <div class="grid">
+        <div class="grid" style="grid-template-columns:repeat(3,minmax(0,1fr))">
           <div class="card">
-            <span class="label" data-i18n="docs_card_company_label">Entreprise</span>
-            <strong data-i18n="docs_card_company_title">Informations légales</strong>
-            <ul class="list">
-              <li data-i18n="docs_card_company_li1">Registre de commerce</li>
-              <li data-i18n="docs_card_company_li2">Coordonnées & fiche société</li>
-              <li data-i18n="docs_card_company_li3">Références & contacts</li>
-            </ul>
+            <div class="card-body">
+              <span class="label" data-i18n="docs_card_company_label">Entreprise</span>
+              <h3 data-i18n="docs_card_company_title">Informations légales</h3>
+              <ul class="list">
+                <li data-i18n="docs_card_company_li1">Registre de commerce</li>
+                <li data-i18n="docs_card_company_li2">Coordonnées & fiche société</li>
+                <li data-i18n="docs_card_company_li3">Références & contacts</li>
+              </ul>
+            </div>
           </div>
 
           <div class="card">
-            <span class="label" data-i18n="docs_card_quality_label">Qualité</span>
-            <strong data-i18n="docs_card_quality_title">Conformité & traçabilité</strong>
-            <ul class="list">
-              <li data-i18n="docs_card_quality_li1">Traçabilité par lots</li>
-              <li data-i18n="docs_card_quality_li2">Spécifications produits</li>
-              <li data-i18n="docs_card_quality_li3">Procédures / bonnes pratiques</li>
-            </ul>
+            <div class="card-body">
+              <span class="label" data-i18n="docs_card_quality_label">Qualité</span>
+              <h3 data-i18n="docs_card_quality_title">Conformité & traçabilité</h3>
+              <ul class="list">
+                <li data-i18n="docs_card_quality_li1">Traçabilité par lots</li>
+                <li data-i18n="docs_card_quality_li2">Spécifications produits</li>
+                <li data-i18n="docs_card_quality_li3">Procédures / bonnes pratiques</li>
+              </ul>
+            </div>
           </div>
 
           <div class="card">
-            <span class="label" data-i18n="docs_card_export_label">Export</span>
-            <strong data-i18n="docs_card_export_title">Documents selon destination</strong>
-            <ul class="list">
-              <li data-i18n="docs_card_export_li1">Docs export (selon pays)</li>
-              <li data-i18n="docs_card_export_li2">Emballage / étiquetage</li>
-              <li data-i18n="docs_card_export_li3">Incoterms & logistique</li>
-            </ul>
+            <div class="card-body">
+              <span class="label" data-i18n="docs_card_export_label">Export</span>
+              <h3 data-i18n="docs_card_export_title">Documents selon destination</h3>
+              <ul class="list">
+                <li data-i18n="docs_card_export_li1">Docs export (selon pays)</li>
+                <li data-i18n="docs_card_export_li2">Emballage / étiquetage</li>
+                <li data-i18n="docs_card_export_li3">Incoterms & logistique</li>
+              </ul>
+            </div>
           </div>
         </div>
 
@@ -145,7 +172,7 @@
         </p>
       </section>
 
-      <section id="request" class="panel">
+      <section id="request" class="panel" style="margin-top:18px">
         <h2 data-i18n="docs_request_h2">Demande de documents</h2>
         <p class="muted" data-i18n="docs_request_intro">
           Indique ton entreprise, le produit concerné et la destination. Nous reviendrons vers toi avec les documents pertinents.
@@ -193,10 +220,14 @@
 
           <div>
             <label for="message" data-i18n="form_message">Message</label>
-            <textarea id="message" name="Message" required data-i18n-placeholder="ph_message" placeholder="Précise ton besoin et ton contexte (B2B, appel d’offres, etc.)"></textarea>
+            <textarea id="message" name="Message" required data-i18n-placeholder="ph_message"
+              placeholder="Précise ton besoin et ton contexte (B2B, appel d’offres, etc.)"></textarea>
           </div>
 
-          <button class="btn" type="submit" data-i18n="form_send">Envoyer</button>
+          <div class="form-actions">
+            <button class="btn" type="submit" data-i18n="form_send">Envoyer</button>
+            <span class="muted" style="font-size:13px">Réponse par e-mail.</span>
+          </div>
         </form>
 
         <p class="muted" style="margin-top:12px">
@@ -209,8 +240,6 @@
         <div class="footer">
           <div class="foot-links">
             <a href="/rfq.html" data-i18n="nav_rfq">RFQ / Devis</a>
-            <span>•</span>
-            <a href="/compliance.html" data-i18n="nav_docs">Documents</a>
             <span>•</span>
             <a href="/privacy.html" data-i18n="nav_privacy">Privacy & Terms</a>
             <span>•</span>
