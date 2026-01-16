@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ORION FISH – Documents & conformité</title>
 
+  <title>ORION FISH – Documents & conformité</title>
   <meta name="description" content="ORION FISH – Documents & conformité : traçabilité, spécifications, documents export. Partage sur demande." />
   <meta name="robots" content="index,follow" />
   <meta name="theme-color" content="#000000" />
@@ -22,7 +22,7 @@
     data-cmp-cdn="cdn.consentmanager.net"
     data-cmp-codesrc="16"></script>
 
-  <!-- Google Analytics (GA4) — BLOQUÉ jusqu’au consentement (vendor s26) -->
+  <!-- GA4 (bloqué jusqu’au consentement) -->
   <script async type="text/plain" class="cmplazyload" data-cmp-vendor="s26"
     data-cmp-src="https://www.googletagmanager.com/gtag/js?id=G-W367YRDYKY"></script>
   <script type="text/plain" class="cmplazyload" data-cmp-vendor="s26">
@@ -42,21 +42,20 @@
   <script src="/orion-ai.js" defer></script>
 </head>
 
-<body class="page-docs">
+<body class="page-docs theme-leroy">
   <a class="skip" href="#main">Aller au contenu</a>
 
   <div class="topbar">
     <div class="container">
       <div class="topbar-row">
         <div class="topbar-links">
-          <a href="/"><span>ORION FISH</span></a>
-          <a href="/rfq.html">RFQ / Devis</a>
-          <a href="/compliance.html" aria-current="page">Documents</a>
-          <a href="/fromage.html">Fromage</a>
+          <a class="pill" href="/"><span>ORION FISH</span></a>
+          <a class="pill" href="/rfq.html" data-i18n="nav_rfq">RFQ / Devis</a>
+          <a class="pill" href="/compliance.html" data-i18n="nav_docs" aria-current="page">Documents</a>
+          <a class="pill" href="/fromage.html" data-i18n="nav_cheese">Fromage (bientôt)</a>
         </div>
-
         <div class="topbar-links">
-          <a href="/#contact">Contact</a>
+          <a href="/#contact" data-i18n="nav_contact">Contact</a>
           <span class="sep">•</span>
           <button class="btn-lang" id="langBtn" type="button">EN</button>
         </div>
@@ -76,12 +75,12 @@
 
       <nav class="site-nav" aria-label="Navigation">
         <ul>
-          <li><a href="/">Accueil</a></li>
-          <li><a href="/rfq.html">RFQ / Devis</a></li>
-          <li><a href="/compliance.html" aria-current="page">Documents</a></li>
-          <li><a href="/fromage.html">Fromage</a></li>
-          <li><a href="/#contact">Contact</a></li>
-          <li><a href="/privacy.html">Privacy</a></li>
+          <li><a href="/" data-i18n="nav_home">Accueil</a></li>
+          <li><a href="/rfq.html" data-i18n="nav_rfq">RFQ / Devis</a></li>
+          <li><a href="/compliance.html" data-i18n="nav_docs" aria-current="page">Documents</a></li>
+          <li><a href="/fromage.html" data-i18n="nav_cheese">Fromage (bientôt)</a></li>
+          <li><a href="/#contact" data-i18n="nav_contact">Contact</a></li>
+          <li><a href="/privacy.html" data-i18n="nav_privacy">Privacy & Terms</a></li>
         </ul>
       </nav>
     </div>
@@ -90,81 +89,65 @@
   <main id="main">
     <div class="container">
       <div class="breadcrumb" aria-label="Fil d’Ariane">
-        <a href="/">Accueil</a> <span>›</span> <span>Documents & conformité</span>
+        <a href="/" data-i18n="nav_home">Accueil</a> <span>›</span> <span data-i18n="docs_breadcrumb">Documents & conformité</span>
       </div>
 
-      <section class="rfq-hero" aria-label="Introduction Documents">
-        <div class="rfq-hero-grid">
-          <div class="panel">
-            <h1>Documents & conformité</h1>
-            <p class="muted">
-              Nous partageons les documents nécessaires aux partenaires et acheteurs (B2B) sur demande, selon la destination, le produit et le cadre de collaboration.
-            </p>
+      <section class="panel">
+        <h1 data-i18n="docs_h1">Documents & conformité</h1>
+        <p class="muted" data-i18n="docs_intro">
+          Nous partageons les documents nécessaires aux partenaires et acheteurs (B2B) sur demande, selon la destination, le produit et le cadre de collaboration.
+        </p>
 
-            <div class="cta" style="margin-top:14px">
-              <a class="btn" href="/rfq.html">Faire une RFQ</a>
-              <a class="btn btn-outline" href="#request">Demander des documents</a>
-              <a class="btn btn-outline" href="#" data-orion-ai-open="1">Assistance</a>
-            </div>
-
-            <p class="muted" style="margin-top:12px; font-size:13px">
-              Astuce : indique destination + format + incoterm (si possible) pour recevoir la liste exacte des documents requis.
-            </p>
-          </div>
-
-          <aside class="info-card" aria-label="Contact rapide">
-            <div class="info-title">Informations rapides</div>
-            <div class="info-line"><strong>Localisation :</strong> Rufisque (17000), Sénégal</div>
-            <div class="info-line"><strong>Tel/WhatsApp :</strong> <a href="tel:+221339138392">+221339138392</a></div>
-            <div class="info-line"><strong>Email :</strong> <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a></div>
-            <div class="info-line"><strong>Partage :</strong> sur demande (B2B)</div>
-          </aside>
+        <div class="cta" style="margin-top:14px">
+          <a class="btn" href="/rfq.html" data-i18n="docs_cta_rfq">Faire une RFQ</a>
+          <a class="btn btn-outline" href="#request" data-i18n="docs_cta_request">Demander des documents</a>
+          <a class="btn btn-outline" href="#" data-orion-ai-open="1" data-i18n="docs_cta_chat">Parler à Orion fish Assistant</a>
         </div>
       </section>
 
       <section class="panel">
-        <h2>Types de documents (exemples)</h2>
+        <h2 data-i18n="docs_types_h2">Types de documents (exemples)</h2>
 
         <div class="grid">
           <div class="card">
-            <span class="label">Entreprise</span>
-            <strong>Informations légales</strong>
+            <span class="label" data-i18n="docs_card_company_label">Entreprise</span>
+            <strong data-i18n="docs_card_company_title">Informations légales</strong>
             <ul class="list">
-              <li>Registre de commerce</li>
-              <li>Coordonnées & fiche société</li>
-              <li>Références & contacts</li>
+              <li data-i18n="docs_card_company_li1">Registre de commerce</li>
+              <li data-i18n="docs_card_company_li2">Coordonnées & fiche société</li>
+              <li data-i18n="docs_card_company_li3">Références & contacts</li>
             </ul>
           </div>
 
           <div class="card">
-            <span class="label">Qualité</span>
-            <strong>Conformité & traçabilité</strong>
+            <span class="label" data-i18n="docs_card_quality_label">Qualité</span>
+            <strong data-i18n="docs_card_quality_title">Conformité & traçabilité</strong>
             <ul class="list">
-              <li>Traçabilité par lots</li>
-              <li>Spécifications produits</li>
-              <li>Procédures / bonnes pratiques</li>
+              <li data-i18n="docs_card_quality_li1">Traçabilité par lots</li>
+              <li data-i18n="docs_card_quality_li2">Spécifications produits</li>
+              <li data-i18n="docs_card_quality_li3">Procédures / bonnes pratiques</li>
             </ul>
           </div>
 
           <div class="card">
-            <span class="label">Export</span>
-            <strong>Documents selon destination</strong>
+            <span class="label" data-i18n="docs_card_export_label">Export</span>
+            <strong data-i18n="docs_card_export_title">Documents selon destination</strong>
             <ul class="list">
-              <li>Docs export (selon pays)</li>
-              <li>Emballage / étiquetage</li>
-              <li>Incoterms & logistique</li>
+              <li data-i18n="docs_card_export_li1">Docs export (selon pays)</li>
+              <li data-i18n="docs_card_export_li2">Emballage / étiquetage</li>
+              <li data-i18n="docs_card_export_li3">Incoterms & logistique</li>
             </ul>
           </div>
         </div>
 
-        <p class="muted" style="margin-top:12px">
+        <p class="muted" style="margin-top:12px" data-i18n="docs_note">
           Les documents fournis dépendent du produit (mer/jus), du format, de la destination et du niveau d’avancement de la collaboration.
         </p>
       </section>
 
       <section id="request" class="panel">
-        <h2>Demande de documents</h2>
-        <p class="muted">
+        <h2 data-i18n="docs_request_h2">Demande de documents</h2>
+        <p class="muted" data-i18n="docs_request_intro">
           Indique ton entreprise, le produit concerné et la destination. Nous reviendrons vers toi avec les documents pertinents.
         </p>
 
@@ -177,64 +160,65 @@
 
           <div class="two">
             <div>
-              <label for="company">Nom / Entreprise</label>
-              <input id="company" name="Nom / Entreprise" type="text" required placeholder="Nom / Company" />
+              <label for="company" data-i18n="form_company">Nom / Entreprise</label>
+              <input id="company" name="Nom / Entreprise" type="text" required data-i18n-placeholder="ph_company" placeholder="Nom / Company" />
             </div>
             <div>
-              <label for="email">E-mail</label>
-              <input id="email" name="email" type="email" required placeholder="name@company.com" />
-            </div>
-          </div>
-
-          <div class="two">
-            <div>
-              <label for="phone">Téléphone / WhatsApp</label>
-              <input id="phone" name="Téléphone" type="tel" placeholder="+221 ..." />
-            </div>
-            <div>
-              <label for="destination">Destination (pays)</label>
-              <input id="destination" name="Destination" type="text" placeholder="Ex: France, Pays-Bas, Sénégal..." />
+              <label for="email" data-i18n="form_email">E-mail</label>
+              <input id="email" name="email" type="email" required data-i18n-placeholder="ph_email" placeholder="name@company.com" />
             </div>
           </div>
 
           <div class="two">
             <div>
-              <label for="product">Produit concerné</label>
-              <input id="product" name="Produit" type="text" placeholder="Ex: thon, crevette, jus d’ananas..." />
+              <label for="phone" data-i18n="form_phone_wa">Téléphone / WhatsApp</label>
+              <input id="phone" name="Téléphone" type="tel" data-i18n-placeholder="ph_phone" placeholder="+221 ..." />
             </div>
             <div>
-              <label for="docs">Documents souhaités</label>
-              <input id="docs" name="Documents souhaités" type="text" placeholder="Ex: specs, traçabilité, fiche société..." />
+              <label for="destination" data-i18n="form_destination">Destination (pays)</label>
+              <input id="destination" name="Destination" type="text" data-i18n-placeholder="ph_destination" placeholder="Ex: France, Pays-Bas, Sénégal..." />
+            </div>
+          </div>
+
+          <div class="two">
+            <div>
+              <label for="product" data-i18n="form_product">Produit concerné</label>
+              <input id="product" name="Produit" type="text" data-i18n-placeholder="ph_product" placeholder="Ex: thon, crevette, jus d’ananas..." />
+            </div>
+            <div>
+              <label for="docs" data-i18n="form_docs_wanted">Documents souhaités</label>
+              <input id="docs" name="Documents souhaités" type="text" data-i18n-placeholder="ph_docs_wanted" placeholder="Ex: specs, traçabilité, fiche société..." />
             </div>
           </div>
 
           <div>
-            <label for="message">Message</label>
-            <textarea id="message" name="Message" required placeholder="Précise ton besoin et ton contexte (B2B, appel d’offres, etc.)"></textarea>
+            <label for="message" data-i18n="form_message">Message</label>
+            <textarea id="message" name="Message" required data-i18n-placeholder="ph_message" placeholder="Précise ton besoin et ton contexte (B2B, appel d’offres, etc.)"></textarea>
           </div>
 
-          <div class="form-actions">
-            <button class="btn" type="submit">Envoyer</button>
-            <span class="muted" style="font-size:13px">Vous recevrez une réponse par e-mail.</span>
-          </div>
+          <button class="btn" type="submit" data-i18n="form_send">Envoyer</button>
         </form>
 
-        <p class="muted" style="margin-top:14px">
+        <p class="muted" style="margin-top:12px">
           Email : <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a> •
           Tel/WhatsApp : <a href="tel:+221339138392">+221339138392</a>
         </p>
       </section>
 
-      <footer class="footer">
-        <div class="foot-links">
-          <a href="/rfq.html">RFQ</a>
-          <span>•</span>
-          <a href="/privacy.html">Privacy</a>
-          <span>•</span>
-          <a href="?cmpscreen" class="cmpfooterlink cmpfooterlinkcmp">Cookies</a>
+      <div class="dark-footer">
+        <div class="footer">
+          <div class="foot-links">
+            <a href="/rfq.html" data-i18n="nav_rfq">RFQ / Devis</a>
+            <span>•</span>
+            <a href="/compliance.html" data-i18n="nav_docs">Documents</a>
+            <span>•</span>
+            <a href="/privacy.html" data-i18n="nav_privacy">Privacy & Terms</a>
+            <span>•</span>
+            <a href="?cmpscreen" class="cmpfooterlink cmpfooterlinkcmp">Paramètres cookies</a>
+          </div>
+          <div class="foot-copy">© <span id="year"></span> ORION FISH</div>
         </div>
-        <div class="foot-copy">© <span id="year"></span> ORION FISH</div>
-      </footer>
+      </div>
 
       <script>
         const y = document.getElementById("year");
