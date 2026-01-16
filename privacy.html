@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <title>ORION FISH – Privacy & Terms</title>
-  <meta name="description" content="ORION FISH – Privacy & Terms : cookies, confidentialité et informations légales." />
+
+  <meta name="description" content="ORION FISH – Politique de confidentialité, cookies et conditions. Informations B2B." />
   <meta name="robots" content="index,follow" />
   <meta name="theme-color" content="#000000" />
 
@@ -22,6 +22,16 @@
     data-cmp-cdn="cdn.consentmanager.net"
     data-cmp-codesrc="16"></script>
 
+  <!-- GA4 (blocked until consent - vendor s26) -->
+  <script async type="text/plain" class="cmplazyload" data-cmp-vendor="s26"
+    data-cmp-src="https://www.googletagmanager.com/gtag/js?id=G-W367YRDYKY"></script>
+  <script type="text/plain" class="cmplazyload" data-cmp-vendor="s26">
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-W367YRDYKY');
+  </script>
+
   <script src="/site.js" defer></script>
   <script src="/orion-ai.js" defer></script>
 </head>
@@ -33,11 +43,13 @@
     <div class="container">
       <div class="topbar-row">
         <div class="topbar-links">
-          <a class="pill" href="/"><span>ORION FISH</span></a>
+          <a class="pill" href="/">ORION FISH</a>
+          <span class="sep">•</span>
           <a class="pill" href="/rfq.html" data-i18n="nav_rfq">RFQ / Devis</a>
           <a class="pill" href="/compliance.html" data-i18n="nav_docs">Documents</a>
           <a class="pill" href="/fromage.html" data-i18n="nav_cheese">Fromage (bientôt)</a>
         </div>
+
         <div class="topbar-links">
           <a href="/#contact" data-i18n="nav_contact">Contact</a>
           <span class="sep">•</span>
@@ -47,62 +59,105 @@
     </div>
   </div>
 
-  <header class="site-header">
-    <div class="container header-row">
-      <a class="brand" href="/" aria-label="ORION FISH Home">
-        <img class="logo-mark" src="/logo-orion-fish.svg" alt="Logo ORION FISH">
-        <span>
-          <span class="brand-title">ORION FISH</span>
-          <span class="brand-sub">Seafood & Juices</span>
-        </span>
-      </a>
+  <header>
+    <div class="container">
+      <div class="nav">
+        <a class="logo-link" href="/" aria-label="ORION FISH Home">
+          <img class="logo-mark" src="/logo-orion-fish.svg" alt="Logo ORION FISH">
+          <span class="logo-text">
+            <span class="logo-top">ORION FISH</span>
+            <span class="logo-title">ORION FISH</span>
+            <span class="logo-sub">Seafood & Juices</span>
+          </span>
+        </a>
 
-      <nav class="site-nav" aria-label="Navigation">
-        <ul>
-          <li><a href="/" data-i18n="nav_home">Accueil</a></li>
-          <li><a href="/rfq.html" data-i18n="nav_rfq">RFQ / Devis</a></li>
-          <li><a href="/compliance.html" data-i18n="nav_docs">Documents</a></li>
-          <li><a href="/fromage.html" data-i18n="nav_cheese">Fromage (bientôt)</a></li>
-          <li><a href="/#contact" data-i18n="nav_contact">Contact</a></li>
-          <li><a href="/privacy.html" data-i18n="nav_privacy" aria-current="page">Privacy & Terms</a></li>
-        </ul>
-      </nav>
+        <nav aria-label="Navigation">
+          <ul>
+            <li><a href="/" data-i18n="nav_home">Accueil</a></li>
+            <li><a href="/rfq.html" data-i18n="nav_rfq">RFQ / Devis</a></li>
+            <li><a href="/compliance.html" data-i18n="nav_docs">Documents</a></li>
+            <li><a href="/fromage.html" data-i18n="nav_cheese">Fromage</a></li>
+            <li><a href="/#contact" data-i18n="nav_contact">Contact</a></li>
+            <li><a href="/privacy.html" data-i18n="nav_privacy" aria-current="page">Privacy & Terms</a></li>
+          </ul>
+        </nav>
+      </div>
     </div>
   </header>
 
   <main id="main">
     <div class="container">
-      <div class="breadcrumb">
-        <a href="/" data-i18n="nav_home">Accueil</a> <span>›</span> <span data-i18n="nav_privacy">Privacy & Terms</span>
+      <div class="breadcrumb" aria-label="Fil d’Ariane">
+        <a href="/" data-i18n="nav_home">Accueil</a> <span>›</span> <span>Privacy & Terms</span>
       </div>
 
       <section class="panel">
-        <h1 data-i18n="privacy_h1">Privacy & Terms</h1>
-        <p class="muted">
-          Informations générales : confidentialité, cookies et conditions.
-        </p>
-      </section>
+        <div class="fr-only">
+          <h1>Politique de confidentialité & conditions</h1>
+          <p class="muted">
+            Cette page résume la façon dont ORION FISH traite les demandes reçues via le site (formulaires RFQ / contact) et l’usage des cookies.
+          </p>
 
-      <section class="panel" id="cookies">
-        <h2 data-i18n="privacy_cookies_h2">Cookies</h2>
-        <p class="muted" data-i18n="privacy_cookies_p">
-          Nous utilisons des cookies techniques nécessaires au fonctionnement. Google Analytics (mesure d’audience) est chargé uniquement après votre consentement via le bandeau ConsentManager.
-        </p>
+          <h2 style="margin-top:18px">Données collectées</h2>
+          <ul class="list">
+            <li>Nom / entreprise, e-mail, téléphone, destination, informations de demande (RFQ, documents).</li>
+            <li>Ces données sont fournies volontairement via les formulaires.</li>
+          </ul>
 
-        <div class="cta" style="margin-top:14px">
-          <a class="btn btn-outline" href="?cmpscreen">Paramètres cookies</a>
-          <button class="btn btn-outline" id="reset-cookies" type="button" data-i18n="privacy_reset">Réinitialiser les préférences cookies</button>
+          <h2 style="margin-top:18px">Finalités</h2>
+          <ul class="list">
+            <li>Répondre aux demandes de devis (RFQ) et de documents.</li>
+            <li>Échanges commerciaux B2B (disponibilité, spécifications, conditions, logistique).</li>
+          </ul>
+
+          <h2 id="cookies" style="margin-top:18px">Cookies</h2>
+          <ul class="list">
+            <li>Cookies techniques : fonctionnement, sécurité, préférences (langue).</li>
+            <li>Mesure d’audience (GA4) : bloquée tant que vous n’avez pas donné votre consentement via le bandeau CMP.</li>
+          </ul>
+
+          <h2 style="margin-top:18px">Contact</h2>
+          <p class="muted">
+            Email : <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a> •
+            Tel/WhatsApp : <a href="tel:+221339138392">+221339138392</a>
+          </p>
         </div>
-      </section>
 
-      <section class="panel">
-        <h2>Mentions</h2>
-        <p class="muted">
-          <strong>ORION FISH</strong><br>
-          Quartier Léona, Cité Filaos, Rufisque, 17000, Sénégal<br>
-          Tél/WhatsApp : <a href="tel:+221339138392">+221339138392</a><br>
-          Email : <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a>
-        </p>
+        <div class="en-only">
+          <h1>Privacy policy & terms</h1>
+          <p class="muted">
+            This page summarizes how ORION FISH handles requests received via the website (RFQ / contact forms) and how cookies are used.
+          </p>
+
+          <h2 style="margin-top:18px">Data we collect</h2>
+          <ul class="list">
+            <li>Name/company, email, phone, destination, and request details (RFQ, documents).</li>
+            <li>This data is voluntarily provided through the forms.</li>
+          </ul>
+
+          <h2 style="margin-top:18px">Purpose</h2>
+          <ul class="list">
+            <li>To respond to quote requests (RFQ) and document requests.</li>
+            <li>B2B commercial discussions (availability, specs, terms, logistics).</li>
+          </ul>
+
+          <h2 id="cookies" style="margin-top:18px">Cookies</h2>
+          <ul class="list">
+            <li>Technical cookies: website operation, security, preferences (language).</li>
+            <li>Analytics (GA4): blocked until you give consent via the CMP banner.</li>
+          </ul>
+
+          <h2 style="margin-top:18px">Contact</h2>
+          <p class="muted">
+            Email: <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a> •
+            Phone/WhatsApp: <a href="tel:+221339138392">+221339138392</a>
+          </p>
+        </div>
+
+        <div class="cta" style="margin-top:16px">
+          <a class="btn btn-outline" href="?cmpscreen">Paramètres cookies</a>
+          <a class="btn" href="/rfq.html" data-i18n="nav_rfq">RFQ / Devis</a>
+        </div>
       </section>
 
       <div class="dark-footer">
@@ -111,8 +166,6 @@
             <a href="/rfq.html" data-i18n="nav_rfq">RFQ / Devis</a>
             <span>•</span>
             <a href="/compliance.html" data-i18n="nav_docs">Documents</a>
-            <span>•</span>
-            <a href="/privacy.html" data-i18n="nav_privacy">Privacy & Terms</a>
             <span>•</span>
             <a href="?cmpscreen" class="cmpfooterlink cmpfooterlinkcmp">Paramètres cookies</a>
           </div>
