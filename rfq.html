@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ORION FISH – RFQ / Demande de devis (B2B)</title>
 
-  <title>ORION FISH – RFQ / Demande de devis</title>
-  <meta name="description" content="RFQ ORION FISH – Demande de devis B2B : produits de la mer & jus. Réponse rapide." />
+  <meta name="description" content="RFQ ORION FISH – Demande de devis B2B : produits de la mer & jus. Réponse rapide avec disponibilité, specs et conditions." />
   <meta name="robots" content="index,follow" />
   <meta name="theme-color" content="#000000" />
 
@@ -22,7 +22,7 @@
     data-cmp-cdn="cdn.consentmanager.net"
     data-cmp-codesrc="16"></script>
 
-  <!-- GA4 (bloqué jusqu’au consentement) -->
+  <!-- GA4 (blocked until consent - vendor s26) -->
   <script async type="text/plain" class="cmplazyload" data-cmp-vendor="s26"
     data-cmp-src="https://www.googletagmanager.com/gtag/js?id=G-W367YRDYKY"></script>
   <script type="text/plain" class="cmplazyload" data-cmp-vendor="s26">
@@ -49,11 +49,13 @@
     <div class="container">
       <div class="topbar-row">
         <div class="topbar-links">
-          <a class="pill" href="/"><span>ORION FISH</span></a>
+          <a class="pill" href="/">ORION FISH</a>
+          <span class="sep">•</span>
           <a class="pill" href="/rfq.html" data-i18n="nav_rfq" aria-current="page">RFQ / Devis</a>
           <a class="pill" href="/compliance.html" data-i18n="nav_docs">Documents</a>
           <a class="pill" href="/fromage.html" data-i18n="nav_cheese">Fromage (bientôt)</a>
         </div>
+
         <div class="topbar-links">
           <a href="/#contact" data-i18n="nav_contact">Contact</a>
           <span class="sep">•</span>
@@ -63,26 +65,29 @@
     </div>
   </div>
 
-  <header class="site-header">
-    <div class="container header-row">
-      <a class="brand" href="/" aria-label="ORION FISH Home">
-        <img class="logo-mark" src="/logo-orion-fish.svg" alt="Logo ORION FISH">
-        <span>
-          <span class="brand-title">ORION FISH</span>
-          <span class="brand-sub">Seafood & Juices</span>
-        </span>
-      </a>
+  <header>
+    <div class="container">
+      <div class="nav">
+        <a class="logo-link" href="/" aria-label="ORION FISH Home">
+          <img class="logo-mark" src="/logo-orion-fish.svg" alt="Logo ORION FISH">
+          <span class="logo-text">
+            <span class="logo-top">ORION FISH</span>
+            <span class="logo-title">ORION FISH</span>
+            <span class="logo-sub">Seafood & Juices</span>
+          </span>
+        </a>
 
-      <nav class="site-nav" aria-label="Navigation">
-        <ul>
-          <li><a href="/" data-i18n="nav_home">Accueil</a></li>
-          <li><a href="/rfq.html" data-i18n="nav_rfq" aria-current="page">RFQ / Devis</a></li>
-          <li><a href="/compliance.html" data-i18n="nav_docs">Documents</a></li>
-          <li><a href="/fromage.html" data-i18n="nav_cheese">Fromage (bientôt)</a></li>
-          <li><a href="/#contact" data-i18n="nav_contact">Contact</a></li>
-          <li><a href="/privacy.html" data-i18n="nav_privacy">Privacy & Terms</a></li>
-        </ul>
-      </nav>
+        <nav aria-label="Navigation">
+          <ul>
+            <li><a href="/" data-i18n="nav_home">Accueil</a></li>
+            <li><a href="/rfq.html" data-i18n="nav_rfq" aria-current="page">RFQ / Devis</a></li>
+            <li><a href="/compliance.html" data-i18n="nav_docs">Documents</a></li>
+            <li><a href="/fromage.html" data-i18n="nav_cheese">Fromage</a></li>
+            <li><a href="/#contact" data-i18n="nav_contact">Contact</a></li>
+            <li><a href="/privacy.html" data-i18n="nav_privacy">Privacy & Terms</a></li>
+          </ul>
+        </nav>
+      </div>
     </div>
   </header>
 
@@ -92,22 +97,41 @@
         <a href="/" data-i18n="nav_home">Accueil</a> <span>›</span> <span data-i18n="nav_rfq">RFQ / Devis</span>
       </div>
 
-      <section class="panel" aria-label="Intro RFQ">
-        <h1>RFQ / Demande de devis</h1>
-        <p class="muted">
-          Formulaire B2B : produits de la mer / fruits & jus. Nous répondons avec disponibilité, spécifications et conditions.
-        </p>
-        <div class="cta" style="margin-top:14px">
-          <a class="btn btn-outline" href="#" data-orion-ai-open="1">Assistance (Orion AI)</a>
-          <a class="btn btn-outline" href="/compliance.html">Documents</a>
+      <section class="module" style="padding-top:22px">
+        <div class="module-grid">
+          <div class="panel">
+            <h1 data-i18n="rfq_h1">RFQ / Demande de devis</h1>
+            <p class="muted" data-i18n="rfq_intro">
+              Formulaire B2B : produits de la mer / fruits & jus. Nous répondons avec disponibilité, spécifications et conditions.
+            </p>
+
+            <div class="cta">
+              <a class="btn btn-outline" href="#" data-orion-ai-open="1" data-i18n="home_hero_btn_help">Assistance</a>
+              <a class="btn btn-outline" href="/compliance.html" data-i18n="nav_docs">Documents</a>
+            </div>
+
+            <p class="muted" style="margin-top:12px;font-size:13px" data-i18n="rfq_tip">
+              Astuce : précise la destination, l’incoterm et le format (frais/surgelé, calibre, packaging) pour un devis plus rapide.
+            </p>
+          </div>
+
+          <aside class="module-card">
+            <h3 style="margin-bottom:10px">ORION FISH</h3>
+            <p class="muted"><strong>Localisation :</strong> Rufisque (17000), Sénégal</p>
+            <p class="muted"><strong>Tel/WhatsApp :</strong> <a href="tel:+221339138392">+221339138392</a></p>
+            <p class="muted"><strong>Email :</strong> <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a></p>
+            <p class="muted"><strong>Réponse :</strong> dès que possible</p>
+
+            <div class="cta">
+              <a class="btn btn-outline" href="/privacy.html">Privacy</a>
+              <a class="btn btn-outline" href="/#contact" data-i18n="nav_contact">Contact</a>
+            </div>
+          </aside>
         </div>
-        <p class="muted" style="margin-top:10px;font-size:13px">
-          Conseil : destination + incoterm + format + quantité = devis plus rapide.
-        </p>
       </section>
 
-      <section class="panel" aria-label="Formulaire RFQ">
-        <h2>Formulaire RFQ</h2>
+      <section class="panel">
+        <h2 data-i18n="rfq_form_h2">Formulaire RFQ</h2>
 
         <form action="https://formsubmit.co/contact@orionsfish.com" method="POST">
           <input type="text" name="_honey" style="display:none">
@@ -118,30 +142,30 @@
 
           <div class="two">
             <div>
-              <label for="company">Nom / Entreprise</label>
-              <input id="company" name="Nom / Entreprise" type="text" required placeholder="Nom / Company" />
+              <label for="company" data-i18n="form_company">Nom / Entreprise</label>
+              <input id="company" name="Nom / Entreprise" type="text" required data-i18n-placeholder="ph_company" placeholder="Nom / Company" />
             </div>
             <div>
-              <label for="email">E-mail</label>
-              <input id="email" name="email" type="email" required placeholder="name@company.com" />
+              <label for="email" data-i18n="form_email">E-mail</label>
+              <input id="email" name="email" type="email" required data-i18n-placeholder="ph_email" placeholder="name@company.com" />
             </div>
           </div>
 
           <div class="two">
             <div>
-              <label for="phone">Téléphone / WhatsApp</label>
-              <input id="phone" name="Téléphone" type="tel" placeholder="+221 ..." />
+              <label for="phone" data-i18n="form_phone_wa">Téléphone / WhatsApp</label>
+              <input id="phone" name="Téléphone" type="tel" data-i18n-placeholder="ph_phone" placeholder="+221 ..." />
             </div>
             <div>
-              <label for="destination">Destination (pays)</label>
-              <input id="destination" name="Destination" type="text" placeholder="Ex: France, Pays-Bas, Sénégal..." />
+              <label for="destination" data-i18n="form_destination">Destination (pays)</label>
+              <input id="destination" name="Destination" type="text" data-i18n-placeholder="ph_destination" placeholder="Ex: France, Pays-Bas, Sénégal..." />
             </div>
           </div>
 
           <div class="two">
             <div>
               <label for="product">Produit</label>
-              <input id="product" name="Produit" type="text" placeholder="Ex: thon, crevette, jus d’ananas..." />
+              <input id="product" name="Produit" type="text" data-i18n-placeholder="ph_product" placeholder="Ex: thon, crevette, jus d’ananas..." />
             </div>
             <div>
               <label for="format">Format / Spécification</label>
@@ -161,17 +185,18 @@
           </div>
 
           <div>
-            <label for="message">Message</label>
-            <textarea id="message" name="Message" required placeholder="Décrivez votre besoin : qualité, certification, délai, destination, contraintes..."></textarea>
+            <label for="message" data-i18n="form_message">Message</label>
+            <textarea id="message" name="Message" required data-i18n-placeholder="ph_message"
+              placeholder="Précise ton besoin et ton contexte (B2B, appel d’offres, etc.)"></textarea>
           </div>
 
           <div class="form-actions">
-            <button class="btn" type="submit">Envoyer la RFQ</button>
-            <span class="muted" style="font-size:13px">Vous recevrez une réponse par e-mail.</span>
+            <button class="btn" type="submit" data-i18n="rfq_send">Envoyer la RFQ</button>
+            <span class="muted" style="font-size:13px">Réponse par e-mail / WhatsApp.</span>
           </div>
         </form>
 
-        <p class="muted" style="margin-top:12px">
+        <p class="muted" style="margin-top:14px">
           Email : <a href="mailto:contact@orionsfish.com">contact@orionsfish.com</a> •
           Tel/WhatsApp : <a href="tel:+221339138392">+221339138392</a>
         </p>
@@ -180,8 +205,6 @@
       <div class="dark-footer">
         <div class="footer">
           <div class="foot-links">
-            <a href="/rfq.html" data-i18n="nav_rfq">RFQ / Devis</a>
-            <span>•</span>
             <a href="/compliance.html" data-i18n="nav_docs">Documents</a>
             <span>•</span>
             <a href="/privacy.html" data-i18n="nav_privacy">Privacy & Terms</a>
@@ -196,7 +219,7 @@
         const y = document.getElementById("year");
         if (y) y.textContent = new Date().getFullYear();
 
-        // Pré-remplissage depuis /?q=...&zone=...&type=...
+        // Pre-fill from /rfq.html?q=...&zone=...&type=...
         const params = new URLSearchParams(location.search);
         const q = params.get("q");
         const zone = params.get("zone");
@@ -204,12 +227,13 @@
 
         const product = document.getElementById("product");
         const destination = document.getElementById("destination");
+        const message = document.getElementById("message");
+
         if (q && product && !product.value.trim()) product.value = q;
         if (zone && destination && !destination.value.trim()) destination.value = zone;
 
-        const message = document.getElementById("message");
         if (type && message && !message.value.trim()) {
-          const map = { sea: "Produits de la mer", juice: "Fruits & jus", rfq: "RFQ" };
+          const map = { sea: "Seafood", juice: "Fruits & Juices", rfq: "RFQ" };
           message.value = `Type: ${map[type] || type}\n`;
         }
       </script>
