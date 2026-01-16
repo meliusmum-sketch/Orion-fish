@@ -7,7 +7,7 @@
 
   <meta name="description" content="ORION FISH – Produits de la mer et transformation de fruits en jus. Vente, distribution et export (B2B). RFQ/Devis." />
   <meta name="robots" content="index,follow" />
-  <meta name="theme-color" content="#000000" />
+  <meta name="theme-color" content="#061a2b" />
 
   <link rel="icon" href="/logo-orion-fish.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/logo-orion-fish.svg">
@@ -38,11 +38,29 @@
     }
   </script>
 
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Organization",
+    "name":"ORION FISH",
+    "url":"https://www.orionsfish.com",
+    "telephone":"+221339138392",
+    "email":"contact@orionsfish.com",
+    "address":{
+      "@type":"PostalAddress",
+      "streetAddress":"Quartier Léona, Cité Filaos",
+      "addressLocality":"Rufisque",
+      "postalCode":"17000",
+      "addressCountry":"SN"
+    }
+  }
+  </script>
+
   <script src="/site.js" defer></script>
   <script src="/orion-ai.js" defer></script>
 </head>
 
-<body class="page-home theme-leroy">
+<body class="page-home">
   <a class="skip" href="#main">Aller au contenu</a>
 
   <div class="topbar">
@@ -57,7 +75,7 @@
         </div>
 
         <div class="topbar-links">
-          <a href="#contact" data-i18n="nav_contact">Contact</a>
+          <a class="pill" href="#contact" data-i18n="nav_contact">Contact</a>
           <span class="sep">•</span>
           <button class="btn-lang" id="langBtn" type="button">EN</button>
         </div>
@@ -92,11 +110,11 @@
   </header>
 
   <main id="main">
-    <!-- HERO FULL BLEED (PHOTO PRINCIPALE 0001) -->
+    <!-- HERO FULL BLEED (PHOTO PRINCIPALE 0001 - .JPG) -->
     <section class="hero" aria-label="ORION FISH Hero">
       <div class="hero-media" aria-hidden="true">
         <img
-          src="/orion-fish-hero-image-seafood-ocean-senegal-2026-0001.jpeg"
+          src="/orion-fish-hero-image-seafood-ocean-senegal-2026-0001.jpg"
           alt=""
         />
       </div>
@@ -110,23 +128,23 @@
           </div>
 
           <h1 class="hero-title" data-i18n="home_h1">ORION FISH – Produits de la mer & jus de fruits</h1>
-          <p class="hero-lead" style="color:rgba(255,255,255,.88)" data-i18n="home_sub">
+          <p class="hero-lead" data-i18n="home_sub">
             Collecte, transformation, conditionnement et distribution pour les marchés locaux et internationaux.
           </p>
-          <p class="hero-lead" style="color:rgba(255,255,255,.88)" data-i18n="home_p">
+          <p class="hero-lead" data-i18n="home_p">
             Solutions fiables, traçables et conformes. Formats professionnels, logistique et support export.
           </p>
 
           <div class="cta">
             <a class="btn" href="/rfq.html" data-i18n="home_cta_rfq">Demander un devis (RFQ)</a>
-            <a class="btn btn-outline" href="/compliance.html" style="border-color:#fff;color:#fff" data-i18n="home_cta_docs">Documents & conformité</a>
-            <a class="btn btn-outline" href="#" data-orion-ai-open="1" style="border-color:#fff;color:#fff" data-i18n="home_cta_help">Assistance</a>
+            <a class="btn btn-outline" href="/compliance.html" data-i18n="home_cta_docs">Documents & conformité</a>
+            <a class="btn btn-ghost" href="#" data-orion-ai-open="1" data-i18n="home_cta_help">Assistance</a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SECTION: SERVICES (no images here – removed everything not selected) -->
+    <!-- ABOUT / CARDS (sans images) -->
     <section class="section" aria-label="Services">
       <div class="container">
         <div class="section-top">
@@ -134,7 +152,7 @@
             <h2 data-i18n="about_h2">À propos d’ORION FISH</h2>
             <p class="muted" data-i18n="about_p2">Objectif : développer des filières durables et compétitives, adaptées aux exigences B2B.</p>
           </div>
-          <a class="btn btn-ghost" href="/rfq.html" data-i18n="nav_rfq">RFQ / Devis</a>
+          <a class="btn btn-outline" href="/rfq.html" data-i18n="nav_rfq">RFQ / Devis</a>
         </div>
 
         <div class="section-body">
@@ -145,32 +163,32 @@
 
             <div class="grid" aria-label="Points clés">
               <div class="card"><div class="card-body">
-                <span class="label">B2B</span>
-                <h3>Formats professionnels</h3>
+                <span class="label" data-i18n="home_card1_label">B2B</span>
+                <h3 data-i18n="home_card1_title">Formats professionnels</h3>
                 <ul class="list">
-                  <li>Spécifications sur demande</li>
-                  <li>Packaging & étiquetage</li>
-                  <li>Volumes adaptés</li>
+                  <li data-i18n="home_card1_li1">Spécifications sur demande</li>
+                  <li data-i18n="home_card1_li2">Packaging & étiquetage</li>
+                  <li data-i18n="home_card1_li3">Volumes adaptés</li>
                 </ul>
               </div></div>
 
               <div class="card"><div class="card-body">
-                <span class="label">Qualité</span>
-                <h3>Traçabilité</h3>
+                <span class="label" data-i18n="home_card2_label">Qualité</span>
+                <h3 data-i18n="home_card2_title">Traçabilité</h3>
                 <ul class="list">
-                  <li>Gestion par lots</li>
-                  <li>Contrôles</li>
-                  <li>Conformité</li>
+                  <li data-i18n="home_card2_li1">Gestion par lots</li>
+                  <li data-i18n="home_card2_li2">Contrôles</li>
+                  <li data-i18n="home_card2_li3">Conformité</li>
                 </ul>
               </div></div>
 
               <div class="card"><div class="card-body">
-                <span class="label">Export</span>
-                <h3>Support</h3>
+                <span class="label" data-i18n="home_card3_label">Export</span>
+                <h3 data-i18n="home_card3_title">Support</h3>
                 <ul class="list">
-                  <li>Documents selon destination</li>
-                  <li>Incoterms</li>
-                  <li>Suivi logistique</li>
+                  <li data-i18n="home_card3_li1">Documents selon destination</li>
+                  <li data-i18n="home_card3_li2">Incoterms</li>
+                  <li data-i18n="home_card3_li3">Suivi logistique</li>
                 </ul>
               </div></div>
             </div>
@@ -179,7 +197,7 @@
       </div>
     </section>
 
-    <!-- CONTACT (simple + clean) -->
+    <!-- CONTACT -->
     <section class="section" id="contact" aria-label="Contact">
       <div class="container">
         <div class="section-top">
@@ -187,7 +205,7 @@
             <h2 data-i18n="contact_h2">Contact</h2>
             <p class="muted" data-i18n="contact_p2">Pour un devis rapide, utilisez la page RFQ.</p>
           </div>
-          <a class="btn btn-ghost" href="/rfq.html">RFQ</a>
+          <a class="btn btn-outline" href="/rfq.html">RFQ</a>
         </div>
 
         <div class="section-body">
@@ -208,19 +226,19 @@
 
               <div class="two">
                 <div>
-                  <label for="nom">Nom / Entreprise</label>
-                  <input id="nom" name="Nom" type="text" required placeholder="Nom / Company" />
+                  <label for="company">Nom / Entreprise</label>
+                  <input id="company" name="Nom / Entreprise" type="text" required data-i18n-placeholder="ph_company" placeholder="Nom / Company" />
                 </div>
                 <div>
-                  <label for="email2">E-mail</label>
-                  <input id="email2" name="email" type="email" required placeholder="name@company.com" />
+                  <label for="email">E-mail</label>
+                  <input id="email" name="email" type="email" required data-i18n-placeholder="ph_email" placeholder="name@company.com" />
                 </div>
               </div>
 
               <div class="two">
                 <div>
-                  <label for="tel">Téléphone</label>
-                  <input id="tel" name="Téléphone" type="tel" placeholder="+221 ..." />
+                  <label for="phone">Téléphone / WhatsApp</label>
+                  <input id="phone" name="Téléphone" type="tel" data-i18n-placeholder="ph_phone" placeholder="+221 ..." />
                 </div>
                 <div>
                   <label for="objet">Objet</label>
@@ -229,13 +247,13 @@
               </div>
 
               <div>
-                <label for="message2">Message</label>
-                <textarea id="message2" name="Message" required placeholder="Votre message..."></textarea>
+                <label for="message">Message</label>
+                <textarea id="message" name="Message" required placeholder="Votre message..."></textarea>
               </div>
 
               <div class="form-actions">
-                <button class="btn" type="submit">Envoyer</button>
-                <a class="btn btn-outline" href="#" data-orion-ai-open="1">Assistance</a>
+                <button class="btn" type="submit" data-i18n="contact_send">Envoyer</button>
+                <a class="btn btn-ghost" href="#" data-orion-ai-open="1" data-i18n="contact_assist">Assistance</a>
               </div>
             </form>
           </div>
@@ -243,23 +261,23 @@
       </div>
     </section>
 
-    <!-- ===== BOTTOM VIDEO (navy) ===== -->
-    <section class="navy-band" aria-label="ORION FISH Video">
+    <!-- VIDEO EN BAS (carré, sans son, boucle 0→20s) -->
+    <section class="video-band" aria-label="ORION FISH Video">
       <div class="container">
-        <div class="navy-wrap">
+        <div class="video-wrap">
           <div>
-            <span class="label" style="background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.16);color:rgba(255,255,255,.92)">ORION FISH</span>
-            <h2 style="margin-bottom:10px;color:rgba(255,255,255,.95)">Production & sourcing</h2>
+            <span class="label">ORION FISH</span>
+            <h2 style="margin-bottom:10px">Production & sourcing</h2>
             <p class="muted" style="margin:0 0 14px">
-              Vidéo en lecture continue, sans son, limitée aux 20 premières secondes (boucle 0 → 20s).
+              Seafood & juices — B2B supply chain, logistics & export.
             </p>
             <div class="cta">
-              <a class="btn btn-outline" href="/rfq.html" style="border-color:#fff;color:#fff">RFQ</a>
-              <a class="btn btn-outline" href="/compliance.html" style="border-color:#fff;color:#fff">Documents</a>
+              <a class="btn btn-outline" href="/rfq.html" data-i18n="nav_rfq">RFQ / Devis</a>
+              <a class="btn btn-ghost" href="/compliance.html" data-i18n="nav_docs">Documents</a>
             </div>
           </div>
 
-          <div class="navy-video">
+          <div class="media-frame">
             <video
               id="ofBottomVideo"
               autoplay
@@ -275,7 +293,7 @@
       </div>
     </section>
 
-    <!-- FOOTER (navy) -->
+    <!-- FOOTER -->
     <div class="site-footer">
       <div class="footer">
         <div class="foot-links">
@@ -296,7 +314,7 @@
       const yearEl = document.getElementById("year");
       if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-      // Bottom video: mute + loop only first 20 seconds
+      // Bottom video: mute + loop only first 20 seconds (0 → 20 → 0)
       (function(){
         const v = document.getElementById("ofBottomVideo");
         if (!v) return;
@@ -305,9 +323,7 @@
         v.muted = true;
         v.volume = 0;
 
-        // Some browsers block autoplay until user gesture; we try anyway
         const tryPlay = () => v.play().catch(() => {});
-        document.addEventListener("visibilitychange", () => { if (!document.hidden) tryPlay(); });
         tryPlay();
 
         v.addEventListener("timeupdate", () => {
