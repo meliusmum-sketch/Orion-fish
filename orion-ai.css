@@ -1,83 +1,70 @@
-/* Orion Fish Assistant — Christmas theme (safe, isolated) */
-
+/* orion-ai.css — Orion Fish Assistant (Lerøy-like) */
 #orion-ai-panel.hidden { display:none !important; }
 
-/* Launcher */
 #orion-ai-launcher{
   position:fixed;
   right:18px;
   bottom:18px;
   width:54px;
   height:54px;
-  border-radius:16px;
-  border:2px solid #FFD700;
-  background:#0b0f14;
-  color:#fff;
-  font-size:22px;
+  border:1px solid rgba(0,0,0,.55);
+  background:#fff;
+  color:#000;
+  font-size:18px;
   font-weight:900;
   cursor:pointer;
   z-index:9999;
-  box-shadow: 0 18px 45px rgba(0,0,0,.30), 0 0 0 1px rgba(255,215,0,.15);
+  box-shadow: 0 18px 45px rgba(0,0,0,.14);
   display:flex;
   align-items:center;
   justify-content:center;
 }
-#orion-ai-launcher:hover{
-  filter:brightness(1.06);
-}
+#orion-ai-launcher:hover{ filter:brightness(.98); }
 
-/* Panel */
 #orion-ai-panel{
   position:fixed;
   right:18px;
   bottom:84px;
-  width:min(360px, calc(100vw - 36px));
-  max-height:min(560px, calc(100vh - 120px));
-  border-radius:18px;
-  border:1.5px solid rgba(212,175,55,.85);
-  background:#0b0f14;
-  color:#fff;
+  width:min(380px, calc(100vw - 36px));
+  max-height:min(600px, calc(100vh - 120px));
+  border:1px solid rgba(0,0,0,.45);
+  background:#fff;
+  color:#000;
   z-index:9999;
-  box-shadow: 0 24px 60px rgba(0,0,0,.45), 0 0 0 1px rgba(255,215,0,.12);
+  box-shadow: 0 24px 60px rgba(0,0,0,.18);
   overflow:hidden;
 }
 
-/* Header */
 #orion-ai-panel .orion-ai-header{
   display:flex;
   align-items:center;
   justify-content:space-between;
   gap:10px;
   padding:12px 12px;
-  border-bottom:1px solid rgba(255,255,255,.08);
-  background: linear-gradient(180deg, rgba(255,215,0,.12), rgba(255,215,0,0));
+  border-bottom:1px solid rgba(0,0,0,.12);
 }
 #orion-ai-panel .orion-ai-title{
   font-weight:900;
-  font-size:14px;
-  letter-spacing:.02em;
+  font-size:13px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
 }
 #orion-ai-panel .orion-ai-close{
   width:36px;
   height:30px;
-  border-radius:12px;
-  border:1px solid rgba(255,255,255,.14);
-  background:rgba(255,255,255,.06);
-  color:#fff;
+  border:1px solid rgba(0,0,0,.18);
+  background:#fff;
+  color:#000;
   cursor:pointer;
   font-size:18px;
   line-height:1;
 }
-#orion-ai-panel .orion-ai-close:hover{ filter:brightness(1.08); }
-
-/* Body */
 #orion-ai-panel .orion-ai-body{
   padding:12px;
   overflow:auto;
   max-height:420px;
 }
 
-/* Messages */
 .orion-ai-msg{ margin:10px 0; display:flex; }
 .orion-ai-msg.user{ justify-content:flex-end; }
 .orion-ai-msg.assistant{ justify-content:flex-start; }
@@ -85,63 +72,46 @@
 .orion-ai-bubble{
   max-width:85%;
   padding:10px 12px;
-  border-radius:16px;
+  border:1px solid rgba(0,0,0,.12);
   font-size:13px;
   line-height:1.35;
-  border:1px solid rgba(255,255,255,.10);
-  background:rgba(255,255,255,.06);
-  color:rgba(255,255,255,.92);
+  background:#f6f6f6;
   white-space:pre-wrap;
   word-break:break-word;
 }
-
 .orion-ai-msg.user .orion-ai-bubble{
-  border-color: rgba(255,215,0,.35);
-  background: rgba(255,215,0,.12);
+  background:#000;
+  color:#fff;
+  border-color:#000;
 }
 
-/* Footer */
 #orion-ai-panel .orion-ai-footer{
   display:flex;
   gap:10px;
   padding:12px;
-  border-top:1px solid rgba(255,255,255,.08);
-  background:rgba(255,255,255,.02);
+  border-top:1px solid rgba(0,0,0,.12);
+  background:#fff;
 }
-
 #orion-ai-panel .orion-ai-input{
   flex:1;
   height:40px;
-  border-radius:14px;
-  border:1px solid rgba(255,215,0,.45);
-  background:rgba(255,255,255,.04);
-  color:#fff;
+  border:1px solid rgba(0,0,0,.22);
+  background:#fff;
+  color:#000;
   padding:0 12px;
   outline:none;
 }
-#orion-ai-panel .orion-ai-input::placeholder{
-  color:rgba(203,213,225,.70);
-}
-#orion-ai-panel .orion-ai-input:focus{
-  border-color: rgba(255,215,0,.9);
-  box-shadow: 0 0 0 4px rgba(255,215,0,.18);
-}
-
 #orion-ai-panel .orion-ai-send{
   height:40px;
   padding:0 14px;
-  border-radius:14px;
-  border:2px solid #FFD700;
-  background:#0b0f14;
+  border:1px solid #000;
+  background:#000;
   color:#fff;
   font-weight:900;
+  letter-spacing:.12em;
+  text-transform:uppercase;
   cursor:pointer;
 }
-#orion-ai-panel .orion-ai-send:hover{
-  filter:brightness(1.06);
-}
-
-/* Mobile */
 @media (max-width: 520px){
   #orion-ai-panel{ right:12px; bottom:78px; width:calc(100vw - 24px); }
   #orion-ai-launcher{ right:12px; bottom:12px; }
